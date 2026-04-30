@@ -1,5 +1,35 @@
-- 👋 Hi, I’m @LZSMIAO
-<!---
-LZSMIAO/LZSMIAO is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+<div align="center">
+
+# 👋 Hi，數位遊民
+
+### 會一點點網路，一點點伺服器，一點點前端  
+### 以及很多不方便展開講的網路生存經驗
+
+從 2022 年開始，我開始在數位世界裡四處閒逛。  
+有些東西測過，有些坑踩過，有些帳號活過，有些服務走得很安詳。
+
+後來發現：
+
+> 原來網路不是只有「能不能連上」，  
+> 還有「從哪裡連上」、「像不像正常人」、「會不會被系統懷疑人生」。
+
+現在正在努力把多年來的「玄學經驗」整理成比較像技術的東西。
+
+**2026學前端。**  
+搞笑但卻是事實。因為我經常開發後端 （wait what)
+
+</div>
+
+---
+
+## 🧭 About Me
+
+我不是什麼資深工程師。
+
+比較準確地說，我是一個：
+
+```txt
+數位世界觀光客
+半吊子網路研究員
+伺服器冷氣房愛好者
+前端學習中但進度可疑人士
