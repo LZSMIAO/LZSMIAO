@@ -34,5 +34,5 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-playful-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-playful.svg">
-  <img alt="貪吃蛇吃掉我的 GitHub 貢獻格子" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-playful.svg" width="880">
+  <img alt="貪吃蛇還沒吃到綠色格子就餓死了，變紅後重新出發" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-playful.svg" width="880">
 </picture>
