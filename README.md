@@ -11,5 +11,5 @@ Nuxt · Vue · TypeScript · Linux · Cloudflare<br>
 ### 最近在寫
 
 <!-- WAKATIME:START -->
-近七天的編程活動，準備記錄中。
+近七天暫無編程活動。
 <!-- WAKATIME:END -->
