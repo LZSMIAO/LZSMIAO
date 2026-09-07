@@ -5,12 +5,18 @@
   喜歡折騰小工具，讓有趣的想法變成能用的東西。
 </p>
 
+<br>
+
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-ce24c4e138ce.svg">
-  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-219a15cbafd2.svg" width="480">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-7031e1cff054.svg">
+  <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-1f463170f35b.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-37a55bfc008e.svg">
+  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-0744281fd6fe.svg" width="640">
 </picture>
 </p>
+
+<br>
 
 <div align="center">
 
@@ -19,10 +25,10 @@
 
 <p align="center">
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-7c540b83190b.svg">
-  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-b34ff4794fb5.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-d1deb23ae5b6.svg">
-  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-fa5784f43599.svg" width="880">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f5bbc2d7a42e.svg">
+  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1b0daf8f34df.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-8de4d0f8f52d.svg">
+  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-e45884de2b10.svg" width="880">
 </picture>
 </p>
 
@@ -41,8 +47,8 @@
 
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css.svg">
-  <img alt="貪吃蛇吃掉第一塊綠色，在第二塊前變紅並露出叉叉眼，兩秒後同時顯示模糊與紅色的蛇饿死了" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css.svg" width="880">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub 貢獻格子貪吃蛇" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
 </picture>
 </p>
