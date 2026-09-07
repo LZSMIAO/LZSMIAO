@@ -6,18 +6,18 @@
 [個人網站 ↗](https://longmiao.org) · [我的專案 ↗](https://github.com/LZSMIAO?tab=repositories)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-ef0d361aaccc.svg">
-  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-beb5ef331545.svg" width="480">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-a3c882b232c0.svg">
+  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-8f385532fa28.svg" width="480">
 </picture>
 
 <details>
 <summary>展開編程週報 · 每日趨勢、語言時長與 AI 協作</summary>
 
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-5db619f3eb64.svg">
-  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-c6b09d137187.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-316cfc206fe6.svg">
-  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-0ba1263445d9.svg" width="880">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-efd53cb7460a.svg">
+  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-8b4791601bb4.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-dbaeeb693008.svg">
+  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-67a1563f5291.svg" width="880">
 </picture>
 
 </details>
