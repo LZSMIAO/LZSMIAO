@@ -11,7 +11,6 @@ def card(data, theme, duration, label):
     bg,ink,muted,border,track,accent=THEMES[theme]
     total=float(data['total_seconds'])
     rows=sorted(data.get('languages',[]),key=lambda x:float(x['total_seconds']),reverse=True)[:4]
-    editors=sorted(data.get('editors',[]),key=lambda x:float(x['total_seconds']),reverse=True)[:2]
     empty=total == 0
     height=142 if empty else 114+len(rows)*26
     def text(x,y,value,size=15,color=ink,extra=''):
@@ -22,16 +21,15 @@ def card(data, theme, duration, label):
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
         f'<rect x=".5" y=".5" width="479" height="{height-1}" rx="8" fill="{bg}" stroke="{border}"/>',
         text(20,31,'最近七天',17,extra='font-weight="600"'),
-        text(460,31,'WakaTime',13,muted,'text-anchor="end"')]
+        text(460,31,'含今天',13,muted,'text-anchor="end"')]
     if empty:
-        parts += [text(20,71,'等待第一筆編程記錄',16),text(20,105,'從下一次 Qoder 編輯開始累積。',14,muted)]
+        parts += [text(20,71,'等待第一筆編程記錄',16),text(20,105,'每一次動手，都是一點進展。',14,muted)]
     else:
-        names=' · '.join(label(x['name']) for x in editors)
-        parts += [text(20,58,duration(total)+'  ·  '+names,15,muted)]
+        parts += [text(20,58,'編程時間  '+duration(total),15,muted)]
         for i,row in enumerate(rows):
             y=86+i*26
             percent=min(100,float(row['percent']))
-            parts += [text(20,y,label(row['name'])[:15]),
+            parts += [text(20,y,('WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:15])),
                 f'<rect x="166" y="{y-10}" width="180" height="7" rx="3.5" fill="{track}"/>',
                 f'<rect x="166" y="{y-10}" width="{180*percent/100:.2f}" height="7" rx="3.5" fill="{accent}"/>',
                 text(460,y,f'{percent:.1f}%',14,muted,'text-anchor="end"')]

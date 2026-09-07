@@ -1,99 +1,89 @@
-"""Update the compact profile section using WakaTime's last seven days."""
-
+"""Render the last seven calendar days, including today, in Asia/Shanghai."""
 import base64
+from datetime import datetime,timedelta
 import json
 import math
 import os
 from pathlib import Path
 import re
 import sys
+from urllib.error import HTTPError,URLError
+from urllib.parse import urlencode
+from urllib.request import Request,urlopen
+from zoneinfo import ZoneInfo
 from coding_card import card
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
 
-README = Path(__file__).resolve().parents[1] / "README.md"
+ROOT=Path(__file__).resolve().parents[1]
 
 
 def number(value):
-    value = float(value)
-    if not math.isfinite(value) or value < 0:
-        raise ValueError("Invalid duration or percentage")
+    value=float(value)
+    if not math.isfinite(value) or value<0:
+        raise ValueError('Invalid duration')
     return value
 
 
 def duration(seconds):
-    minutes = int(number(seconds) // 60)
-    hours, minutes = divmod(minutes, 60)
-    if hours:
-        return f"{hours}h {minutes:02d}m"
-    return f"{minutes}m" if minutes else "<1m"
+    minutes=int(number(seconds)//60)
+    hours,minutes=divmod(minutes,60)
+    return f'{hours}h {minutes:02d}m' if hours else (f'{minutes}m' if minutes else '<1m')
 
 
 def label(value):
-    # Keep provider labels inside a single plain-text line.
-    return re.sub(r"[^\w .+#/-]", "", str(value))[:24].strip() or "Other"
+    return re.sub(r'[^\w .+#/-]','',str(value))[:24].strip() or 'Other'
 
 
-def render(data):
-    total = number(data["total_seconds"])
-    if total == 0:
-        return "近七天暫無編程活動。"
-    languages = sorted(data["languages"], key=lambda row: number(row["total_seconds"]), reverse=True)
-    editors = sorted(data["editors"], key=lambda row: number(row["total_seconds"]), reverse=True)
-    lines = [f"近七天 · **{duration(total)}**", "", "```text"]
-    for row in languages[:4]:
-        percent = min(100, number(row["percent"]))
-        filled = round(percent / 10)
-        bar = "█" * filled + "░" * (10 - filled)
-        lines.append(f"{label(row['name']):<16} {duration(row['total_seconds']):>8}  {bar} {percent:5.1f}%")
-    lines += ["```"]
-    if editors:
-        lines += ["", "編輯器：" + " · ".join(f"{label(row['name'])} {duration(row['total_seconds'])}" for row in editors[:2])]
-    start, end = str(data["start"])[:10], str(data["end"])[:10]
-    if not all(re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) for date in (start, end)):
-        raise ValueError("Invalid reporting dates")
-    lines += ["", f"<sub>{start} — {end} · WakaTime</sub>"]
-    return "\n".join(lines)
+def aggregate(payload,start,end):
+    total=0
+    languages={}
+    dates=set()
+    for day in payload['data']:
+        date=day['range']['date']
+        if not start<=date<=end or date in dates:
+            raise ValueError('Unexpected date in summary')
+        dates.add(date)
+        total+=number(day['grand_total']['total_seconds'])
+        for row in day['languages']:
+            name=label(row['name'])
+            languages[name]=languages.get(name,0)+number(row['total_seconds'])
+    if len(dates)!=7:
+        raise ValueError('Incomplete seven-day summary')
+    return {'total_seconds':total,'start':start,'end':end,'languages':[
+        {'name':name,'total_seconds':seconds,'percent':100*seconds/total if total else 0}
+        for name,seconds in languages.items()]}
 
 
 def main():
-    key = os.environ.get("WAKATIME_API_KEY", "").strip()
+    key=os.environ.get('WAKATIME_API_KEY','').strip()
     if not key:
-        print("WAKATIME_API_KEY is not configured; README unchanged.")
+        print('WAKATIME_API_KEY is not configured; cards unchanged.')
         return
-    request = Request(
-        "https://api.wakatime.com/api/v1/users/current/stats/last_7_days",
-        headers={
-            "Authorization": "Basic " + base64.b64encode(key.encode()).decode(),
-            "Accept": "application/json",
-            "User-Agent": "LZSMIAO-profile",
-        },
-    )
-    with urlopen(request, timeout=30) as response:
-        if response.status == 202:
-            print("WakaTime is calculating statistics; README unchanged.")
+    end=datetime.now(ZoneInfo('Asia/Shanghai')).date()
+    start=end-timedelta(days=6)
+    query=urlencode({'start':str(start),'end':str(end),'timezone':'Asia/Shanghai'})
+    request=Request('https://api.wakatime.com/api/v1/users/current/summaries?'+query,headers={
+        'Authorization':'Basic '+base64.b64encode(key.encode()).decode(),
+        'Accept':'application/json','User-Agent':'LZSMIAO-profile'})
+    with urlopen(request,timeout=30) as response:
+        if response.status==202:
+            print('WakaTime is calculating; cards unchanged.')
             return
-        data = json.load(response)["data"]
-    if not data.get("is_up_to_date"):
-        print("WakaTime statistics are stale; README unchanged.")
-        return
-    # Validate the response before replacing any existing artifact.
-    render(data)
-    cards = {theme: card(data, theme, duration, label) for theme in ('light', 'dark')}
-    assets = README.parent / 'assets'
+        payload=json.load(response)
+    data=aggregate(payload,str(start),str(end))
+    cards={theme:card(data,theme,duration,label) for theme in ('light','dark')}
+    assets=ROOT/'assets'
     assets.mkdir(exist_ok=True)
-    for theme, svg in cards.items():
-        (assets / f'coding-{theme}.svg').write_text(svg, encoding='utf-8')
-    print('Updated the seven-day coding cards.')
+    for theme,svg in cards.items():
+        (assets/f'coding-{theme}.svg').write_text(svg,encoding='utf-8')
+    print('Updated coding cards with the last seven days, including today.')
 
 
-
-if __name__ == "__main__":
+if __name__=='__main__':
     try:
         main()
     except HTTPError as error:
-        print(f"WakaTime returned HTTP {error.code}; README unchanged.", file=sys.stderr)
+        print(f'WakaTime HTTP {error.code}; cards unchanged.',file=sys.stderr)
         sys.exit(1)
-    except (URLError, TimeoutError, ValueError, KeyError, TypeError, OSError):
-        print("Could not retrieve valid WakaTime statistics; README unchanged.", file=sys.stderr)
+    except (URLError,TimeoutError,ValueError,KeyError,TypeError,OSError):
+        print('WakaTime unavailable or incomplete; cards unchanged.',file=sys.stderr)
         sys.exit(1)

@@ -4,22 +4,29 @@ import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
-from update_wakatime import duration,label,render
+from update_wakatime import duration,label,aggregate
 from update_activity import activity
 from smooth_snake import smooth,NS
 
 class ProfileTests(unittest.TestCase):
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
-        render(data)
         for theme in ('light','dark'):
             svg=card(data,theme,duration,label)
             ET.fromstring(svg)
             self.assertIn('75.0%',svg)
             self.assertIn('2h 00m',svg)
+            self.assertNotIn('Qoder',svg)
             empty=card({'total_seconds':0},theme,duration,label)
             self.assertIn('等待第一筆',empty)
             self.assertNotIn('2h',empty)
+    def test_seven_days_include_today(self):
+        days=[{'range':{'date':f'2026-09-{day:02d}'},'grand_total':{'total_seconds':60},'languages':[{'name':'Python','total_seconds':60}]} for day in range(2,9)]
+        result=aggregate({'data':days},'2026-09-02','2026-09-08')
+        self.assertEqual(result['total_seconds'],420)
+        self.assertEqual(result['languages'][0]['percent'],100)
+        with self.assertRaises(ValueError):
+            aggregate({'data':days[:-1]},'2026-09-02','2026-09-08')
     def test_public_feed_privacy_and_limit(self):
         def event(repo,public=True,kind='PushEvent',payload=None):
             return {'public':public,'type':kind,'repo':{'name':repo},'payload':payload or {},'created_at':'2026-09-08T00:00:00Z'}
