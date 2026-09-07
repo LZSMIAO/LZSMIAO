@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 NS='http://www.w3.org/2000/svg'
 ET.register_namespace('',NS)
 SPEED=180  # pixels per second; independent of contribution density
+RED_HOLD=2
 DEATH_HOLD=1.5
 
 
@@ -72,15 +73,14 @@ def smooth(svg):
         stop=min(sum(lengths)*.85,(first_distance or 40)+96)
     stop=max(1,stop)
     movement=stop/SPEED
-    cycle=movement+DEATH_HOLD
+    cycle=movement+RED_HOLD+DEATH_HOLD
     travel=movement/cycle
     death=100*travel
-    blur_at=100*(movement+.16)/cycle
+    blur_at=100*(movement+RED_HOLD)/cycle
     eat_at=100*first_distance/SPEED/cycle if first_distance is not None else None
     variables=re.search(r':root\{([^}]*)\}',original)
     css=':root{'+(variables[1] if variables else '--ce:#161b22;--cb:#30363d;--cs:#3fb950')+'}'
     dark='--ce:#161b22' in css or '--ce:#0d1117' in css
-    ink='#e6edf3' if dark else '#24292f'
     css=css.replace('--cs:purple','--cs:#3fb950' if dark else '--cs:#2da44e')
     css+='.c{fill:var(--ce);stroke:var(--cb);stroke-width:1px;width:12px;height:12px}'
     fills=dict(re.findall(r'\.c\.(c\d+)\{fill:([^;]+);',original))
@@ -90,9 +90,11 @@ def smooth(svg):
     css+=f'''
 .s{{fill:var(--cs);animation:starve {cycle:.6f}s step-end infinite}}
 .still{{display:none}}
+.dead-eyes{{visibility:hidden;animation:cross-eyes {cycle:.6f}s step-end infinite}}
 .scene{{animation:alive {cycle:.6f}s step-end infinite}}
 .death{{visibility:hidden;animation:dead {cycle:.6f}s step-end infinite}}
 @keyframes starve{{0%{{fill:var(--cs)}}{death:.6f}%,100%{{fill:#f85149}}}}
+@keyframes cross-eyes{{0%{{visibility:hidden}}{death:.6f}%,100%{{visibility:visible}}}}
 @keyframes alive{{0%{{visibility:visible}}{blur_at:.6f}%,100%{{visibility:hidden}}}}
 @keyframes dead{{0%{{visibility:hidden}}{blur_at:.6f}%,100%{{visibility:visible}}}}
 '''
@@ -101,7 +103,7 @@ def smooth(svg):
         css+=f'.first-food{{animation:eat-first {cycle:.6f}s step-end infinite}}@keyframes eat-first{{0%{{fill:{fill}}}{eat_at:.6f}%,100%{{fill:var(--ce)}}}}'
     css+='@media(prefers-reduced-motion:reduce){.snake-motion,.death{display:none}.still{display:inline}.scene,.s,.first-food{animation:none}}'
     style.text=css
-    title=ET.Element(f'{{{NS}}}title',{'id':'snake-title'});title.text='蛇吃掉第一塊綠色，在第二塊前變紅；模糊後顯示蛇饿死了。'
+    title=ET.Element(f'{{{NS}}}title',{'id':'snake-title'});title.text='蛇吃掉第一塊綠色，在第二塊前變紅並露出叉叉眼，停留兩秒後一起顯示模糊與紅色的蛇饿死了。'
     root.insert(0,title);root.set('role','img');root.set('aria-labelledby','snake-title')
     snake=[node for node in root if node.get('class','').startswith('s ')]
     if not snake:raise ValueError('Missing snake body')
@@ -140,6 +142,15 @@ def smooth(svg):
         frozen=ET.Element(f'{{{NS}}}rect',dict(node.attrib))
         frozen.attrib.pop('class');frozen.set('fill','#f85149')
         frozen.set('transform',f'translate({end[0]:g},{end[1]:g})');frozen_snake.append(frozen)
+        if i==0:
+            eyes=ET.SubElement(group,f'{{{NS}}}path',{
+                'class':'dead-eyes','data-face':'crossed-eyes',
+                'd':'M4,4l3,3m0,-3l-3,3m5,-3l3,3m0,-3l-3,3',
+                'stroke':'#ffffff','stroke-width':'1.2','stroke-linecap':'round','fill':'none'})
+            frozen_eyes=deepcopy(eyes)
+            frozen_eyes.attrib.pop('class')
+            frozen_eyes.set('transform',f'translate({end[0]:g},{end[1]:g})')
+            frozen_snake.append(frozen_eyes)
         still=ET.SubElement(scene,f'{{{NS}}}rect',dict(node.attrib));still.set('class','s still');still.set('transform',f'translate({offset},-16)')
     defs=ET.SubElement(root,f'{{{NS}}}defs')
     blur=ET.SubElement(defs,f'{{{NS}}}filter',{'id':'soft-focus','x':'-5%','y':'-15%','width':'110%','height':'130%','color-interpolation-filters':'sRGB'})
@@ -147,7 +158,7 @@ def smooth(svg):
     death_scene=ET.SubElement(root,f'{{{NS}}}g',{'class':'death'})
     snapshot=ET.SubElement(death_scene,f'{{{NS}}}g',{'filter':'url(#soft-focus)','opacity':'.65','data-layer':'frozen-scene'})
     snapshot.extend(frozen_grid+frozen_snake)
-    message=ET.SubElement(death_scene,f'{{{NS}}}text',{'x':'424','y':'64','text-anchor':'middle','font-family':'-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif','font-size':'28','fill':ink,'font-weight':'600'})
+    message=ET.SubElement(death_scene,f'{{{NS}}}text',{'x':'424','y':'64','text-anchor':'middle','font-family':'-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif','font-size':'28','fill':'#f85149','font-weight':'600'})
     message.text='蛇饿死了'
     view=root.get('viewBox')
     if view:
