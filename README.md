@@ -32,7 +32,7 @@
 </details>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-quick-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-quick.svg">
-  <img alt="貪吃蛇吃掉第一塊綠色，在第二塊前變紅，模糊後顯示蛇饿死了" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-quick.svg" width="880">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css.svg">
+  <img alt="貪吃蛇吃掉第一塊綠色，在第二塊前變紅並露出叉叉眼，兩秒後同時顯示模糊與紅色的蛇饿死了" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-css.svg" width="880">
 </picture>
