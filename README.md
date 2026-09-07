@@ -6,8 +6,8 @@
 [個人網站 ↗](https://longmiao.org) · [我的專案 ↗](https://github.com/LZSMIAO?tab=repositories)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-4373993af821.svg">
-  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-9fffdff5c64e.svg" width="480">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-ef0d361aaccc.svg">
+  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-beb5ef331545.svg" width="480">
 </picture>
 
 <details>
