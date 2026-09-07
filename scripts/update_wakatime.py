@@ -54,6 +54,25 @@ def aggregate(payload,start,end):
         for name,seconds in languages.items()]}
 
 
+def save_cards(cards):
+    assets=ROOT/'assets'
+    assets.mkdir(exist_ok=True)
+    readme=ROOT/'README.md'
+    content=readme.read_text(encoding='utf-8')
+    keep=set()
+    for theme,svg in cards.items():
+        digest=hashlib.sha256(svg.encode()).hexdigest()[:12]
+        filename=f'coding-{theme}-{digest}.svg'
+        keep.add(filename)
+        (assets/filename).write_text(svg,encoding='utf-8')
+        pattern=rf'assets/coding-{theme}(?:-[a-f0-9]+)?\.svg(?:\?v=[a-f0-9]+)?'
+        content=re.sub(pattern,'assets/'+filename,content)
+    readme.write_text(content,encoding='utf-8')
+    for old in assets.iterdir():
+        if re.fullmatch(r'coding-(?:light|dark)(?:-[a-f0-9]+)?\.svg',old.name) and old.name not in keep:
+            old.unlink()
+
+
 def main():
     key=os.environ.get('WAKATIME_API_KEY','').strip()
     if not key:
@@ -72,17 +91,7 @@ def main():
         payload=json.load(response)
     data=aggregate(payload,str(start),str(end))
     cards={theme:card(data,theme,duration,label) for theme in ('light','dark')}
-    assets=ROOT/'assets'
-    assets.mkdir(exist_ok=True)
-    for theme,svg in cards.items():
-        (assets/f'coding-{theme}.svg').write_text(svg,encoding='utf-8')
-    readme=ROOT/'README.md'
-    content=readme.read_text(encoding='utf-8')
-    for theme,svg in cards.items():
-        digest=hashlib.sha256(svg.encode()).hexdigest()[:12]
-        path=f'assets/coding-{theme}.svg'
-        content=re.sub(re.escape(path)+r'(?:\?v=[a-f0-9]+)?',path+'?v='+digest,content)
-    readme.write_text(content,encoding='utf-8')
+    save_cards(cards)
     print('Updated coding cards with the last seven days, including today.')
 
 
