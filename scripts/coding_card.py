@@ -12,7 +12,7 @@ def card(data, theme, duration, label):
     total=float(data['total_seconds'])
     rows=sorted(data.get('languages',[]),key=lambda x:float(x['total_seconds']),reverse=True)[:4]
     empty=total == 0
-    height=142 if empty else 114+len(rows)*26
+    height=156 if empty else 126+len(rows)*30
     def text(x,y,value,size=15,color=ink,extra=''):
         return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" {extra}>{escape(str(value))}</text>'
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="{height}" viewBox="0 0 480 {height}" role="img" aria-labelledby="title desc">',
@@ -20,18 +20,17 @@ def card(data, theme, duration, label):
         f'<desc id="desc">{escape("等待第一筆編程記錄" if empty else "總時長 " + duration(total))}</desc>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
         f'<rect x=".5" y=".5" width="479" height="{height-1}" rx="8" fill="{bg}" stroke="{border}"/>',
-        text(20,31,'最近七天',17,extra='font-weight="600"'),
-        text(460,31,'含今天',13,muted,'text-anchor="end"')]
+        text(240,36,'最近七天',20,extra='font-weight="600" text-anchor="middle"')]
     if empty:
-        parts += [text(20,71,'等待第一筆編程記錄',16),text(20,105,'每一次動手，都是一點進展。',14,muted)]
+        parts += [text(240,82,'等待第一筆編程記錄',16,extra='text-anchor="middle"'),text(240,116,'每一次動手，都是一點進展。',14,muted,'text-anchor="middle"')]
     else:
-        parts += [text(20,58,'編程時間  '+duration(total),15,muted)]
+        parts += [text(240,64,'編程時間  '+duration(total),15,muted,'text-anchor="middle"')]
         for i,row in enumerate(rows):
-            y=86+i*26
+            y=101+i*30
             percent=min(100,float(row['percent']))
-            parts += [text(20,y,('WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:15])),
-                f'<rect x="166" y="{y-10}" width="180" height="7" rx="3.5" fill="{track}"/>',
-                f'<rect x="166" y="{y-10}" width="{180*percent/100:.2f}" height="7" rx="3.5" fill="{accent}"/>',
-                text(460,y,f'{percent:.1f}%',14,muted,'text-anchor="end"')]
-        parts += [text(20,height-18,str(data['start'])[:10]+' — '+str(data['end'])[:10],12,muted)]
+            parts += [text(24,y,('WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:15])),
+                f'<rect x="170" y="{y-10}" width="180" height="7" rx="3.5" fill="{track}"/>',
+                f'<rect x="170" y="{y-10}" width="{180*percent/100:.2f}" height="7" rx="3.5" fill="{accent}"/>',
+                text(456,y,f'{percent:.1f}%',14,muted,'text-anchor="end"')]
+        parts += [text(240,height-18,str(data['start'])[:10]+' — '+str(data['end'])[:10]+' · 含今天',12,muted,'text-anchor="middle"')]
     return ''.join(parts)+'</svg>\n'
