@@ -90,11 +90,11 @@ def smooth(svg):
     css+=f'''
 .s{{fill:var(--cs);animation:starve {cycle:.6f}s step-end infinite}}
 .still{{display:none}}
-.dead-eyes{{visibility:hidden;animation:cross-eyes {cycle:.6f}s step-end infinite}}
+.dead-eyes{{opacity:0;animation:cross-eyes {cycle:.6f}s step-end infinite}}
 .scene{{animation:alive {cycle:.6f}s step-end infinite}}
 .death{{visibility:hidden;animation:dead {cycle:.6f}s step-end infinite}}
 @keyframes starve{{0%{{fill:var(--cs)}}{death:.6f}%,100%{{fill:#f85149}}}}
-@keyframes cross-eyes{{0%{{visibility:hidden}}{death:.6f}%,100%{{visibility:visible}}}}
+@keyframes cross-eyes{{0%{{opacity:0}}{death:.6f}%,100%{{opacity:1}}}}
 @keyframes alive{{0%{{visibility:visible}}{blur_at:.6f}%,100%{{visibility:hidden}}}}
 @keyframes dead{{0%{{visibility:hidden}}{blur_at:.6f}%,100%{{visibility:visible}}}}
 '''

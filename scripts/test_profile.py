@@ -123,7 +123,8 @@ class ProfileTests(unittest.TestCase):
         blur=float(re.search(r'@keyframes dead\{0%\{[^}]+\}([\d.]+)%',css)[1])
         cycle=float(motions[0].get('dur')[:-1])
         self.assertAlmostEqual((blur-death)*cycle/100,2,places=5)
-        self.assertIn(f'{death:.6f}%,100%{{visibility:visible}}',css)
+        self.assertIn(f'{death:.6f}%,100%{{opacity:1}}',css)
+        self.assertNotIn('.dead-eyes{visibility:visible',css)
 
         self.assertTrue(motions[1].get('path').endswith('L64,8'))
         self.assertNotIn('@keyframes c0',result)
