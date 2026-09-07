@@ -13,6 +13,7 @@ from urllib.parse import urlencode
 from urllib.request import Request,urlopen
 from zoneinfo import ZoneInfo
 from coding_card import card
+from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -38,18 +39,26 @@ def aggregate(payload,start,end):
     total=0
     languages={}
     dates=set()
+    days=[]
     for day in payload['data']:
         date=day['range']['date']
         if not start<=date<=end or date in dates:
             raise ValueError('Unexpected date in summary')
         dates.add(date)
-        total+=number(day['grand_total']['total_seconds'])
+        seconds=number(day['grand_total']['total_seconds'])
+        total+=seconds
+        days.append({'date':date,'total_seconds':seconds})
         for row in day['languages']:
             name=label(row['name'])
             languages[name]=languages.get(name,0)+number(row['total_seconds'])
     if len(dates)!=7:
         raise ValueError('Incomplete seven-day summary')
-    return {'total_seconds':total,'start':start,'end':end,'languages':[
+    fields=('ai_input_tokens','ai_output_tokens','ai_additions','ai_prompt_events_total','ai_model_total_cost')
+    ai={}
+    for field in fields:
+        values=[day['grand_total'].get(field) for day in payload['data']]
+        ai[field]=sum(number(value) for value in values) if all(value is not None for value in values) else None
+    return {'total_seconds':total,'start':start,'end':end,'days':sorted(days,key=lambda d:d['date']),'ai':ai,'languages':[
         {'name':name,'total_seconds':seconds,'percent':100*seconds/total if total else 0}
         for name,seconds in languages.items()]}
 
@@ -62,14 +71,15 @@ def save_cards(cards):
     keep=set()
     for theme,svg in cards.items():
         digest=hashlib.sha256(svg.encode()).hexdigest()[:12]
-        filename=f'coding-{theme}-{digest}.svg'
+        stem=theme if theme.startswith('report-') else f'coding-{theme}'
+        filename=f'{stem}-{digest}.svg'
         keep.add(filename)
         (assets/filename).write_text(svg,encoding='utf-8')
-        pattern=rf'assets/coding-{theme}(?:-[a-f0-9]+)?\.svg(?:\?v=[a-f0-9]+)?'
+        pattern=rf'assets/{stem}(?:-[a-f0-9]+)?\.svg(?:\?v=[a-f0-9]+)?'
         content=re.sub(pattern,'assets/'+filename,content)
     readme.write_text(content,encoding='utf-8')
     for old in assets.iterdir():
-        if re.fullmatch(r'coding-(?:light|dark)(?:-[a-f0-9]+)?\.svg',old.name) and old.name not in keep:
+        if re.fullmatch(r'(?:coding|report)-(?:light|dark)(?:-mobile)?(?:-[a-f0-9]+)?\.svg',old.name) and old.name not in keep:
             old.unlink()
 
 
@@ -91,6 +101,8 @@ def main():
         payload=json.load(response)
     data=aggregate(payload,str(start),str(end))
     cards={theme:card(data,theme,duration,label) for theme in ('light','dark')}
+    cards.update({'report-'+theme+('-mobile' if mobile else ''):report(data,theme,duration,label,mobile)
+        for mobile in (False,True) for theme in ('light','dark')})
     save_cards(cards)
     print('Updated coding cards with the last seven days, including today.')
 

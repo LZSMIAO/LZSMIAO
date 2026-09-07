@@ -11,6 +11,18 @@
 </picture>
 
 <details>
+<summary>展開編程週報 · 每日趨勢、語言時長與 AI 協作</summary>
+
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-5db619f3eb64.svg">
+  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-c6b09d137187.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-316cfc206fe6.svg">
+  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-0ba1263445d9.svg" width="880">
+</picture>
+
+</details>
+
+<details>
 <summary>最近公開動態</summary>
 
 <!-- ACTIVITY:START -->
