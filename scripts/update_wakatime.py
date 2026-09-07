@@ -106,7 +106,8 @@ def main():
             return
         payload=json.load(response)
     data=aggregate(payload,str(start),str(end))
-    cards={theme:card(data,theme,duration,label) for theme in ('light','dark')}
+    cards={theme+('-mobile' if mobile else ''):card(data,theme,duration,label,mobile)
+        for mobile in (False,True) for theme in ('light','dark')}
     cards.update({'report-'+theme+('-mobile' if mobile else ''):report(data,theme,duration,label,mobile)
         for mobile in (False,True) for theme in ('light','dark')})
     save_cards(cards)

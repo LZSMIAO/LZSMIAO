@@ -22,15 +22,20 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake-css.svg
-            dist/github-snake-css-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        with:
-          path: profile-source
-      - name: Smooth motion and simplify the static grid
-        run: python3 profile-source/scripts/smooth_snake.py dist/*.svg
+      - name: Hide only the bottom progress bar
+        run: |
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import re
+          for path in Path('dist').glob('*.svg'):
+              svg = path.read_text()
+              svg = re.sub(r'<rect\b(?=[^>]*\bclass="u(?:\s+[^"]*)?")[^>]*/>', '', svg)
+              path.write_text(svg)
+          PYCODE
       - name: Publish generated SVGs
         uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
         with:
