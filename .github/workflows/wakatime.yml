@@ -1,0 +1,34 @@
+name: Update coding activity
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 1 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Fetch the last seven days
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: python3 scripts/update_wakatime.py
+      - name: Save updated activity
+        run: |
+          if git diff --quiet -- README.md; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "docs: update coding activity"
+          git push
