@@ -7,11 +7,11 @@ import os
 from pathlib import Path
 import re
 import sys
+from coding_card import card
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 README = Path(__file__).resolve().parents[1] / "README.md"
-START, END = "<!-- WAKATIME:START -->", "<!-- WAKATIME:END -->"
 
 
 def number(value):
@@ -56,16 +56,6 @@ def render(data):
     return "\n".join(lines)
 
 
-def replace_section(original, content):
-    if original.count(START) != 1 or original.count(END) != 1:
-        raise ValueError("README must contain exactly one statistics block")
-    before, remainder = original.split(START)
-    if END not in remainder:
-        raise ValueError("Statistics markers are out of order")
-    _, after = remainder.split(END)
-    return before + START + "\n" + content + "\n" + END + after
-
-
 def main():
     key = os.environ.get("WAKATIME_API_KEY", "").strip()
     if not key:
@@ -87,13 +77,15 @@ def main():
     if not data.get("is_up_to_date"):
         print("WakaTime statistics are stale; README unchanged.")
         return
-    original = README.read_text(encoding="utf-8")
-    updated = replace_section(original, render(data))
-    if updated != original:
-        README.write_text(updated, encoding="utf-8")
-        print("Updated the seven-day coding summary.")
-    else:
-        print("Statistics unchanged.")
+    # Validate the response before replacing any existing artifact.
+    render(data)
+    cards = {theme: card(data, theme, duration, label) for theme in ('light', 'dark')}
+    assets = README.parent / 'assets'
+    assets.mkdir(exist_ok=True)
+    for theme, svg in cards.items():
+        (assets / f'coding-{theme}.svg').write_text(svg, encoding='utf-8')
+    print('Updated the seven-day coding cards.')
+
 
 
 if __name__ == "__main__":

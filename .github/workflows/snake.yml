@@ -18,25 +18,21 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Generate light and dark contribution snakes
-        uses: Platane/snk/svg-only@v3
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-smooth.svg
+            dist/github-snake-smooth-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Respect reduced motion
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          for path in Path('dist').glob('*.svg'):
-              svg = path.read_text()
-              svg = svg.replace('</style>', '@media(prefers-reduced-motion:reduce){*{animation:none!important}}</style>')
-              path.write_text(svg)
-          PY
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: profile-source
+      - name: Smooth motion and simplify the static grid
+        run: python3 profile-source/scripts/smooth_snake.py dist/*.svg
       - name: Publish generated SVGs
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: output
