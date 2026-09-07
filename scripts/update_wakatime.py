@@ -2,6 +2,7 @@
 import base64
 from datetime import datetime,timedelta
 import json
+import hashlib
 import math
 import os
 from pathlib import Path
@@ -75,6 +76,13 @@ def main():
     assets.mkdir(exist_ok=True)
     for theme,svg in cards.items():
         (assets/f'coding-{theme}.svg').write_text(svg,encoding='utf-8')
+    readme=ROOT/'README.md'
+    content=readme.read_text(encoding='utf-8')
+    for theme,svg in cards.items():
+        digest=hashlib.sha256(svg.encode()).hexdigest()[:12]
+        path=f'assets/coding-{theme}.svg'
+        content=re.sub(re.escape(path)+r'(?:\?v=[a-f0-9]+)?',path+'?v='+digest,content)
+    readme.write_text(content,encoding='utf-8')
     print('Updated coding cards with the last seven days, including today.')
 
 
