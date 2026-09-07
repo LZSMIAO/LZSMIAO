@@ -13,3 +13,9 @@ Nuxt · Vue · TypeScript · Linux · Cloudflare<br>
 <!-- WAKATIME:START -->
 近七天暫無編程活動。
 <!-- WAKATIME:END -->
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake.svg">
+  <img alt="貪吃蛇吃掉我的 GitHub 貢獻格子" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-snake.svg" width="100%">
+</picture>
