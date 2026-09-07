@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 
 NS='http://www.w3.org/2000/svg'
 ET.register_namespace('',NS)
-SPEED=180  # pixels per second; independent of contribution density
+SPEED=240  # pixels per second; independent of contribution density
 RED_HOLD=2
 DEATH_HOLD=1.5
 
@@ -25,19 +25,22 @@ def clipped_path(points,distance):
     return result
 
 
-def rounded_path(points,radius=4):
-    def xy(p):return f'{p[0]:g},{p[1]:g}'
-    commands=['M'+xy(points[0])]
-    for a,p,b in zip(points,points[1:],points[2:]):
-        incoming=hypot(p[0]-a[0],p[1]-a[1])
-        outgoing=hypot(b[0]-p[0],b[1]-p[1])
-        if min(incoming,outgoing)==0:continue
-        r=min(radius,incoming/3,outgoing/3)
-        entry=tuple(p[j]+(a[j]-p[j])*r/incoming for j in (0,1))
-        leave=tuple(p[j]+(b[j]-p[j])*r/outgoing for j in (0,1))
-        commands+=['L'+xy(entry),'Q'+xy(p)+' '+xy(leave)]
-    commands.append('L'+xy(points[-1]))
-    return ' '.join(commands)
+def motion_css(points,index,cycle):
+    """Match the reference's linear CSS translate animation at a fixed speed."""
+    frames=[]
+    travelled=0
+    for i,(x,y) in enumerate(points):
+        if i:
+            before=points[i-1]
+            travelled+=hypot(x-before[0],y-before[1])
+        percent=100*travelled/SPEED/cycle
+        key=f'{percent:.6f}%'
+        if i==len(points)-1:key+=',100%'
+        frames.append(f'{key}{{transform:translate({x:g}px,{y:g}px)}}')
+    x,y=points[0]
+    return (f'.snake-motion.segment-{index}{{transform:translate({x:g}px,{y:g}px);'
+        f'animation:move{index} {cycle:.6f}s linear infinite}}'
+        f'@keyframes move{index}{{'+''.join(frames)+'}')
 
 
 def smooth(svg):
@@ -102,7 +105,6 @@ def smooth(svg):
         fill=fills.get(foods[0][1],'var(--c4)')
         css+=f'.first-food{{animation:eat-first {cycle:.6f}s step-end infinite}}@keyframes eat-first{{0%{{fill:{fill}}}{eat_at:.6f}%,100%{{fill:var(--ce)}}}}'
     css+='@media(prefers-reduced-motion:reduce){.snake-motion,.death{display:none}.still{display:inline}.scene,.s,.first-food{animation:none}}'
-    style.text=css
     title=ET.Element(f'{{{NS}}}title',{'id':'snake-title'});title.text='蛇吃掉第一塊綠色，在第二塊前變紅並露出叉叉眼，停留兩秒後一起顯示模糊與紅色的蛇饿死了。'
     root.insert(0,title);root.set('role','img');root.set('aria-labelledby','snake-title')
     snake=[node for node in root if node.get('class','').startswith('s ')]
@@ -135,9 +137,9 @@ def smooth(svg):
         offset=i*16
         route=clipped_path(points,max(1,stop-offset))
         if offset:route=[(points[0][0]+offset,points[0][1])]+route
-        group=ET.SubElement(scene,f'{{{NS}}}g',{'class':'snake-motion'})
+        group=ET.SubElement(scene,f'{{{NS}}}g',{'class':f'snake-motion segment-{i}'})
         node.set('class','s');group.append(node)
-        ET.SubElement(group,f'{{{NS}}}animateMotion',{'path':rounded_path(route),'dur':f'{cycle:.6f}s','repeatCount':'indefinite','calcMode':'linear','keyPoints':'0;1;1','keyTimes':f'0;{travel:.6f};1'})
+        css+=motion_css(route,i,cycle)
         end=route[-1]
         frozen=ET.Element(f'{{{NS}}}rect',dict(node.attrib))
         frozen.attrib.pop('class');frozen.set('fill','#f85149')
@@ -163,6 +165,7 @@ def smooth(svg):
     view=root.get('viewBox')
     if view:
         values=view.split();values[3]='168';root.set('viewBox',' '.join(values));root.set('height','168')
+    style.text=css
     return ET.tostring(root,encoding='unicode')
 
 
