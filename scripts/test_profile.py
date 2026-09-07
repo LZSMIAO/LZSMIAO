@@ -87,7 +87,7 @@ class ProfileTests(unittest.TestCase):
                 save_cards({'dark':'overview','report-dark':'report','report-dark-mobile':'mobile'})
                 self.assertEqual(readme.read_text(),original)
                 save_cards({'dark':'overview','report-dark':'new report','report-dark-mobile':'new mobile'})
-            self.assertEqual(len(list((root/'assets').iterdir())),3)
+            self.assertEqual(len(list((root/'assets').glob('*.svg'))),5)
             self.assertEqual(readme.read_text().split()[0],original.split()[0])
             self.assertNotEqual(readme.read_text().split()[1:],original.split()[1:])
             for path in readme.read_text().split():

@@ -69,15 +69,21 @@ def save_cards(cards):
     readme=ROOT/'README.md'
     content=readme.read_text(encoding='utf-8')
     keep=set()
+    history_file=assets/'versions.json'
+    history=json.loads(history_file.read_text()) if history_file.exists() else {}
     for theme,svg in cards.items():
         digest=hashlib.sha256(svg.encode()).hexdigest()[:12]
         stem=theme if theme.startswith('report-') else f'coding-{theme}'
         filename=f'{stem}-{digest}.svg'
-        keep.add(filename)
+        previous=history.get(stem,[])+sorted(p.name for p in assets.glob(stem+'-*.svg'))
+        pattern_name=rf'{stem}-[a-f0-9]+\.svg'
+        history[stem]=list(dict.fromkeys([filename]+[name for name in previous if re.fullmatch(pattern_name,name)]))[:8]
+        keep.update(history[stem])
         (assets/filename).write_text(svg,encoding='utf-8')
         pattern=rf'assets/{stem}(?:-[a-f0-9]+)?\.svg(?:\?v=[a-f0-9]+)?'
         content=re.sub(pattern,'assets/'+filename,content)
     readme.write_text(content,encoding='utf-8')
+    history_file.write_text(json.dumps(history,indent=2)+'\n')
     for old in assets.iterdir():
         if re.fullmatch(r'(?:coding|report)-(?:light|dark)(?:-mobile)?(?:-[a-f0-9]+)?\.svg',old.name) and old.name not in keep:
             old.unlink()

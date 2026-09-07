@@ -1,0 +1,26 @@
+{
+  "coding-dark": [
+    "coding-dark-a3c882b232c0.svg",
+    "coding-dark-ef0d361aaccc.svg"
+  ],
+  "coding-light": [
+    "coding-light-8f385532fa28.svg",
+    "coding-light-beb5ef331545.svg"
+  ],
+  "report-dark-mobile": [
+    "report-dark-mobile-efd53cb7460a.svg",
+    "report-dark-mobile-5db619f3eb64.svg"
+  ],
+  "report-light-mobile": [
+    "report-light-mobile-8b4791601bb4.svg",
+    "report-light-mobile-c6b09d137187.svg"
+  ],
+  "report-dark": [
+    "report-dark-dbaeeb693008.svg",
+    "report-dark-316cfc206fe6.svg"
+  ],
+  "report-light": [
+    "report-light-67a1563f5291.svg",
+    "report-light-0ba1263445d9.svg"
+  ]
+}
