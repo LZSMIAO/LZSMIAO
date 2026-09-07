@@ -41,18 +41,26 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(len(result.splitlines()),2)
         self.assertNotIn('three',result)
         self.assertIn('暫無',activity([]))
-    def test_motion_has_no_loop_hold(self):
+    def test_motion_stops_for_starvation_story(self):
         svg='''<svg xmlns="http://www.w3.org/2000/svg"><style>.s{animation:none linear 500ms infinite}@keyframes s0{0%,80%{transform:translate(0px,-16px)}20%{transform:translate(0px,0px)}40%{transform:translate(16px,0px)}60%{transform:translate(16px,-16px)}}.s.s0{animation-name:s0}</style><rect class="c" x="2" y="2"/><rect class="s s0" width="12" height="12"/></svg>'''
         result=smooth(svg)
         root=ET.fromstring(result)
         animation=root.find(f'.//{{{NS}}}animateMotion')
-        self.assertEqual(animation.get('calcMode'),'paced')
+        self.assertEqual(animation.get('calcMode'),'linear')
+        self.assertEqual(animation.get('keyPoints'),'0;1;1')
+        self.assertEqual(animation.get('keyTimes'),'0;0.35;1')
         coords=re.findall(r'-?\d+,-?\d+',animation.get('path'))
-        self.assertEqual(coords[0],coords[-1])
+        self.assertNotEqual(coords[0],coords[-1])
         self.assertTrue(all(a!=b for a,b in zip(coords,coords[1:])))
         self.assertIn('prefers-reduced-motion',result)
         self.assertNotIn('@keyframes s0',result)
         self.assertIn('class="s still"',result)
+        self.assertIn(' Q',animation.get('path'))
+        self.assertIn('蛇饿死了',result)
+        self.assertNotIn('class="u ',result)
+        blur=root.find(f'.//{{{NS}}}feGaussianBlur')
+        self.assertEqual(len(blur),0)
+        self.assertIsNotNone(root.find(f'.//{{{NS}}}g[@class="scene"]'))
     def test_report_uses_complete_real_ai_totals(self):
         days=[{'range':{'date':f'2026-09-{day:02d}'},'grand_total':{'total_seconds':3600,'ai_input_tokens':1000,'ai_output_tokens':50,'ai_additions':4,'ai_prompt_events_total':2,'ai_model_total_cost':1.5},'languages':[{'name':'Vue','total_seconds':3600}]} for day in range(2,9)]
         data=aggregate({'data':days},'2026-09-02','2026-09-08')
@@ -92,6 +100,17 @@ class ProfileTests(unittest.TestCase):
             self.assertNotEqual(readme.read_text().split()[1:],original.split()[1:])
             for path in readme.read_text().split():
                 self.assertTrue((root/path).is_file())
+
+    def test_snake_never_reaches_first_food(self):
+        svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -32 880 192"><style>:root{--ce:#161b22;--cs:purple}.c.c0{fill:var(--c4);animation-name:c0}@keyframes c0{80%{fill:var(--c4)}80.1%,100%{fill:var(--ce)}}.s{animation:none linear 10000ms infinite}@keyframes s0{0%{transform:translate(0px,-16px)}10%{transform:translate(0px,0px)}50%{transform:translate(64px,0px)}80%{transform:translate(64px,48px)}100%{transform:translate(0px,-16px)}}</style><rect class="c c0" x="66" y="50"/><rect class="u u0" width="880" height="12"/><rect class="s s0" width="14" height="14"/><rect class="s s1" width="12" height="12"/></svg>'
+        result=smooth(svg)
+        root=ET.fromstring(result)
+        motions=root.findall(f'.//{{{NS}}}animateMotion')
+        self.assertTrue(motions[0].get('path').endswith('L64,24'))
+        self.assertTrue(motions[1].get('path').endswith('L64,8'))
+        self.assertNotIn('@keyframes c0',result)
+        self.assertNotIn('class="u ',result)
+        self.assertEqual(root.get('height'),'168')
 
     def test_unknown_generator_fails_closed(self):
         with self.assertRaises(ValueError):
