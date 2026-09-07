@@ -22,8 +22,8 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake-playful.svg
-            dist/github-snake-playful-dark.svg?palette=github-dark
+            dist/github-snake-quick.svg
+            dist/github-snake-quick-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

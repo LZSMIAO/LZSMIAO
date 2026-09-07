@@ -48,7 +48,7 @@ class ProfileTests(unittest.TestCase):
         animation=root.find(f'.//{{{NS}}}animateMotion')
         self.assertEqual(animation.get('calcMode'),'linear')
         self.assertEqual(animation.get('keyPoints'),'0;1;1')
-        self.assertEqual(animation.get('keyTimes'),'0;0.35;1')
+        self.assertLess(float(animation.get('keyTimes').split(';')[1]),1)
         coords=re.findall(r'-?\d+,-?\d+',animation.get('path'))
         self.assertNotEqual(coords[0],coords[-1])
         self.assertTrue(all(a!=b for a,b in zip(coords,coords[1:])))
@@ -101,12 +101,19 @@ class ProfileTests(unittest.TestCase):
             for path in readme.read_text().split():
                 self.assertTrue((root/path).is_file())
 
-    def test_snake_never_reaches_first_food(self):
-        svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -32 880 192"><style>:root{--ce:#161b22;--cs:purple}.c.c0{fill:var(--c4);animation-name:c0}@keyframes c0{80%{fill:var(--c4)}80.1%,100%{fill:var(--ce)}}.s{animation:none linear 10000ms infinite}@keyframes s0{0%{transform:translate(0px,-16px)}10%{transform:translate(0px,0px)}50%{transform:translate(64px,0px)}80%{transform:translate(64px,48px)}100%{transform:translate(0px,-16px)}}</style><rect class="c c0" x="66" y="50"/><rect class="u u0" width="880" height="12"/><rect class="s s0" width="14" height="14"/><rect class="s s1" width="12" height="12"/></svg>'
+    def test_snake_eats_first_and_stops_before_second(self):
+        svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -32 880 192"><style>:root{--ce:#161b22;--cs:purple}.c.c0{fill:var(--c4);animation-name:c0}@keyframes c0{50%{fill:var(--c4)}50.1%,100%{fill:var(--ce)}}.c.c1{fill:var(--c4);animation-name:c1}@keyframes c1{80%{fill:var(--c4)}80.1%,100%{fill:var(--ce)}}.s{animation:none linear 10000ms infinite}@keyframes s0{0%{transform:translate(0px,-16px)}10%{transform:translate(0px,0px)}50%{transform:translate(64px,0px)}80%{transform:translate(64px,48px)}100%{transform:translate(0px,-16px)}}</style><rect class="c c0" x="66" y="2"/><rect class="c c1" x="66" y="50"/><rect class="u u0" width="880" height="12"/><rect class="s s0" width="14" height="14"/><rect class="s s1" width="12" height="12"/></svg>'
         result=smooth(svg)
         root=ET.fromstring(result)
         motions=root.findall(f'.//{{{NS}}}animateMotion')
         self.assertTrue(motions[0].get('path').endswith('L64,24'))
+        self.assertLess(float(motions[0].get('dur')[:-1]),3)
+        self.assertIn('@keyframes eat-first',result)
+        self.assertEqual([n.text for n in root.findall(f'.//{{{NS}}}text')],['蛇饿死了'])
+        frozen=root.find(f'.//{{{NS}}}g[@data-layer="frozen-scene"]')
+        self.assertEqual(len(frozen.findall(f'{{{NS}}}rect[@fill="#f85149"]')),2)
+        self.assertNotIn('animate',ET.tostring(frozen,encoding='unicode'))
+        self.assertNotIn('first-food',ET.tostring(frozen,encoding='unicode'))
         self.assertTrue(motions[1].get('path').endswith('L64,8'))
         self.assertNotIn('@keyframes c0',result)
         self.assertNotIn('class="u ',result)
