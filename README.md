@@ -1,4 +1,4 @@
-<h1 align="center">Hi, I'm LZ 👋</h1>
+<h1 align="center">Hi, Its lzsm 👋</h1>
 
 <p align="center">
   Me? Nobody<br>
