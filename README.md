@@ -5,6 +5,7 @@
   Thanks to ChatGPT & Claude, made my ideas possible. </p>
 
 <br>
+<br>
 
 <p align="center">
 <picture>
@@ -27,7 +28,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-c9924797abeb.svg">
   <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a3d233c1a242.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-fe7674dc1022.svg">
-  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-cdd0bf88732f.svg" width="880">
+  <img alt="最近七天完整週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-cdd0bf88732f.svg" width="880">
 </picture>
 </p>
 
