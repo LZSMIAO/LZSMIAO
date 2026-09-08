@@ -1,9 +1,8 @@
 <h1 align="center">Hi, I'm LZ 👋</h1>
 
 <p align="center">
-  會一點網路、一點伺服器，也在學著把前端寫好。<br>
-  喜歡折騰小工具，讓有趣的想法變成能用的東西。
-</p>
+  Me? Nobody<br>
+  Thanks ChatGPT & Claude, it made my ideas possible.</p>
 
 <br>
 
@@ -12,7 +11,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-999aefe1a1aa.svg">
   <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-9c1de40d4cb3.svg">
   <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-535c9c9dc7eb.svg">
-  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-0f84868dce53.svg" width="640">
+  <img alt="Recently" src="assets/coding-light-0f84868dce53.svg" width="640">
 </picture>
 </p>
 
@@ -21,7 +20,7 @@
 <div align="center">
 
 <details>
-<summary>編程週報</summary>
+<summary>週報</summary>
 
 <p align="center">
 <picture>
@@ -38,7 +37,7 @@
 <summary>最近動態</summary>
 
 <!-- ACTIVITY:START -->
-<sub>暫無可展示的公開動態，之後會自動更新。</sub>
+<sub>Null</sub>
 <!-- ACTIVITY:END -->
 
 </details>
