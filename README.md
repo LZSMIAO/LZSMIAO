@@ -9,10 +9,10 @@
 
 <p align="center">
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-999aefe1a1aa.svg">
-  <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-9c1de40d4cb3.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-535c9c9dc7eb.svg">
-  <img alt="Recently" src="assets/coding-light-0f84868dce53.svg" width="640">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-70d85c5cc297.svg">
+  <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-cd6a3dd1ac2c.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-77afa7c92bb1.svg">
+  <img alt="Recently" src="assets/coding-light-69d9eee7eb0e.svg" width="640">
 </picture>
 </p>
 
@@ -25,10 +25,10 @@
 
 <p align="center">
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-c9924797abeb.svg">
-  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a3d233c1a242.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-fe7674dc1022.svg">
-  <img alt="最近七天完整週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-cdd0bf88732f.svg" width="880">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6af28cb8bd2f.svg">
+  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-62272dfd78f8.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-403a21a0ee85.svg">
+  <img alt="最近七天完整週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-9d024ded5055.svg" width="880">
 </picture>
 </p>
 
@@ -38,7 +38,7 @@
 <summary>最近動態</summary>
 
 <!-- ACTIVITY:START -->
-<sub>Null</sub>
+- 2026-09-08 · 更新程式 [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
 <!-- ACTIVITY:END -->
 
 </details>
