@@ -9,10 +9,10 @@
 
 <p align="center">
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-7031e1cff054.svg">
-  <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-1f463170f35b.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-37a55bfc008e.svg">
-  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-0744281fd6fe.svg" width="640">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-999aefe1a1aa.svg">
+  <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-9c1de40d4cb3.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-535c9c9dc7eb.svg">
+  <img alt="最近七天的編程時間與語言統計" src="assets/coding-light-0f84868dce53.svg" width="640">
 </picture>
 </p>
 
@@ -25,10 +25,10 @@
 
 <p align="center">
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f5bbc2d7a42e.svg">
-  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1b0daf8f34df.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-8de4d0f8f52d.svg">
-  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-e45884de2b10.svg" width="880">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-c9924797abeb.svg">
+  <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a3d233c1a242.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-fe7674dc1022.svg">
+  <img alt="最近七天完整編程週報：每日時長、語言分布、AI Token 與算力估值" src="assets/report-light-cdd0bf88732f.svg" width="880">
 </picture>
 </p>
 
