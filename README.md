@@ -2,7 +2,7 @@
 
 <p align="center">
   Me? Nobody<br>
-  Thanks ChatGPT & Claude, it made my ideas possible.</p>
+  Thanks to ChatGPT & Claude, made my ideas possible. </p>
 
 <br>
 
