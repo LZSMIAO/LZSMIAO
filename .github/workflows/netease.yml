@@ -1,0 +1,25 @@
+name: Update NetEase listening chart
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 22 * * 0"
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zonemeen/netease-recent-actions@latest
+        with:
+          id: "3696535313"
+          type: "1"
+          number: "5"
+          width: "380"
+          column: "1"
+          theme: "dark"
+          show_percent: "0"
