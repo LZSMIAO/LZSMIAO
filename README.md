@@ -85,7 +85,7 @@ Activity time: 29h 39m
 
 
 
-<hr>
+
 
 <p align="center">
   <picture>
@@ -94,3 +94,5 @@ Activity time: 29h 39m
     <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
   </picture>
 </p>
+
+<hr>
