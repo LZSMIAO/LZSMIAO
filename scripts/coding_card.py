@@ -19,15 +19,15 @@ def card(data, theme, duration, label, mobile=False):
     def text(x,y,value,size=18,color=ink,extra=''):
         return f'<text x="{x:g}" y="{y:g}" font-size="{size}" fill="{color}" {extra}>{escape(str(value))}</text>'
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
-        '<title id="title">最近七天的編程活動</title>',
-        f'<desc id="desc">{escape("等待第一筆編程記錄" if empty else "總時長 " + duration(total))}</desc>',
+        '<title id="title">Recent activity from the last seven days</title>',
+        f'<desc id="desc">{escape("Waiting for the first activity record" if empty else "Total time " + duration(total))}</desc>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;font-variant-numeric:tabular-nums}</style>',
         f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="10" fill="{bg}" stroke="{border}"/>',
-        text(center,50,'最近七天',26,extra='font-weight="600" text-anchor="middle"')]
+        text(center,50,'Last 7 days',26,extra='font-weight="600" text-anchor="middle"')]
     if empty:
-        parts += [text(center,105,'等待第一筆編程記錄',18,extra='text-anchor="middle"'),text(center,145,'每一次動手，都是一點進展。',16,muted,'text-anchor="middle"')]
+        parts += [text(center,105,'Waiting for the first activity record',18,extra='text-anchor="middle"'),text(center,145,'Every small step is progress.',16,muted,'text-anchor="middle"')]
     else:
-        parts += [text(center,88,'編程時間  '+duration(total),18,muted,'text-anchor="middle"')]
+        parts += [text(center,88,'Activity time  '+duration(total),18,muted,'text-anchor="middle"')]
         for i,row in enumerate(rows):
             y=142+i*row_gap
             percent=min(100,float(row['percent']))
@@ -40,5 +40,5 @@ def card(data, theme, duration, label, mobile=False):
                 f'<rect x="{bar_x}" y="{bar_y}" width="{bar_width}" height="8" rx="4" fill="{track}"/>',
                 f'<rect x="{bar_x}" y="{bar_y}" width="{bar_width*percent/100:.2f}" height="8" rx="4" fill="{accent}"/>',
                 text(width-left,y,f'{percent:.1f}%',18,muted,'text-anchor="end"')]
-        parts += [text(center,height-26,str(data['start'])[:10]+' — '+str(data['end'])[:10]+' · 含今天',14,muted,'text-anchor="middle"')]
+        parts += [text(center,height-26,str(data['start'])[:10]+' — '+str(data['end'])[:10]+' · Includes today',14,muted,'text-anchor="middle"')]
     return ''.join(parts)+'</svg>\n'
