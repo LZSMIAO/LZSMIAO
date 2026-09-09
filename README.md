@@ -68,8 +68,8 @@
       <p>Private-by-default TOTP authenticator with QR import, encrypted local history, and 30 languages.</p>
     </td>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/SyNullLabs/synull-www">SyNull</a></h3>
-      <p>A web presence and infrastructure project built around useful, durable digital tools.</p>
+      <h3><a href="https://github.com/LZSMIAO/home-lzsm">home-lzsm</a></h3>
+      <p>A clean personal homepage and experiment space built with Vue.</p>
     </td>
   </tr>
 </table>
