@@ -79,18 +79,7 @@ Activity time: 29h 39m
 </table>
 
 
-<table align="center">
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/LZSMIAO/2fa-hot">2fa.hot</a></h3>
-      <p>A polished online 2FA / TOTP tool with local processing, batch codes, QR import and fragment links.</p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/LZSMIAO/home-lzsm">home-lzsm</a></h3>
-      <p>No repository description provided.</p>
-    </td>
-  </tr>
-</table>
+
 
 <hr>
 
