@@ -39,7 +39,7 @@ def card(data, theme, duration, label, mobile=False):
     rows=sorted(data.get('languages',[]),key=lambda r:float(r['total_seconds']),reverse=True)[:4]
     rest=max(0,total-sum(float(r['total_seconds']) for r in rows))
     if rest>0:
-        rows=rows+[{'name':'其他','total_seconds':rest,'percent':100*rest/total}]
+        rows=rows+[{'name':'Other','total_seconds':rest,'percent':100*rest/total}]
     alt=['Recent activity from the last seven days', 'Waiting for the first activity record' if total==0 else 'Total time '+duration(total)]
     alt.extend(f'{label(r["name"])} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in rows)
     alt.extend(f'{d["date"]} {duration(d["total_seconds"])}' for d in days)
@@ -47,7 +47,7 @@ def card(data, theme, duration, label, mobile=False):
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
     parts.extend([f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         '<title id="title">Weekly activity snapshot</title>',
-        f'<desc id="desc">{escape("；".join(alt))}</desc>',
+        f'<desc id="desc">{escape(";".join(alt))}</desc>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;font-variant-numeric:tabular-nums}.number{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace}</style>'])
     rect(.5,.5,width-1,height-1,t['bg'],12,f'stroke="{t["border"]}"')
     text(pad,42,'Last 7 days',26,extra='font-weight="650"')
