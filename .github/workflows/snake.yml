@@ -26,16 +26,6 @@ jobs:
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Hide only the bottom progress bar
-        run: |
-          python3 - <<'PYCODE'
-          from pathlib import Path
-          import re
-          for path in Path('dist').glob('*.svg'):
-              svg = path.read_text()
-              svg = re.sub(r'<rect\b(?=[^>]*\bclass="u(?:\s+[^"]*)?")[^>]*/>', '', svg)
-              path.write_text(svg)
-          PYCODE
       - name: Publish generated SVGs
         uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
         with:
