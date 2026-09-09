@@ -95,6 +95,3 @@ Activity time: 29h 39m
   </picture>
 </p>
 
-<p align="center">
-  <img alt="Contribution snake progress" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/assets/snake-progress.svg" width="880">
-</p>
