@@ -1,4 +1,4 @@
-"""Render the last seven calendar days, including today, in Asia/Shanghai."""
+"""Render the last seven calendar days, including today, in Asia/Hong_Kong."""
 import base64
 from datetime import datetime,timedelta
 import json
@@ -94,9 +94,9 @@ def main():
     if not key:
         print('WAKATIME_API_KEY is not configured; cards unchanged.')
         return
-    end=datetime.now(ZoneInfo('Asia/Shanghai')).date()
+    end=datetime.now(ZoneInfo('Asia/Hong_Kong')).date()
     start=end-timedelta(days=6)
-    query=urlencode({'start':str(start),'end':str(end),'timezone':'Asia/Shanghai'})
+    query=urlencode({'start':str(start),'end':str(end),'timezone':'Asia/Hong_Kong'})
     request=Request('https://api.wakatime.com/api/v1/users/current/summaries?'+query,headers={
         'Authorization':'Basic '+base64.b64encode(key.encode()).decode(),
         'Accept':'application/json','User-Agent':'LZSMIAO-profile'})
