@@ -65,20 +65,9 @@ Activity time: 29h 39m
 
 
 
-<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0" style="border: 0; border-collapse: separate; border-spacing: 8px 0; background: transparent;">
-  <tr style="border: 0; background: transparent;">
-    <td width="50%" style="padding: 0 4px 0 0; vertical-align: top; border: 0; background: transparent;">
-      <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
-        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="100%" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
-      </a>
-    </td>
-    <td width="50%" style="padding: 0 0 0 4px; vertical-align: top; border: 0; background: transparent;">
-      <a href="https://music.163.com/">
-        <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/52d0c74af6d542a9d9995aaa7bc94d7a04d07836/163.svg" width="100%" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
-      </a>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="49.5%" style="display: inline-block; width: 49.5%; max-width: 49.5%; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a><a href="https://music.163.com/"><img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/52d0c74af6d542a9d9995aaa7bc94d7a04d07836/163.svg" width="49.5%" style="display: inline-block; width: 49.5%; max-width: 49.5%; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a>
+</div>
 
 <p align="center">
   <picture>
