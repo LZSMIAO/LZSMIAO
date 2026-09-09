@@ -38,7 +38,7 @@
 <summary>最近動態</summary>
 
 <!-- ACTIVITY:START -->
-- 2026-09-08 · 更新程式 [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
+- 2026-09-09 · 更新程式 [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
 <!-- ACTIVITY:END -->
 
 </details>
