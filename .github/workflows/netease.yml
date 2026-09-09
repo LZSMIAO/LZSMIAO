@@ -14,7 +14,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: zonemeen/netease-recent-actions@latest
+      - uses: zonemeen/netease-recent-actions@v1.1.0
         with:
           id: "3696535313"
           type: "1"
