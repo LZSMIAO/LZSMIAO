@@ -84,11 +84,11 @@ Activity time: 29h 39m
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/LZSMIAO/2fa-hot">2fa.hot</a></h3>
-      <p>Private-by-default TOTP authenticator with QR import, encrypted local history, and 30 languages.</p>
+      <p>A polished online 2FA / TOTP tool with local processing, batch codes, QR import and fragment links.</p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/LZSMIAO/home-lzsm">home-lzsm</a></h3>
-      <p>A clean personal homepage and experiment space built with Vue.</p>
+      <p>No repository description provided.</p>
     </td>
   </tr>
 </table>
