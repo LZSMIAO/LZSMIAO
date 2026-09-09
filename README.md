@@ -85,8 +85,8 @@
 <br>
 
 <p align="center">
-  <a href="mailto:lzsm@proton.me">Email</a> ·
-  <a href="https://x.com/lzsmtw">X</a> ·
-  <a href="https://t.me/lzsmi">Telegram</a> ·
-  <a href="https://www.threads.com/@lzsmiao">Threads</a>
+  <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/EMAIL-cbd5df?style=flat-square" alt="Email"></a>
+  <a href="https://t.me/lzsmi"><img src="https://img.shields.io/badge/TELEGRAM-25a7df?style=flat-square" alt="Telegram"></a>
+  <a href="https://x.com/lzsmtw"><img src="https://img.shields.io/badge/X-000000?style=flat-square" alt="X"></a>
+  <a href="https://www.threads.com/@lzsmiao"><img src="https://img.shields.io/badge/THREADS-4c4c4c?style=flat-square" alt="Threads"></a>
 </p>
