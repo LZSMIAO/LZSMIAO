@@ -12,10 +12,12 @@
   <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
 </p>
 
-```text
+~~~text
 📊 Last 7 days
 
+
 🕑︎ Time Zone: Asia/Hong Kong
+
 
 💬 Programming Languages:
 Vue              19 hrs 52 mins   █████████████████░░░░░░░░  67.0%
@@ -24,8 +26,9 @@ TypeScript        2 hrs 24 mins   ██░░░░░░░░░░░░░�
 WGSL              1 hr 24 mins    █░░░░░░░░░░░░░░░░░░░░░░░   4.7%
 Other             1 hr 37 mins    █░░░░░░░░░░░░░░░░░░░░░░░   5.5%
 
+
 Activity time: 29h 39m
-```
+~~~
 
 <br>
 
@@ -56,12 +59,42 @@ Activity time: 29h 39m
 
 <br>
 
-
-
-
-<div align="center">
-  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a><img alt="NetEase Cloud Music recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/042e08ad7e04d7db28d2d7746e7de7ad20e71a52/163.svg" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
-</div>
+<table align="center" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" width="50%" align="center">
+      <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="100%" style="display: block; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a>
+    </td>
+    <td valign="top" width="50%">
+      <table width="100%" cellpadding="8" cellspacing="0" bgcolor="#161b22" style="border: 1px solid #30363d; border-radius: 12px;">
+        <tr>
+          <td colspan="2" align="center">
+            <h3>NetEase Cloud Music <img alt="NetEase Cloud Music" src="https://cdn.simpleicons.org/neteasecloudmusic/E60026" width="22" height="22" valign="middle"></h3>
+          </td>
+        </tr>
+        <tr bgcolor="#21262d">
+          <td width="72"><a href="https://music.163.com/#/song?id=3330630999"><img alt="反乌托邦Pt.2 album cover" src="https://p2.music.126.net/gH89vjqKtN6YAkHE2OsCPQ==/109951172460612010.jpg" width="64" height="64"></a></td>
+          <td><a href="https://music.163.com/#/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a><br><a href="https://music.163.com/#/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/#/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/#/artist?id=96237339">乌托邦P</a></td>
+        </tr>
+        <tr bgcolor="#21262d">
+          <td width="72"><a href="https://music.163.com/#/song?id=3416118315"><img alt="深色 album cover" src="https://p2.music.126.net/nk5VC6moV7ltZ7Q4viQHAQ==/109951173893928563.jpg" width="64" height="64"></a></td>
+          <td><a href="https://music.163.com/#/song?id=3416118315"><strong>深色</strong></a><br><a href="https://music.163.com/#/artist?id=35654284">普信主义</a></td>
+        </tr>
+        <tr bgcolor="#21262d">
+          <td width="72"><a href="https://music.163.com/#/song?id=2664295379"><img alt="灾星 album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
+          <td><a href="https://music.163.com/#/song?id=2664295379"><strong>灾星</strong></a><br><a href="https://music.163.com/#/artist?id=35654284">普信主义</a></td>
+        </tr>
+        <tr bgcolor="#21262d">
+          <td width="72"><a href="https://music.163.com/#/song?id=2746375815"><img alt="蓝天鹅 (Mo) album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
+          <td><a href="https://music.163.com/#/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a><br><a href="https://music.163.com/#/artist?id=35654284">普信主义</a></td>
+        </tr>
+        <tr bgcolor="#21262d">
+          <td width="72"><a href="https://music.163.com/#/song?id=2652725695"><img alt="潮汐之女 album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
+          <td><a href="https://music.163.com/#/song?id=2652725695"><strong>潮汐之女</strong></a><br><a href="https://music.163.com/#/artist?id=35654284">普信主义</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <picture>
@@ -70,4 +103,3 @@ Activity time: 29h 39m
     <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
   </picture>
 </p>
-
