@@ -56,3 +56,40 @@
     <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
   </picture>
 </p>
+
+<br>
+
+<h2 align="center">Featured Projects</h2>
+
+<table align="center">
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/LZSMIAO/2fa-hot">2fa.hot</a></h3>
+      <p>Private-by-default TOTP authenticator with QR import, encrypted local history, and 30 languages.</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/SyNullLabs/synull-www">SyNull</a></h3>
+      <p>A web presence and infrastructure project built around useful, durable digital tools.</p>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<h2 align="center">Now Playing</h2>
+
+<p align="center">
+  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
+    <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="420">
+  </a>
+</p>
+
+<br>
+
+<p align="center">
+  <a href="https://longmiao.org">Website</a> ·
+  <a href="mailto:lzsm@proton.me">Email</a> ·
+  <a href="https://x.com/lzsmtw">X</a> ·
+  <a href="https://t.me/lzsmi">Telegram</a> ·
+  <a href="https://www.threads.com/@lzsmiao">Threads</a>
+</p>
