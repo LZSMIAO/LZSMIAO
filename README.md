@@ -59,7 +59,6 @@ Activity time: 29h 39m
   </picture>
 </p>
 
-<h2 align="center">Now Listening</h2>
 
 <table align="center" width="100%">
   <tr>
@@ -78,7 +77,6 @@ Activity time: 29h 39m
   </tr>
 </table>
 
-<h2 align="center">Featured Projects</h2>
 
 <table align="center">
   <tr>
