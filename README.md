@@ -51,13 +51,7 @@ Activity time: 29h 39m
 
   <br>
 
-  <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: separate; border-spacing: 0; border: 1px solid #30363d; border-radius: 12px; background: #161b22; overflow: hidden;">
-    <tr>
-      <td width="52" align="center" style="padding: 14px 8px; color: #8b949e;">🛠️</td>
-      <td style="padding: 14px 8px; color: #f0f6fc; white-space: nowrap;"><strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a></td>
-      <td align="right" style="padding: 14px 16px; white-space: nowrap;"><sub>2026-09-09</sub></td>
-    </tr>
-  </table>
+  <pre>🛠️  <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a>                                      2026-09-09</pre>
 </details>
 
 <br>
