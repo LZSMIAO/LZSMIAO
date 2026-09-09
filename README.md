@@ -59,37 +59,37 @@ Activity time: 29h 39m
 
 <br>
 
-<table align="center" width="100%" cellpadding="0" cellspacing="0">
+<table align="center" width="100%" border="0" cellpadding="0" cellspacing="12">
   <tr>
     <td valign="top" width="50%" align="center">
       <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="100%" style="display: block; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a>
     </td>
     <td valign="top" width="50%">
-      <table width="100%" cellpadding="8" cellspacing="0" bgcolor="#161b22" style="border: 1px solid #30363d; border-radius: 12px;">
-        <tr>
-          <td colspan="2" align="center">
-            <h3>NetEase Cloud Music <img alt="NetEase Cloud Music" src="https://cdn.simpleicons.org/neteasecloudmusic/E60026" width="22" height="22" valign="middle"></h3>
+      <table width="100%" border="1" bordercolor="#30363d" cellpadding="10" cellspacing="0" bgcolor="#0d1117">
+        <tr bgcolor="#161b22">
+          <td colspan="2" align="left">
+            <font color="#f0f6fc"><strong>NetEase Cloud Music</strong></font>&nbsp;<img alt="NetEase Cloud Music" src="https://cdn.simpleicons.org/neteasecloudmusic/E60026" width="18" height="18" valign="middle">
           </td>
         </tr>
-        <tr bgcolor="#21262d">
-          <td width="72"><a href="https://music.163.com/song?id=3330630999"><img alt="反乌托邦Pt.2 album cover" src="https://p2.music.126.net/gH89vjqKtN6YAkHE2OsCPQ==/109951172460612010.jpg" width="64" height="64"></a></td>
-          <td><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a><br><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></td>
+        <tr bgcolor="#161b22">
+          <td width="76" align="center" valign="middle"><a href="https://music.163.com/song?id=3330630999"><img alt="反乌托邦Pt.2" src="https://p2.music.126.net/gH89vjqKtN6YAkHE2OsCPQ==/109951172460612010.jpg" width="68" height="68" style="display:block; border-radius:8px;"></a></td>
+          <td valign="middle"><a href="https://music.163.com/song?id=3330630999"><font color="#f0f6fc"><strong>反乌托邦Pt.2</strong></font></a><br><a href="https://music.163.com/artist?id=51497522"><font color="#8b949e">亞細亞曠世奇才</font></a> · <a href="https://music.163.com/artist?id=906118"><font color="#8b949e">洛天依Official</font></a> · <a href="https://music.163.com/artist?id=96237339"><font color="#8b949e">乌托邦P</font></a></td>
         </tr>
-        <tr bgcolor="#21262d">
-          <td width="72"><a href="https://music.163.com/song?id=3416118315"><img alt="深色 album cover" src="https://p2.music.126.net/nk5VC6moV7ltZ7Q4viQHAQ==/109951173893928563.jpg" width="64" height="64"></a></td>
-          <td><a href="https://music.163.com/song?id=3416118315"><strong>深色</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
+        <tr bgcolor="#0d1117">
+          <td width="76" align="center" valign="middle"><a href="https://music.163.com/song?id=3416118315"><img alt="深色" src="https://p2.music.126.net/nk5VC6moV7ltZ7Q4viQHAQ==/109951173893928563.jpg" width="68" height="68" style="display:block; border-radius:8px;"></a></td>
+          <td valign="middle"><a href="https://music.163.com/song?id=3416118315"><font color="#f0f6fc"><strong>深色</strong></font></a><br><a href="https://music.163.com/artist?id=35654284"><font color="#8b949e">普信主义</font></a></td>
         </tr>
-        <tr bgcolor="#21262d">
-          <td width="72"><a href="https://music.163.com/song?id=2664295379"><img alt="灾星 album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
-          <td><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
+        <tr bgcolor="#161b22">
+          <td width="76" align="center" valign="middle"><a href="https://music.163.com/song?id=2664295379"><img alt="灾星" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="68" height="68" style="display:block; border-radius:8px;"></a></td>
+          <td valign="middle"><a href="https://music.163.com/song?id=2664295379"><font color="#f0f6fc"><strong>灾星</strong></font></a><br><a href="https://music.163.com/artist?id=35654284"><font color="#8b949e">普信主义</font></a></td>
         </tr>
-        <tr bgcolor="#21262d">
-          <td width="72"><a href="https://music.163.com/song?id=2746375815"><img alt="蓝天鹅 (Mo) album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
-          <td><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
+        <tr bgcolor="#0d1117">
+          <td width="76" align="center" valign="middle"><a href="https://music.163.com/song?id=2746375815"><img alt="蓝天鹅 (Mo)" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="68" height="68" style="display:block; border-radius:8px;"></a></td>
+          <td valign="middle"><a href="https://music.163.com/song?id=2746375815"><font color="#f0f6fc"><strong>蓝天鹅 (Mo)</strong></font></a><br><a href="https://music.163.com/artist?id=35654284"><font color="#8b949e">普信主义</font></a></td>
         </tr>
-        <tr bgcolor="#21262d">
-          <td width="72"><a href="https://music.163.com/song?id=2652725695"><img alt="潮汐之女 album cover" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64" height="64"></a></td>
-          <td><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
+        <tr bgcolor="#161b22">
+          <td width="76" align="center" valign="middle"><a href="https://music.163.com/song?id=2652725695"><img alt="潮汐之女" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="68" height="68" style="display:block; border-radius:8px;"></a></td>
+          <td valign="middle"><a href="https://music.163.com/song?id=2652725695"><font color="#f0f6fc"><strong>潮汐之女</strong></font></a><br><a href="https://music.163.com/artist?id=35654284"><font color="#8b949e">普信主义</font></a></td>
         </tr>
       </table>
     </td>
