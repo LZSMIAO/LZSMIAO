@@ -1,9 +1,4 @@
-<h2 align="center">Hi, I'm lzsm 👋</h2>
-
-<p align="center">
-  <em>Me? Nobody.</em><br>
-  Building ideas with a little help from ChatGPT and Claude.
-</p>
+<h2 align="center">Small tools. Big curiosity.</h2>
 
 <p align="center">
   <picture>
@@ -12,6 +7,13 @@
     <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-e2c99928827c.svg">
     <img alt="Recently" src="assets/coding-light-c9f059c0e238.svg" width="640">
   </picture>
+</p>
+
+<h2 align="center">Hi, I'm lzsm 👋</h2>
+
+<p align="center">
+  <em>Me? Nobody.</em><br>
+  Building ideas with a little help from ChatGPT and Claude.
 </p>
 
 <br>
@@ -53,6 +55,14 @@
   </picture>
 </p>
 
+<h2 align="center">Recent Listening</h2>
+
+<p align="center">
+  <a href="https://music.163.com/#/user/home?id=3696535313">
+    <img alt="NetEase Cloud Music recent listening" src="https://netease-music-widget.vercel.app/api?id=3696535313&type=week&count=5&theme=dark&show_rank=false" width="560">
+  </a>
+</p>
+
 <h2 align="center">Featured Projects</h2>
 
 <table align="center">
@@ -67,18 +77,6 @@
     </td>
   </tr>
 </table>
-
-<br>
-
-<h2 align="center">Now Playing</h2>
-
-<p align="center">
-  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
-    <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="420">
-  </a>
-</p>
-
-<br>
 
 <p align="center">
   <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/EMAIL-cbd5df?style=flat-square" alt="Email"></a>
