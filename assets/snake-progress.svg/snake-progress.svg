@@ -1,0 +1,8 @@
+<svg width="880" height="24" viewBox="0 0 880 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Contribution snake progress</title>
+  <desc id="desc">Animated green progress bar matching the contribution snake animation.</desc>
+  <rect x="0" y="8" width="880" height="8" rx="2" fill="#161b22"/>
+  <rect x="0" y="8" width="880" height="8" rx="2" fill="#00c647">
+    <animate attributeName="width" values="0;880;0" dur="12.1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
