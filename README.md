@@ -11,10 +11,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-70d85c5cc297.svg">
-    <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-cd6a3dd1ac2c.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-77afa7c92bb1.svg">
-    <img alt="Recently" src="assets/coding-light-69d9eee7eb0e.svg" width="640">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-88fde9615002.svg">
+    <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-c73cee545b3e.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-e2c99928827c.svg">
+    <img alt="Recently" src="assets/coding-light-c9f059c0e238.svg" width="640">
   </picture>
 </p>
 
@@ -27,10 +27,10 @@
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6af28cb8bd2f.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-62272dfd78f8.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-403a21a0ee85.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-9d024ded5055.svg" width="880">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f2cbe7874468.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-3bdb8a175543.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-d9da59951a34.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-4bfcea2f77d7.svg" width="880">
     </picture>
   </p>
 </details>
@@ -43,8 +43,8 @@
   <br>
 
   <!-- ACTIVITY:START -->
-  - 2026-09-09 · Updated [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
-  <!-- ACTIVITY:END -->
+- 2026-09-09 · 更新程式 [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
+<!-- ACTIVITY:END -->
 </details>
 
 <br>
