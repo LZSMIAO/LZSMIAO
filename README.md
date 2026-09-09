@@ -5,14 +5,11 @@
   Building ideas with a little help from ChatGPT Cloud.
 </p>
 
-<p align="center">
-  <a href="mailto:lzsm@proton.me"><img src="https://cdn.simpleicons.org/protonmail/8B89CC" alt="Email" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://t.me/lzsmi"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://x.com/lzsmtw"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://www.threads.com/@lzsmiao"><img src="https://cdn.simpleicons.org/threads/FFFFFF" alt="Threads" width="22" height="22"></a>
+<p align="left">
+  <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/Email-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="28"></a>
+  <a href="https://t.me/lzsmi"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="28"></a>
+  <a href="https://x.com/lzsmtw"><img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white" alt="X" height="28"></a>
+  <a href="https://www.threads.com/@lzsmiao"><img src="https://img.shields.io/badge/Threads-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="28"></a>
 </p>
 
 ```text
