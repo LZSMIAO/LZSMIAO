@@ -46,14 +46,18 @@ Activity time: 29h 39m
 
 <br>
 
-<details>
+<details open>
   <summary><strong>Recent Activity</strong></summary>
 
   <br>
 
-  <!-- ACTIVITY:START -->
-- 2026-09-09 · Updated project [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
-<!-- ACTIVITY:END -->
+  <table width="100%">
+    <tr>
+      <td width="56" align="center">🛠️</td>
+      <td><strong>Updated project</strong><br><a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a></td>
+      <td align="right"><sub>2026-09-09</sub></td>
+    </tr>
+  </table>
 </details>
 
 <br>
