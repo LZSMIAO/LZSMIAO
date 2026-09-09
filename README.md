@@ -65,20 +65,20 @@ Activity time: 29h 39m
 
 
 
-<p align="center">
-  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
-    <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="400">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://music.163.com/">
-    <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/52d0c74af6d542a9d9995aaa7bc94d7a04d07836/163.svg" width="400">
-  </a>
-</p>
-
-
-
-
-
+<table width="100%" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="50%" style="padding-right: 8px; vertical-align: top;">
+      <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
+        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="100%" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      </a>
+    </td>
+    <td width="50%" style="padding-left: 8px; vertical-align: top;">
+      <a href="https://music.163.com/">
+        <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/52d0c74af6d542a9d9995aaa7bc94d7a04d07836/163.svg" width="100%" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      </a>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <picture>
