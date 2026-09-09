@@ -60,7 +60,7 @@ Activity time: 29h 39m
 
 
 <div align="center">
-  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a><a href="https://music.163.com/"><img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/bfd679ec9fb073e65c7a066332c93e03fb10f211/163.svg" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a>
+  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;"></a><img alt="NetEase Cloud Music recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/042e08ad7e04d7db28d2d7746e7de7ad20e71a52/163.svg" width="50%" style="display: inline-block; width: 50%; max-width: 50%; box-sizing: border-box; vertical-align: top; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
 </div>
 
 <p align="center">
