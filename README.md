@@ -46,7 +46,7 @@ Activity time: 29h 39m
 
 <br>
 
-<details open>
+<details>
   <summary><strong>Recent Activity</strong></summary>
 
   <br>
@@ -70,13 +70,13 @@ Activity time: 29h 39m
     <td width="50%" align="center" valign="top">
       <h3>Spotify</h3>
       <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
-        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="380">
+        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="380" style="border-radius: 3px;">
       </a>
     </td>
     <td width="50%" align="center" valign="top">
       <h3>NetEase Cloud Music</h3>
       <a href="https://music.163.com/#/user/home?id=3696535313">
-        <img alt="NetEase Cloud Music recent listening" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380">
+        <img alt="NetEase Cloud Music recent listening" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380" style="border-radius: 3px;">
       </a>
     </td>
   </tr>
