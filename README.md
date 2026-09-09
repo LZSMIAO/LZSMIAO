@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img alt="Typing introduction" src="https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&duration=2800&pause=900&color=58A6FF&center=true&vCenter=true&width=680&lines=Building+small+tools+with+big+curiosity;Designing+useful+things+for+the+web;Always+learning%2C+always+shipping" />
+  <img alt="Typing introduction" src="assets/typing.svg" width="680">
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@
   <br>
 
   <!-- ACTIVITY:START -->
-- 2026-09-09 · 更新程式 [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
+- 2026-09-09 · Updated project [LZSMIAO/2fa-hot](https://github.com/LZSMIAO/2fa-hot)
 <!-- ACTIVITY:END -->
 </details>
 
