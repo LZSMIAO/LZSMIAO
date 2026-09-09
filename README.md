@@ -5,6 +5,16 @@
   Building ideas with a little help from ChatGPT Cloud.
 </p>
 
+<p align="center">
+  <a href="mailto:lzsm@proton.me"><img src="https://cdn.simpleicons.org/protonmail/8B89CC" alt="Email" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://t.me/lzsmi"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://x.com/lzsmtw"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://www.threads.com/@lzsmiao"><img src="https://cdn.simpleicons.org/threads/FFFFFF" alt="Threads" width="22" height="22"></a>
+</p>
+
 ```text
 📊 Last 7 days
 
@@ -51,13 +61,7 @@ Activity time: 29h 39m
 
 <br>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
-    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
-  </picture>
-</p>
+
 
 
 <table align="center" width="100%">
@@ -91,12 +95,12 @@ Activity time: 29h 39m
   </tr>
 </table>
 
+<hr>
+
 <p align="center">
-  <a href="mailto:lzsm@proton.me"><img src="https://cdn.simpleicons.org/protonmail/8B89CC" alt="Email" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://t.me/lzsmi"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://x.com/lzsmtw"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="22" height="22"></a>
-  &nbsp;
-  <a href="https://www.threads.com/@lzsmiao"><img src="https://cdn.simpleicons.org/threads/FFFFFF" alt="Threads" width="22" height="22"></a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
+    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
+  </picture>
 </p>
