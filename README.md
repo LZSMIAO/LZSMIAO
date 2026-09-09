@@ -55,13 +55,24 @@
   </picture>
 </p>
 
-<h2 align="center">Recent Listening</h2>
+<h2 align="center">Now Listening</h2>
 
-<p align="center">
-  <a href="https://music.163.com/#/user/home?id=3696535313">
-    <img alt="NetEase Cloud Music recent listening" src="https://netease-music-widget.vercel.app/api?id=3696535313&type=week&count=5&theme=dark&show_rank=false" width="560">
-  </a>
-</p>
+<table align="center" width="100%">
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <h3>Spotify</h3>
+      <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
+        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="380">
+      </a>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <h3>NetEase Cloud Music</h3>
+      <a href="https://music.163.com/#/user/home?id=3696535313">
+        <img alt="NetEase Cloud Music recent listening" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380">
+      </a>
+    </td>
+  </tr>
+</table>
 
 <h2 align="center">Featured Projects</h2>
 
