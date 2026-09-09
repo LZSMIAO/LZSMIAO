@@ -10,7 +10,6 @@ START='<!-- ACTIVITY:START -->'
 END='<!-- ACTIVITY:END -->'
 USER='LZSMIAO'
 
-
 def activity(events):
     lines=[]
     seen=set()
@@ -25,7 +24,7 @@ def activity(events):
         url=f'https://github.com/{repo}'
         if kind=='ReleaseEvent' and payload.get('action')=='published':
             url += '/releases'
-            verb='發布版本'
+            verb='Published release'
         elif kind=='PullRequestEvent' and payload.get('action') in ('opened','closed'):
             pr=payload.get('pull_request',{})
             if payload['action']=='closed' and not pr.get('merged'):
@@ -34,9 +33,9 @@ def activity(events):
             if not isinstance(number,int):
                 continue
             url += f'/pull/{number}'
-            verb='合併 PR' if pr.get('merged') else '提交 PR'
+            verb='Merged PR' if pr.get('merged') else 'Opened PR'
         elif kind=='PushEvent':
-            verb='更新程式'
+            verb='Updated project'
         else:
             continue
         if url in seen:
@@ -48,13 +47,11 @@ def activity(events):
         lines.append(f'- {date} · {verb} [{repo}]({url})')
         if len(lines)==2:
             break
-    return '\n'.join(lines) or '<sub>暫無可展示的公開動態，之後會自動更新。</sub>'
-
+    return '\n'.join(lines) or '<sub>No public activity to display yet. This section will update automatically.</sub>'
 
 def main():
     req=Request(f'https://api.github.com/users/{USER}/events/public?per_page=100',headers={
         'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile','X-GitHub-Api-Version':'2022-11-28'})
-    # Unauthenticated public endpoint prevents private events from entering the feed.
     with urlopen(req,timeout=30) as response:
         events=json.load(response)
     if not isinstance(events,list):
@@ -68,7 +65,6 @@ def main():
     if original!=updated:
         README.write_text(updated)
     print('Public activity updated.')
-
 
 if __name__=='__main__':
     try:
