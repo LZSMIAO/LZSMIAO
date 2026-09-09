@@ -59,34 +59,22 @@ Activity time: 29h 39m
 
 <br>
 
-<table width="100%">
-<tr>
-<td rowspan="6" width="50%" valign="top" align="center"><a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="1000"></a></td>
-<td colspan="2" align="left" valign="middle">
-<strong>NetEase Cloud Music</strong>&nbsp;<img alt="NetEase Cloud Music" src="https://cdn.simpleicons.org/neteasecloudmusic/E60026" width="18" height="18" valign="middle">
-</td>
-</tr>
-<tr>
-<td width="10%" align="center" valign="middle"><a href="https://music.163.com/song?id=3330630999"><img alt="反乌托邦Pt.2" src="https://p2.music.126.net/gH89vjqKtN6YAkHE2OsCPQ==/109951172460612010.jpg" width="64"></a></td>
-<td valign="middle"><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a><br><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></td>
-</tr>
-<tr>
-<td width="10%" align="center" valign="middle"><a href="https://music.163.com/song?id=3416118315"><img alt="深色" src="https://p2.music.126.net/nk5VC6moV7ltZ7Q4viQHAQ==/109951173893928563.jpg" width="64"></a></td>
-<td valign="middle"><a href="https://music.163.com/song?id=3416118315"><strong>深色</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
-</tr>
-<tr>
-<td width="10%" align="center" valign="middle"><a href="https://music.163.com/song?id=2664295379"><img alt="灾星" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64"></a></td>
-<td valign="middle"><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
-</tr>
-<tr>
-<td width="10%" align="center" valign="middle"><a href="https://music.163.com/song?id=2746375815"><img alt="蓝天鹅 (Mo)" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64"></a></td>
-<td valign="middle"><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
-</tr>
-<tr>
-<td width="10%" align="center" valign="middle"><a href="https://music.163.com/song?id=2652725695"><img alt="潮汐之女" src="https://p2.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg" width="64"></a></td>
-<td valign="middle"><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></td>
-</tr>
-</table>
+<p>
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="49.5%"></a>
+<a href="#music-links"><img src="assets/netease-clean.svg" alt="Recently played on NetEase Cloud Music" width="49.5%"></a>
+</p>
+
+<a name="music-links"></a>
+<details>
+<summary>Song links</summary>
+
+<p><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a><br><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></p>
+<p><a href="https://music.163.com/song?id=3416118315"><strong>深色</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
+<p><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
+<p><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
+<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
+
+</details>
 
 <p align="center">
   <picture>
