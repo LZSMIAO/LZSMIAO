@@ -39,7 +39,7 @@ Activity time: 29h 39m
       <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2b1e5f3f75d1.svg">
       <source media="(max-width: 600px)" srcset="assets/report-light-mobile-7a6bd5c3798c.svg">
       <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-e3a0ab40ca00.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-3ab45760e31d.svg" width="880">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-3ab45760e31d.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
@@ -70,13 +70,13 @@ Activity time: 29h 39m
     <td width="50%" align="center" valign="top" style="border: 0; padding: 0 8px;">
       <h3>Spotify</h3>
       <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm">
-        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="380" style="display: block; width: 100%; max-width: 380px; border-radius: 10px; border: 1px solid #30363d; background: #121212;">
+        <img alt="Spotify now playing" src="https://spotify-github-profile.kittinanx.com/api/view?uid=31undvuuo3zgy4suzqjqujerwfdm&cover_image=true&theme=default&show_offline=false&background_color=121212&bar_color=58A6FF" width="380" style="display: block; width: 100%; max-width: 380px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
       </a>
     </td>
     <td width="50%" align="center" valign="top" style="border: 0; padding: 0 8px;">
       <h3>NetEase Cloud Music</h3>
       <a href="https://music.163.com/">
-        <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380" style="display: block; width: 100%; max-width: 380px; border-radius: 10px; border: 1px solid #30363d; background: #121212;">
+        <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380" style="display: block; width: 100%; max-width: 380px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
       </a>
     </td>
   </tr>
