@@ -40,29 +40,29 @@ def card(data, theme, duration, label, mobile=False):
     rest=max(0,total-sum(float(r['total_seconds']) for r in rows))
     if rest>0:
         rows=rows+[{'name':'其他','total_seconds':rest,'percent':100*rest/total}]
-    alt=['最近七天的編程活動', '等待第一筆編程記錄' if total==0 else '總時長 '+duration(total)]
+    alt=['Recent activity from the last seven days', 'Waiting for the first activity record' if total==0 else 'Total time '+duration(total)]
     alt.extend(f'{label(r["name"])} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in rows)
     alt.extend(f'{d["date"]} {duration(d["total_seconds"])}' for d in days)
     if has_ai:
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
     parts.extend([f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
-        '<title id="title">LZ · 最近七天編程手記</title>',
+        '<title id="title">Weekly activity snapshot</title>',
         f'<desc id="desc">{escape("；".join(alt))}</desc>',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif;font-variant-numeric:tabular-nums}.number{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace}</style>'])
     rect(.5,.5,width-1,height-1,t['bg'],12,f'stroke="{t["border"]}"')
-    text(pad,42,'最近七天',26,extra='font-weight="650"')
-    text(width-pad,40,'LZ / 編程手記',17,t['muted'],'text-anchor="end"')
+    text(pad,42,'Last 7 days',26,extra='font-weight="650"')
+    text(width-pad,40,'Activity snapshot',17,t['muted'],'text-anchor="end"')
     text(pad,70,f'{start} — {end}',16,t['muted'])
     if not mobile:
-        text(width-pad,70,'Asia/Shanghai · 含今天',15,t['muted'],'text-anchor="end"')
+        text(width-pad,70,'Asia/Hong_Kong · Includes today',15,t['muted'],'text-anchor="end"')
     line(pad,88,width-pad,88)
     if total==0:
-        text(pad,125,'等待第一筆編程記錄',20)
-        text(pad,155,'每一次動手，都是一點進展。',17,t['muted'])
+        text(pad,125,'Waiting for the first activity record',20)
+        text(pad,155,'Every small step is progress.',17,t['muted'])
         return ''.join(parts)+'</svg>\n'
     text(pad,128,duration(total),30,extra='font-weight="650" class="number"')
     active=sum(d['total_seconds']>0 for d in days)
-    text(pad,155,f'編程時間 · {active} / 7 天有記錄' if days else '編程時間',16,t['muted'])
+    text(pad,155,f'Active time · {active} / 7 days tracked' if days else 'Activity time',16,t['muted'])
     # Daily columns use a shared zero baseline; today is outlined because it is incomplete.
     chart_width=width-2*pad if mobile else 286
     base=246 if mobile else 283
@@ -81,13 +81,13 @@ def card(data, theme, duration, label, mobile=False):
         text(x+bw/2,base+24,day['date'][5:].replace('-','/'),14,t['muted'],'text-anchor="middle"')
     if days:
         peak_day=max(days,key=lambda d:d['total_seconds'])
-        text(pad+chart_width,180 if mobile else 179,'最高 '+duration(peak_day['total_seconds']),14,t['muted'],'text-anchor="end"')
+        text(pad+chart_width,180 if mobile else 179,'Peak '+duration(peak_day['total_seconds']),14,t['muted'],'text-anchor="end"')
     # Each language has its actual duration, share, and a proportional colored rule.
     lx=pad if mobile else 360
     right=width-pad
     heading=313 if mobile else 124
-    text(lx,heading,'語言分布',18,extra='font-weight="600"')
-    text(right,heading,'時長 / 佔比',14,t['muted'],'text-anchor="end"')
+    text(lx,heading,'Language distribution',18,extra='font-weight="600"')
+    text(right,heading,'Time / share',14,t['muted'],'text-anchor="end"')
     for i,row in enumerate(rows):
         y=heading+32+i*34
         name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:18]
@@ -103,13 +103,13 @@ def card(data, theme, duration, label, mobile=False):
         band=530 if mobile else 340
         rect(1,band,width-2,height-band-13,t['soft'])
         rect(1,height-25,width-2,24,t['soft'],11)
-        text(pad,band+31,'AI 協作',20,extra='font-weight="600"')
+        text(pad,band+31,'AI collaboration',20,extra='font-weight="600"')
         if not mobile:
-            text(right,band+30,'同一統計區間',14,t['muted'],'text-anchor="end"')
+            text(right,band+30,'Same reporting period',14,t['muted'],'text-anchor="end"')
         cost=ai.get('ai_model_total_cost')
-        values=[(compact(ai.get('ai_input_tokens'))+' / '+compact(ai.get('ai_output_tokens')),'輸入 / 輸出 Tokens'),
-            (compact(ai.get('ai_additions'))+' / '+compact(ai.get('ai_prompt_events_total')),'AI 新增行 / 提問次數'),
-            ('—' if cost is None else f'${cost:,.2f}','AI 算力估值 · API 價格估算')]
+        values=[(compact(ai.get('ai_input_tokens'))+' / '+compact(ai.get('ai_output_tokens')),'Input / output tokens'),
+            (compact(ai.get('ai_additions'))+' / '+compact(ai.get('ai_prompt_events_total')),'AI additions / prompt count'),
+            ('—' if cost is None else f'${cost:,.2f}','AI compute estimate · API pricing')]
         for i,(value,caption) in enumerate(values):
             if mobile:
                 y=band+73+i*51
