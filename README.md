@@ -1,12 +1,8 @@
-<h1 align="center">Hi, I'm lzsm 👋</h1>
+<h2 align="center">Hi, I'm lzsm 👋</h2>
 
 <p align="center">
   <em>Me? Nobody.</em><br>
   Building ideas with a little help from ChatGPT and Claude.
-</p>
-
-<p align="center">
-  <img alt="Typing introduction" src="assets/typing.svg" width="680">
 </p>
 
 <p align="center">
