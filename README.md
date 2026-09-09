@@ -76,7 +76,7 @@ Activity time: 29h 39m
     <td width="50%" align="center" valign="top">
       <h3>NetEase Cloud Music</h3>
       <a href="https://music.163.com/#/user/home?id=3696535313">
-        <img alt="NetEase Cloud Music profile" src="https://img.shields.io/badge/NetEase%20Cloud%20Music-3696535313-C20C0C?style=flat-square">
+        <img alt="NetEase Cloud Music recent listening" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/main/163.svg" width="380">
       </a>
     </td>
   </tr>
