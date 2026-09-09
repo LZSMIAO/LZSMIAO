@@ -57,8 +57,6 @@
   </picture>
 </p>
 
-<br>
-
 <h2 align="center">Featured Projects</h2>
 
 <table align="center">
@@ -87,23 +85,11 @@
 <br>
 
 <p align="center">
-  <a href="mailto:lzsm@proton.me" title="Email">
-    <img src="https://cdn.simpleicons.org/protonmail/8B949E" alt="Email" width="28">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://x.com/lzsmtw" title="X">
-    <img src="https://cdn.simpleicons.org/x/8B949E" alt="X" width="28">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://t.me/lzsmi" title="Telegram">
-    <img src="https://cdn.simpleicons.org/telegram/8B949E" alt="Telegram" width="28">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://www.threads.com/@lzsmiao" title="Threads">
-    <img src="https://cdn.simpleicons.org/threads/8B949E" alt="Threads" width="28">
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" title="Spotify">
-    <img src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify" width="28">
-  </a>
+  <a href="mailto:lzsm@proton.me" title="Email"><img src="https://cdn.simpleicons.org/protonmail/8B949E" alt="Email" width="20"></a>
+  &nbsp;
+  <a href="https://x.com/lzsmtw" title="X"><img src="https://cdn.simpleicons.org/x/8B949E" alt="X" width="20"></a>
+  &nbsp;
+  <a href="https://t.me/lzsmi" title="Telegram"><img src="https://cdn.simpleicons.org/telegram/8B949E" alt="Telegram" width="20"></a>
+  &nbsp;
+  <a href="https://www.threads.com/@lzsmiao" title="Threads"><img src="https://cdn.simpleicons.org/threads/8B949E" alt="Threads" width="20"></a>
 </p>
