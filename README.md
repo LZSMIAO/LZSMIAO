@@ -94,8 +94,11 @@ Activity time: 29h 39m
 </table>
 
 <p align="center">
-  <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/EMAIL-cbd5df?style=flat-square" alt="Email"></a>
-  <a href="https://t.me/lzsmi"><img src="https://img.shields.io/badge/TELEGRAM-25a7df?style=flat-square" alt="Telegram"></a>
-  <a href="https://x.com/lzsmtw"><img src="https://img.shields.io/badge/X-000000?style=flat-square" alt="X"></a>
-  <a href="https://www.threads.com/@lzsmiao"><img src="https://img.shields.io/badge/THREADS-4c4c4c?style=flat-square" alt="Threads"></a>
+  <a href="mailto:lzsm@proton.me"><img src="https://cdn.simpleicons.org/protonmail/8B89CC" alt="Email" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://t.me/lzsmi"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://x.com/lzsmtw"><img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X" width="22" height="22"></a>
+  &nbsp;
+  <a href="https://www.threads.com/@lzsmiao"><img src="https://cdn.simpleicons.org/threads/FFFFFF" alt="Threads" width="22" height="22"></a>
 </p>
