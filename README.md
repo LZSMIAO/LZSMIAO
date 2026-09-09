@@ -6,10 +6,10 @@
 </p>
 
 <p align="left">
-  <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/Email-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="28"></a>
-  <a href="https://t.me/lzsmi"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="28"></a>
-  <a href="https://x.com/lzsmtw"><img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white" alt="X" height="28"></a>
-  <a href="https://www.threads.com/@lzsmiao"><img src="https://img.shields.io/badge/Threads-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="28"></a>
+  <a href="mailto:lzsm@proton.me"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="28"></a>
+  <a href="https://t.me/lzsmi"><img src="https://img.shields.io/badge/-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="28"></a>
+  <a href="https://x.com/lzsmtw"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=x&logoColor=white" alt="X" height="28"></a>
+  <a href="https://www.threads.com/@lzsmiao"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="28"></a>
 </p>
 
 ```text
