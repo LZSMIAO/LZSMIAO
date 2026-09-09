@@ -1,24 +1,28 @@
 <h2 align="center">Small tools. Big curiosity.</h2>
 
 <p align="center">
-  <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/coding-dark-mobile-88fde9615002.svg">
-    <source media="(max-width: 600px)" srcset="assets/coding-light-mobile-c73cee545b3e.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/coding-dark-e2c99928827c.svg">
-    <img alt="Recently" src="assets/coding-light-c9f059c0e238.svg" width="640">
-  </picture>
-</p>
-
-<h2 align="center">Hi, I'm lzsm 👋</h2>
-
-<p align="center">
   <em>Me? Nobody.</em><br>
-  Building ideas with a little help from ChatGPT and Claude.
+  Building ideas with a little help from ChatGPT Cloud.
 </p>
+
+```text
+📊 Last 7 days
+
+🕑︎ Time Zone: Asia/Hong Kong
+
+💬 Programming Languages:
+Vue              19 hrs 52 mins   █████████████████░░░░░░░░  67.0%
+Markdown          4 hrs 22 mins   ████░░░░░░░░░░░░░░░░░░░░  14.7%
+TypeScript        2 hrs 24 mins   ██░░░░░░░░░░░░░░░░░░░░░░   8.1%
+WGSL              1 hr 24 mins    █░░░░░░░░░░░░░░░░░░░░░░░   4.7%
+Other             1 hr 37 mins    █░░░░░░░░░░░░░░░░░░░░░░░   5.5%
+
+Activity time: 29h 39m
+```
 
 <br>
 
-<details>
+<details open>
   <summary><strong>Weekly Report</strong></summary>
 
   <br>
