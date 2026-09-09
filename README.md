@@ -85,11 +85,8 @@
 <br>
 
 <p align="center">
-  <a href="mailto:lzsm@proton.me" title="Email"><img src="https://cdn.simpleicons.org/protonmail/8B949E" alt="Email" width="20"></a>
-  &nbsp;
-  <a href="https://x.com/lzsmtw" title="X"><img src="https://cdn.simpleicons.org/x/8B949E" alt="X" width="20"></a>
-  &nbsp;
-  <a href="https://t.me/lzsmi" title="Telegram"><img src="https://cdn.simpleicons.org/telegram/8B949E" alt="Telegram" width="20"></a>
-  &nbsp;
-  <a href="https://www.threads.com/@lzsmiao" title="Threads"><img src="https://cdn.simpleicons.org/threads/8B949E" alt="Threads" width="20"></a>
+  <a href="mailto:lzsm@proton.me">Email</a> ·
+  <a href="https://x.com/lzsmtw">X</a> ·
+  <a href="https://t.me/lzsmi">Telegram</a> ·
+  <a href="https://www.threads.com/@lzsmiao">Threads</a>
 </p>
