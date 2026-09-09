@@ -71,7 +71,7 @@ Activity time: 29h 39m
   </a>
   &nbsp;&nbsp;
   <a href="https://music.163.com/">
-    <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/e29a1dc42ef59b764e156ebe8d94d2979291e760/163.svg" width="400">
+    <img alt="NetEase Cloud Music mock recently played" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/82e7735/163.svg" width="400">
   </a>
 </p>
 
