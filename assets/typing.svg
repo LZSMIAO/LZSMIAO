@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="50" viewBox="0 0 680 50" role="img" aria-label="Building small tools with big curiosity">
+  <style>text { font: 20px "SFMono-Regular", Consolas, monospace; fill: #58A6FF; }.line { opacity: 0; animation: show 11.1s infinite; }.line:nth-of-type(2) { animation-delay: 3.7s; }.line:nth-of-type(3) { animation-delay: 7.4s; } @keyframes show { 0%, 2% { opacity: 0; } 7%, 27% { opacity: 1; } 33%, 100% { opacity: 0; } }</style>
+  <text class="line" x="50%" y="30" text-anchor="middle">Building small tools with big curiosity</text>
+  <text class="line" x="50%" y="30" text-anchor="middle">Designing useful things for the web</text>
+  <text class="line" x="50%" y="30" text-anchor="middle">Always learning, always shipping</text>
+</svg>
