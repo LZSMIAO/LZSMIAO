@@ -1,6 +1,6 @@
-<h2 align="center">Small tools. Big curiosity.</h2>
+<h2 align="left">Small tools. Big curiosity.</h2>
 
-<p align="center">
+<p align="left">
   <em>Me? Nobody.</em><br>
   Building ideas with a little help from ChatGPT Cloud.
 </p>
