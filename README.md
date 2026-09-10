@@ -15,19 +15,18 @@
 ~~~text
 📊 Last 7 days
 
+🕑 Time Zone: Asia/Hong Kong
 
-🕑︎ Time Zone: Asia/Hong Kong
-
+2026-09-04 — 2026-09-10
 
 💬 Programming Languages:
-Vue              19 hrs 52 mins   █████████████████░░░░░░░░  67.0%
-Markdown          4 hrs 22 mins   ████░░░░░░░░░░░░░░░░░░░░  14.7%
-TypeScript        2 hrs 24 mins   ██░░░░░░░░░░░░░░░░░░░░░░   8.1%
-WGSL              1 hr 24 mins    █░░░░░░░░░░░░░░░░░░░░░░░   4.7%
-Other             1 hr 37 mins    █░░░░░░░░░░░░░░░░░░░░░░░   5.5%
+Vue                     19h 37m  ██████████████████░░░░░░░  72.8%
+Markdown                 4h 05m  ████░░░░░░░░░░░░░░░░░░░░░  15.2%
+WGSL                     1h 24m  █░░░░░░░░░░░░░░░░░░░░░░░░   5.2%
+JSON                        37m  █░░░░░░░░░░░░░░░░░░░░░░░░   2.3%
+Other                    1h 12m  █░░░░░░░░░░░░░░░░░░░░░░░░   4.5%
 
-
-Activity time: 29h 39m
+Activity time: 26h 57m
 ~~~
 
 <br>
