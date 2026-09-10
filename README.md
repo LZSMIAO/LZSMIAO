@@ -2,7 +2,7 @@
 
 <p align="left">
   <em>Me? Nobody.</em><br>
-  Building ideas ChatGPT & Laude
+  Building ideas with ChatGPT & Laude
 </p>
 
 <p align="left">
