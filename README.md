@@ -39,10 +39,10 @@ Activity time: 29h 39m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2b1e5f3f75d1.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-7a6bd5c3798c.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-e3a0ab40ca00.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-3ab45760e31d.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-48e1955c1bad.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-6cab8c45b2ed.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-341e84e4d72c.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-2a6246aed41f.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
@@ -54,7 +54,9 @@ Activity time: 29h 39m
 
   <br>
 
-  <pre>🛠️  <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a>                                      2026-09-09</pre>
+  <!-- ACTIVITY:START -->
+<pre>🛠️  <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a>                                  2026-09-08</pre>
+<!-- ACTIVITY:END -->
 </details>
 
 <br>
