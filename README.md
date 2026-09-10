@@ -5,8 +5,8 @@
   Building ideas with ChatGPT & Claude
 </p>
 
-<p align="left">
-  <a href="mailto:lzsm@proton.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
+<p align="center">
+  <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
   <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="32"></a>
   <a href="https://x.com/lzsmtw" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=x&logoColor=white" alt="X" height="32"></a>
   <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
