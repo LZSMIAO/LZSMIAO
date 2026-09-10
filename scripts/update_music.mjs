@@ -33,19 +33,8 @@ async function publishCard(platform, svg, transform = value => value) {
   await write('README.md', content)
 }
 async function spotify() {
-  const content = await read('README.md')
-  const uid = content.match(/https:\/\/open\.spotify\.com\/user\/([a-z0-9]+)/)?.[1]
-  if (!uid) throw new Error('Spotify profile missing')
-  const query = new URLSearchParams({ uid, cover_image: 'true', theme: 'default', show_offline: 'true', background_color: '121212', bar_color: '58A6FF', border_radius: '10' })
-  const svg = await (await request(`https://spotify-github-profile.kittinanx.com/api/view?${query}`)).text()
-  if (!svg.includes('<svg') || !svg.includes('</svg>')) throw new Error('Invalid Spotify response')
-  const logo = svg.match(/class="logo" src="(data:image\/png;base64,[^"]+)"/)?.[1]
-  if (!logo) throw new Error('Spotify logo missing')
-  const offline = svg.includes('Currently not playing on Spotify') || svg.includes('Nothing playing on Spotify')
-  if (!offline && !svg.includes('Now playing on <img')) throw new Error('Unrecognized Spotify state')
-  const reduced = '<style>@media(prefers-reduced-motion:reduce){.bar{animation:none!important}}</style>'
-  await publishCard('spotify', offline ? offlineCard(logo) : svg.replace('</svg>', `${reduced}</svg>`))
-  console.log(`Spotify: ${offline ? 'offline, no random history or animation' : 'playing, upstream waveform preserved'}.`)
+  // Kept as a safe no-op for older callers: never overwrite the live endpoint.
+  console.log('Spotify is served live by Cloudflare; no repository snapshot written.')
 }
 function encrypt(key, value) {
   const cipher = createCipheriv('aes-128-cbc', key, '0102030405060708')
