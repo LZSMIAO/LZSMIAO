@@ -68,13 +68,15 @@ Activity time: 29h 39m
 
 <a name="music-links"></a>
 <details>
-<summary>Song links</summary>
+<summary><strong>Song links</strong></summary>
 
-<p><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a><br><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></p>
-<p><a href="https://music.163.com/song?id=3416118315"><strong>深色</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
-<p><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
-<p><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
-<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a><br><a href="https://music.163.com/artist?id=35654284">普信主义</a></p>
+<br>
+
+<p><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></small></p>
+<p><a href="https://music.163.com/song?id=3416118315"><strong>深色</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
+<p><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
+<p><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
+<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
 
 </details>
 
