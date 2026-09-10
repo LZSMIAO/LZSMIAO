@@ -25,6 +25,7 @@ jobs:
       - name: Fetch recent public activity
         run: python3 scripts/update_activity.py
       - name: Save updated activity
+        if: ${{ !cancelled() }}
         run: |
           if git diff --quiet -- README.md assets/; then
             exit 0
