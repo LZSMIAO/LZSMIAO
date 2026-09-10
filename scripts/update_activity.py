@@ -44,10 +44,23 @@ def activity(events):
         date=str(event.get('created_at',''))[:10]
         if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',date):
             continue
-        lines.append(f'- {date} · {verb} [{repo}]({url})')
+        gap=' ' * max(2,64-len(verb)-len(repo))
+        lines.append(f'<pre>🛠️  <strong>{verb}</strong> · <a href="{url}">{repo}</a>{gap}{date}</pre>')
         if len(lines)==2:
             break
     return '\n'.join(lines) or '<sub>No public activity to display yet. This section will update automatically.</sub>'
+
+def update_content(original, events):
+    if START not in original and END not in original:
+        section=r'(<summary><strong>Recent Activity</strong></summary>\s*<br>\s*)(<pre>.*?</pre>)(\s*</details>)'
+        original,count=re.subn(section,lambda m:m[1]+START+'\n'+m[2]+'\n'+END+m[3],original,flags=re.S)
+        if count!=1:
+            raise ValueError('Cannot locate Recent Activity section')
+    if original.count(START)!=1 or original.count(END)!=1:
+        raise ValueError('Activity markers missing or duplicated')
+    before,remainder=original.split(START)
+    _,after=remainder.split(END)
+    return before+START+'\n'+activity(events)+'\n'+END+after
 
 def main():
     req=Request(f'https://api.github.com/users/{USER}/events/public?per_page=100',headers={
@@ -57,11 +70,7 @@ def main():
     if not isinstance(events,list):
         raise ValueError('Unexpected public events response')
     original=README.read_text()
-    if original.count(START)!=1 or original.count(END)!=1:
-        raise ValueError('Activity markers missing or duplicated')
-    before,remainder=original.split(START)
-    _,after=remainder.split(END)
-    updated=before+START+'\n'+activity(events)+'\n'+END+after
+    updated=update_content(original,events)
     if original!=updated:
         README.write_text(updated)
     print('Public activity updated.')
@@ -69,6 +78,6 @@ def main():
 if __name__=='__main__':
     try:
         main()
-    except Exception:
-        print('Public activity unavailable; existing feed preserved.',file=sys.stderr)
+    except Exception as error:
+        print(f'Public activity unavailable ({type(error).__name__}); existing feed preserved.',file=sys.stderr)
         sys.exit(1)
