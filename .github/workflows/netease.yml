@@ -1,25 +1,39 @@
-name: Update NetEase listening chart
+name: Update music cards
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 22 * * 0"
-  push:
-    branches: [main]
+    - cron: '7,22,37,52 * * * *'
 
 permissions:
   contents: write
 
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: zonemeen/netease-recent-actions@v1.1.0
-        with:
-          id: "3696535313"
-          type: "1"
-          number: "5"
-          width: "380"
-          column: "1"
-          theme: "dark"
-          show_percent: "0"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Update Spotify state
+        run: node scripts/update_music.mjs spotify
+      - name: Update NetEase weekly listening and song links
+        if: ${{ !cancelled() }}
+        env:
+          NETEASE_USER_ID: ${{ secrets.NETEASE_USER_ID }}
+        run: node scripts/update_music.mjs netease
+      - name: Save changed cards only
+        if: ${{ !cancelled() }}
+        run: |
+          git add README.md assets/
+          if git diff --cached --quiet; then
+            echo 'No music changes; nothing to publish.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: update music cards'
+          git push
