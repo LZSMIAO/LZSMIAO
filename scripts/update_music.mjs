@@ -1,6 +1,7 @@
 import { createCipheriv, createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { traditional } from './traditional.mjs'
 
 const root = new URL('../', import.meta.url)
 const read = path => readFile(new URL(path, root), 'utf8')
@@ -54,7 +55,7 @@ async function netease() {
   const tracks = await Promise.all(data.weekData.slice(0, 5).map(async ({ song }) => {
     const id = String(song.id)
     if (!/^\d+$/.test(id) || !song.name || !Array.isArray(song.ar)) throw new Error('Invalid song metadata')
-    const artists = song.ar.map(a => ({ id: String(a.id), name: a.name }))
+    const artists = song.ar.map(a => ({ id: String(a.id), name: traditional(a.name) }))
     if (artists.some(a => !/^\d+$/.test(a.id) || !a.name)) throw new Error('Invalid artist metadata')
     const url = new URL(song.al.picUrl)
     if (!url.hostname.endsWith('.music.126.net')) throw new Error('Unexpected cover host')
@@ -67,7 +68,7 @@ async function netease() {
       : bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : null
     if (!type || bytes.length > 2000000) throw new Error('Invalid cover image')
     const image = `data:${type};base64,${bytes.toString('base64')}`
-    return { id, name: song.name, artists, image }
+    return { id, name: traditional(song.name), artists, image }
   }))
   const previous = await read('assets/netease-clean.svg')
   const logo = previous.match(/<g transform="translate\(275 23\)">.*?<\/g>/)?.[0]

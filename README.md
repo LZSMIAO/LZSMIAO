@@ -62,7 +62,7 @@ Activity time: 26h 57m
 
 <p>
 <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49.5%"></a>
-<a href="#music-links"><img src="assets/netease-5b730cf62dba.svg" alt="Recently played on NetEase Cloud Music" width="49.5%"></a>
+<a href="#music-links"><img src="assets/netease-bc544330b92a.svg" alt="Recently played on NetEase Cloud Music" width="49.5%"></a>
 </p>
 
 <a name="music-links"></a>
@@ -71,11 +71,11 @@ Activity time: 26h 57m
 
 <br>
 
-<p><a href="https://music.163.com/song?id=3330630999"><strong>反乌托邦Pt.2</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">乌托邦P</a></small></p>
-<p><a href="https://music.163.com/song?id=2664295379"><strong>灾星</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
-<p><a href="https://music.163.com/song?id=2746375815"><strong>蓝天鹅 (Mo)</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
-<p><a href="https://music.163.com/song?id=2724564061"><strong>合上书本高考去</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
-<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主义</a></small></p>
+<p><a href="https://music.163.com/song?id=3330630999"><strong>反烏托邦Pt.2</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">烏托邦P</a></small></p>
+<p><a href="https://music.163.com/song?id=2664295379"><strong>災星</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
+<p><a href="https://music.163.com/song?id=2746375815"><strong>藍天鵝 (Mo)</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
+<p><a href="https://music.163.com/song?id=2724564061"><strong>合上書本高考去</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
+<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
 
 </details>
 
