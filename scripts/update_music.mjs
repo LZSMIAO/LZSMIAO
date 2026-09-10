@@ -20,7 +20,8 @@ export function offlineCard(logo) {
   return frame('Spotify — not playing', `<text x="20" y="36" fill="#f0f6fc" font-size="17" font-weight="600">Spotify</text><image x="275" y="20" width="25" height="25" href="${logo}"/><circle cx="160" cy="185" r="42" fill="#1c1c1c"/><image x="139" y="164" width="42" height="42" opacity="0.55" href="${logo}"/><text x="160" y="267" text-anchor="middle" fill="#f0f6fc" font-size="23" font-weight="600">Not playing</text><text x="160" y="293" text-anchor="middle" fill="#a7a7a7" font-size="12">Nothing playing right now</text>`)
 }
 export function songLinks(tracks) {
-  return tracks.map(({ id, name, artists }) => `<p><a href="https://music.163.com/song?id=${id}"><strong>${esc(name)}</strong></a> &nbsp;—&nbsp; <small>${artists.map(a => `<a href="https://music.163.com/artist?id=${a.id}">${esc(a.name)}</a>`).join(' · ')}</small></p>`).join('\n')
+  const rows = tracks.map(({ id, name, artists }) => `<tr><td><a href="https://music.163.com/song?id=${encodeURIComponent(id)}">${esc(name)}</a></td><td>${artists.map(a => esc(a.name)).join(' · ')}</td></tr>`).join('\n')
+  return `<table>\n<thead><tr><th align="left">Track</th><th align="left">Artist</th></tr></thead>\n<tbody>\n${rows}\n</tbody>\n</table>`
 }
 async function publishCard(platform, svg, transform = value => value) {
   const filename = `assets/${platform}-${createHash('sha256').update(svg).digest('hex').slice(0, 12)}.svg`

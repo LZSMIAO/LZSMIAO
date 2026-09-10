@@ -71,11 +71,16 @@ Activity time: 26h 57m
 
 <br>
 
-<p><a href="https://music.163.com/song?id=3330630999"><strong>反烏托邦Pt.2</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=51497522">亞細亞曠世奇才</a> · <a href="https://music.163.com/artist?id=906118">洛天依Official</a> · <a href="https://music.163.com/artist?id=96237339">烏托邦P</a></small></p>
-<p><a href="https://music.163.com/song?id=2664295379"><strong>災星</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
-<p><a href="https://music.163.com/song?id=2746375815"><strong>藍天鵝 (Mo)</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
-<p><a href="https://music.163.com/song?id=2724564061"><strong>合上書本高考去</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
-<p><a href="https://music.163.com/song?id=2652725695"><strong>潮汐之女</strong></a> &nbsp;—&nbsp; <small><a href="https://music.163.com/artist?id=35654284">普信主義</a></small></p>
+<table>
+<thead><tr><th align="left">Track</th><th align="left">Artist</th></tr></thead>
+<tbody>
+<tr><td><a href="https://music.163.com/song?id=3330630999">反烏托邦Pt.2</a></td><td>亞細亞曠世奇才 · 洛天依Official · 烏托邦P</td></tr>
+<tr><td><a href="https://music.163.com/song?id=2664295379">災星</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=2746375815">藍天鵝 (Mo)</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=2724564061">合上書本高考去</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=2652725695">潮汐之女</a></td><td>普信主義</td></tr>
+</tbody>
+</table>
 
 </details>
 

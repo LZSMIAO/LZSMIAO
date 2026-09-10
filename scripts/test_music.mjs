@@ -8,10 +8,13 @@ test('offline card matches music dimensions and has no fake animation', () => {
   assert.match(svg, /Not playing/)
   assert.doesNotMatch(svg, /animation|<animate|Recently played|<script/)
 })
-test('song and artist links are independent and escaped', () => {
+test('two-column song links keep only track clickable and escape metadata', () => {
   const html = songLinks([{ id: '123', name: '<Hello & world>', artists: [{id: '456', name: 'A & B'}]}])
   assert.match(html, /song\?id=123/)
-  assert.match(html, /artist\?id=456/)
+  assert.doesNotMatch(html, /artist\?id=/)
+  assert.equal((html.match(/<a href=/g) || []).length, 1)
+  assert.match(html, /<th align="left">Track<\/th><th align="left">Artist<\/th>/)
+  assert.match(html, /<td>A &amp; B<\/td>/)
   assert.match(html, /&lt;Hello &amp; world&gt;/)
-  assert.doesNotMatch(html, /user\/home|<table|<Hello/)
+  assert.doesNotMatch(html, /user\/home|<Hello/)
 })
