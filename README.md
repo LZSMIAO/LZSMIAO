@@ -1,8 +1,8 @@
-<h2 align="left">Small tools. Big curiosity.</h2>
+<h2 align="left">Finally, less can be more.</h2>
 
 <p align="left">
   <em>Me? Nobody.</em><br>
-  Building ideas with a little help from ChatGPT Cloud.
+  Building ideas ChatGPT & Laude
 </p>
 
 <p align="left">
