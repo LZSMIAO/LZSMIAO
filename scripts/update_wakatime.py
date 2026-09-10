@@ -63,11 +63,31 @@ def aggregate(payload,start,end):
         for name,seconds in languages.items()]}
 
 
-def save_cards(cards):
+def overview(data):
+    total=data['total_seconds']
+    rows=sorted(data['languages'],key=lambda r:r['total_seconds'],reverse=True)[:4]
+    rest=max(0,total-sum(r['total_seconds'] for r in rows))
+    if rest:
+        rows.append({'name':'Other','total_seconds':rest,'percent':100*rest/total})
+    lines=['~~~text','📊 Last 7 days','','🕑 Time Zone: Asia/Hong Kong','',
+           f"{data['start']} — {data['end']}",'','💬 Programming Languages:']
+    for row in rows:
+        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])
+        filled=round(row['percent']/4)
+        bar='█'*filled+'░'*(25-filled)
+        lines.append(f"{name:<20} {duration(row['total_seconds']):>10}  {bar} {row['percent']:5.1f}%")
+    return '\n'.join(lines+['',f'Activity time: {duration(total)}','~~~'])
+
+
+def save_cards(cards,data=None):
     assets=ROOT/'assets'
     assets.mkdir(exist_ok=True)
     readme=ROOT/'README.md'
     content=readme.read_text(encoding='utf-8')
+    if data is not None:
+        content,count=re.subn(r'~~~text\n📊 Last 7 days\n.*?\n~~~',lambda _:overview(data),content,flags=re.S)
+        if count!=1:
+            raise ValueError('Expected one activity overview block')
     keep=set()
     history_file=assets/'versions.json'
     history=json.loads(history_file.read_text()) if history_file.exists() else {}
@@ -110,7 +130,7 @@ def main():
         for mobile in (False,True) for theme in ('light','dark')}
     cards.update({'report-'+theme+('-mobile' if mobile else ''):report(data,theme,duration,label,mobile)
         for mobile in (False,True) for theme in ('light','dark')})
-    save_cards(cards)
+    save_cards(cards,data)
     print('Updated coding cards with the last seven days, including today.')
 
 
