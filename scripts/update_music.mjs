@@ -27,7 +27,7 @@ async function publishCard(platform, svg, transform = value => value) {
   const filename = `assets/${platform}-${createHash('sha256').update(svg).digest('hex').slice(0, 12)}.svg`
   let content = await read('README.md')
   const pattern = platform === 'spotify'
-    ? /(<img alt="Spotify now playing" src=")[^"]+(" width="49\.5%">)/
+    ? /(<img alt="Spotify now playing" src=")[^"]+(" width="[^"]+">)/
     : /(<img src=")assets\/netease-[^"]+(" alt="Recently played on NetEase Cloud Music")/
   if (!pattern.test(content)) throw new Error('Music card reference missing')
   content = transform(content.replace(pattern, `$1${filename}$2`))
