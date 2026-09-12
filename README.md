@@ -61,7 +61,7 @@ Activity time: 12h 20m
 <br>
 
 <p align="center">
-<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49%"></a><a href="#music-links"><img src="assets/netease-16f6f81f4811.svg" alt="Recently played on NetEase Cloud Music" width="49%"></a>
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49%"></a><a href="#music-links"><img src="assets/netease-9dcfbd0d3b97.svg" alt="Recently played on NetEase Cloud Music" width="49%"></a>
 </p>
 
 <a name="music-links"></a>
@@ -75,9 +75,9 @@ Activity time: 12h 20m
 <tbody>
 <tr><td><a href="https://music.163.com/song?id=3330630999">反烏托邦Pt.2</a></td><td>亞細亞曠世奇才 · 洛天依Official · 烏托邦P</td></tr>
 <tr><td><a href="https://music.163.com/song?id=2664295379">災星</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=1935414514">還能唱歌嗎（Prod by BECU BEATZ）</a></td><td>卦者靈風</td></tr>
 <tr><td><a href="https://music.163.com/song?id=2746375815">藍天鵝 (Mo)</a></td><td>普信主義</td></tr>
 <tr><td><a href="https://music.163.com/song?id=2657736998">晴天娃娃和雨後大哭臉</a></td><td>普信主義</td></tr>
-<tr><td><a href="https://music.163.com/song?id=2659236816">我們</a></td><td>普信主義</td></tr>
 </tbody>
 </table>
 
