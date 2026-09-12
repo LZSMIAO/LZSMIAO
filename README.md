@@ -20,13 +20,13 @@
 2026-09-06 — 2026-09-12
 
 💬 Programming Languages:
-Vue                      8h 17m  █████████████████░░░░░░░░  67.2%
-Markdown                 2h 37m  █████░░░░░░░░░░░░░░░░░░░░  21.3%
-Other                       24m  █░░░░░░░░░░░░░░░░░░░░░░░░   3.3%
-JSON                        20m  █░░░░░░░░░░░░░░░░░░░░░░░░   2.8%
-Other                       40m  █░░░░░░░░░░░░░░░░░░░░░░░░   5.5%
+Vue                     10h 02m  ██████████░░░░░░░░░░░░░░░  39.2%
+Markdown                 5h 58m  ██████░░░░░░░░░░░░░░░░░░░  23.3%
+TypeScript               4h 34m  ████░░░░░░░░░░░░░░░░░░░░░  17.9%
+Other                    2h 29m  ██░░░░░░░░░░░░░░░░░░░░░░░   9.8%
+Other                    2h 30m  ██░░░░░░░░░░░░░░░░░░░░░░░   9.8%
 
-Activity time: 12h 20m
+Activity time: 25h 36m
 ~~~
 
 <br>
@@ -38,10 +38,10 @@ Activity time: 12h 20m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-d3f11418846e.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-2de0130f79f1.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-86e73a166d5c.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-df844cd76f95.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-aab6f81ea72e.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-e2efa6c1e5c4.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-60d7d3cf594b.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-0c21c1ebf0ad.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
