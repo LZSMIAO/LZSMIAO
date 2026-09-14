@@ -17,16 +17,16 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-08 — 2026-09-14
+2026-09-09 — 2026-09-15
 
 💬 Programming Languages:
-TypeScript               4h 29m  ███████░░░░░░░░░░░░░░░░░░  29.3%
-Markdown                 3h 51m  ██████░░░░░░░░░░░░░░░░░░░  25.2%
-Other                    2h 29m  ████░░░░░░░░░░░░░░░░░░░░░  16.3%
-Vue                      2h 13m  ████░░░░░░░░░░░░░░░░░░░░░  14.5%
-Other                    2h 15m  ████░░░░░░░░░░░░░░░░░░░░░  14.7%
+TypeScript               3h 57m  █████████░░░░░░░░░░░░░░░░  35.5%
+Markdown                 3h 07m  ███████░░░░░░░░░░░░░░░░░░  28.0%
+Other                    2h 05m  █████░░░░░░░░░░░░░░░░░░░░  18.8%
+Vue                      1h 37m  ████░░░░░░░░░░░░░░░░░░░░░  14.5%
+Other                       21m  █░░░░░░░░░░░░░░░░░░░░░░░░   3.2%
 
-Activity time: 15h 19m
+Activity time: 11h 08m
 ~~~
 
 <br>
@@ -38,10 +38,10 @@ Activity time: 15h 19m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-56f770e1dc92.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-71da5e285518.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-4dd562e33200.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-34d8ea96614d.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-165d60d4d17e.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-82ea778b7594.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ead3a37a0990.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-69f484a89005.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
