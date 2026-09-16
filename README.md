@@ -17,16 +17,15 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-10 — 2026-09-16
+2026-09-11 — 2026-09-17
 
 💬 Programming Languages:
-Other                    1h 24m  ████████████░░░░░░░░░░░░░  46.7%
-TypeScript                  47m  ███████░░░░░░░░░░░░░░░░░░  26.1%
-Markdown                    36m  █████░░░░░░░░░░░░░░░░░░░░  20.3%
-Vue                          5m  █░░░░░░░░░░░░░░░░░░░░░░░░   2.9%
-Other                        7m  █░░░░░░░░░░░░░░░░░░░░░░░░   3.9%
+TypeScript                  18m  ████████████████░░░░░░░░░  64.7%
+Markdown                     6m  █████░░░░░░░░░░░░░░░░░░░░  21.5%
+JSON                         2m  ██░░░░░░░░░░░░░░░░░░░░░░░   7.6%
+JavaScript                   1m  ██░░░░░░░░░░░░░░░░░░░░░░░   6.2%
 
-Activity time: 3h 00m
+Activity time: 27m
 ~~~
 
 <br>
@@ -38,10 +37,10 @@ Activity time: 3h 00m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-78b11957a439.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1e4001299c2a.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-fa74e5555f0f.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-36e3a8ecdd97.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-e7375f74ad3c.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-2b7bd70249c3.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-23b91c886147.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-a542efa9c2ac.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
