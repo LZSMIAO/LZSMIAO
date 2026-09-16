@@ -60,7 +60,7 @@ Activity time: 27m
 <br>
 
 <p align="center">
-<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49%"></a><a href="#music-links"><img src="assets/netease-c631a1d52ee4.svg" alt="Recently played on NetEase Cloud Music" width="49%"></a>
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49%"></a><a href="#music-links"><img src="assets/netease-93c0ea0a6d60.svg" alt="Recently played on NetEase Cloud Music" width="49%"></a>
 </p>
 
 <a name="music-links"></a>
@@ -73,10 +73,10 @@ Activity time: 27m
 <thead><tr><th align="left">Track</th><th align="left">Artist</th></tr></thead>
 <tbody>
 <tr><td><a href="https://music.163.com/song?id=1935414514">還能唱歌嗎（Prod by BECU BEATZ）</a></td><td>卦者靈風</td></tr>
-<tr><td><a href="https://music.163.com/song?id=2036537776">寫你自己</a></td><td>因你而在的夢</td></tr>
 <tr><td><a href="https://music.163.com/song?id=3416118315">深色</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=2036537776">寫你自己</a></td><td>因你而在的夢</td></tr>
 <tr><td><a href="https://music.163.com/song?id=2724564061">合上書本高考去</a></td><td>普信主義</td></tr>
-<tr><td><a href="https://music.163.com/song?id=2664295379">災星</a></td><td>普信主義</td></tr>
+<tr><td><a href="https://music.163.com/song?id=3349578101">湖泊</a></td><td>薛之謙</td></tr>
 </tbody>
 </table>
 
