@@ -17,10 +17,9 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-12 — 2026-09-18
+2026-09-13 — 2026-09-19
 
 💬 Programming Languages:
-Markdown                    <1m  ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
 Activity time: <1m
 ~~~
@@ -34,10 +33,10 @@ Activity time: <1m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f1bde290c962.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-32724653d7f7.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-97d16bf183e1.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-0b1e3c6df0be.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6713cf893b02.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-20b1f0f9aaba.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-b25ec310b75b.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-4c4a0ad0f500.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
