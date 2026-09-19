@@ -17,11 +17,14 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-13 — 2026-09-19
+2026-09-14 — 2026-09-20
 
 💬 Programming Languages:
+JavaScript                   8m  █████████████████████████ 100.0%
+TypeScript                  <1m  ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
+JSON                        <1m  ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
-Activity time: <1m
+Activity time: 8m
 ~~~
 
 <br>
@@ -33,10 +36,10 @@ Activity time: <1m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6713cf893b02.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-20b1f0f9aaba.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-b25ec310b75b.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-4c4a0ad0f500.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2049ffc163fa.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-867a4e6cf3ac.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-d89cd4faf0e7.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-f7d170cac1a7.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
     </picture>
   </p>
 </details>
