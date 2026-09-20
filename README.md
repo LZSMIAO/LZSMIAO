@@ -53,11 +53,7 @@ Activity time: 20m
   <br>
 
   <!-- ACTIVITY:START -->
-<table>
-<tbody>
-<tr><td width="9999">🛠️ <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a></td><td align="right" nowrap><code>2026-09-19</code></td></tr>
-</tbody>
-</table>
+<a href="https://github.com/LZSMIAO/2fa-hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-afc3eaaef945.svg"><source media="(max-width: 600px)" srcset="assets/activity-95c688aa4710.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-e09a98cffeb2.svg"><img src="assets/activity-d637ab4c4f17.svg" alt="Updated project: LZSMIAO/2fa-hot — 2026-09-19" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </details>
 

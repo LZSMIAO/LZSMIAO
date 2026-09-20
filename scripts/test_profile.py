@@ -9,7 +9,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
 from update_wakatime import duration,label,aggregate
-from update_activity import activity
+from update_activity import activity,activity_card
 
 class ProfileTests(unittest.TestCase):
     def test_overview_matches_report_and_preserves_other_sections(self):
@@ -52,9 +52,18 @@ class ProfileTests(unittest.TestCase):
         result=activity(events, visibility_check=lambda repo: True)
         self.assertNotIn('private',result)
         self.assertNotIn('LZSMIAO/LZSMIAO',result)
-        self.assertEqual(result.count('<tr>'),2)
+        self.assertEqual(result.count('<picture>'),2)
         self.assertNotIn('three',result)
         self.assertIn('No public activity',activity([]))
+    def test_activity_card_date_is_right_aligned_without_wrapping(self):
+        for mobile,width in [(False,880),(True,480)]:
+            svg=activity_card('organization/project','Updated project','2026-09-20',True,mobile)
+            root=ET.fromstring(svg)
+            date=root.findall('.//{http://www.w3.org/2000/svg}text')[-1]
+            self.assertEqual(date.text,'2026-09-20')
+            self.assertEqual(date.get('text-anchor'),'end')
+            self.assertEqual(int(date.get('x')),width-20)
+
     def test_public_organization_activity_is_included(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'my-organization/public-project'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
         result=activity(events, visibility_check=lambda repo: repo=='my-organization/public-project')

@@ -1,5 +1,7 @@
 """Publish at most two public events, excluding this profile's update noise."""
 import json
+import hashlib
+from html import escape
 from functools import lru_cache
 from pathlib import Path
 import re
@@ -24,7 +26,30 @@ def repository_is_public(repo):
         # Fail closed: never publish a repository whose visibility cannot be verified.
         return False
 
-def activity(events, visibility_check=repository_is_public):
+def activity_card(repo, verb, date, dark=False, mobile=False):
+    width,height=(480,88) if mobile else (880,56)
+    bg,fg,link=('#161b22','#e6edf3','#58a6ff') if dark else ('#f6f8fa','#1f2328','#0969da')
+    short=repo if len(repo)<=52 else repo[:49]+'…'
+    label=f'🛠️ {verb}'
+    if mobile:
+        content=f'<text x="20" y="30" font-weight="600">{escape(label)}</text><text x="20" y="65" fill="{link}">{escape(short)}</text><text x="460" y="30" text-anchor="end">{date}</text>'
+    else:
+        content=f'<text x="20" y="34"><tspan font-weight="600">{escape(label)}</tspan><tspan> · </tspan><tspan fill="{link}">{escape(short)}</tspan></text><text x="860" y="34" text-anchor="end">{date}</text>'
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}"><rect width="{width}" height="{height}" rx="6" fill="{bg}"/><g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="{fg}">{content}</g></svg>'
+
+def activity_row(repo, verb, date, url, assets):
+    paths={}
+    for dark in (False,True):
+        for mobile in (False,True):
+            svg=activity_card(repo,verb,date,dark,mobile)
+            path='assets/activity-'+hashlib.sha256(svg.encode()).hexdigest()[:12]+'.svg'
+            if assets is not None:
+                assets[path]=svg
+            paths[dark,mobile]=path
+    alt=escape(f'{verb}: {repo} — {date}',quote=True)
+    return f'<a href="{url}"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="{paths[True,True]}"><source media="(max-width: 600px)" srcset="{paths[False,True]}"><source media="(prefers-color-scheme: dark)" srcset="{paths[True,False]}"><img src="{paths[False,False]}" alt="{alt}" width="100%"></picture></a>'
+
+def activity(events, visibility_check=repository_is_public, assets=None):
     lines=[]
     seen=set()
     for event in events:
@@ -60,12 +85,12 @@ def activity(events, visibility_check=repository_is_public):
         if not visibility_check(repo):
             continue
         seen.add(url)
-        lines.append(f'<tr><td width="9999">🛠️ <strong>{verb}</strong> · <a href="{url}">{repo}</a></td><td align="right" nowrap><code>{date}</code></td></tr>')
+        lines.append(activity_row(repo,verb,date,url,assets))
         if len(lines)==2:
             break
-    return ('<table>\n<tbody>\n'+'\n'.join(lines)+'\n</tbody>\n</table>') if lines else '<sub>No public activity to display yet. This section will update automatically.</sub>'
+    return '\n'.join(lines) if lines else '<sub>No public activity to display yet. This section will update automatically.</sub>'
 
-def update_content(original, events):
+def update_content(original, events, assets=None):
     if START not in original and END not in original:
         section=r'(<summary><strong>Recent Activity</strong></summary>\s*<br>\s*)(<pre>.*?</pre>)(\s*</details>)'
         original,count=re.subn(section,lambda m:m[1]+START+'\n'+m[2]+'\n'+END+m[3],original,flags=re.S)
@@ -75,7 +100,7 @@ def update_content(original, events):
         raise ValueError('Activity markers missing or duplicated')
     before,remainder=original.split(START)
     _,after=remainder.split(END)
-    return before+START+'\n'+activity(events)+'\n'+END+after
+    return before+START+'\n'+activity(events, assets=assets)+'\n'+END+after
 
 def main():
     req=Request(f'https://api.github.com/users/{USER}/events/public?per_page=100',headers={
@@ -85,7 +110,10 @@ def main():
     if not isinstance(events,list):
         raise ValueError('Unexpected public events response')
     original=README.read_text()
-    updated=update_content(original,events)
+    assets={}
+    updated=update_content(original,events,assets)
+    for path,svg in assets.items():
+        (README.parent/path).write_text(svg)
     if original!=updated:
         README.write_text(updated)
     print('Public activity updated.')
