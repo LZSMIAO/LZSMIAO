@@ -11,8 +11,9 @@ from coding_card import card
 from update_wakatime import duration,label,aggregate
 from update_activity import activity,activity_card
 from daily_art import card as art,shape
-from drift_bottle import sentence,card as bottle,update_content as bottle_content
+from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
 from publish import publish
+from ocean import SEAS
 
 class ProfileTests(unittest.TestCase):
     def test_overview_matches_report_and_preserves_other_sections(self):
@@ -174,6 +175,42 @@ class ProfileTests(unittest.TestCase):
         self.assertNotIn('old',twice)
         self.assertEqual(set(first)&set(second),set())
         self.assertTrue(twice.startswith('head\n') and twice.endswith('\ntail'))
+
+    def test_bottle_dates_follow_Hong_Kong_not_UTC(self):
+        # 01:57 in Hong Kong is still the previous afternoon in UTC.
+        self.assertEqual(local_day('2026-09-20T17:57:24Z'),'2026-09-21')
+        self.assertEqual(local_day('2026-09-21T12:00:00Z'),'2026-09-21')
+        self.assertEqual(local_day('2026-09-21T15:59:59Z'),'2026-09-21')
+        self.assertEqual(local_day('2026-09-21T16:00:00Z'),'2026-09-22')
+        with self.assertRaises(ValueError):
+            local_day('not a timestamp')
+
+    def test_daily_art_keeps_its_peaks_away_from_the_edges(self):
+        from datetime import date,timedelta
+        for step in range(120):
+            day=str(date(2026,9,21)+timedelta(days=step))
+            peaks=shape(day)['peaks']
+            self.assertTrue(peaks)
+            for across,_,amplitude,_,_ in peaks:
+                # An edge peak reads as a half-cropped accident, a flat one as no drawing at all.
+                self.assertGreaterEqual(across,.24)
+                self.assertLessEqual(across,.76)
+                self.assertGreaterEqual(amplitude,.30)
+
+    def test_bottle_floats_on_an_animated_sea(self):
+        for theme in ('light','dark'):
+            for mobile in (False,True):
+                svg=bottle('a line from a stranger','octocat','2026-09-21',theme,mobile)
+                ET.fromstring(svg)
+                self.assertIn('animateTransform',svg)
+                self.assertIn(SEAS[theme]['cork'],svg)
+                self.assertGreaterEqual(svg.count('<path'),3)
+        # An empty sea still moves, but nothing is floating on it.
+        empty=bottle('','','','dark')
+        ET.fromstring(empty)
+        self.assertIn('animateTransform',empty)
+        self.assertNotIn(SEAS['dark']['cork'],empty)
+        self.assertNotIn(SEAS['dark']['note'],empty)
 
     def test_publish_rotates_history_and_prunes_only_its_own_stem(self):
         with TemporaryDirectory() as directory:
