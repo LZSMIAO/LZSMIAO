@@ -29,12 +29,12 @@
 2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-Other      17h 39m  ████░░ 69.0%
-TypeScript  4h 31m  █░░░░░ 17.7%
-Markdown    2h 08m  █░░░░░  8.4%
-Rust        1h 14m  ░░░░░░  4.9%
+Other      13h 03m  ███░░░ 47.9%
+TypeScript  7h 27m  ██░░░░ 27.4%
+Markdown    3h 40m  █░░░░░ 13.5%
+Vue         3h 04m  █░░░░░ 11.3%
 
-Activity time: 25h 34m
+Activity time: 27h 15m
 ~~~
 
 <br>
@@ -46,10 +46,10 @@ Activity time: 25h 34m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-d8bb42998861.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-7c145274d851.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-85ad4f977af1.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-69356879f4d7.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-56f55c888246.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-74571192eec1.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-18d550ffce6f.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-489cb36f6bc5.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
