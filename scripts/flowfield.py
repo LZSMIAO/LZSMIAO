@@ -49,7 +49,7 @@ def streamline(angle,x,y,width,height,steps,step):
     return back[::-1]+[(x,y)]+march(angle,x,y,width,height,steps,step)
 
 
-def card(theme,width=880,height=230,seed='2026',lines=140,mobile=False):
+def card(theme,width=880,height=138,seed='2026',lines=140,mobile=False):
     t=THEMES[theme]
     angle=field(seed)
     rng=random.Random(int(sha256(f'starts/{seed}/{width}'.encode()).hexdigest(),16))
@@ -93,8 +93,8 @@ def card(theme,width=880,height=230,seed='2026',lines=140,mobile=False):
 
 
 def main():
-    publish({'flow-'+theme+('-mobile' if mobile else ''):card(theme,480,150,lines=95,mobile=True) if mobile
-             else card(theme,880,230)
+    publish({'flow-'+theme+('-mobile' if mobile else ''):card(theme,480,92,lines=95,mobile=True) if mobile
+             else card(theme,880,138)
              for mobile in (False,True) for theme in ('light','dark')})
     print('Flow field redrawn.')
 
