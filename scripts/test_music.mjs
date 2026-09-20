@@ -14,7 +14,7 @@ test('two-column song links keep only track clickable and escape metadata', () =
   assert.doesNotMatch(html, /artist\?id=/)
   assert.equal((html.match(/<a href=/g) || []).length, 1)
   assert.match(html, /<th align="left">Track<\/th><th align="left">Artist<\/th>/)
-  assert.match(html, /<td>A &amp; B<\/td>/)
+  assert.match(html, /<td align="left" valign="top">A &amp; B<\/td>/)
   assert.match(html, /&lt;Hello &amp; world&gt;/)
   assert.doesNotMatch(html, /user\/home|<Hello/)
 })
