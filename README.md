@@ -81,10 +81,10 @@ Activity time: 25h 34m
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-ca0b49639b6f.svg">
-    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-5b36c063ac06.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e9cdbaf104e8.svg">
-    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-6a8ed67ab41d.svg" width="880" style="display: block; width: 100%;">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-7699a25c18cc.svg">
+    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-06fef0853e22.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e5c0be310778.svg">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="880" style="display: block; width: 100%;">
   </picture>
 </p>
 
