@@ -55,6 +55,11 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(result.count('<tr>'),2)
         self.assertNotIn('three',result)
         self.assertIn('No public activity',activity([]))
+    def test_public_organization_activity_is_included(self):
+        events=[{'public':True,'type':'PushEvent','repo':{'name':'my-organization/public-project'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
+        result=activity(events, visibility_check=lambda repo: repo=='my-organization/public-project')
+        self.assertIn('https://github.com/my-organization/public-project',result)
+
     def test_public_event_from_now_private_repository_is_hidden(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'owner/now-private'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
         result=activity(events, visibility_check=lambda repo: False)
