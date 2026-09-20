@@ -31,6 +31,16 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(first,readme.read_text())
             self.assertTrue(first.startswith('before\n') and first.endswith('\nafter'))
             self.assertNotIn('stale',first)
+    def test_overview_stays_narrow_enough_for_a_phone(self):
+        # A 390px phone shows about 45 monospace columns before the block scrolls.
+        data={'total_seconds':82800,'start':'2026-09-15','end':'2026-09-21','languages':[
+            {'name':'WebGPU Shading Language','total_seconds':40000,'percent':48.3},
+            {'name':'Objective-C++','total_seconds':30000,'percent':36.2},
+            {'name':'TypeScript','total_seconds':12800,'percent':15.5}]}
+        for line in overview(data).split('\n'):
+            self.assertLessEqual(len(line),45,line)
+        self.assertIn('23h 00m',overview(data))
+
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
         for theme in ('light','dark'):
