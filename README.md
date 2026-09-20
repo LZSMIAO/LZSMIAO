@@ -133,7 +133,7 @@ Activity time: 21m
 
 <p align="center">
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/2"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-361abc4f7fce.svg"><source media="(max-width: 600px)" srcset="assets/bottle-331188cf15b7.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-8b9d43b5dd0e.svg"><img src="assets/bottle-1219b4e1df59.svg" alt="第一個瓶子，丟進自己的海裡。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-dc704092fc38.svg"><source media="(max-width: 600px)" srcset="assets/bottle-b73075934fbf.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-78379160f4a5.svg"><img src="assets/bottle-d1ddb6d9fea7.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 
