@@ -1,4 +1,5 @@
 """One sentence from a visitor, kept on the page until the next one washes ashore."""
+from datetime import datetime
 from hashlib import sha256
 from html import escape
 import json
@@ -7,6 +8,8 @@ from pathlib import Path
 import re
 import sys
 from unicodedata import east_asian_width,normalize
+from zoneinfo import ZoneInfo
+from ocean import SEAS,ocean,sky
 
 ROOT=Path(__file__).resolve().parents[1]
 README=ROOT/'README.md'
@@ -40,6 +43,12 @@ def sentence(body):
     return ''
 
 
+def local_day(stamp):
+    """GitHub stamps issues in UTC; the rest of this profile lives in Asia/Hong_Kong."""
+    moment=datetime.strptime(str(stamp),'%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=ZoneInfo('UTC'))
+    return str(moment.astimezone(ZoneInfo('Asia/Hong_Kong')).date())
+
+
 def wrap(text,budget):
     lines=[]
     current=''
@@ -59,28 +68,46 @@ def wrap(text,budget):
 
 
 def card(text,login,day,theme,mobile=False):
+    sea=SEAS[theme]
     t=THEMES[theme]
     width=480 if mobile else 880
     pad=20 if mobile else 28
     size=17 if mobile else 20
     step=26 if mobile else 30
+    band=124 if mobile else 158
     rows=wrap(text,int((width-2*pad)/(size/2))) if text else []
-    body=rows or ['還沒有人丟瓶子進來。']
-    height=74+len(body)*step+(30 if mobile else 26)
-    alt=f'{text} — @{login}' if text else 'No bottle has washed ashore yet'
+    body=rows or ['\u9084\u6c92\u6709\u4eba\u4e1f\u74f6\u5b50\u9032\u4f86\u3002']
+    written=76+(len(body)-1)*step
+    credit=written+(28 if mobile else 32)
+    top=credit+(16 if mobile else 20)
+    height=top+band
+    alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
+    scene='A bottle corked and drifting on an animated sea' if text else 'An empty sea, waiting'
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',
-           f'<desc id="bottle-desc">{escape(alt)}</desc>',
+           f'<desc id="bottle-desc">{escape(alt+". "+scene+".")}</desc>',
            '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
+           '<defs>',
+           f'<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">'
+           f'<stop offset="0" stop-color="{sea["sky"][0]}"/><stop offset="1" stop-color="{sea["sky"][1]}"/>'
+           '</linearGradient>',
+           f'<clipPath id="hull"><rect width="{width}" height="{height}" rx="12"/></clipPath>',
+           '</defs>',
+           f'<g clip-path="url(#hull)">',
+           f'<rect width="{width}" height="{height}" fill="url(#sky)"/>',
+           sky(width,top,theme),
+           ocean(width,height,top,theme,.85 if mobile else 1.0,bool(text)),
+           '</g>',
            f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
-           f'<text x="{pad}" y="34" font-size="13" fill="{t["muted"]}" letter-spacing="1.5">漂流瓶 · DRIFT BOTTLE</text>']
+           f'<text x="{pad}" y="34" font-size="13" fill="{t["muted"]}" letter-spacing="1.5">'
+           '\u6f02\u6d41\u74f6 \u00b7 DRIFT BOTTLE</text>']
     for i,row in enumerate(body):
-        colour=t['ink'] if text else t['muted']
-        parts.append(f'<text x="{pad}" y="{74+i*step}" font-size="{size}" fill="{colour}">{escape(row)}</text>')
+        parts.append(f'<text x="{pad}" y="{76+i*step}" font-size="{size}" '
+                     f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')
     if text:
-        parts.append(f'<text x="{width-pad}" y="{height-18}" font-size="14" fill="{t["muted"]}" '
-                     f'text-anchor="end">— @{escape(login)} · {day}</text>')
+        parts.append(f'<text x="{width-pad}" y="{credit}" font-size="14" fill="{t["muted"]}" '
+                     f'text-anchor="end">\u2014 @{escape(login)} \u00b7 {day}</text>')
     return ''.join(parts)+'</svg>\n'
 
 
@@ -119,9 +146,7 @@ def main():
     login=issue.get('user',{}).get('login','')
     if not text or not LOGIN.fullmatch(str(login)):
         raise ValueError('Nothing usable in this bottle')
-    day=str(issue.get('created_at',''))[:10]
-    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',day):
-        raise ValueError('Unexpected issue timestamp')
+    day=local_day(issue.get('created_at',''))
     assets={}
     original=README.read_text(encoding='utf-8')
     updated=update_content(original,text,login,day,issue.get('number'),assets)

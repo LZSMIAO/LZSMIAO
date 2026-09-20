@@ -18,8 +18,9 @@ def shape(day):
     """Everything random about a day, decided once so every renderer agrees."""
     rng=random.Random(int(sha256(f'LZSMIAO/{day}'.encode()).hexdigest(),16))
     count=rng.randint(19,25)
-    peaks=[(rng.uniform(.08,.92),rng.uniform(-.05,1.05),rng.uniform(.20,.44),
-            rng.uniform(.06,.17),rng.uniform(.24,.52)) for _ in range(rng.randint(2,4))]
+    # Peaks stay in the middle two thirds: an edge peak reads as a half-cropped accident.
+    peaks=[(rng.uniform(.24,.76),rng.uniform(-.05,1.05),rng.uniform(.30,.50),
+            rng.uniform(.07,.16),rng.uniform(.24,.52)) for _ in range(rng.randint(2,4))]
     return dict(count=count,peaks=peaks,accent=rng.randrange(count),
                 ripple=(rng.uniform(1.4,3.6),rng.uniform(0,2*pi),rng.uniform(.012,.030)))
 
