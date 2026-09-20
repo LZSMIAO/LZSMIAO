@@ -60,7 +60,7 @@ def activity(events, visibility_check=repository_is_public):
         if not visibility_check(repo):
             continue
         seen.add(url)
-        lines.append(f'<tr><td width="100%">🛠️ <strong>{verb}</strong> · <a href="{url}">{repo}</a></td><td align="right" nowrap><code>{date}</code></td></tr>')
+        lines.append(f'<tr><td width="9999">🛠️ <strong>{verb}</strong> · <a href="{url}">{repo}</a></td><td align="right" nowrap><code>{date}</code></td></tr>')
         if len(lines)==2:
             break
     return ('<table>\n<tbody>\n'+'\n'.join(lines)+'\n</tbody>\n</table>') if lines else '<sub>No public activity to display yet. This section will update automatically.</sub>'

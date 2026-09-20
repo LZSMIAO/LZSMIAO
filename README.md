@@ -55,7 +55,7 @@ Activity time: 20m
   <!-- ACTIVITY:START -->
 <table>
 <tbody>
-<tr><td width="100%">🛠️ <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a></td><td align="right" nowrap><code>2026-09-19</code></td></tr>
+<tr><td width="9999">🛠️ <strong>Updated project</strong> · <a href="https://github.com/LZSMIAO/2fa-hot">LZSMIAO/2fa-hot</a></td><td align="right" nowrap><code>2026-09-19</code></td></tr>
 </tbody>
 </table>
 <!-- ACTIVITY:END -->
