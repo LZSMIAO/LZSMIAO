@@ -50,35 +50,47 @@ def ocean(width,height,top,theme,scale=1.0,bottle=True,seed=0):
 
 
 def floating(x,y,scale,sea):
-    """A corked bottle with a note inside, bobbing and tilting on the swell."""
-    # One continuous outline: body, shoulder, neck and lip in a single path, so the
-    # glass has no internal seams where separate shapes used to meet.
-    outline=('M-30,-5.4Q-30,-10 -25.4,-10L8,-10Q17,-10 21.2,-5.6L26.4,-4.6'
-             'Q29,-4.2 29,-3.2L29,3.2Q29,4.2 26.4,4.6L21.2,5.6Q17,10 8,10'
-             'L-25.4,10Q-30,10 -30,5.4Z')
-    glass=(f'<path d="{outline}" fill="{sea["shine"]}" fill-opacity=".07" '
-           f'stroke="{sea["glass"]}" stroke-width="1.5" stroke-linejoin="round"/>'
-           # The cork sits inside the neck rather than capping it from outside.
-           f'<path d="M26.8,-4.4Q33.4,-4 33.4,0Q33.4,4 26.8,4.4Z" fill="{sea["cork"]}"/>'
-           f'<path d="M26.8,-4.4Q33.4,-4 33.4,0Q33.4,4 26.8,4.4Z" fill="none" '
-           f'stroke="{sea["cork"]}" stroke-width="1.6" stroke-linejoin="round"/>'
-           # A rolled note, narrower and dimmer than the glass so it reads as inside.
-           f'<g transform="rotate(-4)"><rect x="-20" y="-5.2" width="19" height="10.4" rx="5.2" '
-           f'fill="{sea["note"]}" fill-opacity=".62"/>'
-           f'<path d="M-16.4,-1.6h11M-16.4,1.8h7.5" stroke="{sea["cork"]}" stroke-opacity=".5" '
-           'stroke-width="1.1" stroke-linecap="round"/></g>'
-           # Two highlights: a long one along the shoulder, a short one on the base.
-           f'<path d="M-25,-6.4Q-16,-8.2 -3,-7.6" fill="none" stroke="{sea["shine"]}" '
-           'stroke-opacity=".5" stroke-width="1.7" stroke-linecap="round"/>'
-           f'<path d="M-26.6,4.6Q-23,6.2 -19,6.4" fill="none" stroke="{sea["shine"]}" '
-           'stroke-opacity=".22" stroke-width="1.3" stroke-linecap="round"/>')
+    """A corked bottle with a rolled note, bobbing and tilting on the swell."""
+    # Silhouette in one path: rounded base, long cubic shoulder, neck, flared lip.
+    body=('M-36,-6.4Q-36,-11 -31,-11L5,-11C13.5,-11 18.5,-8.7 23,-5.1'
+          'L27,-4.3L32.4,-4.3Q35.4,-4.3 35.4,-3.1L35.4,3.1'
+          'Q35.4,4.3 32.4,4.3L27,4.3L23,5.1C18.5,8.7 13.5,11 5,11'
+          'L-31,11Q-36,11 -36,6.4Z')
+    parts=[f'<defs><linearGradient id="pane" x1="0" y1="0" x2="0" y2="1">'
+           f'<stop offset="0" stop-color="{sea["shine"]}" stop-opacity=".17"/>'
+           f'<stop offset=".45" stop-color="{sea["shine"]}" stop-opacity=".06"/>'
+           f'<stop offset="1" stop-color="{sea["shine"]}" stop-opacity=".02"/>'
+           '</linearGradient></defs>',
+           f'<path d="{body}" fill="url(#pane)" stroke="{sea["glass"]}" stroke-opacity=".85" '
+           'stroke-width="1.1" stroke-linejoin="round"/>',
+           # Seated inside the neck, not capped over it: glass still shows above and
+           # below, and the outer end is rounded the way a cork actually is.
+           f'<path d="M26.4,-3.4L32.2,-3.4Q34.6,-3.4 34.6,0Q34.6,3.4 32.2,3.4L26.4,3.4Z" '
+           f'fill="{sea["cork"]}" fill-opacity=".9"/>',
+           f'<path d="M26.4,.6L34.5,.6Q34.2,3.4 32.2,3.4L26.4,3.4Z" fill="#000000" fill-opacity=".18"/>',
+           f'<path d="M27.4,-2.2Q31,-2.6 33.4,-1.4" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".26" stroke-width="1"/>',
+           f'<path d="M29.2,-3.4L29.2,3.4" stroke="#000000" stroke-opacity=".2" stroke-width=".9"/>',
+           # A rolled note: a warm cylinder with a visible curl at its left end.
+           '<g transform="rotate(-5)">',
+           f'<rect x="-25" y="-6.1" width="22" height="12.2" rx="6.1" fill="{sea["note"]}" fill-opacity=".72"/>',
+           f'<path d="M-19,-6.1Q-22.4,0 -19,6.1" fill="none" stroke="{sea["cork"]}" '
+           'stroke-opacity=".38" stroke-width="1.1"/>',
+           f'<path d="M-15.6,-2.4h9.4M-15.6,.4h6.4M-15.6,3.2h8" stroke="{sea["cork"]}" '
+           'stroke-opacity=".5" stroke-width="1.05" stroke-linecap="round"/>',
+           '</g>',
+           # Two speculars: a long one riding the shoulder, a short catch on the base.
+           f'<path d="M-29.5,-7.4Q-16,-9.4 2,-8.5" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".62" stroke-width="1.9" stroke-linecap="round"/>',
+           f'<path d="M-32,5.4Q-27.5,7.6 -22.5,8" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".2" stroke-width="1.4" stroke-linecap="round"/>']
     return (f'<g transform="translate({x:.1f},{y:.1f})">'
             '<animateTransform attributeName="transform" type="translate" additive="sum" '
             'values="0,0;0,-3.4;0,0;0,2.6;0,0" dur="7s" repeatCount="indefinite"/>'
             f'<g transform="scale({scale:.3f})">'
             '<animateTransform attributeName="transform" type="rotate" additive="sum" '
             'values="-7;-1;-7;-12;-7" dur="7s" repeatCount="indefinite"/>'
-            f'{glass}</g></g>')
+            +''.join(parts)+'</g></g>')
 
 
 def sky(width,top,theme,seed=0):
