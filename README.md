@@ -29,10 +29,10 @@
 2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-JavaScript         8m  █████░░░░░░░  39.5%
-Markdown           8m  █████░░░░░░░  39.3%
-Other              4m  ███░░░░░░░░░  21.2%
-TypeScript        <1m  ░░░░░░░░░░░░   0.0%
+JavaScript      8m  ██░░░░ 39.5%
+Markdown        8m  ██░░░░ 39.3%
+Other           4m  █░░░░░ 21.2%
+TypeScript     <1m  ░░░░░░  0.0%
 
 Activity time: 21m
 ~~~
