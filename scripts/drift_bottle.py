@@ -76,7 +76,7 @@ def card(text,login,day,theme,mobile=False):
     step=26 if mobile else 30
     band=124 if mobile else 158
     rows=wrap(text,int((width-2*pad)/(size/2))) if text else []
-    body=rows or ['\u9084\u6c92\u6709\u4eba\u4e1f\u74f6\u5b50\u9032\u4f86\u3002']
+    body=rows or ['No bottle has washed ashore yet.']
     written=76+(len(body)-1)*step
     credit=written+(28 if mobile else 32)
     top=credit+(16 if mobile else 20)
@@ -101,7 +101,7 @@ def card(text,login,day,theme,mobile=False):
            '</g>',
            f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
            f'<text x="{pad}" y="34" font-size="13" fill="{t["muted"]}" letter-spacing="1.5">'
-           '\u6f02\u6d41\u74f6 \u00b7 DRIFT BOTTLE</text>']
+           'DRIFT BOTTLE</text>']
     for i,row in enumerate(body):
         parts.append(f'<text x="{pad}" y="{76+i*step}" font-size="{size}" '
                      f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')

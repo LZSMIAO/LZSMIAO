@@ -39,7 +39,8 @@ def card(data, theme, duration, label, mobile=False):
     rows=sorted(data.get('languages',[]),key=lambda r:float(r['total_seconds']),reverse=True)[:4]
     rest=max(0,total-sum(float(r['total_seconds']) for r in rows))
     if rest>0:
-        rows=rows+[{'name':'Other','total_seconds':rest,'percent':100*rest/total}]
+        from update_wakatime import merge_remainder
+        rows=merge_remainder(rows,rest,total)
     alt=['Recent activity from the last seven days', 'Waiting for the first activity record' if total==0 else 'Total time '+duration(total)]
     alt.extend(f'{label(r["name"])} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in rows)
     alt.extend(f'{d["date"]} {duration(d["total_seconds"])}' for d in days)

@@ -51,17 +51,27 @@ def ocean(width,height,top,theme,scale=1.0,bottle=True,seed=0):
 
 def floating(x,y,scale,sea):
     """A corked bottle with a note inside, bobbing and tilting on the swell."""
-    glass=(f'<rect x="-26" y="-9.5" width="40" height="19" rx="7" fill="{sea["shine"]}" fill-opacity=".07" '
-           f'stroke="{sea["glass"]}" stroke-width="1.4"/>'
-           f'<path d="M14,-8.4Q23,-7.2 26,-4.2L26,4.2Q23,7.2 14,8.4" fill="{sea["shine"]}" fill-opacity=".07" '
-           f'stroke="{sea["glass"]}" stroke-width="1.4" stroke-linejoin="round"/>'
-           f'<rect x="25" y="-4.4" width="7" height="8.8" rx="1.2" fill="{sea["glass"]}" fill-opacity=".18" '
-           f'stroke="{sea["glass"]}" stroke-width="1.2"/>'
-           f'<rect x="31" y="-4.8" width="6" height="9.6" rx="2" fill="{sea["cork"]}"/>'
-           f'<rect x="-17" y="-6.6" width="21" height="10" rx="2.4" fill="{sea["note"]}" fill-opacity=".85"/>'
-           f'<path d="M-13,-3.8h13M-13,-0.2h9" stroke="{sea["cork"]}" stroke-opacity=".45" stroke-width="1"/>'
-           f'<path d="M-22,-5.6Q-14,-7.6 -4,-7" fill="none" stroke="{sea["shine"]}" stroke-opacity=".55" '
-           'stroke-width="1.6" stroke-linecap="round"/>')
+    # One continuous outline: body, shoulder, neck and lip in a single path, so the
+    # glass has no internal seams where separate shapes used to meet.
+    outline=('M-30,-5.4Q-30,-10 -25.4,-10L8,-10Q17,-10 21.2,-5.6L26.4,-4.6'
+             'Q29,-4.2 29,-3.2L29,3.2Q29,4.2 26.4,4.6L21.2,5.6Q17,10 8,10'
+             'L-25.4,10Q-30,10 -30,5.4Z')
+    glass=(f'<path d="{outline}" fill="{sea["shine"]}" fill-opacity=".07" '
+           f'stroke="{sea["glass"]}" stroke-width="1.5" stroke-linejoin="round"/>'
+           # The cork sits inside the neck rather than capping it from outside.
+           f'<path d="M26.8,-4.4Q33.4,-4 33.4,0Q33.4,4 26.8,4.4Z" fill="{sea["cork"]}"/>'
+           f'<path d="M26.8,-4.4Q33.4,-4 33.4,0Q33.4,4 26.8,4.4Z" fill="none" '
+           f'stroke="{sea["cork"]}" stroke-width="1.6" stroke-linejoin="round"/>'
+           # A rolled note, narrower and dimmer than the glass so it reads as inside.
+           f'<g transform="rotate(-4)"><rect x="-20" y="-5.2" width="19" height="10.4" rx="5.2" '
+           f'fill="{sea["note"]}" fill-opacity=".62"/>'
+           f'<path d="M-16.4,-1.6h11M-16.4,1.8h7.5" stroke="{sea["cork"]}" stroke-opacity=".5" '
+           'stroke-width="1.1" stroke-linecap="round"/></g>'
+           # Two highlights: a long one along the shoulder, a short one on the base.
+           f'<path d="M-25,-6.4Q-16,-8.2 -3,-7.6" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".5" stroke-width="1.7" stroke-linecap="round"/>'
+           f'<path d="M-26.6,4.6Q-23,6.2 -19,6.4" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".22" stroke-width="1.3" stroke-linecap="round"/>')
     return (f'<g transform="translate({x:.1f},{y:.1f})">'
             '<animateTransform attributeName="transform" type="translate" additive="sum" '
             'values="0,0;0,-3.4;0,0;0,2.6;0,0" dur="7s" repeatCount="indefinite"/>'
@@ -77,9 +87,14 @@ def sky(width,top,theme,seed=0):
     parts=[]
     if sea['moon']:
         mx,my=width*.885,top*.32
-        parts.append(f'<defs><mask id="crescent"><circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="#fff"/>'
+        parts.append(f'<defs><radialGradient id="halo">'
+                     f'<stop offset="0" stop-color="{sea["moon"]}" stop-opacity=".16"/>'
+                     f'<stop offset=".55" stop-color="{sea["moon"]}" stop-opacity=".05"/>'
+                     f'<stop offset="1" stop-color="{sea["moon"]}" stop-opacity="0"/></radialGradient>'
+                     f'<mask id="crescent"><circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="#fff"/>'
                      f'<circle cx="{mx+5:.0f}" cy="{my-3.5:.0f}" r="10" fill="#000"/></mask></defs>'
-                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="{sea["moon"]}" fill-opacity=".34" '
+                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="34" fill="url(#halo)"/>'
+                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="{sea["moon"]}" fill-opacity=".40" '
                      'mask="url(#crescent)"/>')
         spots=[(.06,.52,1.0),(.14,.26,.7),(.23,.62,.9),(.35,.20,.6),(.47,.48,.8),
                (.58,.24,.65),(.67,.58,.9),(.78,.32,.7),(.93,.56,.8),(.29,.40,.55)]
