@@ -35,7 +35,7 @@ def activity_card(repo, verb, date, dark=False, mobile=False):
         content=f'<text x="20" y="30" font-weight="600">{escape(label)}</text><text x="20" y="65" fill="{link}">{escape(short)}</text><text x="460" y="30" text-anchor="end">{date}</text>'
     else:
         content=f'<text x="20" y="34"><tspan font-weight="600">{escape(label)}</tspan><tspan> · </tspan><tspan fill="{link}">{escape(short)}</tspan></text><text x="860" y="34" text-anchor="end">{date}</text>'
-    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}"><rect width="{width}" height="{height}" rx="6" fill="{bg}"/><g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="{fg}">{content}</g></svg>'
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}"><rect width="{width}" height="{height}" rx="12" fill="{bg}"/><g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="{fg}">{content}</g></svg>'
 
 def activity_row(repo, verb, date, url, assets):
     paths={}
