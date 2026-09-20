@@ -16,6 +16,7 @@ from coding_card import card
 from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
+BAR=12
 
 
 def number(value):
@@ -72,10 +73,11 @@ def overview(data):
     lines=['~~~text','📊 Last 7 days','','🕑 Time Zone: Asia/Hong Kong','',
            f"{data['start']} — {data['end']}",'','💬 Programming Languages:']
     for row in rows:
-        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])
-        filled=round(row['percent']/4)
-        bar='█'*filled+'░'*(25-filled)
-        lines.append(f"{name:<20} {duration(row['total_seconds']):>10}  {bar} {row['percent']:5.1f}%")
+        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:BAR+1]
+        filled=round(row['percent']*BAR/100)
+        bar='█'*filled+'░'*(BAR-filled)
+        # 42 columns total: a phone shows about 45 before the block starts scrolling.
+        lines.append(f"{name:<13} {duration(row['total_seconds']):>7}  {bar} {row['percent']:5.1f}%")
     return '\n'.join(lines+['',f'Activity time: {duration(total)}','~~~'])
 
 
