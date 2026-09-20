@@ -46,24 +46,7 @@ Activity time: 8m
 
 <br>
 
-<details>
-<summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
-
-<br>
-
-...大概是2021年，第四次工業革命，人類進入AI時代。由此，經常看到有人在濫用，甚至專業程序員，也幹這種勾當——只用5分鐘 就生成一個他媽的漸變、不對齊、用了100個不同設計風格UI、1000種元素的前端。
-像是某些連我訊息都不敢回的人，只用AI隨便做一個粗製濫造的垃圾系統 就能賣貨給灰產用戶發大財。
-…這一切看得我噁心，我從床上爬起來，吐了一遍又一遍，可惜沒被穩穩接住。
-
-我想要做的 有錢人都做過了。2fa.hot 幾乎由 Vibe Coding 完成——當然，我將它改到勉強滿意才上線。正如我和同事的某些項目一樣，我們希望早日上線，但止不住一遍遍修訂，直到符合我們的要求，直到它從未上線。某些項目也許未來會被讀這條文字的各位熟知，儘管你們也不會知道那是我們做的。這感覺 像是回到6年前，打開Premiere Pro，全身心投入創作，樂此不疲。可如今我卻再做不出影片了，令人感嘆。
-我想要說的 前人們都說過了。我不反對AI。6年前 我是文科生，我可能連他媽怎麼開個網站都不知道。我希望 某些人能善用AI。它能幫你做事，但不能成為你，永遠。請別用它代替你的想法，代替你的人生；別用它寫出個自己都懶得玩的設計、各種影響體驗的BUG邏輯… 快用localhost打開，繼續打磨100遍。否則，那不是你自己的，別放出來惡心任何人。賣錢？你不配，只能一直在灰色產業摸爬滾打。
-我想要的公平都是不公們虛構的。我知道 我改變不了當今快節奏的生活，也攔不住的那些。它們。
-
-</details>
-
-<br>
-
-<details>
+<details open>
   <summary><strong>Recent Activity</strong></summary>
 
   <br>
@@ -78,6 +61,9 @@ Activity time: 8m
 <p align="center">
 <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="49%"></a><a href="#music-links"><img src="assets/netease-4ba9b5bda505.svg" alt="Recently played on NetEase Cloud Music" width="49%"></a>
 </p>
+
+<dl>
+<dd>
 
 <a name="music-links"></a>
 <details>
@@ -95,6 +81,26 @@ Activity time: 8m
 </table>
 
 </details>
+
+</dd>
+</dl>
+
+<details>
+<summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
+
+<br>
+
+...大概是2021年，第四次工業革命，人類進入AI時代。由此，經常看到有人在濫用，甚至專業程序員，也幹這種勾當——只用5分鐘 就生成一個他媽的漸變、不對齊、用了100個不同設計風格UI、1000種元素的前端。
+像是某些連我訊息都不敢回的人，只用AI隨便做一個粗製濫造的垃圾系統 就能賣貨給灰產用戶發大財。
+…這一切看得我噁心，我從床上爬起來，吐了一遍又一遍，可惜沒被穩穩接住。
+
+我想要做的 有錢人都做過了。2fa.hot 幾乎由 Vibe Coding 完成——當然，我將它改到勉強滿意才上線。正如我和同事的某些項目一樣，我們希望早日上線，但止不住一遍遍修訂，直到符合我們的要求，直到它從未上線。某些項目也許未來會被讀這條文字的各位熟知，儘管你們也不會知道那是我們做的。這感覺 像是回到6年前，打開Premiere Pro，全身心投入創作，樂此不疲。可如今我卻再做不出影片了，令人感嘆。
+我想要說的 前人們都說過了。我不反對AI。6年前 我是文科生，我可能連他媽怎麼開個網站都不知道。我希望 某些人能善用AI。它能幫你做事，但不能成為你，永遠。請別用它代替你的想法，代替你的人生；別用它寫出個自己都懶得玩的設計、各種影響體驗的BUG邏輯… 快用localhost打開，繼續打磨100遍。否則，那不是你自己的，別放出來惡心任何人。賣錢？你不配，只能一直在灰色產業摸爬滾打。
+我想要的公平都是不公們虛構的。我知道 我改變不了當今快節奏的生活，也攔不住的那些。它們。
+
+</details>
+
+<br>
 
 <p align="center">
   <picture>
