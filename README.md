@@ -1,9 +1,9 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-5b0f886e5966.svg">
-    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-cad559294c1f.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-968de6abc9c3.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-71fb251fc245.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-d9a7353cc929.svg">
+    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-94ac457fbfaf.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-7a2c40ebfaa3.svg">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-82d0f026d9f6.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
   </picture>
 </p>
 
@@ -74,6 +74,13 @@ Activity time: 21m
 <br>
 
 <p align="center">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/prism-mobile-5f019fe8e7c9.svg">
+    <img alt="White light refracting through a glass prism into a spectrum, solved with Snell's law" src="assets/prism-d4b242e67f06.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+  </picture>
+</p>
+
+<p align="center">
 <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><a href="#music-links"><img src="assets/netease-4ba9b5bda505.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
 </p>
 
@@ -126,7 +133,7 @@ Activity time: 21m
 
 <p align="center">
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/2"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e0112d14bd32.svg"><source media="(max-width: 600px)" srcset="assets/bottle-4a55e1278401.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-2a541500a09d.svg"><img src="assets/bottle-31795718a219.svg" alt="第一個瓶子，丟進自己的海裡。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/2"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-361abc4f7fce.svg"><source media="(max-width: 600px)" srcset="assets/bottle-331188cf15b7.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-8b9d43b5dd0e.svg"><img src="assets/bottle-1219b4e1df59.svg" alt="第一個瓶子，丟進自己的海裡。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 

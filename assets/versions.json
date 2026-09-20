@@ -80,15 +80,25 @@
     "coding-dark-mobile-168533864866.svg"
   ],
   "art-light": [
+    "art-light-82d0f026d9f6.svg",
     "art-light-71fb251fc245.svg"
   ],
   "art-dark": [
+    "art-dark-7a2c40ebfaa3.svg",
     "art-dark-968de6abc9c3.svg"
   ],
   "art-light-mobile": [
+    "art-light-mobile-94ac457fbfaf.svg",
     "art-light-mobile-cad559294c1f.svg"
   ],
   "art-dark-mobile": [
+    "art-dark-mobile-d9a7353cc929.svg",
     "art-dark-mobile-5b0f886e5966.svg"
+  ],
+  "prism": [
+    "prism-d4b242e67f06.svg"
+  ],
+  "prism-mobile": [
+    "prism-mobile-5f019fe8e7c9.svg"
   ]
 }
