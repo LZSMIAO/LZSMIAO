@@ -1,0 +1,34 @@
+name: Redraw daily header
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 00:10 in Asia/Hong_Kong, so the header turns over with the local date.
+    - cron: '10 16 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Draw today's header
+        run: python3 scripts/daily_art.py
+      - name: Save the new header
+        if: ${{ !cancelled() }}
+        run: |
+          if git diff --quiet -- README.md assets/; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md assets/
+          git commit -m 'docs: redraw daily header'
+          git push

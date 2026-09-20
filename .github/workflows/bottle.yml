@@ -1,0 +1,41 @@
+name: Land drift bottle
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
+jobs:
+  land:
+    # Only issues raised through the bottle form are ever rendered onto the page.
+    if: contains(github.event.issue.labels.*.name, 'bottle')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Render the bottle
+        run: python3 scripts/drift_bottle.py
+      - name: Publish the bottle
+        run: |
+          if git diff --quiet -- README.md assets/; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md assets/
+          git commit -m 'docs: a new bottle washed ashore'
+          git push
+      - name: Reply and close
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue close "$NUMBER" -R "$GITHUB_REPOSITORY" \
+            -c 'Your bottle is on the profile now, until the next one washes ashore. 已經漂上岸了，謝謝你。'

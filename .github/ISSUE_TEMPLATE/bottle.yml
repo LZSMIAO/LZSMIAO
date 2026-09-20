@@ -1,0 +1,17 @@
+name: 漂流瓶 Drift bottle
+description: 留下一句話，它會出現在主頁上，直到下一個人把它換掉
+title: 漂流瓶
+labels: [bottle]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        只會顯示**第一行**，最多 48 個字，並附上你的使用者名稱。
+        Only the first line is shown, up to 48 characters, alongside your username.
+  - type: textarea
+    id: message
+    attributes:
+      label: 你的一句話 / Your one line
+      placeholder: 寫點什麼…
+    validations:
+      required: true

@@ -1,0 +1,143 @@
+"""One sentence from a visitor, kept on the page until the next one washes ashore."""
+from hashlib import sha256
+from html import escape
+import json
+import os
+from pathlib import Path
+import re
+import sys
+from unicodedata import east_asian_width,normalize
+
+ROOT=Path(__file__).resolve().parents[1]
+README=ROOT/'README.md'
+START='<!-- BOTTLE:START -->'
+END='<!-- BOTTLE:END -->'
+USER='LZSMIAO'
+LIMIT=48
+LOGIN=re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
+
+THEMES={
+    'light': dict(ink='#1f2328',muted='#59636e',border='#d1d9e0'),
+    'dark': dict(ink='#f0f6fc',muted='#b1bac4',border='#30363d'),
+}
+
+
+def columns(text):
+    return sum(2 if east_asian_width(c) in 'WF' else 1 for c in text)
+
+
+def sentence(body):
+    """Keep the first real line only, stripped of anything that is not printable text."""
+    for raw in str(body or '').splitlines():
+        line=normalize('NFC',raw).strip()
+        if not line or line.startswith('#') or line=='_No response_':
+            continue
+        # isprintable() is False for control, bidi-override and zero-width codepoints.
+        line=' '.join(''.join(c for c in line if c.isprintable()).split())
+        if not line:
+            continue
+        return line if len(line)<=LIMIT else line[:LIMIT-1].rstrip()+'…'
+    return ''
+
+
+def wrap(text,budget):
+    lines=[]
+    current=''
+    for ch in text:
+        if columns(current)+columns(ch)>budget and current:
+            cut=current.rfind(' ')
+            if cut>len(current)//2:
+                lines.append(current[:cut])
+                current=current[cut+1:]
+            else:
+                lines.append(current)
+                current=''
+        current+=ch
+    if current:
+        lines.append(current)
+    return lines[:3]
+
+
+def card(text,login,day,theme,mobile=False):
+    t=THEMES[theme]
+    width=480 if mobile else 880
+    pad=20 if mobile else 28
+    size=17 if mobile else 20
+    step=26 if mobile else 30
+    rows=wrap(text,int((width-2*pad)/(size/2))) if text else []
+    body=rows or ['還沒有人丟瓶子進來。']
+    height=74+len(body)*step+(30 if mobile else 26)
+    alt=f'{text} — @{login}' if text else 'No bottle has washed ashore yet'
+    parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+           f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
+           '<title id="bottle-title">Drift bottle</title>',
+           f'<desc id="bottle-desc">{escape(alt)}</desc>',
+           '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
+           f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
+           f'<text x="{pad}" y="34" font-size="13" fill="{t["muted"]}" letter-spacing="1.5">漂流瓶 · DRIFT BOTTLE</text>']
+    for i,row in enumerate(body):
+        colour=t['ink'] if text else t['muted']
+        parts.append(f'<text x="{pad}" y="{74+i*step}" font-size="{size}" fill="{colour}">{escape(row)}</text>')
+    if text:
+        parts.append(f'<text x="{width-pad}" y="{height-18}" font-size="14" fill="{t["muted"]}" '
+                     f'text-anchor="end">— @{escape(login)} · {day}</text>')
+    return ''.join(parts)+'</svg>\n'
+
+
+def section(text,login,day,number,assets=None):
+    paths={}
+    for theme in ('light','dark'):
+        for mobile in (False,True):
+            svg=card(text,login,day,theme,mobile)
+            path='assets/bottle-'+sha256(svg.encode()).hexdigest()[:12]+'.svg'
+            if assets is not None:
+                assets[path]=svg
+            paths[theme,mobile]=path
+    alt=escape(f'{text} — @{login}' if text else 'No bottle has washed ashore yet',quote=True)
+    picture=(f'<picture>'
+             f'<source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="{paths["dark",True]}">'
+             f'<source media="(max-width: 600px)" srcset="{paths["light",True]}">'
+             f'<source media="(prefers-color-scheme: dark)" srcset="{paths["dark",False]}">'
+             f'<img src="{paths["light",False]}" alt="{alt}" width="100%"></picture>')
+    if number:
+        return f'<a href="https://github.com/{USER}/{USER}/issues/{number}">{picture}</a>'
+    return picture
+
+
+def update_content(original,text,login,day,number,assets=None):
+    if original.count(START)!=1 or original.count(END)!=1:
+        raise ValueError('Bottle markers missing or duplicated')
+    before,remainder=original.split(START)
+    _,after=remainder.split(END)
+    return before+START+'\n'+section(text,login,day,number,assets)+'\n'+END+after
+
+
+def main():
+    event=json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text())
+    issue=event['issue']
+    text=sentence(issue.get('body'))
+    login=issue.get('user',{}).get('login','')
+    if not text or not LOGIN.fullmatch(str(login)):
+        raise ValueError('Nothing usable in this bottle')
+    day=str(issue.get('created_at',''))[:10]
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',day):
+        raise ValueError('Unexpected issue timestamp')
+    assets={}
+    original=README.read_text(encoding='utf-8')
+    updated=update_content(original,text,login,day,issue.get('number'),assets)
+    for path,svg in assets.items():
+        (ROOT/path).write_text(svg,encoding='utf-8')
+    README.write_text(updated,encoding='utf-8')
+    # Only one bottle exists at a time, so every older rendering is dead weight.
+    for old in (ROOT/'assets').glob('bottle-*.svg'):
+        if re.fullmatch(r'bottle-[a-f0-9]+\.svg',old.name) and 'assets/'+old.name not in assets:
+            old.unlink()
+    print(f'Bottle from @{login} washed ashore.')
+
+
+if __name__=='__main__':
+    try:
+        main()
+    except (ValueError,KeyError,OSError,json.JSONDecodeError) as error:
+        print(f'Bottle rejected ({type(error).__name__}); the page is unchanged.',file=sys.stderr)
+        sys.exit(1)
