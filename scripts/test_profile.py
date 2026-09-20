@@ -14,6 +14,7 @@ from daily_art import card as art,shape
 from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
 from publish import publish
 from ocean import SEAS
+from flowfield import card as flow,field,STYLES
 
 class ProfileTests(unittest.TestCase):
     def test_overview_matches_report_and_preserves_other_sections(self):
@@ -240,6 +241,25 @@ class ProfileTests(unittest.TestCase):
         self.assertIn('animateTransform',empty)
         self.assertNotIn(SEAS['dark']['cork'],empty)
         self.assertNotIn(SEAS['dark']['note'],empty)
+
+    def test_flow_field_is_deterministic_and_animated(self):
+        for theme in ('light','dark'):
+            svg=flow(theme)
+            ET.fromstring(svg)
+            self.assertEqual(svg,flow(theme))
+            self.assertNotEqual(svg,flow(theme,seed='other'))
+            self.assertIn('@keyframes',svg)
+            # Each dash style must travel exactly one period, or the loop visibly jumps.
+            for i,(dash,gap,_) in enumerate(STYLES):
+                self.assertIn(f'@keyframes k{i}{{to{{stroke-dashoffset:{-(dash+gap)}}}}}',svg)
+        self.assertEqual(ET.fromstring(flow('dark',480,200,mobile=True)).get('width'),'480')
+
+    def test_flow_field_stays_gentle_enough_to_avoid_a_crease(self):
+        # Beyond about a radian of swing the streamlines fold into a hard diagonal.
+        for seed in ('2026','a','b','c','d'):
+            angle=field(seed)
+            values=[angle(x/24,y/12) for x in range(25) for y in range(13)]
+            self.assertLess(max(values)-min(values),3.2)
 
     def test_publish_rotates_history_and_prunes_only_its_own_stem(self):
         with TemporaryDirectory() as directory:

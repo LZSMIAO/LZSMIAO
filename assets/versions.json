@@ -100,5 +100,17 @@
   ],
   "prism-mobile": [
     "prism-mobile-5f019fe8e7c9.svg"
+  ],
+  "flow-light": [
+    "flow-light-30af09736397.svg"
+  ],
+  "flow-dark": [
+    "flow-dark-718ae82ddb9c.svg"
+  ],
+  "flow-light-mobile": [
+    "flow-light-mobile-07abf176241f.svg"
+  ],
+  "flow-dark-mobile": [
+    "flow-dark-mobile-e31249089c80.svg"
   ]
 }

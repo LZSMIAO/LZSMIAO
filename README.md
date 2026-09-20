@@ -81,8 +81,10 @@ Activity time: 25h 34m
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/prism-mobile-5f019fe8e7c9.svg">
-    <img alt="White light refracting through a glass prism into a spectrum, solved with Snell's law" src="assets/prism-d4b242e67f06.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-e31249089c80.svg">
+    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-07abf176241f.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-718ae82ddb9c.svg">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-30af09736397.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
   </picture>
 </p>
 
