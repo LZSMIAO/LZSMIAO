@@ -17,15 +17,15 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-14 — 2026-09-20
+2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-JavaScript                   8m  ███████████░░░░░░░░░░░░░░  42.1%
-Markdown                     8m  ██████████░░░░░░░░░░░░░░░  41.9%
-Other                        3m  ████░░░░░░░░░░░░░░░░░░░░░  16.1%
+JavaScript                   8m  ██████████░░░░░░░░░░░░░░░  39.5%
+Markdown                     8m  ██████████░░░░░░░░░░░░░░░  39.3%
+Other                        4m  █████░░░░░░░░░░░░░░░░░░░░  21.2%
 TypeScript                  <1m  ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
-Activity time: 20m
+Activity time: 21m
 ~~~
 
 <br>
@@ -37,10 +37,10 @@ Activity time: 20m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-7d4935bc72ed.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-62331aa62b33.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ecf7a9d435f1.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-fdcc0c5e8ed7.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-3758c6533da1.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-75d0c88b795c.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-0e591d1d99b7.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-a82156f4b18b.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
