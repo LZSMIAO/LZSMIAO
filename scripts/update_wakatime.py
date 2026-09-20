@@ -64,12 +64,23 @@ def aggregate(payload,start,end):
         for name,seconds in languages.items()]}
 
 
+def merge_remainder(rows,rest,total):
+    """WakaTime already reports a language called Other, so fold the tail into it."""
+    rows=[dict(row) for row in rows]
+    for row in rows:
+        if row['name']=='Other':
+            row['total_seconds']+=rest
+            row['percent']=100*row['total_seconds']/total
+            return rows
+    return rows+[{'name':'Other','total_seconds':rest,'percent':100*rest/total}]
+
+
 def overview(data):
     total=data['total_seconds']
     rows=sorted(data['languages'],key=lambda r:r['total_seconds'],reverse=True)[:4]
     rest=max(0,total-sum(r['total_seconds'] for r in rows))
     if rest:
-        rows.append({'name':'Other','total_seconds':rest,'percent':100*rest/total})
+        rows=merge_remainder(rows,rest,total)
     lines=['~~~text','📊 Last 7 days','','🕑 Time Zone: Asia/Hong Kong','',
            f"{data['start']} — {data['end']}",'','💬 Programming Languages:']
     for row in rows:
