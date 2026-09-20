@@ -63,14 +63,16 @@ def floating(x,y,scale,sea):
            '</linearGradient></defs>',
            f'<path d="{body}" fill="url(#pane)" stroke="{sea["glass"]}" stroke-opacity=".85" '
            'stroke-width="1.1" stroke-linejoin="round"/>',
-           # Seated inside the neck, not capped over it: glass still shows above and
-           # below, and the outer end is rounded the way a cork actually is.
-           f'<path d="M26.4,-3.4L32.2,-3.4Q34.6,-3.4 34.6,0Q34.6,3.4 32.2,3.4L26.4,3.4Z" '
-           f'fill="{sea["cork"]}" fill-opacity=".9"/>',
-           f'<path d="M26.4,.6L34.5,.6Q34.2,3.4 32.2,3.4L26.4,3.4Z" fill="#000000" fill-opacity=".18"/>',
-           f'<path d="M27.4,-2.2Q31,-2.6 33.4,-1.4" fill="none" stroke="{sea["shine"]}" '
-           'stroke-opacity=".26" stroke-width="1"/>',
-           f'<path d="M29.2,-3.4L29.2,3.4" stroke="#000000" stroke-opacity=".2" stroke-width=".9"/>',
+           # A driven cork: the buried length is squeezed to the bore, the head stands
+           # proud of the lip and keeps its original, wider diameter.
+           f'<path d="M26.4,-2.9L35.1,-2.9L35.1,-3.9L37.5,-3.9Q39.2,-3.9 39.2,-2.4'
+           'L39.2,2.4Q39.2,3.9 37.5,3.9L35.1,3.9L35.1,2.9L26.4,2.9Z" '
+           f'fill="{sea["cork"]}" fill-opacity=".92"/>',
+           f'<path d="M26.4,.5L35.1,.5L35.1,3.9L37.5,3.9Q39.2,3.9 39.2,2.4L39.2,.5'
+           'L39.2,2.4Q39.2,3.9 37.5,3.9L35.1,3.9L35.1,2.9L26.4,2.9Z" fill="#000000" fill-opacity=".2"/>',
+           f'<path d="M36,-2.6Q38,-2.4 38.5,-1.2" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".3" stroke-width="1"/>',
+           f'<path d="M35.1,-2.9L35.1,2.9" stroke="#000000" stroke-opacity=".22" stroke-width=".9"/>',
            # A rolled note: a warm cylinder with a visible curl at its left end.
            '<g transform="rotate(-5)">',
            f'<rect x="-25" y="-6.1" width="22" height="12.2" rx="6.1" fill="{sea["note"]}" fill-opacity=".72"/>',
@@ -99,14 +101,25 @@ def sky(width,top,theme,seed=0):
     parts=[]
     if sea['moon']:
         mx,my=width*.885,top*.32
-        parts.append(f'<defs><radialGradient id="halo">'
-                     f'<stop offset="0" stop-color="{sea["moon"]}" stop-opacity=".16"/>'
-                     f'<stop offset=".55" stop-color="{sea["moon"]}" stop-opacity=".05"/>'
+        # The lit crescent sits down-left of the disc centre, so the halo is centred
+        # there too; a glow centred on the shadowed half reads as misaligned.
+        gx,gy=mx-2.6,my+1.4
+        stops=((0,.22),(.16,.17),(.34,.10),(.55,.045),(.78,.014),(1,0))
+        parts.append('<defs>'
+                     f'<radialGradient id="halo" gradientUnits="userSpaceOnUse" '
+                     f'cx="{gx:.1f}" cy="{gy:.1f}" r="42">'
+                     +''.join(f'<stop offset="{o}" stop-color="{sea["moon"]}" stop-opacity="{a}"/>'
+                              for o,a in stops)+'</radialGradient>'
+                     f'<radialGradient id="core" gradientUnits="userSpaceOnUse" '
+                     f'cx="{gx:.1f}" cy="{gy:.1f}" r="16">'
+                     f'<stop offset="0" stop-color="{sea["moon"]}" stop-opacity=".20"/>'
+                     f'<stop offset=".6" stop-color="{sea["moon"]}" stop-opacity=".07"/>'
                      f'<stop offset="1" stop-color="{sea["moon"]}" stop-opacity="0"/></radialGradient>'
                      f'<mask id="crescent"><circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="#fff"/>'
                      f'<circle cx="{mx+5:.0f}" cy="{my-3.5:.0f}" r="10" fill="#000"/></mask></defs>'
-                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="34" fill="url(#halo)"/>'
-                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="{sea["moon"]}" fill-opacity=".40" '
+                     f'<circle cx="{gx:.1f}" cy="{gy:.1f}" r="42" fill="url(#halo)"/>'
+                     f'<circle cx="{gx:.1f}" cy="{gy:.1f}" r="16" fill="url(#core)"/>'
+                     f'<circle cx="{mx:.0f}" cy="{my:.0f}" r="11" fill="{sea["moon"]}" fill-opacity=".46" '
                      'mask="url(#crescent)"/>')
         spots=[(.06,.52,1.0),(.14,.26,.7),(.23,.62,.9),(.35,.20,.6),(.47,.48,.8),
                (.58,.24,.65),(.67,.58,.9),(.78,.32,.7),(.93,.56,.8),(.29,.40,.55)]

@@ -81,10 +81,10 @@ Activity time: 25h 34m
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-e31249089c80.svg">
-    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-07abf176241f.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-718ae82ddb9c.svg">
-    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-30af09736397.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-cbc1ca63e905.svg">
+    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-e2bdc7f687b4.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-0be66610d433.svg">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-c6f433f97b00.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
   </picture>
 </p>
 
@@ -112,7 +112,7 @@ Activity time: 25h 34m
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-53a6dd304c49.svg"><source media="(max-width: 600px)" srcset="assets/bottle-b34a7694f5be.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-7559047747eb.svg"><img src="assets/bottle-740405526450.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-59c61a469e2d.svg"><source media="(max-width: 600px)" srcset="assets/bottle-fb4e4af620c8.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-caa3ca570ddc.svg"><img src="assets/bottle-aec046839556.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 <sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
 </p>

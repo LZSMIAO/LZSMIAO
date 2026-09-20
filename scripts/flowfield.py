@@ -6,8 +6,8 @@ import sys
 from publish import publish
 
 THEMES={
-    'light': dict(bg='#ffffff',ink='#6e7781',glow='#0969da'),
-    'dark': dict(bg='#0d1117',ink='#8b949e',glow='#58a6ff'),
+    'light': dict(bg='#ffffff',ink='#7b7490',glow='#8250df'),
+    'dark': dict(bg='#0d1117',ink='#8b86a6',glow='#a371f7'),
 }
 LANES=6
 # Each style is (dash, gap, seconds): the offset animates by exactly one period,
@@ -31,19 +31,25 @@ def field(seed):
     return angle
 
 
-def streamline(angle,x,y,width,height,steps,step):
-    points=[(x,y)]
+def march(angle,x,y,width,height,steps,step):
+    points=[]
     for _ in range(steps):
         a=angle(x/width,y/height)
         x+=cos(a)*step
         y+=sin(a)*step
-        if not (-30<x<width+30 and -30<y<height+30):
+        if not (-34<x<width+34 and -34<y<height+34):
             break
         points.append((x,y))
     return points
 
 
-def card(theme,width=880,height=300,seed='2026',lines=200,mobile=False):
+def streamline(angle,x,y,width,height,steps,step):
+    """Trace both ways from the seed: forward only leaves the upwind edge bare."""
+    back=march(angle,x,y,width,height,steps//2,-step)
+    return back[::-1]+[(x,y)]+march(angle,x,y,width,height,steps,step)
+
+
+def card(theme,width=880,height=230,seed='2026',lines=140,mobile=False):
     t=THEMES[theme]
     angle=field(seed)
     rng=random.Random(int(sha256(f'starts/{seed}/{width}'.encode()).hexdigest(),16))
@@ -72,7 +78,7 @@ def card(theme,width=880,height=300,seed='2026',lines=200,mobile=False):
         # Start slightly outside so streamlines enter from beyond the frame.
         x=width*(col+rng.uniform(.05,.95))/columns*1.12-width*.06
         y=height*(row+rng.uniform(.05,.95))/rows*1.12-height*.06
-        points=streamline(angle,x,y,width,height,rng.randint(30,52),step)
+        points=streamline(angle,x,y,width,height,rng.randint(26,44),step)
         if len(points)<10:
             continue
         drawn+=1
@@ -87,8 +93,8 @@ def card(theme,width=880,height=300,seed='2026',lines=200,mobile=False):
 
 
 def main():
-    publish({'flow-'+theme+('-mobile' if mobile else ''):card(theme,480,200,lines=130,mobile=True) if mobile
-             else card(theme,880,300)
+    publish({'flow-'+theme+('-mobile' if mobile else ''):card(theme,480,150,lines=95,mobile=True) if mobile
+             else card(theme,880,230)
              for mobile in (False,True) for theme in ('light','dark')})
     print('Flow field redrawn.')
 
