@@ -37,10 +37,10 @@ Activity time: 20m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-d51961d65cb1.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-aa313adfc6c0.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-bbac009ee18f.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-9af225bf0489.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #151b23;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-7d4935bc72ed.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-62331aa62b33.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ecf7a9d435f1.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-fdcc0c5e8ed7.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
