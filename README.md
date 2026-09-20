@@ -59,6 +59,11 @@ Activity time: 20m
 
 <br>
 
+<details open>
+<summary><strong>Music</strong></summary>
+
+<br>
+
 <p align="center">
 <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><a href="#music-links"><img src="assets/netease-4ba9b5bda505.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
 </p>
@@ -85,6 +90,8 @@ Activity time: 20m
 
 </dd>
 </dl>
+
+</details>
 
 <br>
 
