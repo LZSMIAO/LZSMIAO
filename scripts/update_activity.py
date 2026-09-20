@@ -28,7 +28,7 @@ def repository_is_public(repo):
 
 def activity_card(repo, verb, date, dark=False, mobile=False):
     width,height=(480,88) if mobile else (880,56)
-    bg,fg,link=('#161b22','#e6edf3','#58a6ff') if dark else ('#f6f8fa','#1f2328','#0969da')
+    bg,fg,link=('#151b23','#e6edf3','#58a6ff') if dark else ('#f6f8fa','#1f2328','#0969da')
     short=repo if len(repo)<=52 else repo[:49]+'…'
     label=f'🛠️ {verb}'
     if mobile:

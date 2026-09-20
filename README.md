@@ -37,10 +37,10 @@ Activity time: 20m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-66b76dc31c05.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-d373dc2a4e5b.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-5a10048139f8.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-601bff6f8221.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #121212;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-d51961d65cb1.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-aa313adfc6c0.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-bbac009ee18f.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-9af225bf0489.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: #151b23;">
     </picture>
   </p>
 </details>
@@ -53,7 +53,7 @@ Activity time: 20m
   <br>
 
   <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2fa-hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-b0b61ef944b2.svg"><source media="(max-width: 600px)" srcset="assets/activity-bd2399da8527.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-fa3c45f9b20d.svg"><img src="assets/activity-eeecc86411ef.svg" alt="Updated project: LZSMIAO/2fa-hot — 2026-09-19" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2fa-hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-26ab3654d85d.svg"><source media="(max-width: 600px)" srcset="assets/activity-bd2399da8527.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-0d12a2778178.svg"><img src="assets/activity-eeecc86411ef.svg" alt="Updated project: LZSMIAO/2fa-hot — 2026-09-19" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </details>
 

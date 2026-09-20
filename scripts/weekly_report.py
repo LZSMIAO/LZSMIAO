@@ -2,8 +2,8 @@
 from html import escape
 
 THEMES = {
-    'light': dict(bg='#ffffff',ink='#1f2328',muted='#59636e',border='#d1d9e0',track='#eff2f5',accent='#238636',soft='#f6f8fa',colors=['#238636','#0969da','#8250df','#9a6700','#59636e']),
-    'dark': dict(bg='#0d1117',ink='#f0f6fc',muted='#b1bac4',border='#30363d',track='#212830',accent='#56d364',soft='#151b23',colors=['#56d364','#79c0ff','#d2a8ff','#e3b341','#9198a1']),
+    'light': dict(bg='#f6f8fa',ink='#1f2328',muted='#59636e',border='#d1d9e0',track='#eff2f5',accent='#238636',soft='#f6f8fa',colors=['#238636','#0969da','#8250df','#9a6700','#59636e']),
+    'dark': dict(bg='#151b23',ink='#f0f6fc',muted='#b1bac4',border='#30363d',track='#212830',accent='#56d364',soft='#151b23',colors=['#56d364','#79c0ff','#d2a8ff','#e3b341','#9198a1']),
 }
 
 
