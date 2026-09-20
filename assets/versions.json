@@ -78,5 +78,17 @@
     "coding-dark-mobile-939a249b4aea.svg",
     "coding-dark-mobile-3dfa687dfb0c.svg",
     "coding-dark-mobile-168533864866.svg"
+  ],
+  "art-light": [
+    "art-light-71fb251fc245.svg"
+  ],
+  "art-dark": [
+    "art-dark-968de6abc9c3.svg"
+  ],
+  "art-light-mobile": [
+    "art-light-mobile-cad559294c1f.svg"
+  ],
+  "art-dark-mobile": [
+    "art-dark-mobile-5b0f886e5966.svg"
   ]
 }

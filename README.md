@@ -1,3 +1,12 @@
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-5b0f886e5966.svg">
+    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-cad559294c1f.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-968de6abc9c3.svg">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-71fb251fc245.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+  </picture>
+</p>
+
 <h2 align="left">Finally, less can be more.</h2>
 
 <p align="left">
@@ -114,6 +123,14 @@ Activity time: 21m
 </details>
 
 <br>
+
+<p align="center">
+<!-- BOTTLE:START -->
+<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-fbbac96ea578.svg"><source media="(max-width: 600px)" srcset="assets/bottle-59a3a4bd5ffe.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-f88ad19ff632.svg"><img src="assets/bottle-0121bb14b823.svg" alt="No bottle has washed ashore yet" width="100%"></picture>
+<!-- BOTTLE:END -->
+</p>
+
+<p align="center"><sub>想留一句話？<a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">丟一個漂流瓶</a> · 只留最新的一句</sub></p>
 
 <p align="center">
   <picture>

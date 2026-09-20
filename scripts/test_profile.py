@@ -10,6 +10,9 @@ import xml.etree.ElementTree as ET
 from coding_card import card
 from update_wakatime import duration,label,aggregate
 from update_activity import activity,activity_card
+from daily_art import card as art,shape
+from drift_bottle import sentence,card as bottle,update_content as bottle_content
+from publish import publish
 
 class ProfileTests(unittest.TestCase):
     def test_overview_matches_report_and_preserves_other_sections(self):
@@ -112,6 +115,81 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(len(list((root/'assets').glob('*.svg'))),5)
             self.assertEqual(readme.read_text().split()[0],original.split()[0])
             self.assertNotEqual(readme.read_text().split()[1:],original.split()[1:])
+            for path in readme.read_text().split():
+                self.assertTrue((root/path).is_file())
+
+    def test_daily_art_is_stable_within_a_day_and_moves_between_days(self):
+        for theme in ('light','dark'):
+            for mobile in (False,True):
+                svg=art('2026-09-21',theme,mobile)
+                self.assertEqual(ET.fromstring(svg).get('width'),'480' if mobile else '880')
+                self.assertEqual(svg,art('2026-09-21',theme,mobile))
+                self.assertIn('2026-09-21',svg)
+                self.assertNotEqual(svg,art('2026-09-22',theme,mobile))
+        # Peaks are fractions, so one silhouette serves both widths.
+        self.assertEqual(shape('2026-09-21'),shape('2026-09-21'))
+        self.assertNotEqual(shape('2026-09-21')['peaks'],shape('2026-09-22')['peaks'])
+
+    def test_daily_art_keeps_every_crest_inside_the_frame(self):
+        for day in ('2026-09-21','2026-09-22','2026-09-23','2026-09-24','2026-09-25'):
+            for mobile in (False,True):
+                root=ET.fromstring(art(day,'light',mobile))
+                height=float(root.get('height'))
+                for path in root.findall('.//{http://www.w3.org/2000/svg}path'):
+                    # The final two points close the shape below the viewBox on purpose.
+                    for point in path.get('d').lstrip('M').split('L')[:-2]:
+                        self.assertGreaterEqual(float(point.split(',')[1]),0)
+                        self.assertLess(float(point.split(',')[1]),height)
+
+    def test_bottle_keeps_only_plain_text_from_a_stranger(self):
+        self.assertEqual(sentence('### Your one line\n\nreal words'),'real words')
+        self.assertEqual(sentence('a'+chr(0x200B)+'b'+chr(0x07)+'c'),'abc')
+        self.assertEqual(sentence(chr(0x202E)+'flip'+chr(0x202C)+' me'),'flip me')
+        self.assertEqual(sentence('first\nsecond'),'first')
+        self.assertEqual(sentence('_No response_'),'')
+        self.assertEqual(sentence('   \n\t '),'')
+        self.assertEqual(len(sentence('x'*200)),48)
+
+    def test_bottle_escapes_markup_in_every_variant(self):
+        hostile=sentence('</text><script>alert(1)</script>')
+        for theme in ('light','dark'):
+            for mobile in (False,True):
+                svg=bottle(hostile,'octocat','2026-09-21',theme,mobile)
+                ET.fromstring(svg)
+                self.assertNotIn('<script>',svg)
+                self.assertIn('&lt;script&gt;',svg)
+        empty=bottle('','','','light')
+        ET.fromstring(empty)
+        self.assertNotIn('@',empty)
+
+    def test_bottle_replaces_the_previous_one(self):
+        original='head\n<!-- BOTTLE:START -->\nold\n<!-- BOTTLE:END -->\ntail'
+        first={}
+        once=bottle_content(original,'first line','someone','2026-09-21',1,first)
+        self.assertEqual(len(first),4)
+        second={}
+        twice=bottle_content(once,'second line','other','2026-09-22',2,second)
+        self.assertIn('issues/2',twice)
+        self.assertNotIn('issues/1',twice)
+        self.assertNotIn('old',twice)
+        self.assertEqual(set(first)&set(second),set())
+        self.assertTrue(twice.startswith('head\n') and twice.endswith('\ntail'))
+
+    def test_publish_rotates_history_and_prunes_only_its_own_stem(self):
+        with TemporaryDirectory() as directory:
+            root=Path(directory)
+            (root/'assets').mkdir()
+            readme=root/'README.md'
+            readme.write_text('assets/art-light.svg assets/art-light-mobile.svg')
+            publish({'art-light':'one','art-light-mobile':'m'},root)
+            first=readme.read_text()
+            publish({'art-light':'one','art-light-mobile':'m'},root)
+            self.assertEqual(readme.read_text(),first)
+            for body in ('two','three','four'):
+                publish({'art-light':body,'art-light-mobile':'m'},root)
+            kept=[p.name for p in (root/'assets').glob('art-light-*.svg') if re.fullmatch(r'art-light-[a-f0-9]+\.svg',p.name)]
+            self.assertEqual(len(kept),3)
+            self.assertEqual(len(list((root/'assets').glob('art-light-mobile-*.svg'))),1)
             for path in readme.read_text().split():
                 self.assertTrue((root/path).is_file())
 
