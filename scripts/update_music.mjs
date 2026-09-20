@@ -19,10 +19,6 @@ function frame(title, content) {
 export function offlineCard(logo) {
   return frame('Spotify — not playing', `<text x="20" y="36" fill="#f0f6fc" font-size="17" font-weight="600">Spotify</text><image x="275" y="20" width="25" height="25" href="${logo}"/><circle cx="160" cy="185" r="42" fill="#1c1c1c"/><image x="139" y="164" width="42" height="42" opacity="0.55" href="${logo}"/><text x="160" y="267" text-anchor="middle" fill="#f0f6fc" font-size="23" font-weight="600">Not playing</text><text x="160" y="293" text-anchor="middle" fill="#a7a7a7" font-size="12">Nothing playing right now</text>`)
 }
-export function songLinks(tracks) {
-  const rows = tracks.map(({ id, name, artists }) => `<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=${encodeURIComponent(id)}">${esc(name)}</a></td><td align="left" valign="top">${artists.map(a => esc(a.name)).join(' · ')}</td></tr>`).join('\n')
-  return `<table align="center">\n<thead><tr><th align="left">Track</th><th align="left">Artist</th></tr></thead>\n<tbody>\n${rows}\n</tbody>\n</table>`
-}
 async function publishCard(platform, svg, transform = value => value) {
   const filename = `assets/${platform}-${createHash('sha256').update(svg).digest('hex').slice(0, 12)}.svg`
   let content = await read('README.md')
@@ -80,12 +76,8 @@ async function netease() {
   }).join('')
   const empty = '<text x="160" y="245" text-anchor="middle" fill="#a7a7a7" font-size="14">No listening history this week</text>'
   const svg = frame('NetEase Cloud Music — weekly listening', `<text x="20" y="34" fill="#f0f6fc" font-size="17" font-weight="600">This week</text><text x="20" y="54" fill="#a7a7a7" font-size="11">NetEase Cloud Music</text>${logo}${tracks.length ? rows : empty}`)
-  await publishCard('netease', svg, content => {
-    const pattern = /(<a name="music-links"><\/a>\s*<details>\s*<summary>.*?<\/summary>)[\s\S]*?(<\/details>)/
-    if (!pattern.test(content)) throw new Error('Song links section missing')
-    return content.replace(pattern, (_, start, end) => `${start}\n\n${songLinks(tracks)}\n\n${end}`)
-  })
-  console.log(`NetEase: updated ${tracks.length} tracks and matching song links.`)
+  await publishCard('netease', svg)
+  console.log(`NetEase: updated ${tracks.length} tracks.`)
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {

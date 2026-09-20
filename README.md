@@ -29,10 +29,10 @@
 2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-JavaScript                   8m  ██████████░░░░░░░░░░░░░░░  39.5%
-Markdown                     8m  ██████████░░░░░░░░░░░░░░░  39.3%
-Other                        4m  █████░░░░░░░░░░░░░░░░░░░░  21.2%
-TypeScript                  <1m  ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
+JavaScript         8m  █████░░░░░░░  39.5%
+Markdown           8m  █████░░░░░░░  39.3%
+Other              4m  ███░░░░░░░░░  21.2%
+TypeScript        <1m  ░░░░░░░░░░░░   0.0%
 
 Activity time: 21m
 ~~~
@@ -74,40 +74,17 @@ Activity time: 21m
 <br>
 
 <p align="center">
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-4ba9b5bda505.svg" alt="Recently played on NetEase Cloud Music" width="50%">
+</p>
+
+</details>
+
+<p align="center">
   <picture>
     <source media="(max-width: 600px)" srcset="assets/prism-mobile-5f019fe8e7c9.svg">
     <img alt="White light refracting through a glass prism into a spectrum, solved with Snell's law" src="assets/prism-d4b242e67f06.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
   </picture>
 </p>
-
-<p align="center">
-<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><a href="#music-links"><img src="assets/netease-4ba9b5bda505.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
-</p>
-
-<dl>
-<dd>
-
-<a name="music-links"></a>
-<details>
-<summary><strong>Song links</strong></summary>
-
-<table align="center">
-<thead><tr><th align="left">Track</th><th align="left">Artist</th></tr></thead>
-<tbody>
-<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=3368186807">西緒福瓜</a></td><td align="left" valign="top">普信主義</td></tr>
-<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=3416118315">深色</a></td><td align="left" valign="top">普信主義</td></tr>
-<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=3434600677">self doubt (Prod.Robin Cause)</a></td><td align="left" valign="top">Venoflame</td></tr>
-<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=3330630999">反烏托邦Pt.2</a></td><td align="left" valign="top">亞細亞曠世奇才 · 洛天依Official · 烏托邦P</td></tr>
-<tr><td align="left" valign="top"><a href="https://music.163.com/song?id=2724564061">合上書本高考去</a></td><td align="left" valign="top">普信主義</td></tr>
-</tbody>
-</table>
-
-</details>
-
-</dd>
-</dl>
-
-</details>
 
 <br>
 
@@ -136,8 +113,7 @@ Activity time: 21m
 <a href="https://github.com/LZSMIAO/LZSMIAO/issues/2"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-361abc4f7fce.svg"><source media="(max-width: 600px)" srcset="assets/bottle-331188cf15b7.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-8b9d43b5dd0e.svg"><img src="assets/bottle-1219b4e1df59.svg" alt="第一個瓶子，丟進自己的海裡。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
-
-<p align="center"><sub>想留一句話？<a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">丟一個漂流瓶</a> · 只留最新的一句</sub></p>
+<sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">丟一個漂流瓶</a></sub>
 
 <p align="center">
   <picture>
