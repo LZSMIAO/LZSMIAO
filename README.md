@@ -47,7 +47,9 @@ Activity time: 8m
 <br>
 
 <details>
-<summary><strong>我為何放弃一切开始尝试 Vibe Coding Pt.1</strong></summary>
+<summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
+
+<br>
 
 ...大概是2021年，第四次工業革命，人類進入AI時代。由此，經常看到有人在濫用，甚至專業程序員，也幹這種勾當——只用5分鐘 就生成一個他媽的漸變、不對齊、用了100個不同設計風格UI、1000種元素的前端。
 像是某些連我訊息都不敢回的人，只用AI隨便做一個粗製濫造的垃圾系統 就能賣貨給灰產用戶發大財。
