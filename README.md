@@ -3,11 +3,11 @@
     <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-d9a7353cc929.svg">
     <source media="(max-width: 600px)" srcset="assets/art-light-mobile-94ac457fbfaf.svg">
     <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-7a2c40ebfaa3.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-82d0f026d9f6.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-82d0f026d9f6.svg" width="880" style="display: block; width: 100%;">
   </picture>
 </p>
 
-<h2 align="left">Finally, less can be more.</h2>
+<h2 align="left">Words are only a river. They do not know what they carry — they only flow.</h2>
 
 <p align="left">
   <em>Me? Nobody.</em><br>
@@ -49,7 +49,7 @@ Activity time: 25h 34m
       <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-d8bb42998861.svg">
       <source media="(max-width: 600px)" srcset="assets/report-light-mobile-7c145274d851.svg">
       <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-85ad4f977af1.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-69356879f4d7.svg" width="880" style="display: block; width: 100%; max-width: 880px; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-69356879f4d7.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
@@ -81,10 +81,10 @@ Activity time: 25h 34m
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-cbc1ca63e905.svg">
-    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-e2bdc7f687b4.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-0be66610d433.svg">
-    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-c6f433f97b00.svg" width="880" style="display: block; width: 100%; max-width: 880px;">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-ca0b49639b6f.svg">
+    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-5b36c063ac06.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e9cdbaf104e8.svg">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-6a8ed67ab41d.svg" width="880" style="display: block; width: 100%;">
   </picture>
 </p>
 
