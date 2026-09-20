@@ -126,7 +126,7 @@ Activity time: 21m
 
 <p align="center">
 <!-- BOTTLE:START -->
-<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-fbbac96ea578.svg"><source media="(max-width: 600px)" srcset="assets/bottle-59a3a4bd5ffe.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-f88ad19ff632.svg"><img src="assets/bottle-0121bb14b823.svg" alt="No bottle has washed ashore yet" width="100%"></picture>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/2"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e0112d14bd32.svg"><source media="(max-width: 600px)" srcset="assets/bottle-4a55e1278401.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-2a541500a09d.svg"><img src="assets/bottle-31795718a219.svg" alt="第一個瓶子，丟進自己的海裡。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 
