@@ -1,5 +1,6 @@
 """Publish at most two public events, excluding this profile's update noise."""
 import json
+from functools import lru_cache
 from pathlib import Path
 import re
 import sys
@@ -10,7 +11,20 @@ START='<!-- ACTIVITY:START -->'
 END='<!-- ACTIVITY:END -->'
 USER='LZSMIAO'
 
-def activity(events):
+@lru_cache(maxsize=100)
+def repository_is_public(repo):
+    # No authentication: private repositories cannot be returned by this request.
+    req=Request(f'https://api.github.com/repos/{repo}',headers={
+        'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile'})
+    try:
+        with urlopen(req,timeout=15) as response:
+            metadata=json.load(response)
+        return metadata.get('private') is False and metadata.get('visibility')=='public'
+    except Exception:
+        # Fail closed: never publish a repository whose visibility cannot be verified.
+        return False
+
+def activity(events, visibility_check=repository_is_public):
     lines=[]
     seen=set()
     for event in events:
@@ -40,15 +54,16 @@ def activity(events):
             continue
         if url in seen:
             continue
-        seen.add(url)
         date=str(event.get('created_at',''))[:10]
         if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',date):
             continue
-        gap=' ' * max(2,64-len(verb)-len(repo))
-        lines.append(f'<pre>🛠️  <strong>{verb}</strong> · <a href="{url}">{repo}</a>{gap}{date}</pre>')
+        if not visibility_check(repo):
+            continue
+        seen.add(url)
+        lines.append(f'<tr><td width="100%">🛠️ <strong>{verb}</strong> · <a href="{url}">{repo}</a></td><td align="right" nowrap><code>{date}</code></td></tr>')
         if len(lines)==2:
             break
-    return '\n'.join(lines) or '<sub>No public activity to display yet. This section will update automatically.</sub>'
+    return ('<table>\n<tbody>\n'+'\n'.join(lines)+'\n</tbody>\n</table>') if lines else '<sub>No public activity to display yet. This section will update automatically.</sub>'
 
 def update_content(original, events):
     if START not in original and END not in original:

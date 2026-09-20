@@ -49,12 +49,18 @@ class ProfileTests(unittest.TestCase):
         def event(repo,public=True,kind='PushEvent',payload=None):
             return {'public':public,'type':kind,'repo':{'name':repo},'payload':payload or {},'created_at':'2026-09-08T00:00:00Z'}
         events=[event('owner/private',False),event('LZSMIAO/LZSMIAO'),event('owner/one'),event('owner/one'),event('owner/two'),event('owner/three')]
-        result=activity(events)
+        result=activity(events, visibility_check=lambda repo: True)
         self.assertNotIn('private',result)
         self.assertNotIn('LZSMIAO/LZSMIAO',result)
-        self.assertEqual(len(result.splitlines()),2)
+        self.assertEqual(result.count('<tr>'),2)
         self.assertNotIn('three',result)
         self.assertIn('No public activity',activity([]))
+    def test_public_event_from_now_private_repository_is_hidden(self):
+        events=[{'public':True,'type':'PushEvent','repo':{'name':'owner/now-private'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
+        result=activity(events, visibility_check=lambda repo: False)
+        self.assertNotIn('owner/now-private',result)
+        self.assertIn('No public activity',result)
+
     def test_report_uses_complete_real_ai_totals(self):
         days=[{'range':{'date':f'2026-09-{day:02d}'},'grand_total':{'total_seconds':3600,'ai_input_tokens':1000,'ai_output_tokens':50,'ai_additions':4,'ai_prompt_events_total':2,'ai_model_total_cost':1.5},'languages':[{'name':'Vue','total_seconds':3600}]} for day in range(2,9)]
         data=aggregate({'data':days},'2026-09-02','2026-09-08')
