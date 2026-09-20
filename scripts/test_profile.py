@@ -8,7 +8,7 @@ import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
-from update_wakatime import duration,label,aggregate
+from update_wakatime import duration,label,aggregate,merge_remainder
 from update_activity import activity,activity_card
 from daily_art import card as art,shape
 from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
@@ -41,6 +41,24 @@ class ProfileTests(unittest.TestCase):
         for line in overview(data).split('\n'):
             self.assertLessEqual(len(line),33,line)
         self.assertIn('23h 00m',overview(data))
+
+    def test_remainder_folds_into_the_language_wakatime_already_calls_other(self):
+        rows=[{'name':'Other','total_seconds':1800,'percent':50.0},
+              {'name':'Rust','total_seconds':900,'percent':25.0}]
+        merged=merge_remainder(rows,900,3600)
+        self.assertEqual([r['name'] for r in merged],['Other','Rust'])
+        self.assertEqual(merged[0]['total_seconds'],2700)
+        self.assertEqual(merged[0]['percent'],75.0)
+        self.assertEqual(rows[0]['total_seconds'],1800)
+        added=merge_remainder([{'name':'Rust','total_seconds':2700,'percent':75.0}],900,3600)
+        self.assertEqual([r['name'] for r in added],['Rust','Other'])
+        data={'total_seconds':3600,'start':'2026-09-15','end':'2026-09-21','languages':[
+            {'name':'Other','total_seconds':1800,'percent':50.0},
+            {'name':'Rust','total_seconds':900,'percent':25.0},
+            {'name':'Vue','total_seconds':450,'percent':12.5},
+            {'name':'Go','total_seconds':300,'percent':8.3},
+            {'name':'C','total_seconds':150,'percent':4.2}]}
+        self.assertEqual(sum(l.startswith('Other') for l in overview(data).split('\n')),1)
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
