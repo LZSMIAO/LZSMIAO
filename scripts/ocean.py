@@ -63,26 +63,22 @@ def floating(x,y,scale,sea):
            '</linearGradient></defs>',
            f'<path d="{body}" fill="url(#pane)" stroke="{sea["glass"]}" stroke-opacity=".85" '
            'stroke-width="1.1" stroke-linejoin="round"/>',
-           # Two overlapping pieces, not one stepped outline: the buried length at
-           # bore width, the head proud of the lip at its own. The single path it
-           # replaces stepped abruptly and its shading self-intersected.
-           f'<rect x="27" y="-2.9" width="9" height="5.8" fill="{sea["cork"]}" fill-opacity=".9"/>',
-           f'<rect x="34.8" y="-3.6" width="4.8" height="7.2" rx="1.5" fill="{sea["cork"]}"/>',
-           f'<path d="M34.8,1.1h4.8v1Q39.6,3.6 38.1,3.6L34.8,3.6Z" fill="#000000" fill-opacity=".2"/>',
-           f'<path d="M35.6,-2.3Q37.6,-2.5 38.8,-1.6" fill="none" stroke="{sea["shine"]}" '
-           'stroke-opacity=".3" stroke-width=".9" stroke-linecap="round"/>',
-           f'<path d="M35.2,-3.5L35.2,3.5" stroke="#000000" stroke-opacity=".25" stroke-width=".9"/>',
-           # A rolled letter: a tube, the open end of the roll, and a tie across it.
-           # A fully rounded rect read as a capsule, which is what it looked like.
-           '<g transform="rotate(-6)">',
-           f'<rect x="-23.5" y="-5.4" width="19" height="10.8" rx="1.6" fill="{sea["note"]}" fill-opacity=".82"/>',
-           f'<path d="M-23.5,2.2h19v1.6Q-4.5,5.4 -6.1,5.4L-21.9,5.4Q-23.5,5.4 -23.5,3.8Z" '
-           f'fill="{sea["cork"]}" fill-opacity=".16"/>',
-           f'<ellipse cx="-23.5" cy="0" rx="2.4" ry="5.4" fill="{sea["note"]}"/>',
-           f'<ellipse cx="-23.5" cy="0" rx="1.2" ry="2.9" fill="none" stroke="{sea["cork"]}" '
-           'stroke-opacity=".4" stroke-width=".9"/>',
-           f'<path d="M-13.2,-5.4L-13.2,5.4" stroke="{sea["cork"]}" stroke-opacity=".5" stroke-width="1.8"/>',
-           f'<circle cx="-13.2" cy="0" r="1.15" fill="{sea["cork"]}" fill-opacity=".62"/>',
+           # One shape, uniform bore width, standing proud of the lip. A stepped
+           # head and a seam both read as two separate objects at display size.
+           f'<rect x="27" y="-3" width="12.4" height="6" rx="1.4" fill="{sea["cork"]}"/>',
+           f'<path d="M27,1.2h12.4v1.4Q39.4,3 38,3L27,3Z" fill="#000000" fill-opacity=".18"/>',
+           f'<path d="M28.4,-2.1Q33,-2.4 37.6,-1.9" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".28" stroke-width=".9" stroke-linecap="round"/>',
+           f'<path d="M35.4,-3L35.4,3" stroke="#000000" stroke-opacity=".22" stroke-width=".8"/>',
+           # A sheet of paper with a curled edge and three lines of writing. Rolled
+           # into a tube it read as a battery once the spiral shrank to a few pixels.
+           '<g transform="rotate(-7)">',
+           f'<path d="M-24,-6.2L-6.2,-6.2Q-4.4,-6.2 -4.4,-4.6L-4.4,5Q-4.4,6.4 -6.2,6.4'
+           f'L-22.2,6.4Q-24,6.4 -24,4.8Z" fill="{sea["note"]}" fill-opacity=".92"/>',
+           f'<path d="M-24,4.8Q-20.4,2.4 -16.6,4.6Q-13,6.6 -9.4,4.8L-9.4,6.4L-22.2,6.4Q-24,6.4 -24,4.8Z" '
+           f'fill="{sea["cork"]}" fill-opacity=".2"/>',
+           f'<path d="M-21,-3.2h13.2M-21,-0.4h10.4M-21,2.4h12" stroke="{sea["cork"]}" '
+           'stroke-opacity=".55" stroke-width="1.15" stroke-linecap="round"/>',
            '</g>',
            # Two speculars: a long one riding the shoulder, a short catch on the base.
            f'<path d="M-29.5,-7.4Q-16,-9.4 2,-8.5" fill="none" stroke="{sea["shine"]}" '
