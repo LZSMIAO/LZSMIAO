@@ -33,14 +33,14 @@ class ProfileTests(unittest.TestCase):
             self.assertTrue(first.startswith('before\n') and first.endswith('\nafter'))
             self.assertNotIn('stale',first)
     def test_overview_fills_the_column_without_overflowing_it(self):
-        # Measured in a browser: 8.19px per character and 980px inside the column,
-        # so 119 fills a desktop exactly. Anything wider would overflow it.
+        # A profile README lives in the narrow right-hand column, which shows about
+        # 114 characters on a desktop; 100 keeps a margin for smaller windows.
         data={'total_seconds':82800,'start':'2026-09-15','end':'2026-09-21','languages':[
             {'name':'WebGPU Shading Language','total_seconds':40000,'percent':48.3},
             {'name':'Objective-C++','total_seconds':30000,'percent':36.2},
             {'name':'TypeScript','total_seconds':12800,'percent':15.5}]}
         for line in overview(data).split('\n'):
-            self.assertLessEqual(len(line),119,line)
+            self.assertLessEqual(len(line),100,line)
         self.assertIn('23h 00m',overview(data))
 
     def test_remainder_folds_into_the_language_wakatime_already_calls_other(self):

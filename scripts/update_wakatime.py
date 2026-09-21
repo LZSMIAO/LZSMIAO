@@ -16,7 +16,7 @@ from coding_card import card
 from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
-BAR=86
+BAR=68
 
 
 def number(value):
@@ -87,9 +87,10 @@ def overview(data):
         name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:14]
         filled=round(row['percent']*BAR/100)
         bar='█'*filled+'░'*(BAR-filled)
-        # 118 columns. Measured in a browser: GitHub sets this block at 8.19px per
-        # character and leaves 980px inside the column, so 119 fills it exactly.
-        # A phone scrolls the block sideways, which is the accepted trade.
+        # 100 columns. A profile README sits in the narrower right-hand column, not
+        # the full-width one a repository gets: measured off a desktop screenshot,
+        # that column shows about 114 characters. 100 leaves room for a smaller
+        # window. Phones still scroll the block, which is the accepted trade.
         lines.append(f"{name:<14} {duration(row['total_seconds']):>8}  {bar} {row['percent']:5.1f}%")
     return '\n'.join(lines+['',f'Activity time: {duration(total)}','~~~'])
 
