@@ -23,15 +23,15 @@
 
 🕑 Time Zone: Asia/Hong Kong
 
-2026-09-15 — 2026-09-21
+2026-09-16 — 2026-09-22
 
 💬 Programming Languages:
-TypeScript       8h 55m  █████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  31.0%
-Other           12h 25m  █████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  43.2%
-Vue              3h 43m  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.9%
-Markdown         3h 41m  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.9%
+TypeScript       8h 55m  █████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  30.2%
+Other           13h 30m  ███████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  45.7%
+Markdown         3h 41m  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.5%
+Vue              3h 26m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.7%
 
-Activity time: 28h 47m
+Activity time: 29h 35m
 ~~~
 
 <br>
@@ -43,10 +43,10 @@ Activity time: 28h 47m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-af95021330e4.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-8841481368c1.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-42ca0c3f7a66.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-b92e019a0d3c.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-ff16d8ccb56f.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-f96e80988853.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-0c33e3d41732.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-1da7c680e19f.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
@@ -59,7 +59,7 @@ Activity time: 28h 47m
   <br>
 
   <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-f4e161200fa5.svg"><source media="(max-width: 600px)" srcset="assets/activity-bb6dc97443c1.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-2a6111a1e083.svg"><img src="assets/activity-5d6d02142d48.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-20" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-2b8380323252.svg"><source media="(max-width: 600px)" srcset="assets/activity-c4c3f8cc7118.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-e9a5187d178c.svg"><img src="assets/activity-dc243a0d93d3.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-21" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </details>
 
