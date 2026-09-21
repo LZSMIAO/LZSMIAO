@@ -76,6 +76,8 @@ Activity time: 27h 28m
 
 </details>
 
+<br>
+
 <details>
 <summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
 
@@ -100,6 +102,8 @@ Activity time: 27h 28m
 </p>
 
 </details>
+
+<br>
 
 <p>
 <!-- BOTTLE:START -->
