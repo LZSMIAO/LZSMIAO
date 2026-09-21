@@ -76,17 +76,6 @@ Activity time: 27h 28m
 
 </details>
 
-<p align="center">
-  <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-7699a25c18cc.svg">
-    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-06fef0853e22.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e5c0be310778.svg">
-    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="880" style="display: block; width: 100%;">
-  </picture>
-</p>
-
-<br>
-
 <details>
 <summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
 
@@ -104,6 +93,17 @@ Activity time: 27h 28m
 　　那麼 Vibe Coding，如果我也嘗試一下呢？當所有人踩上同樣的輪子，我的NFT，還能否有所不同？我相信，也希望，未來你們會喜歡上某些產品，雖然你不會知道它來自我——那個九年之前，十年之後將跌入互聯網的人。
 
 </details>
+
+<br>
+
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-7699a25c18cc.svg">
+    <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-06fef0853e22.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e5c0be310778.svg">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="880" style="display: block; width: 100%;">
+  </picture>
+</p>
 
 <br>
 
