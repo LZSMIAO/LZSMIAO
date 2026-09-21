@@ -16,7 +16,7 @@ from coding_card import card
 from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
-BAR=6
+BAR=15
 
 
 def number(value):
@@ -84,12 +84,12 @@ def overview(data):
     lines=['~~~text','📊 Last 7 days','','🕑 Time Zone: Asia/Hong Kong','',
            f"{data['start']} — {data['end']}",'','💬 Programming Languages:']
     for row in rows:
-        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:10]
+        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:11]
         filled=round(row['percent']*BAR/100)
         bar='█'*filled+'░'*(BAR-filled)
-        # 32 columns. GitHub's phone apps render this block near 21px per character,
-        # roughly double the web, so a small handset fits about 32 before it clips.
-        lines.append(f"{name:<10} {duration(row['total_seconds']):>7}  {bar} {row['percent']:4.1f}%")
+        # 42 columns. The block shrinks to its own width now, so this is purely a
+        # content choice; a phone fits about 37 and scrolls the rest inside the block.
+        lines.append(f"{name:<11} {duration(row['total_seconds']):>7}  {bar} {row['percent']:4.1f}%")
     return '\n'.join(lines+['',f'Activity time: {duration(total)}','~~~'])
 
 

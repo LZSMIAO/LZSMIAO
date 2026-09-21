@@ -8,11 +8,9 @@
 </p>
 
 <h2 align="left">Words are only a river. They do not know what they carry — they only flow.</h2>
+<p align="left"><sub>文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌</sub></p>
 
-<p align="left">
-  <em>Me? Nobody.</em><br>
-  Building ideas with ChatGPT & Claude
-</p>
+<p align="left"><em>Me? Nobody.</em> Building ideas with ChatGPT & Claude</p>
 
 <p align="center">
   <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
@@ -31,12 +29,12 @@
 2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-TypeScript  8h 39m  ██░░░░ 31.7%
-Other      11h 21m  ██░░░░ 41.6%
-Markdown    3h 41m  █░░░░░ 13.6%
-Vue         3h 33m  █░░░░░ 13.1%
+TypeScript   8h 39m  █████░░░░░░░░░░ 31.5%
+Other       11h 30m  ██████░░░░░░░░░ 41.9%
+Markdown     3h 41m  ██░░░░░░░░░░░░░ 13.5%
+Vue          3h 36m  ██░░░░░░░░░░░░░ 13.1%
 
-Activity time: 27h 17m
+Activity time: 27h 28m
 ~~~
 
 </td></tr></table>
@@ -50,10 +48,10 @@ Activity time: 27h 17m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-7c434de9d936.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-054008c6faab.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-f1998b7ee32c.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-c6ce0375dbe2.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-24f4103a3b06.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-21c562a9c567.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ed6833e98268.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-12ef576d6e51.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
