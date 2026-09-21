@@ -21,6 +21,8 @@
   <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
 </p>
 
+<table align="center"><tr><td>
+
 ~~~text
 📊 Last 7 days
 
@@ -36,6 +38,8 @@ Vue         3h 33m  █░░░░░ 13.1%
 
 Activity time: 27h 17m
 ~~~
+
+</td></tr></table>
 
 <br>
 
