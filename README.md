@@ -19,8 +19,6 @@
   <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
 </p>
 
-<table align="center"><tr><td>
-
 ~~~text
 📊 Last 7 days
 
@@ -29,15 +27,13 @@
 2026-09-15 — 2026-09-21
 
 💬 Programming Languages:
-TypeScript   8h 39m  █████░░░░░░░░░░ 31.5%
-Other       11h 30m  ██████░░░░░░░░░ 41.9%
-Markdown     3h 41m  ██░░░░░░░░░░░░░ 13.5%
-Vue          3h 36m  ██░░░░░░░░░░░░░ 13.1%
+TypeScript       8h 39m  ███████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  31.5%
+Other           11h 30m  ████████████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  41.9%
+Markdown         3h 41m  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  13.5%
+Vue              3h 36m  ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  13.1%
 
 Activity time: 27h 28m
 ~~~
-
-</td></tr></table>
 
 <br>
 
