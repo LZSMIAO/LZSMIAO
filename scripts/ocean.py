@@ -63,23 +63,26 @@ def floating(x,y,scale,sea):
            '</linearGradient></defs>',
            f'<path d="{body}" fill="url(#pane)" stroke="{sea["glass"]}" stroke-opacity=".85" '
            'stroke-width="1.1" stroke-linejoin="round"/>',
-           # A driven cork: the buried length is squeezed to the bore, the head stands
-           # proud of the lip and keeps its original, wider diameter.
-           f'<path d="M26.4,-2.9L35.1,-2.9L35.1,-3.9L37.5,-3.9Q39.2,-3.9 39.2,-2.4'
-           'L39.2,2.4Q39.2,3.9 37.5,3.9L35.1,3.9L35.1,2.9L26.4,2.9Z" '
-           f'fill="{sea["cork"]}" fill-opacity=".92"/>',
-           f'<path d="M26.4,.5L35.1,.5L35.1,3.9L37.5,3.9Q39.2,3.9 39.2,2.4L39.2,.5'
-           'L39.2,2.4Q39.2,3.9 37.5,3.9L35.1,3.9L35.1,2.9L26.4,2.9Z" fill="#000000" fill-opacity=".2"/>',
-           f'<path d="M36,-2.6Q38,-2.4 38.5,-1.2" fill="none" stroke="{sea["shine"]}" '
-           'stroke-opacity=".3" stroke-width="1"/>',
-           f'<path d="M35.1,-2.9L35.1,2.9" stroke="#000000" stroke-opacity=".22" stroke-width=".9"/>',
-           # A rolled note: a warm cylinder with a visible curl at its left end.
-           '<g transform="rotate(-5)">',
-           f'<rect x="-25" y="-6.1" width="22" height="12.2" rx="6.1" fill="{sea["note"]}" fill-opacity=".72"/>',
-           f'<path d="M-19,-6.1Q-22.4,0 -19,6.1" fill="none" stroke="{sea["cork"]}" '
-           'stroke-opacity=".38" stroke-width="1.1"/>',
-           f'<path d="M-15.6,-2.4h9.4M-15.6,.4h6.4M-15.6,3.2h8" stroke="{sea["cork"]}" '
-           'stroke-opacity=".5" stroke-width="1.05" stroke-linecap="round"/>',
+           # Two overlapping pieces, not one stepped outline: the buried length at
+           # bore width, the head proud of the lip at its own. The single path it
+           # replaces stepped abruptly and its shading self-intersected.
+           f'<rect x="27" y="-2.9" width="9" height="5.8" fill="{sea["cork"]}" fill-opacity=".9"/>',
+           f'<rect x="34.8" y="-3.6" width="4.8" height="7.2" rx="1.5" fill="{sea["cork"]}"/>',
+           f'<path d="M34.8,1.1h4.8v1Q39.6,3.6 38.1,3.6L34.8,3.6Z" fill="#000000" fill-opacity=".2"/>',
+           f'<path d="M35.6,-2.3Q37.6,-2.5 38.8,-1.6" fill="none" stroke="{sea["shine"]}" '
+           'stroke-opacity=".3" stroke-width=".9" stroke-linecap="round"/>',
+           f'<path d="M35.2,-3.5L35.2,3.5" stroke="#000000" stroke-opacity=".25" stroke-width=".9"/>',
+           # A rolled letter: a tube, the open end of the roll, and a tie across it.
+           # A fully rounded rect read as a capsule, which is what it looked like.
+           '<g transform="rotate(-6)">',
+           f'<rect x="-23.5" y="-5.4" width="19" height="10.8" rx="1.6" fill="{sea["note"]}" fill-opacity=".82"/>',
+           f'<path d="M-23.5,2.2h19v1.6Q-4.5,5.4 -6.1,5.4L-21.9,5.4Q-23.5,5.4 -23.5,3.8Z" '
+           f'fill="{sea["cork"]}" fill-opacity=".16"/>',
+           f'<ellipse cx="-23.5" cy="0" rx="2.4" ry="5.4" fill="{sea["note"]}"/>',
+           f'<ellipse cx="-23.5" cy="0" rx="1.2" ry="2.9" fill="none" stroke="{sea["cork"]}" '
+           'stroke-opacity=".4" stroke-width=".9"/>',
+           f'<path d="M-13.2,-5.4L-13.2,5.4" stroke="{sea["cork"]}" stroke-opacity=".5" stroke-width="1.8"/>',
+           f'<circle cx="-13.2" cy="0" r="1.15" fill="{sea["cork"]}" fill-opacity=".62"/>',
            '</g>',
            # Two speculars: a long one riding the shoulder, a short catch on the base.
            f'<path d="M-29.5,-7.4Q-16,-9.4 2,-8.5" fill="none" stroke="{sea["shine"]}" '
