@@ -26,12 +26,12 @@
 2026-09-17 — 2026-09-23
 
 💬 Programming Languages:
-TypeScript       9h 09m  ███████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  27.6%
-Other           16h 09m  █████████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  48.7%
-Markdown         4h 08m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.5%
-Vue              3h 42m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.2%
+TypeScript       9h 09m  ███████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  27.3%
+Other           16h 32m  ██████████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  49.3%
+Markdown         4h 08m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.3%
+Vue              3h 42m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.1%
 
-Activity time: 33h 09m
+Activity time: 33h 32m
 ~~~
 
 <br>
@@ -43,10 +43,10 @@ Activity time: 33h 09m
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-7e1ba08407d9.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-7d60eabb667d.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-8f9b63228efe.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-21ccbb1e2ba4.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-11536be452e7.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-69a39eb09018.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-744ebdcc8cee.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-d49f498ef6ec.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
     </picture>
   </p>
 </details>
