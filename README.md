@@ -107,7 +107,7 @@ Activity time: 33h 09m
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-d53084143aa6.svg"><source media="(max-width: 600px)" srcset="assets/bottle-e79b1fbdae41.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-86c7964349e3.svg"><img src="assets/bottle-eb65b0d83ff8.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-137be764ac35.svg"><source media="(max-width: 600px)" srcset="assets/bottle-e61fe5722d4f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-d54a0b3034eb.svg"><img src="assets/bottle-efc990a40f24.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 <sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
 </p>

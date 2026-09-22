@@ -233,14 +233,15 @@ class ProfileTests(unittest.TestCase):
                 svg=bottle('a line from a stranger','octocat','2026-09-21',theme,mobile)
                 ET.fromstring(svg)
                 self.assertIn('animateTransform',svg)
-                self.assertIn(SEAS[theme]['cork'],svg)
+                self.assertIn(SEAS[theme]['accent'],svg)
                 self.assertGreaterEqual(svg.count('<path'),3)
+                # Line work like the header: no filled sea, sky, moon or gradient.
+                self.assertNotIn('Gradient',svg)
         # An empty sea still moves, but nothing is floating on it.
         empty=bottle('','','','dark')
         ET.fromstring(empty)
         self.assertIn('animateTransform',empty)
-        self.assertNotIn(SEAS['dark']['cork'],empty)
-        self.assertNotIn(SEAS['dark']['note'],empty)
+        self.assertNotIn(SEAS['dark']['accent'],empty)
 
     def test_flow_field_is_deterministic_and_animated(self):
         for theme in ('light','dark'):

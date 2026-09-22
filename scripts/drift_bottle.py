@@ -9,7 +9,7 @@ import re
 import sys
 from unicodedata import east_asian_width,normalize
 from zoneinfo import ZoneInfo
-from ocean import SEAS,ocean,sky
+from ocean import ocean
 
 ROOT=Path(__file__).resolve().parents[1]
 README=ROOT/'README.md'
@@ -68,46 +68,38 @@ def wrap(text,budget):
 
 
 def card(text,login,day,theme,mobile=False):
-    sea=SEAS[theme]
     t=THEMES[theme]
     width=480 if mobile else 880
     pad=20 if mobile else 28
-    size=17 if mobile else 20
-    step=26 if mobile else 30
-    band=124 if mobile else 158
+    size=18 if mobile else 22
+    step=27 if mobile else 32
+    first=72 if mobile else 84
+    band=78 if mobile else 104
     rows=wrap(text,int((width-2*pad)/(size/2))) if text else []
     body=rows or ['No bottle has washed ashore yet.']
-    written=76+(len(body)-1)*step
-    credit=written+(28 if mobile else 32)
-    top=credit+(16 if mobile else 20)
+    top=first+(len(body)-1)*step+(18 if mobile else 22)
     height=top+band
     alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
-    scene='A bottle corked and drifting on an animated sea' if text else 'An empty sea, waiting'
+    scene='An outlined bottle riding a sea of drifting swell lines' if text else 'An empty sea of drifting swell lines'
+    label=15 if mobile else 17
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',
            f'<desc id="bottle-desc">{escape(alt+". "+scene+".")}</desc>',
            '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
-           '<defs>',
-           f'<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">'
-           f'<stop offset="0" stop-color="{sea["sky"][0]}"/><stop offset="1" stop-color="{sea["sky"][1]}"/>'
-           '</linearGradient>',
-           f'<clipPath id="hull"><rect width="{width}" height="{height}" rx="12"/></clipPath>',
-           '</defs>',
+           # Inset by the border so the swell never paints over the outline.
+           f'<clipPath id="hull"><rect x="1" y="1" width="{width-2}" height="{height-2}" rx="11"/></clipPath>',
            f'<g clip-path="url(#hull)">',
-           f'<rect width="{width}" height="{height}" fill="url(#sky)"/>',
-           sky(width,top,theme),
-           ocean(width,height,top,theme,.85 if mobile else 1.0,bool(text)),
+           ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
            '</g>',
            f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
-           f'<text x="{pad}" y="34" font-size="13" fill="{t["muted"]}" letter-spacing="1.5">'
-           'DRIFT BOTTLE</text>']
-    for i,row in enumerate(body):
-        parts.append(f'<text x="{pad}" y="{76+i*step}" font-size="{size}" '
-                     f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')
+           f'<text x="{pad}" y="{36 if mobile else 40}" font-size="{label}" fill="{t["muted"]}">Drift bottle</text>']
     if text:
-        parts.append(f'<text x="{width-pad}" y="{credit}" font-size="14" fill="{t["muted"]}" '
-                     f'text-anchor="end">\u2014 @{escape(login)} \u00b7 {day}</text>')
+        parts.append(f'<text x="{width-pad}" y="{36 if mobile else 40}" font-size="{label}" fill="{t["muted"]}" '
+                     f'text-anchor="end">@{escape(login)} \u00b7 {day}</text>')
+    for i,row in enumerate(body):
+        parts.append(f'<text x="{pad}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
+                     f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')
     return ''.join(parts)+'</svg>\n'
 
 
