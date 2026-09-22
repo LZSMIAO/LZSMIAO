@@ -71,7 +71,7 @@ Activity time: 29h 35m
 <br>
 
 <p align="center">
-<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-add5113b0171.svg" alt="Recently played on NetEase Cloud Music" width="50%">
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-8c4d6d766e6e.svg" alt="Recently played on NetEase Cloud Music" width="50%">
 </p>
 
 </details>
