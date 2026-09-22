@@ -10,6 +10,7 @@ import sys
 from unicodedata import east_asian_width,normalize
 from zoneinfo import ZoneInfo
 from ocean import ocean
+from typeface import ITALIC,faces
 
 ROOT=Path(__file__).resolve().parents[1]
 README=ROOT/'README.md'
@@ -81,22 +82,23 @@ def card(text,login,day,theme,mobile=False):
     height=top+band
     alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
     scene='An outlined bottle riding a sea of drifting swell lines' if text else 'An empty sea of drifting swell lines'
-    label=15 if mobile else 17
+    label=19 if mobile else 23
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',
            f'<desc id="bottle-desc">{escape(alt+". "+scene+".")}</desc>',
-           '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}</style>',
+           '<style>'+faces('Chiron Italic')+'text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}'
+           f'.serif{{font-family:{ITALIC}}}</style>',
            # Inset by the border so the swell never paints over the outline.
            f'<clipPath id="hull"><rect x="1" y="1" width="{width-2}" height="{height-2}" rx="11"/></clipPath>',
            f'<g clip-path="url(#hull)">',
            ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
            '</g>',
            f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
-           f'<text x="{pad}" y="{36 if mobile else 40}" font-size="{label}" fill="{t["muted"]}">Drift bottle</text>']
+           f'<text x="{pad}" y="{38 if mobile else 43}" font-size="{label}" fill="{t["muted"]}" class="serif">Drift bottle</text>']
     if text:
-        parts.append(f'<text x="{width-pad}" y="{36 if mobile else 40}" font-size="{label}" fill="{t["muted"]}" '
-                     f'text-anchor="end">@{escape(login)} \u00b7 {day}</text>')
+        parts.append(f'<text x="{width-pad}" y="{37 if mobile else 42}" font-size="{label-3}" fill="{t["muted"]}" '
+                     f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
     for i,row in enumerate(body):
         parts.append(f'<text x="{pad}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
                      f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')

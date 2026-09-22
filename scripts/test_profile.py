@@ -190,8 +190,9 @@ class ProfileTests(unittest.TestCase):
                 self.assertNotIn('<script>',svg)
                 self.assertIn('&lt;script&gt;',svg)
         empty=bottle('','','','light')
-        ET.fromstring(empty)
-        self.assertNotIn('@',empty)
+        # Only drawn text counts: the embedded @font-face rule has an @ of its own.
+        drawn=''.join(''.join(node.itertext()) for node in ET.fromstring(empty).iter('{http://www.w3.org/2000/svg}text'))
+        self.assertNotIn('@',drawn)
 
     def test_bottle_replaces_the_previous_one(self):
         original='head\n<!-- BOTTLE:START -->\nold\n<!-- BOTTLE:END -->\ntail'
