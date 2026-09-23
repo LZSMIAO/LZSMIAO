@@ -27,10 +27,10 @@
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-654609f6683b.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-2543448aac6c.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-f268a9802729.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-1221c055f774.svg" width="880" style="display: block; width: 100%;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6fe486982845.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-0e0a4cf69b27.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ea0c451bec32.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-8e9244e9903f.svg" width="880" style="display: block; width: 100%;">
     </picture>
   </p>
 </details>
