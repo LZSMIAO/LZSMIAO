@@ -11,8 +11,9 @@ FONTS=Path(__file__).resolve().parent/'fonts'
 ITALIC='"Chiron Italic",Georgia,"Times New Roman",serif'
 FIGURES='"Chiron Figures",Georgia,"Times New Roman",serif'
 TAGLINE='"Chiron Tagline","Songti TC","Noto Serif TC",serif'
+QUOTE='"Chiron Quote",Georgia,serif'
 FILES={'Chiron Italic':'chiron-italic.woff2','Chiron Figures':'chiron-figures.woff2',
-       'Chiron Tagline':'chiron-tagline.woff2'}
+       'Chiron Tagline':'chiron-tagline.woff2','Chiron Quote':'chiron-quote.woff2'}
 
 
 @cache

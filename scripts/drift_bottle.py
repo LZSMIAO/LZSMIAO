@@ -9,8 +9,8 @@ import re
 import sys
 from unicodedata import east_asian_width,normalize
 from zoneinfo import ZoneInfo
-from ocean import SEAS,ocean
-from typeface import ITALIC,faces
+from ocean import ocean
+from typeface import ITALIC,QUOTE,faces
 
 ROOT=Path(__file__).resolve().parents[1]
 README=ROOT/'README.md'
@@ -18,6 +18,8 @@ START='<!-- BOTTLE:START -->'
 END='<!-- BOTTLE:END -->'
 USER='LZSMIAO'
 LIMIT=48
+# Hand-set offsets for the opening quote (desktop, phone).
+QX,QY,QX_M,QY_M=4,72,3,50
 LOGIN=re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
 
 THEMES={
@@ -91,17 +93,18 @@ def card(text,login,day,theme,mobile=False):
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',
            f'<desc id="bottle-desc">{escape(alt+". "+scene+".")}</desc>',
-           '<style>'+faces('Chiron Italic')+'text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}'
-           f'.serif{{font-family:{ITALIC}}}</style>',
+           '<style>'+faces('Chiron Italic','Chiron Quote')+'text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}'
+           f'.serif{{font-family:{ITALIC}}}.quote{{font-family:{QUOTE}}}</style>',
            ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
            f'<text x="{pad}" y="{27 if mobile else 31}" font-size="{label}" fill="{t["muted"]}" class="serif">Drift bottle</text>']
     if text:
         parts.append(f'<text x="{width-2}" y="{26 if mobile else 30}" font-size="{label-3}" fill="{t["muted"]}" '
                      f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
     if text:
-        # The glyph carries a wide left bearing; pull it back to the column edge.
-        parts.append(f'<text x="{pad-(11 if mobile else 16)}" y="{first+(50 if mobile else 72)}" font-size="{84 if mobile else 124}" '
-                     f'fill="{SEAS[theme]["accent"]}" class="serif">\u201c</text>')
+        # A hairline mark at the face's lightest weight, in the muted ink: it sets
+        # the line off as a quotation without outshouting it.
+        parts.append(f'<text x="{pad-(QX_M if mobile else QX)}" y="{first+(QY_M if mobile else QY)}" '
+                     f'font-size="{84 if mobile else 124}" fill="{t["muted"]}" fill-opacity=".6" class="quote">\u201c</text>')
     for i,row in enumerate(body):
         parts.append(f'<text x="{pad+indent}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
                      f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')

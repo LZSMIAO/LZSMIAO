@@ -52,7 +52,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-5256a2360d8b.svg"><source media="(max-width: 600px)" srcset="assets/bottle-26d1a5a9d514.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-feadb5e72879.svg"><img src="assets/bottle-7866a2f27c50.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-6b4126861820.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d6b3b9ef21bc.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-9c438b791448.svg"><img src="assets/bottle-7149d09b94af.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 

@@ -22,6 +22,8 @@ FACES={
     'chiron-italic.woff2': ('ChironSungHK-Italic-VariableFont_wght.ttf',500,TEXT),
     'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',650,TEXT),
     'chiron-tagline.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TAGLINE),
+    # The drift bottle's opening quote, at the face's lightest weight.
+    'chiron-quote.woff2': ('ChironSungHK-VariableFont_wght.ttf',200,'“”'),
 }
 
 
