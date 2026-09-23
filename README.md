@@ -62,7 +62,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e294ceea55b7.svg"><source media="(max-width: 600px)" srcset="assets/bottle-9790d007f65f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-808753a86774.svg"><img src="assets/bottle-9780b8b00a07.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-cf61ca2e62d6.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d1281a9b3aa7.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-cf4eb4210552.svg"><img src="assets/bottle-5ce958e24e11.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 <sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
 </p>
