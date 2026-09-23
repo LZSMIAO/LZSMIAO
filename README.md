@@ -9,8 +9,6 @@
 
 <h2 align="left">Words are only a river. They do not know what they carry — they only flow.<br><sub>文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌</sub></h2>
 
-<p align="left"><em>Me? Nobody.</em> Building ideas with ChatGPT & Claude</p>
-
 <p align="center">
   <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
   <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="32"></a>
@@ -62,8 +60,27 @@
 
 <br>
 
+<p>
+<!-- BOTTLE:START -->
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e294ceea55b7.svg"><source media="(max-width: 600px)" srcset="assets/bottle-9790d007f65f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-808753a86774.svg"><img src="assets/bottle-9780b8b00a07.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
+<!-- BOTTLE:END -->
+<sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
+    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
+  </picture>
+</p>
+
+<br>
+
 <details>
-<summary><strong>我為何放弃一切开始尝试 Vibe Coding</strong> Pt.1</summary>
+<summary><strong>lzsm's note</strong></summary>
+
+<h3>我為何放弃一切开始尝试 Vibe Coding <sub>Pt.1</sub></h3>
 
 　　…大概是 2021 年，第四次工業革命，人類進入 AI 時代。由此，我經常看到有人在濫用它，甚至專業程序員也幹這種勾當——只用五分鐘，就生成一個他媽的漸變、不對齊、用100個不同設計風格 UI、塞1000種元素的前端。只用 AI 隨便做個粗製濫造的垃圾系統，就能賣貨給灰產用戶發大財。…這一切看得我噁心，我從床上爬起來，吐了一遍又一遍，可惜未被它們穩穩接住。
 
@@ -86,20 +103,3 @@
 </p>
 
 </details>
-
-<br>
-
-<p>
-<!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e294ceea55b7.svg"><source media="(max-width: 600px)" srcset="assets/bottle-9790d007f65f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-808753a86774.svg"><img src="assets/bottle-9780b8b00a07.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
-<!-- BOTTLE:END -->
-<sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
-</p>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
-    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
-  </picture>
-</p>

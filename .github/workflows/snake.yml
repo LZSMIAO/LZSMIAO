@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Generate light and dark contribution snakes
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
         with:
@@ -26,6 +27,8 @@ jobs:
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Trim the side margins so the grid lines up with the column
+        run: python3 scripts/crop_snake.py dist/github-contribution-grid-snake.svg dist/github-contribution-grid-snake-dark.svg
       - name: Publish generated SVGs
         uses: peaceiris/actions-gh-pages@329bcc8f12caed2cefe5a5b80781499a6f3b361b # v4
         with:

@@ -15,6 +15,7 @@ from drift_bottle import sentence,card as bottle,update_content as bottle_conten
 from publish import publish
 from ocean import SEAS
 from flowfield import card as flow,field,STYLES
+from crop_snake import crop as crop_snake
 
 class ProfileTests(unittest.TestCase):
     def test_cards_refresh_without_an_overview_block(self):
@@ -278,6 +279,13 @@ class ProfileTests(unittest.TestCase):
             for path in readme.read_text().split():
                 self.assertTrue((root/path).is_file())
 
+    def test_snake_is_cropped_to_its_grid_and_bar(self):
+        svg=('<svg viewBox="-16 -32 880 192" width="880" height="192" xmlns="http://www.w3.org/2000/svg">'
+             '<rect class="c" x="2" y="2"/><rect class="c c3" x="834" y="2"/>'
+             '<rect class="u u0" height="12" width="400" x="0.0" y="144"/></svg>')
+        once=crop_snake(svg)
+        self.assertIn('viewBox="0 -32 846 192" width="846" height="192"',once)
+        self.assertEqual(crop_snake(once),once)
 
 if __name__=='__main__':
     unittest.main()
