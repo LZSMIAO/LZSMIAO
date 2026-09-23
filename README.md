@@ -3,11 +3,18 @@
     <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-7680c5a35be2.svg">
     <source media="(max-width: 600px)" srcset="assets/art-light-mobile-7e99380be182.svg">
     <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-645428b3ad50.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-42f2b4401ab3.svg" width="880" style="display: block; width: 100%;">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-42f2b4401ab3.svg" width="100%">
   </picture>
 </p>
 
-<h2 align="left">Words are only a river. They do not know what they carry — they only flow.<br><sub>文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌</sub></h2>
+<p>
+  <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-a8b9f557e70c.svg">
+    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-40f0e31791f7.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-a9a8a713766b.svg">
+    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-0df140436a55.svg" width="100%">
+  </picture>
+</p>
 
 <p align="center">
   <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
@@ -18,45 +25,28 @@
 
 <br>
 
-<details open>
-  <summary><strong>Weekly Report</strong></summary>
-
-  <br>
-
-  <p align="center">
-    <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-677d530f55e8.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-3c064ccce2d6.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-db7accc50743.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-6012efd09795.svg" width="880" style="display: block; width: 100%;">
-    </picture>
-  </p>
-</details>
+<p align="center">
+  <picture>
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-677d530f55e8.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-3c064ccce2d6.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-db7accc50743.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-6012efd09795.svg" width="100%">
+  </picture>
+</p>
 
 <br>
 
-<details open>
-  <summary><strong>Recent Activity</strong></summary>
-
-  <br>
-
-  <!-- ACTIVITY:START -->
+<p>
+<!-- ACTIVITY:START -->
 <a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-d9ac02c6add6.svg"><source media="(max-width: 600px)" srcset="assets/activity-f939dec314de.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-cf96726263a1.svg"><img src="assets/activity-28132bad5a85.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-23" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
-</details>
-
-<br>
-
-<details open>
-<summary><strong>Music</strong></summary>
+</p>
 
 <br>
 
 <p align="center">
 <a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-7ad94a9d7ec9.svg" alt="Recently played on NetEase Cloud Music" width="50%">
 </p>
-
-</details>
 
 <br>
 
@@ -68,11 +58,13 @@
 
 <p align="right"><sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub></p>
 
+<br>
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg">
-    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="880">
+    <img alt="Animated GitHub contribution graph snake" src="https://raw.githubusercontent.com/LZSMIAO/LZSMIAO/output/github-contribution-grid-snake.svg" width="100%">
   </picture>
 </p>
 
@@ -99,7 +91,7 @@
     <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/flow-dark-mobile-7699a25c18cc.svg">
     <source media="(max-width: 600px)" srcset="assets/flow-light-mobile-06fef0853e22.svg">
     <source media="(prefers-color-scheme: dark)" srcset="assets/flow-dark-e5c0be310778.svg">
-    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="880" style="display: block; width: 100%;">
+    <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="100%">
   </picture>
 </p>
 

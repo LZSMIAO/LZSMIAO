@@ -10,7 +10,9 @@ from pathlib import Path
 FONTS=Path(__file__).resolve().parent/'fonts'
 ITALIC='"Chiron Italic",Georgia,"Times New Roman",serif'
 FIGURES='"Chiron Figures",Georgia,"Times New Roman",serif'
-FILES={'Chiron Italic':'chiron-italic.woff2','Chiron Figures':'chiron-figures.woff2'}
+TAGLINE='"Chiron Tagline","Songti TC","Noto Serif TC",serif'
+FILES={'Chiron Italic':'chiron-italic.woff2','Chiron Figures':'chiron-figures.woff2',
+       'Chiron Tagline':'chiron-tagline.woff2'}
 
 
 @cache

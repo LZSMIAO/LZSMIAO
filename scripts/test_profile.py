@@ -16,6 +16,7 @@ from publish import publish
 from ocean import SEAS
 from flowfield import card as flow,field,STYLES
 from crop_snake import crop as crop_snake
+from tagline import card as tagline,ENGLISH,CHINESE,LINES
 
 class ProfileTests(unittest.TestCase):
     def test_cards_refresh_without_an_overview_block(self):
@@ -286,6 +287,18 @@ class ProfileTests(unittest.TestCase):
         once=crop_snake(svg)
         self.assertIn('viewBox="0 -32 846 192" width="846" height="192"',once)
         self.assertEqual(crop_snake(once),once)
+
+    def test_tagline_scales_with_the_column_and_keeps_every_word(self):
+        for theme in ('light','dark'):
+            for mobile in (False,True):
+                svg=tagline(theme,mobile)
+                root=ET.fromstring(svg)
+                self.assertEqual(root.get('width'),'480' if mobile else '880')
+                self.assertIn('Chiron Tagline',svg)
+                english,chinese=LINES[mobile]
+                self.assertEqual(' '.join(english),ENGLISH)
+                self.assertEqual(' '.join(chinese),CHINESE)
+
 
 if __name__=='__main__':
     unittest.main()

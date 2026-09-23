@@ -116,5 +116,19 @@
   ],
   "flow-dark-mobile": [
     "flow-dark-mobile-7699a25c18cc.svg"
+  ],
+  "tagline-light": [
+    "tagline-light-0df140436a55.svg"
+  ],
+  "tagline-dark": [
+    "tagline-dark-a9a8a713766b.svg"
+  ],
+  "tagline-light-mobile": [
+    "tagline-light-mobile-40f0e31791f7.svg",
+    "tagline-light-mobile-d18401af3d32.svg"
+  ],
+  "tagline-dark-mobile": [
+    "tagline-dark-mobile-a8b9f557e70c.svg",
+    "tagline-dark-mobile-6be871742ee3.svg"
   ]
 }

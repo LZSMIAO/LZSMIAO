@@ -15,14 +15,18 @@ from fontTools.varLib.instancer import instantiateVariableFont
 
 HERE=Path(__file__).resolve().parent
 TEXT=''.join(chr(c) for c in range(0x20,0x7f))+'·—…’“”'
+# The tagline is fixed copy, so its Chinese line ships only the characters it
+# uses. Change the sentence in scripts/tagline.py and rebuild.
+TAGLINE='文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌'
 FACES={
-    'chiron-italic.woff2': ('ChironSungHK-Italic-VariableFont_wght.ttf',500),
-    'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',650),
+    'chiron-italic.woff2': ('ChironSungHK-Italic-VariableFont_wght.ttf',500,TEXT),
+    'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',650,TEXT),
+    'chiron-tagline.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TAGLINE),
 }
 
 
 def main(source):
-    for name,(file,weight) in FACES.items():
+    for name,(file,weight,text) in FACES.items():
         font=TTFont(Path(source)/file)
         options=subset.Options()
         options.layout_features=['kern','liga','tnum','lnum','pnum']
@@ -30,7 +34,7 @@ def main(source):
         options.notdef_outline=True
         # Subset before instancing: pinning the axis on every CJK glyph is minutes of waste.
         tool=subset.Subsetter(options)
-        tool.populate(text=TEXT)
+        tool.populate(text=text)
         tool.subset(font)
         font=instantiateVariableFont(font,{'wght':weight})
         font.flavor='woff2'
