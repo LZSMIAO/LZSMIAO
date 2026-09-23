@@ -91,7 +91,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-6b4126861820.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d6b3b9ef21bc.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-9c438b791448.svg"><img src="assets/bottle-7149d09b94af.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-c80a1e99bbcf.svg"><source media="(max-width: 600px)" srcset="assets/bottle-b5b3ffbf6098.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-a990e20281f5.svg"><img src="assets/bottle-79a489412687.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 
