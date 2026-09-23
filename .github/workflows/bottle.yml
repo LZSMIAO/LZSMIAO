@@ -38,4 +38,4 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
         run: |
           gh issue close "$NUMBER" -R "$GITHUB_REPOSITORY" \
-            -c 'Your bottle is on the profile now, until the next one washes ashore. 已經漂上岸了，謝謝你。'
+            -c 'Your bottle is on the profile now, until the next one washes ashore. Thank you.'
