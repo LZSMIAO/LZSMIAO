@@ -20,7 +20,7 @@ TEXT=''.join(chr(c) for c in range(0x20,0x7f))+'·—…’“”'
 TAGLINE='文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌'
 FACES={
     'chiron-italic.woff2': ('ChironSungHK-Italic-VariableFont_wght.ttf',500,TEXT),
-    'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',650,TEXT),
+    'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TEXT),
     'chiron-tagline.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TAGLINE),
     # The drift bottle's opening quote, at the face's lightest weight.
     'chiron-quote.woff2': ('ChironSungHK-VariableFont_wght.ttf',200,'“”'),

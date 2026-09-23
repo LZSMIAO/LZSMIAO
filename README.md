@@ -16,11 +16,17 @@
   </picture>
 </p>
 
+<p>
+  <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="assets/social-email-305b73f0be74.svg" alt="Email" width="36" height="36"></a>
+  <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="assets/social-telegram-7a4a831b4f95.svg" alt="Telegram" width="36" height="36"></a>
+  <a href="https://x.com/lzsmtw" target="_blank" rel="noopener noreferrer"><img src="assets/social-x-7002c1cd9943.svg" alt="X" width="36" height="36"></a>
+  <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="assets/social-threads-46701cc861c5.svg" alt="Threads" width="36" height="36"></a>
+</p>
+
+<br>
+
 <p align="center">
-  <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-8B89CC?style=flat-square&logo=protonmail&logoColor=white" alt="Email" height="32"></a>
-  <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white" alt="Telegram" height="32"></a>
-  <a href="https://x.com/lzsmtw" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=x&logoColor=white" alt="X" height="32"></a>
-  <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
+<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-7ad94a9d7ec9.svg" alt="Recently played on NetEase Cloud Music" width="50%">
 </p>
 
 <br>
@@ -41,22 +47,6 @@
 <a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-d9ac02c6add6.svg"><source media="(max-width: 600px)" srcset="assets/activity-f939dec314de.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-cf96726263a1.svg"><img src="assets/activity-28132bad5a85.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-23" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
-
-<br>
-
-<p align="center">
-<a href="https://open.spotify.com/user/31undvuuo3zgy4suzqjqujerwfdm" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><img src="assets/netease-7ad94a9d7ec9.svg" alt="Recently played on NetEase Cloud Music" width="50%">
-</p>
-
-<br>
-
-<p>
-<!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-6b4126861820.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d6b3b9ef21bc.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-9c438b791448.svg"><img src="assets/bottle-7149d09b94af.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
-<!-- BOTTLE:END -->
-</p>
-
-<p align="right"><sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub></p>
 
 <br>
 
@@ -96,3 +86,13 @@
 </p>
 
 </details>
+
+<br>
+
+<p>
+<!-- BOTTLE:START -->
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/13"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-6b4126861820.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d6b3b9ef21bc.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-9c438b791448.svg"><img src="assets/bottle-7149d09b94af.svg" alt="貓跳上我的床，然後滑倒了，從床頭流到床下，又慢慢流動到門口的牆角，貓流動的身體要把整個房間都填… — @LZSMIAO" width="100%"></picture></a>
+<!-- BOTTLE:END -->
+</p>
+
+<p align="right"><sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub></p>

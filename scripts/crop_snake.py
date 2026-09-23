@@ -1,28 +1,32 @@
-"""Trim the side margins Platane/snk leaves around the contribution grid.
+"""Crop the contribution snake to its grid.
 
-snk pads its viewBox (-16 wide on the left, ~18 on the right), so at the page's
-column width the grid sat inset from every other block. Cropping to the cells and
-the progress bar lines its edges up with the column.
+snk pads its viewBox on every side and draws a progress bar under the grid, so
+the block sat inset from every other one with a band of empty space above and a
+stray green bar below. Cropping to the cells (with a 2px margin for their
+stroke) lines its edges up with the column and leaves only the grid itself.
 """
 from pathlib import Path
 import re
 import sys
 
+MARGIN=2
+CELL=12
+
 
 def crop(svg):
     head=re.search(r'<svg\b[^>]*>',svg)
-    box=re.search(r'viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"',head.group(0))
-    if not head or not box:
+    if not head or 'viewBox=' not in head.group(0):
         raise ValueError('Unexpected snake SVG')
-    _,top,_,height=map(float,box.groups())
-    edges=[(float(x),float(x)+12) for x in re.findall(r'<rect class="c[^"]*" x="(-?[\d.]+)"',svg)]
-    edges+=[(float(x),float(x)+float(w)) for w,x in re.findall(r'<rect class="u[^"]*" height="[\d.]+" width="([\d.]+)" x="(-?[\d.]+)"',svg)]
-    if not edges:
+    cells=[(float(x),float(y)) for x,y in re.findall(r'<rect class="c[^"]*" x="(-?[\d.]+)" y="(-?[\d.]+)"',svg)]
+    if not cells:
         raise ValueError('No grid cells found')
-    left=min(a for a,_ in edges)
-    width=max(b for _,b in edges)-left
+    left=min(x for x,_ in cells)-MARGIN
+    top=min(y for _,y in cells)-MARGIN
+    width=max(x for x,_ in cells)+CELL+MARGIN-left
+    height=max(y for _,y in cells)+CELL+MARGIN-top
     tag=re.sub(r'viewBox="[^"]*"',f'viewBox="{left:g} {top:g} {width:g} {height:g}"',head.group(0))
     tag=re.sub(r'\bwidth="[\d.]+"',f'width="{width:g}"',tag,count=1)
+    tag=re.sub(r'\bheight="[\d.]+"',f'height="{height:g}"',tag,count=1)
     return svg.replace(head.group(0),tag,1)
 
 

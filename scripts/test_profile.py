@@ -282,10 +282,11 @@ class ProfileTests(unittest.TestCase):
 
     def test_snake_is_cropped_to_its_grid_and_bar(self):
         svg=('<svg viewBox="-16 -32 880 192" width="880" height="192" xmlns="http://www.w3.org/2000/svg">'
-             '<rect class="c" x="2" y="2"/><rect class="c c3" x="834" y="2"/>'
+             '<rect class="c" x="2" y="2"/><rect class="c c3" x="834" y="98"/>'
              '<rect class="u u0" height="12" width="400" x="0.0" y="144"/></svg>')
         once=crop_snake(svg)
-        self.assertIn('viewBox="0 -32 846 192" width="846" height="192"',once)
+        # The grid alone: the padding above and the progress bar below are gone.
+        self.assertIn('viewBox="0 0 848 112" width="848" height="112"',once)
         self.assertEqual(crop_snake(once),once)
 
     def test_tagline_scales_with_the_column_and_keeps_every_word(self):

@@ -1,9 +1,11 @@
 """A compact, responsive weekly report built from aggregated activity only.
 
-Drawn like the rest of the profile: hairline rules, one accent (the header's
-green) for the single thing worth finding first, serif italic headings and serif
-figures. It sits on the same panel fill as the Recent Activity and music cards
-below it, so the three blocks read as one set.
+Kept deliberately quiet: a title, one line for the total with seven slim bars
+beside it, languages as a single stacked bar with a one-line legend, and the AI
+figures as one sentence. A table, a labelled chart and three stat blocks made
+the eye jump everywhere. One accent (the header's green) marks the busiest day
+and the leading language; everything else is muted ink on the panel fill that
+the Recent Activity and music cards share.
 """
 from datetime import date
 from html import escape
@@ -53,104 +55,98 @@ def card(data, theme, duration, label, mobile=False):
     end=str(data.get('end',''))[:10]
     rows=languages(data) if total else []
     parts=[]
-    def text(x,y,value,size,color=None,extra=''):
-        parts.append(f'<text x="{x:g}" y="{y:g}" font-size="{size}" fill="{color or t["ink"]}" {extra}>{escape(str(value))}</text>')
-    def rule(x,y,x2):
-        parts.append(f'<path d="M{x:g},{y:g}H{x2:g}" stroke="{t["rule"]}"/>')
-    end_anchor='text-anchor="end"'
+    def text(x,y,content,size,color=None,extra=''):
+        parts.append(f'<text x="{x:g}" y="{y:g}" font-size="{size}" fill="{color or t["ink"]}" {extra}>{content}</text>')
+    def span(value,size=None,color=None,cls=None,dx=None):
+        attrs=''.join(f' {k}="{v}"' for k,v in (('font-size',size),('fill',color),('class',cls),('dx',dx)) if v is not None)
+        return f'<tspan{attrs}>{escape(str(value))}</tspan>'
     alt=['Recent activity from the last seven days','Waiting for the first activity record' if total==0 else 'Total time '+duration(total)]
     alt.extend(f'{label(r["name"])} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in rows)
     alt.extend(f'{d["date"]} {duration(d["total_seconds"])}' for d in days)
     if has_ai:
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
 
-    # Header: serif title on the left, the period on the right (below it on a phone).
-    text(pad,38 if mobile else 44,'Last 7 days',22 if mobile else 24,extra='class="serif"')
-    period=f'{start} — {end} · Hong Kong' if start else 'Hong Kong'
+    text(pad,34 if mobile else 38,'Last 7 days',18,extra='class="serif"')
+    period=escape(f'{start} — {end} · Hong Kong' if start else 'Hong Kong')
     if mobile:
-        text(pad,60,period,12,t['muted'])
+        text(pad,54,period,11,t['muted'])
     else:
-        text(right,42,period+' · includes today',13,t['muted'],end_anchor)
-    top=76 if mobile else 62
-    rule(pad,top,right)
+        text(right,37,period,12,t['muted'],'text-anchor="end"')
     if total==0:
-        text(pad,top+40,'Waiting for the first activity record',18)
-        text(pad,top+64,'Every small step is progress.',13,t['muted'])
-        return wrap(parts,width,top+88,alt,t)
+        text(pad,90,escape('Waiting for the first activity record'),15)
+        text(pad,112,escape('Every small step is progress.'),12,t['muted'])
+        return wrap(parts,width,136,alt,t)
 
-    # Total and the daily chart side by side; stacked on a phone.
+    # The total, with what it means said quietly beside it.
     active=sum(d['total_seconds']>0 for d in days)
-    text(pad,top+(46 if mobile else 56),duration(total),36 if mobile else 40,extra='class="number"')
+    caption=f'{active} of 7 days · {duration(total/7)} a day'
     if mobile:
-        text(pad,top+70,f'Active on {active} of 7 days · average {duration(total/7)}',12,t['muted'])
+        text(pad,98,span(duration(total),cls='number'),28)
+        text(pad,118,escape(caption),12,t['muted'])
     else:
-        text(pad,top+82,f'Active on {active} of 7 days',13,t['muted'])
-        text(pad,top+102,f'Daily average {duration(total/7)}',13,t['muted'])
-    left=pad if mobile else pad+300
-    base=top+(170 if mobile else 128)
-    tall=64 if mobile else 80
+        text(pad,88,span(duration(total),cls='number')+span(caption,12,t['muted'],dx=14),30)
+
+    # Seven slim bars: no axis, no values, just the shape of the week.
+    base=178 if mobile else 88
+    tall=40 if mobile else 36
+    left=pad if mobile else right-200
+    step=(right-left)/7
     peak=max((d['total_seconds'] for d in days),default=0)
-    step=(right-left)/7 if days else 0
-    if days:
-        rule(left,base,right)
     for i,day in enumerate(days):
         seconds=day['total_seconds']
         height=max(2,tall*seconds/peak if peak else 0)
         centre=left+step*(i+.5)
         leads=peak>0 and seconds==peak
-        colour=t['accent'] if leads else t['line']
-        if day['date']==end:
-            # Today is still running, so it is outlined rather than filled.
-            parts.append(f'<rect x="{centre-5.5:.1f}" y="{base-height+.5:.1f}" width="11" height="{height-.5:.1f}" rx="2" '
-                         f'fill="none" stroke="{colour}" stroke-opacity=".8" stroke-dasharray="2 2"/>')
-        else:
-            fade='' if leads else ' fill-opacity=".4"'
-            parts.append(f'<rect x="{centre-6:.1f}" y="{base-height:.1f}" width="12" height="{height:.1f}" rx="2" '
-                         f'fill="{colour}"{fade}/>')
-        if leads:
-            text(centre,base-height-8,duration(seconds),12 if mobile else 13,extra='class="number" text-anchor="middle"')
-        text(centre,base+(18 if mobile else 20),weekday(day),11 if mobile else 12,t['muted'],'text-anchor="middle"')
+        # Today is still running, so it is drawn fainter than the finished days.
+        opacity='1' if leads else '.25' if day['date']==end else '.45'
+        parts.append(f'<rect x="{centre-3:.1f}" y="{base-height:.1f}" width="6" height="{height:.1f}" rx="3" '
+                     f'fill="{t["accent"] if leads else t["line"]}" fill-opacity="{opacity}"/>')
+        text(centre,base+15,escape(weekday(day)[0]),10,t['muted'],'text-anchor="middle"')
 
-    # Languages as a table: name, a proportional hairline, time and share.
-    top=base+(34 if mobile else 38)
-    rule(pad,top,right)
-    text(pad,top+30 if mobile else top+32,'Languages',18 if mobile else 19,extra='class="serif"')
-    text(right,top+30,'Time · share',12,t['muted'],end_anchor)
-    first=top+(60 if mobile else 62)
-    gap=36 if mobile else 30
-    # (start, end, offset from the baseline): under the row on a phone, inline on a desktop.
-    x,x2,dy=(pad,right,10) if mobile else (pad+160,right-200,-5)
+    # Languages: one stacked bar and a legend beneath it.
+    bar=216 if mobile else 124
+    x=pad
+    span_width=right-pad
+    shades=['1','.6','.4','.28','.2']
     for i,row in enumerate(rows):
-        y=first+i*gap
+        share=min(100,float(row['percent']))/100*span_width
+        colour=t['accent'] if i==0 else t['line']
+        parts.append(f'<rect x="{x:.1f}" y="{bar}" width="{max(0,share-2):.1f}" height="4" rx="2" '
+                     f'fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
+        x+=share
+    columns=2 if mobile else max(1,len(rows))
+    column=span_width/columns
+    for i,row in enumerate(rows):
+        cx=pad+(i%columns)*column
+        cy=bar+24+(i//columns)*22
         name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:18]
-        percent=min(100,float(row['percent']))
-        text(pad,y,name,14)
-        text(right-(70 if mobile else 100),y,duration(row['total_seconds']),14,t['muted'],'class="number" '+end_anchor)
-        text(right,y,f'{percent:.1f}%',14,extra='class="number" '+end_anchor)
-        rule(x,y+dy,x2)
-        fade='' if i==0 else ' fill-opacity=".55"'
-        parts.append(f'<rect x="{x}" y="{y+dy-1.5:g}" width="{(x2-x)*percent/100:.1f}" height="3" rx="1.5" '
-                     f'fill="{t["accent"] if i==0 else t["line"]}"{fade}/>')
-    bottom=first+(len(rows)-1)*gap+(26 if mobile else 22)
+        colour=t['accent'] if i==0 else t['line']
+        parts.append(f'<circle cx="{cx+3:.1f}" cy="{cy-4}" r="3" fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
+        text(cx+12,cy,span(name)+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
+    bottom=bar+24+((len(rows)-1)//columns)*22+(16 if mobile else 20)
     if not has_ai:
-        return wrap(parts,width,bottom+(0 if mobile else 2),alt,t)
+        return wrap(parts,width,bottom+4,alt,t)
 
-    rule(pad,bottom,right)
-    text(pad,bottom+30 if mobile else bottom+32,'AI collaboration',18 if mobile else 19,extra='class="serif"')
-    text(right,bottom+30,'Same period',12,t['muted'],end_anchor)
+    # AI figures as a sentence rather than three competing blocks.
+    parts.append(f'<path d="M{pad},{bottom}H{right}" stroke="{t["rule"]}"/>')
     cost=ai.get('ai_model_total_cost')
-    values=[(compact(ai.get('ai_input_tokens'))+' / '+compact(ai.get('ai_output_tokens')),'Input / output tokens'),
-        (compact(ai.get('ai_additions'))+' / '+compact(ai.get('ai_prompt_events_total')),'AI additions / prompts'),
-        ('—' if cost is None else f'${cost:,.2f}','Compute estimate · API pricing')]
-    for i,(value,caption) in enumerate(values):
-        if mobile:
-            y=bottom+62+i*30
-            text(pad,y,caption,12,t['muted'])
-            text(right,y,value,18,extra='class="number" '+end_anchor)
-        else:
-            text(pad+i*280,bottom+68,value,24,extra='class="number"')
-            text(pad+i*280,bottom+88,caption,12,t['muted'])
-    return wrap(parts,width,bottom+(142 if mobile else 108),alt,t)
+    tokens=compact(ai.get('ai_input_tokens'))+' / '+compact(ai.get('ai_output_tokens'))
+    edits=compact(ai.get('ai_additions'))+' / '+compact(ai.get('ai_prompt_events_total'))
+    price='—' if cost is None else f'${cost:,.2f}'
+    if mobile:
+        text(pad,bottom+28,escape('AI collaboration'),16,extra='class="serif"')
+        for i,(caption,value) in enumerate((('Tokens in / out',tokens),('Additions / prompts',edits),('Compute at API pricing',price))):
+            y=bottom+54+i*22
+            text(pad,y,escape(caption),11,t['muted'])
+            text(right,y,span(value,cls='number'),13,extra='text-anchor="end"')
+        return wrap(parts,width,bottom+54+2*22+18,alt,t)
+    muted=lambda value,dx=None: span(value,12,t['muted'],dx=dx)
+    figure=lambda value,dx=None: span(value,13,None,'number',dx)
+    text(pad,bottom+30,span('AI collaboration',16,cls='serif')
+         +muted('tokens in / out',16)+figure(tokens,6)
+         +muted('·',10)+muted('additions / prompts',10)+figure(edits,6)
+         +muted('·',10)+figure(price,10)+muted('at API pricing',6),12)
+    return wrap(parts,width,bottom+48,alt,t)
 
 
 def wrap(parts,width,height,alt,t):
