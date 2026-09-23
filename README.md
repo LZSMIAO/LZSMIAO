@@ -18,22 +18,6 @@
   <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/-000000?style=flat-square&logo=threads&logoColor=white" alt="Threads" height="32"></a>
 </p>
 
-~~~text
-📊 Last 7 days
-
-🕑 Time Zone: Asia/Hong Kong
-
-2026-09-17 — 2026-09-23
-
-💬 Programming Languages:
-TypeScript       9h 09m  ██████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  26.8%
-Other           17h 12m  ██████████████████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  50.3%
-Markdown         4h 08m  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  12.1%
-Vue              3h 42m  ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10.8%
-
-Activity time: 34h 12m
-~~~
-
 <br>
 
 <details open>
@@ -46,7 +30,7 @@ Activity time: 34h 12m
       <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-654609f6683b.svg">
       <source media="(max-width: 600px)" srcset="assets/report-light-mobile-2543448aac6c.svg">
       <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-f268a9802729.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-1221c055f774.svg" width="880" style="display: block; width: 100%; border-radius: 12px; border: 1px solid #30363d; background: transparent;">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-1221c055f774.svg" width="880" style="display: block; width: 100%;">
     </picture>
   </p>
 </details>
@@ -107,7 +91,7 @@ Activity time: 34h 12m
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-45f9f8236d7e.svg"><source media="(max-width: 600px)" srcset="assets/bottle-cb796bd8131a.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-440d575e250a.svg"><img src="assets/bottle-a8d2a91e41cd.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/4"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e294ceea55b7.svg"><source media="(max-width: 600px)" srcset="assets/bottle-9790d007f65f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-808753a86774.svg"><img src="assets/bottle-9780b8b00a07.svg" alt="我活的時候會吃一大包薯片，直到吃死了才罷休 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 <sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
 </p>

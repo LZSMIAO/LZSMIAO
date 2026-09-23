@@ -13,11 +13,18 @@ async function request(url, options = {}) {
   if (!response.ok) throw new Error(`HTTP ${response.status}`)
   return response
 }
+// The card is one <img> with no <picture> around it, so it follows the reader's
+// colour scheme from inside: the same panel fill as the Recent Activity card in
+// either theme, instead of a Spotify-black block on a white page.
+const italic = (await readFile(new URL('scripts/fonts/chiron-italic.woff2', root))).toString('base64')
+export const palette = '.bg{fill:#f6f8fa}.well{fill:#eaeef2}.ink{fill:#1f2328}.muted{fill:#59636e}'
+  + '@media(prefers-color-scheme:dark){.bg{fill:#151b23}.well{fill:#212830}.ink{fill:#f0f6fc}.muted{fill:#b1bac4}}'
 function frame(title, content) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="445" viewBox="0 0 320 445" role="img" aria-label="${esc(title)}"><style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif}</style><rect width="320" height="445" rx="10" fill="#121212"/>${content}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="445" viewBox="0 0 320 445" role="img" aria-label="${esc(title)}"><style>@font-face{font-family:"Chiron Italic";src:url(data:font/woff2;base64,${italic}) format("woff2")}text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif}.serif{font-family:"Chiron Italic",Georgia,serif}${palette}</style><rect class="bg" width="320" height="445" rx="10"/>${content}</svg>`
 }
+const heading = (title, source) => `<text x="20" y="36" class="ink serif" font-size="22">${title}</text><text x="20" y="56" class="muted" font-size="11">${source}</text>`
 export function offlineCard(logo) {
-  return frame('Spotify — not playing', `<text x="20" y="36" fill="#f0f6fc" font-size="17" font-weight="600">Spotify</text><image x="275" y="20" width="25" height="25" href="${logo}"/><circle cx="160" cy="185" r="42" fill="#1c1c1c"/><image x="139" y="164" width="42" height="42" opacity="0.55" href="${logo}"/><text x="160" y="267" text-anchor="middle" fill="#f0f6fc" font-size="23" font-weight="600">Not playing</text><text x="160" y="293" text-anchor="middle" fill="#a7a7a7" font-size="12">Nothing playing right now</text>`)
+  return frame('Spotify — not playing', `${heading('Now playing', 'Spotify')}<image x="275" y="20" width="25" height="25" href="${logo}"/><circle class="well" cx="160" cy="200" r="42"/><image x="139" y="179" width="42" height="42" opacity="0.55" href="${logo}"/><text x="160" y="282" text-anchor="middle" class="ink" font-size="20" font-weight="600">Not playing</text><text x="160" y="306" text-anchor="middle" class="muted" font-size="12">Nothing playing right now</text>`)
 }
 async function publishCard(platform, svg, transform = value => value) {
   const filename = `assets/${platform}-${createHash('sha256').update(svg).digest('hex').slice(0, 12)}.svg`
@@ -70,14 +77,16 @@ async function netease() {
   const previous = await read('assets/netease-clean.svg')
   const logo = previous.match(/<g transform="translate\(275 23\)">.*?<\/g>/)?.[0]
   if (!logo) throw new Error('Existing NetEase logo missing')
+  await publishCard('netease', neteaseCard(tracks, logo))
+  console.log(`NetEase: updated ${tracks.length} tracks.`)
+}
+export function neteaseCard(tracks, logo) {
   const rows = tracks.map((track, i) => {
     const y = 80 + i * 70
-    return `<g><clipPath id="cover${i}"><rect x="20" y="${y}" width="56" height="56" rx="5"/></clipPath><image x="20" y="${y}" width="56" height="56" href="${track.image}" preserveAspectRatio="xMidYMid meet" clip-path="url(#cover${i})"/><text x="90" y="${y + 20}" fill="#f0f6fc" font-size="14" font-weight="600">${esc(shorten(track.name, 15))}</text><text x="90" y="${y + 40}" fill="#a7a7a7" font-size="10.5">${esc(shorten(track.artists.map(a => a.name).join(' · '), 23))}</text></g>`
+    return `<g><clipPath id="cover${i}"><rect x="20" y="${y}" width="56" height="56" rx="5"/></clipPath><image x="20" y="${y}" width="56" height="56" href="${track.image}" preserveAspectRatio="xMidYMid meet" clip-path="url(#cover${i})"/><text x="90" y="${y + 22}" class="ink" font-size="14" font-weight="600">${esc(shorten(track.name, 15))}</text><text x="90" y="${y + 42}" class="muted" font-size="11">${esc(shorten(track.artists.map(a => a.name).join(' · '), 23))}</text></g>`
   }).join('')
-  const empty = '<text x="160" y="245" text-anchor="middle" fill="#a7a7a7" font-size="14">No listening history this week</text>'
-  const svg = frame('NetEase Cloud Music — weekly listening', `<text x="20" y="34" fill="#f0f6fc" font-size="17" font-weight="600">This week</text><text x="20" y="54" fill="#a7a7a7" font-size="11">NetEase Cloud Music</text>${logo}${tracks.length ? rows : empty}`)
-  await publishCard('netease', svg)
-  console.log(`NetEase: updated ${tracks.length} tracks.`)
+  const empty = '<text x="160" y="245" text-anchor="middle" class="muted" font-size="14">No listening history this week</text>'
+  return frame('NetEase Cloud Music — weekly listening', `${heading('This week', 'NetEase Cloud Music')}${logo}${tracks.length ? rows : empty}`)
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {

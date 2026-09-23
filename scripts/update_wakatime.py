@@ -16,7 +16,6 @@ from coding_card import card
 from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
-BAR=68
 
 
 def number(value):
@@ -75,35 +74,11 @@ def merge_remainder(rows,rest,total):
     return rows+[{'name':'Other','total_seconds':rest,'percent':100*rest/total}]
 
 
-def overview(data):
-    total=data['total_seconds']
-    rows=sorted(data['languages'],key=lambda r:r['total_seconds'],reverse=True)[:4]
-    rest=max(0,total-sum(r['total_seconds'] for r in rows))
-    if rest:
-        rows=merge_remainder(rows,rest,total)
-    lines=['~~~text','📊 Last 7 days','','🕑 Time Zone: Asia/Hong Kong','',
-           f"{data['start']} — {data['end']}",'','💬 Programming Languages:']
-    for row in rows:
-        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:14]
-        filled=round(row['percent']*BAR/100)
-        bar='█'*filled+'░'*(BAR-filled)
-        # 100 columns. A profile README sits in the narrower right-hand column, not
-        # the full-width one a repository gets: measured off a desktop screenshot,
-        # that column shows about 114 characters. 100 leaves room for a smaller
-        # window. Phones still scroll the block, which is the accepted trade.
-        lines.append(f"{name:<14} {duration(row['total_seconds']):>8}  {bar} {row['percent']:5.1f}%")
-    return '\n'.join(lines+['',f'Activity time: {duration(total)}','~~~'])
-
-
-def save_cards(cards,data=None):
+def save_cards(cards):
     assets=ROOT/'assets'
     assets.mkdir(exist_ok=True)
     readme=ROOT/'README.md'
     content=readme.read_text(encoding='utf-8')
-    if data is not None:
-        content,count=re.subn(r'~~~text\n📊 Last 7 days\n.*?\n~~~',lambda _:overview(data),content,flags=re.S)
-        if count!=1:
-            raise ValueError('Expected one activity overview block')
     keep=set()
     history_file=assets/'versions.json'
     history=json.loads(history_file.read_text()) if history_file.exists() else {}
@@ -146,7 +121,7 @@ def main():
         for mobile in (False,True) for theme in ('light','dark')}
     cards.update({'report-'+theme+('-mobile' if mobile else ''):report(data,theme,duration,label,mobile)
         for mobile in (False,True) for theme in ('light','dark')})
-    save_cards(cards,data)
+    save_cards(cards)
     print('Updated coding cards with the last seven days, including today.')
 
 

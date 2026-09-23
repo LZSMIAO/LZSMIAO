@@ -21,8 +21,8 @@ LIMIT=48
 LOGIN=re.compile(r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})')
 
 THEMES={
-    'light': dict(ink='#1f2328',muted='#59636e',border='#d1d9e0'),
-    'dark': dict(ink='#f0f6fc',muted='#b1bac4',border='#30363d'),
+    'light': dict(ink='#1f2328',muted='#59636e'),
+    'dark': dict(ink='#f0f6fc',muted='#b1bac4'),
 }
 
 
@@ -71,12 +71,14 @@ def wrap(text,budget):
 def card(text,login,day,theme,mobile=False):
     t=THEMES[theme]
     width=480 if mobile else 880
-    pad=20 if mobile else 28
+    # No frame: text sits on the column edge, like the page's own headings. The
+    # right edge keeps two pixels so the italic credit's overhang is not clipped.
+    pad=0
     size=18 if mobile else 22
     step=27 if mobile else 32
-    first=72 if mobile else 84
+    first=60 if mobile else 72
     band=78 if mobile else 104
-    rows=wrap(text,int((width-2*pad)/(size/2))) if text else []
+    rows=wrap(text,int(width/(size/2))) if text else []
     body=rows or ['No bottle has washed ashore yet.']
     top=first+(len(body)-1)*step+(18 if mobile else 22)
     height=top+band
@@ -89,15 +91,10 @@ def card(text,login,day,theme,mobile=False):
            f'<desc id="bottle-desc">{escape(alt+". "+scene+".")}</desc>',
            '<style>'+faces('Chiron Italic')+'text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}'
            f'.serif{{font-family:{ITALIC}}}</style>',
-           # Inset by the border so the swell never paints over the outline.
-           f'<clipPath id="hull"><rect x="1" y="1" width="{width-2}" height="{height-2}" rx="11"/></clipPath>',
-           f'<g clip-path="url(#hull)">',
            ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
-           '</g>',
-           f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="12" fill="none" stroke="{t["border"]}"/>',
-           f'<text x="{pad}" y="{38 if mobile else 43}" font-size="{label}" fill="{t["muted"]}" class="serif">Drift bottle</text>']
+           f'<text x="{pad}" y="{27 if mobile else 31}" font-size="{label}" fill="{t["muted"]}" class="serif">Drift bottle</text>']
     if text:
-        parts.append(f'<text x="{width-pad}" y="{37 if mobile else 42}" font-size="{label-3}" fill="{t["muted"]}" '
+        parts.append(f'<text x="{width-2}" y="{26 if mobile else 30}" font-size="{label-3}" fill="{t["muted"]}" '
                      f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
     for i,row in enumerate(body):
         parts.append(f'<text x="{pad}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '

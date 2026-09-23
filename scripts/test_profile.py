@@ -2,8 +2,8 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
-from weekly_report import card as report
-from update_wakatime import save_cards,overview
+from weekly_report import card as report,languages
+from update_wakatime import save_cards
 import re
 import unittest
 import xml.etree.ElementTree as ET
@@ -17,31 +17,17 @@ from ocean import SEAS
 from flowfield import card as flow,field,STYLES
 
 class ProfileTests(unittest.TestCase):
-    def test_overview_matches_report_and_preserves_other_sections(self):
-        data={'total_seconds':3600,'start':'2026-09-04','end':'2026-09-10','languages':[{'name':'Vue','total_seconds':3600,'percent':100}]}
-        self.assertIn('Activity time: 1h 00m',overview(data))
-        self.assertIn('2026-09-04 — 2026-09-10',overview(data))
+    def test_cards_refresh_without_an_overview_block(self):
+        # The plain-text overview repeated the report word for word; it is gone,
+        # and refreshing cards must not demand or recreate it.
         with TemporaryDirectory() as directory:
             root=Path(directory)
             readme=root/'README.md'
-            readme.write_text('before\n~~~text\n📊 Last 7 days\nstale\n~~~\nafter')
+            readme.write_text('before assets/report-dark.svg after')
             with patch('update_wakatime.ROOT',root):
-                save_cards({},data)
-                first=readme.read_text()
-                save_cards({},data)
-            self.assertEqual(first,readme.read_text())
-            self.assertTrue(first.startswith('before\n') and first.endswith('\nafter'))
-            self.assertNotIn('stale',first)
-    def test_overview_fills_the_column_without_overflowing_it(self):
-        # A profile README lives in the narrow right-hand column, which shows about
-        # 114 characters on a desktop; 100 keeps a margin for smaller windows.
-        data={'total_seconds':82800,'start':'2026-09-15','end':'2026-09-21','languages':[
-            {'name':'WebGPU Shading Language','total_seconds':40000,'percent':48.3},
-            {'name':'Objective-C++','total_seconds':30000,'percent':36.2},
-            {'name':'TypeScript','total_seconds':12800,'percent':15.5}]}
-        for line in overview(data).split('\n'):
-            self.assertLessEqual(len(line),100,line)
-        self.assertIn('23h 00m',overview(data))
+                save_cards({'report-dark':'report'})
+            self.assertNotIn('~~~',readme.read_text())
+            self.assertTrue(readme.read_text().startswith('before assets/report-dark-'))
 
     def test_remainder_folds_into_the_language_wakatime_already_calls_other(self):
         rows=[{'name':'Other','total_seconds':1800,'percent':50.0},
@@ -59,7 +45,18 @@ class ProfileTests(unittest.TestCase):
             {'name':'Vue','total_seconds':450,'percent':12.5},
             {'name':'Go','total_seconds':300,'percent':8.3},
             {'name':'C','total_seconds':150,'percent':4.2}]}
-        self.assertEqual(sum(l.startswith('Other') for l in overview(data).split('\n')),1)
+        rows=languages(data)
+        self.assertEqual([r['name'] for r in rows].count('Other'),1)
+        # Folding the tail in can lift Other past a row it trailed; the order, and
+        # so the accent, must follow the merged totals.
+        lifted={'total_seconds':1000,'languages':[
+            {'name':'TypeScript','total_seconds':300,'percent':30.0},
+            {'name':'Other','total_seconds':250,'percent':25.0},
+            {'name':'Vue','total_seconds':150,'percent':15.0},
+            {'name':'Go','total_seconds':100,'percent':10.0},
+            {'name':'C','total_seconds':100,'percent':10.0},
+            {'name':'Rust','total_seconds':100,'percent':10.0}]}
+        self.assertEqual([r['name'] for r in languages(lifted)][:2],['Other','TypeScript'])
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
