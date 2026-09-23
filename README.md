@@ -25,10 +25,10 @@
 
   <p align="center">
     <picture>
-      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6fe486982845.svg">
-      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-0e0a4cf69b27.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ea0c451bec32.svg">
-      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-8e9244e9903f.svg" width="880" style="display: block; width: 100%;">
+      <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-677d530f55e8.svg">
+      <source media="(max-width: 600px)" srcset="assets/report-light-mobile-3c064ccce2d6.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-db7accc50743.svg">
+      <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-6012efd09795.svg" width="880" style="display: block; width: 100%;">
     </picture>
   </p>
 </details>
@@ -41,7 +41,7 @@
   <br>
 
   <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-178cd3c868df.svg"><source media="(max-width: 600px)" srcset="assets/activity-7c88810794f3.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-c99831b769b4.svg"><img src="assets/activity-2633b084d888.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-22" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-d9ac02c6add6.svg"><source media="(max-width: 600px)" srcset="assets/activity-f939dec314de.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-cf96726263a1.svg"><img src="assets/activity-28132bad5a85.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-23" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </details>
 
