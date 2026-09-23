@@ -9,7 +9,7 @@ import re
 import sys
 from unicodedata import east_asian_width,normalize
 from zoneinfo import ZoneInfo
-from ocean import ocean
+from ocean import SEAS,ocean
 from typeface import ITALIC,faces
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -78,7 +78,9 @@ def card(text,login,day,theme,mobile=False):
     step=27 if mobile else 32
     first=60 if mobile else 72
     band=78 if mobile else 104
-    rows=wrap(text,int(width/(size/2))) if text else []
+    # A message hangs off a large opening quote; the empty sea has nothing to quote.
+    indent=(40 if mobile else 58) if text else 0
+    rows=wrap(text,int((width-indent)/(size/2))) if text else []
     body=rows or ['No bottle has washed ashore yet.']
     top=first+(len(body)-1)*step+(18 if mobile else 22)
     height=top+band
@@ -96,8 +98,12 @@ def card(text,login,day,theme,mobile=False):
     if text:
         parts.append(f'<text x="{width-2}" y="{26 if mobile else 30}" font-size="{label-3}" fill="{t["muted"]}" '
                      f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
+    if text:
+        # The glyph carries a wide left bearing; pull it back to the column edge.
+        parts.append(f'<text x="{pad-(11 if mobile else 16)}" y="{first+(50 if mobile else 72)}" font-size="{84 if mobile else 124}" '
+                     f'fill="{SEAS[theme]["accent"]}" class="serif">\u201c</text>')
     for i,row in enumerate(body):
-        parts.append(f'<text x="{pad}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
+        parts.append(f'<text x="{pad+indent}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
                      f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')
     return ''.join(parts)+'</svg>\n'
 
