@@ -91,7 +91,7 @@
 
 <p align="right">
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-182e3c5f8f5e.svg"><source media="(max-width: 600px)" srcset="assets/bottle-f576fdd9a6f9.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-489f5cf30041.svg"><img src="assets/bottle-e396a8e52ec8.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-b9fd01fd4462.svg"><source media="(max-width: 600px)" srcset="assets/bottle-a85ca0754b68.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-add9332395c9.svg"><img src="assets/bottle-125c211de2fb.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 <br><sub><a href="https://github.com/LZSMIAO/LZSMIAO/issues/new?template=bottle.yml">Message in a bottle</a></sub>
 </p>

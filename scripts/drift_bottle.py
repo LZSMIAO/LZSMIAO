@@ -99,7 +99,8 @@ def card(text,login,day,theme,mobile=False):
            ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
            f'<text x="{pad}" y="{27 if mobile else 31}" font-size="{label}" fill="{t["ink"]}" class="serif">Drift bottle</text>']
     if text:
-        parts.append(f'<text x="{width-2}" y="{26 if mobile else 30}" font-size="{label-3}" fill="{t["muted"]}" '
+        # A signature, not a second title: small, grey, on the title's baseline.
+        parts.append(f'<text x="{width-2}" y="{27 if mobile else 31}" font-size="{13 if mobile else 15}" fill="{t["muted"]}" '
                      f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
     if text:
         # A hairline mark at the face's lightest weight, in the muted ink: it sets

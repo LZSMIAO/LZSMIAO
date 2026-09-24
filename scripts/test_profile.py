@@ -288,8 +288,10 @@ class ProfileTests(unittest.TestCase):
              '<rect class="c" x="2" y="2"/><rect class="c c3" x="834" y="98"/>'
              '<rect class="u u0" height="12" width="400" x="0.0" y="144"/></svg>')
         once=crop_snake(svg)
-        # The grid alone: the padding above and the progress bar below are gone.
-        self.assertIn('viewBox="0 0 848 112" width="848" height="112"',once)
+        # Cropped to the grid, with the progress bar kept: 4px, 10px under the
+        # grid (bottom 110), stretched from the first cell to the last.
+        self.assertIn('viewBox="0 0 848 126" width="848" height="126"',once)
+        self.assertIn('<g class="bar-row" transform="translate(2 120) scale(2.11000 1)"><rect class="u u0" height="4" rx="2" width="400" x="0.0" y="0"/></g>',once)
         self.assertEqual(crop_snake(once),once)
 
     def test_tagline_scales_with_the_column_and_keeps_every_word(self):
