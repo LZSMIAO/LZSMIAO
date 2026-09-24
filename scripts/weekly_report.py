@@ -66,12 +66,13 @@ def card(data, theme, duration, label, mobile=False):
     if has_ai:
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
 
-    text(pad,34 if mobile else 38,'Last 7 days',18,extra='class="serif"')
+    # Same rendered size as the music and bottle titles (about 24px on a desktop).
+    text(pad,34 if mobile else 42,'Last 7 days',20 if mobile else 24,extra='class="serif"')
     period=escape(f'{start} — {end} · Hong Kong' if start else 'Hong Kong')
     if mobile:
         text(pad,54,period,11,t['muted'])
     else:
-        text(right,37,period,12,t['muted'],'text-anchor="end"')
+        text(right,40,period,12,t['muted'],'text-anchor="end"')
     if total==0:
         text(pad,90,escape('Waiting for the first activity record'),15)
         text(pad,112,escape('Every small step is progress.'),12,t['muted'])

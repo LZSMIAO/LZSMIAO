@@ -89,7 +89,7 @@ def card(text,login,day,theme,mobile=False):
     height=top+band
     alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
     scene='An outlined bottle riding a sea of drifting swell lines' if text else 'An empty sea of drifting swell lines'
-    label=19 if mobile else 23
+    label=19 if mobile else 24
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',

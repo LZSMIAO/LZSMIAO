@@ -14,7 +14,7 @@ test('offline card matches music dimensions and has no fake animation', () => {
 test('weekly card follows the reader colour scheme and escapes track names', () => {
   const tracks = [{ id: '1', name: '<b>歌</b>', artists: [{ id: '2', name: '人' }], image: 'data:image/png;base64,AAAA' }]
   const svg = neteaseCard(tracks, '<g transform="translate(275 23)"></g>')
-  assert.match(svg, /class="ink serif" font-size="22">This week</)
+  assert.match(svg, /class="ink serif" font-size="18">This week</)
   assert.match(svg, /prefers-color-scheme:dark/)
   assert.doesNotMatch(svg, /#121212|#a7a7a7|<b>/)
   assert.match(svg, /&lt;b&gt;歌&lt;\/b&gt;/)

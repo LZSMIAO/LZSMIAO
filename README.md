@@ -91,7 +91,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e76ecbcb3371.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d901d78e290a.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-8ca4122a6618.svg"><img src="assets/bottle-b2dad3f1e8a1.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e76ecbcb3371.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d901d78e290a.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-60b25bf4d6f0.svg"><img src="assets/bottle-7f42197bb4a7.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 
