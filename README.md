@@ -26,7 +26,7 @@
 <br>
 
 <p align="center">
-<a href="https://netease-presence.linzsmiao.workers.dev/spotify/open" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><a href="https://netease-presence.linzsmiao.workers.dev/music" target="_blank" rel="noopener noreferrer"><img src="assets/netease-8af6678dc3f1.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
+<a href="https://netease-presence.linzsmiao.workers.dev/spotify/open" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://netease-presence.linzsmiao.workers.dev/spotify.svg" width="50%"></a><a href="https://netease-presence.linzsmiao.workers.dev/music" target="_blank" rel="noopener noreferrer"><img src="assets/netease-67c66d0b3966.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
 </p>
 
 <br>
