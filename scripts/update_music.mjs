@@ -72,13 +72,19 @@ async function netease() {
       : bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : null
     if (!type || bytes.length > 2000000) throw new Error('Invalid cover image')
     const image = `data:${type};base64,${bytes.toString('base64')}`
-    return { id, name: traditional(song.name), artists, image }
+    return { id, name: traditional(song.name), artists, image, cover: url.toString() }
   }))
   const previous = await read('assets/netease-clean.svg')
   const logo = previous.match(/<g transform="translate\(275 23\)">.*?<\/g>/)?.[0]
   if (!logo) throw new Error('Existing NetEase logo missing')
   await publishCard('netease', neteaseCard(tracks, logo))
+  await write('assets/netease-week.json', weekFile(tracks))
   console.log(`NetEase: updated ${tracks.length} tracks.`)
+}
+// The card links to a page on the presence Worker that lists these songs, each
+// linked, since an <img> on GitHub can carry only one link. No user id in here.
+export function weekFile(tracks) {
+  return JSON.stringify({ tracks: tracks.map(({ id, name, artists, cover }) => ({ id, name, artists: artists.map(({ id, name }) => ({ id, name })), cover })) }, null, 2) + '\n'
 }
 export function neteaseCard(tracks, logo) {
   const rows = tracks.map((track, i) => {

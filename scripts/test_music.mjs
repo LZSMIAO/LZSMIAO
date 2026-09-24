@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { offlineCard, neteaseCard } from './update_music.mjs'
+import { offlineCard, neteaseCard, weekFile } from './update_music.mjs'
 test('offline card matches music dimensions and has no fake animation', () => {
   const svg = offlineCard('data:image/png;base64,AAAA')
   assert.match(svg, /width="320" height="445"/)
@@ -18,4 +18,10 @@ test('weekly card follows the reader colour scheme and escapes track names', () 
   assert.match(svg, /prefers-color-scheme:dark/)
   assert.doesNotMatch(svg, /#121212|#a7a7a7|<b>/)
   assert.match(svg, /&lt;b&gt;歌&lt;\/b&gt;/)
+})
+test('the week file carries songs for the linked page and nothing private', () => {
+  const tracks = [{ id: '1', name: '歌', artists: [{ id: '2', name: '人' }], image: 'data:image/png;base64,AAAA', cover: 'https://p1.music.126.net/a.jpg?param=160y160' }]
+  const week = JSON.parse(weekFile(tracks))
+  assert.deepEqual(week, { tracks: [{ id: '1', name: '歌', artists: [{ id: '2', name: '人' }], cover: 'https://p1.music.126.net/a.jpg?param=160y160' }] })
+  assert.doesNotMatch(weekFile(tracks), /base64|uid|NETEASE/)
 })
