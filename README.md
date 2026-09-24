@@ -9,10 +9,10 @@
 
 <p>
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-bf974c0ddb76.svg">
-    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-3d0cbe956283.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-58f7c8af2d73.svg">
-    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-bddfa0f52bca.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-3d4334b03b32.svg">
+    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-0d70ace7b94b.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-85e6d8d920cd.svg">
+    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-bacaf812c29f.svg" width="100%">
   </picture>
 </p>
 
@@ -91,7 +91,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-c80a1e99bbcf.svg"><source media="(max-width: 600px)" srcset="assets/bottle-b5b3ffbf6098.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-a990e20281f5.svg"><img src="assets/bottle-79a489412687.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e76ecbcb3371.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d901d78e290a.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-8ca4122a6618.svg"><img src="assets/bottle-b2dad3f1e8a1.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 

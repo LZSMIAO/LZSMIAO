@@ -140,14 +140,12 @@ def card(data, theme, duration, label, mobile=False):
             text(pad,y,escape(caption),11,t['muted'])
             text(right,y,span(value,cls='number'),13,extra='text-anchor="end"')
         return wrap(parts,width,bottom+54+2*22+18,alt,t)
-    muted=lambda value,dx=None: span(value,12,t['muted'],dx=dx)
-    figure=lambda value,dx=None: span(value,13,None,'number',dx)
-    text(pad,bottom+30,span('AI collaboration',16,cls='serif')
-         +muted('tokens in / out',16)+figure(tokens,6)
-         +muted('·',10)+muted('additions / prompts',10)+figure(edits,6)
-         +muted('·',10)+figure(price,10)+muted('at API pricing',6),12)
-    return wrap(parts,width,bottom+48,alt,t)
-
+    # Title on its own line, then three figures on the same columns as the legend.
+    text(pad,bottom+30,escape('AI collaboration'),16,extra='class="serif"')
+    column=(right-pad)/3
+    for i,(value,caption) in enumerate(((tokens,'tokens in / out'),(edits,'additions / prompts'),(price,'at API pricing'))):
+        text(pad+i*column,bottom+58,span(value,14,None,'number')+span(caption,11,t['muted'],dx=8),14)
+    return wrap(parts,width,bottom+80,alt,t)
 
 def wrap(parts,width,height,alt,t):
     return ''.join([f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height:g}" viewBox="0 0 {width} {height:g}" role="img" aria-labelledby="title desc">',

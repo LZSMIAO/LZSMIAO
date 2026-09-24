@@ -101,7 +101,8 @@ def card(theme,mobile=False,words=None):
         parts.append(f'<text x="1" y="{y}" font-size="{CHINESE_SET[0]}" fill="{t["muted"]}" class="zh" '
                      f'letter-spacing="{TRACKING}">{escape(line)}</text>')
         y+=CHINESE_SET[1]
-    height=y-14
+    # Only a descender's worth below the last line, so the links sit close under it.
+    height=y-CHINESE_SET[1]+6
     label=plain(english)+' '+plain(chinese)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
             f'role="img" aria-label="{escape(label,quote=True)}">'

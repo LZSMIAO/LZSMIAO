@@ -77,14 +77,15 @@ def card(text,login,day,theme,mobile=False):
     # right edge keeps two pixels so the italic credit's overhang is not clipped.
     pad=0
     size=18 if mobile else 22
-    step=27 if mobile else 32
-    first=60 if mobile else 72
+    step=30 if mobile else 36
+    first=70 if mobile else 86
     band=78 if mobile else 104
     # A message hangs off a large opening quote; the empty sea has nothing to quote.
     indent=(40 if mobile else 58) if text else 0
-    rows=wrap(text,int((width-indent)/(size/2))) if text else []
+    # One pixel of tracking per character, so budget a little wider than the size.
+    rows=wrap(text,int((width-indent)/((size+1)/2))) if text else []
     body=rows or ['No bottle has washed ashore yet.']
-    top=first+(len(body)-1)*step+(18 if mobile else 22)
+    top=first+(len(body)-1)*step+(26 if mobile else 34)
     height=top+band
     alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
     scene='An outlined bottle riding a sea of drifting swell lines' if text else 'An empty sea of drifting swell lines'
@@ -106,7 +107,7 @@ def card(text,login,day,theme,mobile=False):
         parts.append(f'<text x="{pad-(QX_M if mobile else QX)}" y="{first+(QY_M if mobile else QY)}" '
                      f'font-size="{84 if mobile else 124}" fill="{t["muted"]}" fill-opacity=".6" class="quote">\u201c</text>')
     for i,row in enumerate(body):
-        parts.append(f'<text x="{pad+indent}" y="{first+i*step}" font-size="{size}" font-weight="{600 if text else 400}" '
+        parts.append(f'<text x="{pad+indent}" y="{first+i*step}" font-size="{size}" font-weight="{500 if text else 400}" letter-spacing="1" '
                      f'fill="{t["ink"] if text else t["muted"]}">{escape(row)}</text>')
     return ''.join(parts)+'</svg>\n'
 
