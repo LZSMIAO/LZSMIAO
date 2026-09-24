@@ -1,0 +1,44 @@
+name: Redraw tagline
+
+on:
+  push:
+    branches: [main]
+    paths: [tagline.txt]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install the font tools
+        run: pip install --disable-pip-version-check fonttools==4.60.2 brotli==1.2.0
+      - name: Fetch Chiron Sung HK (SIL OFL 1.1) for the Chinese line
+        # Pinned to a google/fonts commit so a font update never changes the page unannounced.
+        run: |
+          curl -fsSL --retry 3 -o /tmp/ChironSungHK-VariableFont_wght.ttf \
+            'https://raw.githubusercontent.com/google/fonts/ebe67020b048d790a70bb69beb5a69fafda96121/ofl/chironsunghk/ChironSungHK%5Bwght%5D.ttf'
+      - name: Subset the new characters and redraw
+        run: |
+          python3 scripts/fonts/build.py /tmp --only chiron-tagline.woff2
+          python3 scripts/tagline.py
+      - name: Publish the tagline
+        run: |
+          git add README.md assets/ scripts/fonts/chiron-tagline.woff2
+          if git diff --cached --quiet; then
+            echo 'Tagline unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: redraw the tagline'
+          git pull --rebase --quiet
+          git push

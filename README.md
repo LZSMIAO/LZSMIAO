@@ -17,10 +17,10 @@
 </p>
 
 <p>
-  <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="assets/social-email-305b73f0be74.svg" alt="Email" width="36" height="36"></a>
-  <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="assets/social-telegram-7a4a831b4f95.svg" alt="Telegram" width="36" height="36"></a>
-  <a href="https://x.com/lzsmtw" target="_blank" rel="noopener noreferrer"><img src="assets/social-x-7002c1cd9943.svg" alt="X" width="36" height="36"></a>
-  <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="assets/social-threads-46701cc861c5.svg" alt="Threads" width="36" height="36"></a>
+  <a href="mailto:lzsm@pm.me" target="_blank" rel="noopener noreferrer"><img src="assets/social-email-fec90aab12bf.svg" alt="Email" width="25" height="16"></a>
+  <a href="https://t.me/lzsmi" target="_blank" rel="noopener noreferrer"><img src="assets/social-telegram-d69aa76314ab.svg" alt="Telegram" width="25" height="16"></a>
+  <a href="https://x.com/lzsmtw" target="_blank" rel="noopener noreferrer"><img src="assets/social-x-b6789ad2515c.svg" alt="X" width="25" height="16"></a>
+  <a href="https://www.threads.com/@lzsmiao" target="_blank" rel="noopener noreferrer"><img src="assets/social-threads-98ea23afa57a.svg" alt="Threads" width="25" height="16"></a>
 </p>
 
 <br>

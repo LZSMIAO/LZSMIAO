@@ -1,0 +1,12 @@
+# The profile tagline. Edit the two lines below and commit (the pencil icon on
+# GitHub works). An Action redraws the tagline image within a couple of minutes.
+#
+#   Line 1: English, set in the serif italic.
+#   Line 2: Chinese, set in Chiron Sung HK.
+#
+# Lines break on their own for desktop and phones, preferring to break after
+# punctuation (— , ; : .) or, in Chinese, at a space. To force a break, put " | "
+# where it should fall. Lines starting with # are ignored.
+
+Words are but a vessel, a river — unknowing of what they bear, they only flow on.
+文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌

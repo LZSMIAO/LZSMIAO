@@ -16,7 +16,7 @@ from publish import publish
 from ocean import SEAS
 from flowfield import card as flow,field,STYLES
 from crop_snake import crop as crop_snake
-from tagline import card as tagline,ENGLISH,CHINESE,LINES
+from tagline import card as tagline,read as read_tagline,layout as tagline_layout,plain
 
 class ProfileTests(unittest.TestCase):
     def test_cards_refresh_without_an_overview_block(self):
@@ -290,16 +290,27 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(crop_snake(once),once)
 
     def test_tagline_scales_with_the_column_and_keeps_every_word(self):
+        english,chinese=read_tagline()
         for theme in ('light','dark'):
             for mobile in (False,True):
                 svg=tagline(theme,mobile)
                 root=ET.fromstring(svg)
                 self.assertEqual(root.get('width'),'480' if mobile else '880')
                 self.assertIn('Chiron Tagline',svg)
-                english,chinese=LINES[mobile]
-                self.assertEqual(' '.join(english),ENGLISH)
-                self.assertEqual(' '.join(chinese),CHINESE)
+                top,bottom=tagline_layout(english,chinese,mobile)
+                self.assertEqual(' '.join(top),plain(english))
+                self.assertEqual(' '.join(bottom),plain(chinese))
 
+    def test_tagline_wraps_at_pauses_and_honours_forced_breaks(self):
+        english='Words are but a vessel, a river — unknowing of what they bear, they only flow on.'
+        top,_=tagline_layout(english,'字',False)
+        self.assertEqual(top,['Words are but a vessel, a river —','unknowing of what they bear, they only flow on.'])
+        top,_=tagline_layout(english,'字',True)
+        self.assertEqual(top,['Words are but a vessel, a river —','unknowing of what they bear,','they only flow on.'])
+        top,_=tagline_layout('Short line | then another','字',False)
+        self.assertEqual(top,['Short line','then another'])
+        _,bottom=tagline_layout('x','文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌',True)
+        self.assertEqual(bottom,['文字只是載體 只是河流','他對自己所運載的意味並不知曉 他只是一味得流淌'])
 
 if __name__=='__main__':
     unittest.main()
