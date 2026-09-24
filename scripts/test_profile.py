@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from coding_card import card
 from update_wakatime import duration,label,aggregate
 from weekly_report import tools
-from update_activity import activity,activity_card
+from update_activity import activity,activity_card,short_description
 from daily_art import card as art,shape
 from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
 from publish import publish
@@ -96,13 +96,15 @@ class ProfileTests(unittest.TestCase):
         for mobile,width in [(False,880),(True,480)]:
             svg=activity_card('organization/project','Updated project','2026-09-20',True,mobile)
             root=ET.fromstring(svg)
-            date=root.findall('.//{http://www.w3.org/2000/svg}text')[-1]
+            date=next(e for e in root.iter('{http://www.w3.org/2000/svg}text') if e.text=='2026-09-20')
             self.assertEqual(date.text,'2026-09-20')
             self.assertEqual(date.get('text-anchor'),'end')
             self.assertEqual(int(date.get('x')),width-(20 if mobile else 24))
             # The verb is set as a card title in the serif, like the other panels.
             self.assertIn('class="serif">Updated project',svg)
             self.assertNotIn('🛠',svg)
+            with_about=activity_card('organization/project','Updated project','2026-09-20',True,mobile,'A tool. More words.')
+            self.assertIn('>A tool<',with_about)
 
     def test_public_organization_activity_is_included(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'my-organization/public-project'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
@@ -320,6 +322,14 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(top,['Short line','then another'])
         _,bottom=tagline_layout('x','文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌',True)
         self.assertEqual(bottom,['文字只是載體 只是河流','他對自己所運載的意味並不知曉 他只是一味得流淌'])
+
+    def test_repository_descriptions_are_cut_to_one_short_sentence(self):
+        text='All-in-One 2FA / TOTP code generator that runs browser-local: batch codes, QR import. 多功能驗證碼產生器'
+        self.assertEqual(short_description(text),'All-in-One 2FA / TOTP code generator that runs browser-local')
+        self.assertEqual(short_description('One. Two.'),'One')
+        self.assertEqual(short_description('多功能驗證碼產生器。其餘'),'多功能驗證碼產生器')
+        self.assertEqual(short_description('word '*30,20),'word word word word…')
+        self.assertEqual(short_description(None),'')
 
 if __name__=='__main__':
     unittest.main()

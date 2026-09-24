@@ -15,43 +15,66 @@ END='<!-- ACTIVITY:END -->'
 USER='LZSMIAO'
 
 @lru_cache(maxsize=100)
-def repository_is_public(repo):
+def repository(repo):
     # No authentication: private repositories cannot be returned by this request.
     req=Request(f'https://api.github.com/repos/{repo}',headers={
         'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile'})
     try:
         with urlopen(req,timeout=15) as response:
-            metadata=json.load(response)
-        return metadata.get('private') is False and metadata.get('visibility')=='public'
+            return json.load(response)
     except Exception:
-        # Fail closed: never publish a repository whose visibility cannot be verified.
-        return False
+        return None
 
-def activity_card(repo, verb, date, dark=False, mobile=False):
-    """The verb set as a card title, like the other panels, with the repository beside it."""
-    width,height=(480,84) if mobile else (880,72)
+def repository_is_public(repo):
+    metadata=repository(repo)
+    # Fail closed: never publish a repository whose visibility cannot be verified.
+    return bool(metadata) and metadata.get('private') is False and metadata.get('visibility')=='public'
+
+def short_description(text, limit=90):
+    """The first sentence of a repository's About text, cut at a word if still long."""
+    text=' '.join(str(text or '').split())
+    text=re.split(r'(?<=[.!?])\s|[。！？:：]',text,maxsplit=1)[0].strip().rstrip('.')
+    if len(text)<=limit:
+        return text
+    cut=text[:limit-1]
+    # Keep a word that ends exactly at the cut; otherwise back up to the last space.
+    if text[limit-1]!=' ' and ' ' in cut:
+        cut=cut[:cut.rfind(' ')]
+    return cut.rstrip(' ,;/-')+'…'
+
+def repository_description(repo):
+    return short_description((repository(repo) or {}).get('description'))
+
+def activity_card(repo, verb, date, dark=False, mobile=False, description=''):
+    """The verb as a card title, like the other panels; the repository and a line
+    about it underneath."""
+    width,height=(480,100) if mobile else (880,98)
     pad=20 if mobile else 24
     bg,fg,muted,link=('#151b23','#f0f6fc','#b1bac4','#58a6ff') if dark else ('#f6f8fa','#1f2328','#59636e','#0969da')
     short=repo if len(repo)<=52 else repo[:49]+'…'
     if mobile:
+        about=short_description(description,52)
         content=(f'<text x="{pad}" y="36" font-size="20" fill="{fg}" class="serif">{escape(verb)}</text>'
-                 f'<text x="{pad}" y="64" fill="{link}">{escape(short)}</text>'
-                 f'<text x="{width-pad}" y="35" fill="{muted}" font-size="12" text-anchor="end">{date}</text>')
+                 f'<text x="{width-pad}" y="35" fill="{muted}" font-size="12" text-anchor="end">{date}</text>'
+                 f'<text x="{pad}" y="62" fill="{link}">{escape(short)}</text>'
+                 +(f'<text x="{pad}" y="82" fill="{muted}" font-size="12">{escape(about)}</text>' if about else ''))
     else:
-        content=(f'<text x="{pad}" y="44"><tspan font-size="24" fill="{fg}" class="serif">{escape(verb)}</tspan>'
-                 f'<tspan dx="14" fill="{link}">{escape(short)}</tspan></text>'
-                 f'<text x="{width-pad}" y="43" fill="{muted}" font-size="12" text-anchor="end">{date}</text>')
+        about=short_description(description,max(0,100-len(short)))
+        content=(f'<text x="{pad}" y="44" font-size="24" fill="{fg}" class="serif">{escape(verb)}</text>'
+                 f'<text x="{width-pad}" y="43" fill="{muted}" font-size="12" text-anchor="end">{date}</text>'
+                 f'<text x="{pad}" y="74"><tspan fill="{link}">{escape(short)}</tspan>'
+                 +(f'<tspan dx="10" fill="{muted}" font-size="13">{escape(about)}</tspan>' if about else '')+'</text>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" '
-            f'aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}">'
+            f'aria-label="{escape(verb+": "+repo+(" — "+about if about else "")+" — "+date,quote=True)}">'
             f'<style>{faces("Chiron Italic")}.serif{{font-family:{ITALIC}}}</style>'
             f'<rect width="{width}" height="{height}" rx="12" fill="{bg}"/>'
             f'<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14">{content}</g></svg>')
 
-def activity_row(repo, verb, date, url, assets):
+def activity_row(repo, verb, date, url, assets, description=''):
     paths={}
     for dark in (False,True):
         for mobile in (False,True):
-            svg=activity_card(repo,verb,date,dark,mobile)
+            svg=activity_card(repo,verb,date,dark,mobile,description)
             path='assets/activity-'+hashlib.sha256(svg.encode()).hexdigest()[:12]+'.svg'
             if assets is not None:
                 assets[path]=svg
@@ -59,7 +82,11 @@ def activity_row(repo, verb, date, url, assets):
     alt=escape(f'{verb}: {repo} — {date}',quote=True)
     return f'<a href="{url}"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="{paths[True,True]}"><source media="(max-width: 600px)" srcset="{paths[False,True]}"><source media="(prefers-color-scheme: dark)" srcset="{paths[True,False]}"><img src="{paths[False,False]}" alt="{alt}" width="100%"></picture></a>'
 
-def activity(events, visibility_check=repository_is_public, assets=None):
+def activity(events, visibility_check=repository_is_public, assets=None, describe=None):
+    # The live check and the About text come from the same cached request; a
+    # caller that swaps in its own visibility check gets no network lookups.
+    if describe is None:
+        describe=repository_description if visibility_check is repository_is_public else (lambda repo: '')
     lines=[]
     seen=set()
     for event in events:
@@ -95,7 +122,7 @@ def activity(events, visibility_check=repository_is_public, assets=None):
         if not visibility_check(repo):
             continue
         seen.add(url)
-        lines.append(activity_row(repo,verb,date,url,assets))
+        lines.append(activity_row(repo,verb,date,url,assets,describe(repo)))
         if len(lines)==2:
             break
     return '\n'.join(lines) if lines else '<sub>No public activity to display yet. This section will update automatically.</sub>'

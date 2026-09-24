@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-fd06f5c91fb5.svg"><source media="(max-width: 600px)" srcset="assets/activity-1f6a90a922b8.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-7b8c62b200cf.svg"><img src="assets/activity-48913f8f0749.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-baabd4c17b21.svg"><source media="(max-width: 600px)" srcset="assets/activity-0915034ca244.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-a3d47d76ca7a.svg"><img src="assets/activity-5628472048a6.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
@@ -63,7 +63,11 @@
 <details>
 <summary><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/note-title-dark-mobile-c7004ba66af2.svg"><source media="(max-width: 600px)" srcset="assets/note-title-light-mobile-f94abe2cd109.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/note-title-dark-eed9d51d5895.svg"><img alt="lzsm's note" src="assets/note-title-light-167f8093f919.svg" width="94%"></picture></summary>
 
-<h3>我為何放弃一切开始尝试 Vibe Coding <sub>Pt.1</sub></h3>
+<br>
+
+<details>
+<summary><strong>我為何放弃一切開始 Vibe Coding</strong></summary>
+
 
 　　…大概是 2021 年，第四次工業革命，人類進入 AI 時代。由此，我經常看到有人在濫用它，甚至專業程序員也幹這種勾當——只用五分鐘，就生成一個他媽的漸變、不對齊、用100個不同設計風格 UI、塞1000種元素的前端。只用 AI 隨便做個粗製濫造的垃圾系統，就能賣貨給灰產用戶發大財。…這一切看得我噁心，我從床上爬起來，吐了一遍又一遍，可惜未被它們穩穩接住。
 
@@ -84,6 +88,8 @@
     <img alt="Particles drifting along a smooth flow field" src="assets/flow-light-7488d54642af.svg" width="100%">
   </picture>
 </p>
+
+</details>
 
 </details>
 
