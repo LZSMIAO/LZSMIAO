@@ -38,4 +38,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'docs: update music cards'
+          git pull --rebase --quiet
           git push
