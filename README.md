@@ -33,10 +33,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2034eb797130.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-dbe53148429f.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-467fb5ce2489.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-995f7fc1c221.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f66828b815e1.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-5b1d3ffc2626.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-22e3d4afef38.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-91c296cce96d.svg" width="100%">
   </picture>
 </p>
 
@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://netease-presence.linzsmiao.workers.dev/projects"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-8b9406b45b96.svg"><source media="(max-width: 600px)" srcset="assets/activity-1c62ea7c45b5.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-a06b9f96bf48.svg"><img src="assets/activity-da9acadc1758.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-8b9406b45b96.svg"><source media="(max-width: 600px)" srcset="assets/activity-1c62ea7c45b5.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-a06b9f96bf48.svg"><img src="assets/activity-da9acadc1758.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
