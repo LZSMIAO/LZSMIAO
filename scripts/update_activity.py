@@ -22,7 +22,7 @@ README=Path(__file__).resolve().parents[1]/'README.md'
 START='<!-- ACTIVITY:START -->'
 END='<!-- ACTIVITY:END -->'
 USER='LZSMIAO'
-PAGE='https://netease-presence.linzsmiao.workers.dev/projects'
+PAGE='https://git.ism.tw/projects'
 WINDOW=30
 LIMIT=10
 

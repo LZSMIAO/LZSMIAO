@@ -96,7 +96,7 @@ class ProfileTests(unittest.TestCase):
         self.assertNotIn('LZSMIAO/LZSMIAO',result+assets['assets/activity.json'])
         self.assertEqual(result.count('<picture>'),1)
         self.assertIn('owner/one and 2 more',result)
-        self.assertIn('https://netease-presence.linzsmiao.workers.dev/projects',result)
+        self.assertIn('https://git.ism.tw/projects',result)
         self.assertEqual(len(json.loads(assets['assets/activity.json'])['projects']),3)
         self.assertIn('No public activity',activity([],today='2026-10-05'))
         # A single project needs no list page: the card links straight to it.
