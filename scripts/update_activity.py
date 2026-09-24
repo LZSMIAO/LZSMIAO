@@ -62,8 +62,9 @@ def activity_card(repo, verb, date, dark=False, mobile=False, description=''):
         about=short_description(description,max(0,100-len(short)))
         content=(f'<text x="{pad}" y="44" font-size="24" fill="{fg}" class="serif">{escape(verb)}</text>'
                  f'<text x="{width-pad}" y="43" fill="{muted}" font-size="12" text-anchor="end">{date}</text>'
-                 f'<text x="{pad}" y="74"><tspan fill="{link}">{escape(short)}</tspan>'
-                 +(f'<tspan dx="10" fill="{muted}" font-size="13">{escape(about)}</tspan>' if about else '')+'</text>')
+                 f'<text x="{pad}" y="74" fill="{link}">{escape(short)}</text>'
+                 # The About line sits right, under the date, so the row reads as two columns.
+                 +(f'<text x="{width-pad}" y="74" fill="{muted}" font-size="13" text-anchor="end">{escape(about)}</text>' if about else ''))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" '
             f'aria-label="{escape(verb+": "+repo+(" — "+about if about else "")+" — "+date,quote=True)}">'
             f'<style>{faces("Chiron Italic")}.serif{{font-family:{ITALIC}}}</style>'

@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-baabd4c17b21.svg"><source media="(max-width: 600px)" srcset="assets/activity-0915034ca244.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-a3d47d76ca7a.svg"><img src="assets/activity-5628472048a6.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-baabd4c17b21.svg"><source media="(max-width: 600px)" srcset="assets/activity-0915034ca244.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-f1e07c071653.svg"><img src="assets/activity-911ae31f903d.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
