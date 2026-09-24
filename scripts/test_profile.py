@@ -9,7 +9,7 @@ import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
-from update_wakatime import duration,label,aggregate
+from update_wakatime import duration,label,aggregate,merge_history,day_record
 from weekly_report import tools
 from update_activity import activity,activity_card,short_description,projects
 from daily_art import card as art,shape
@@ -341,6 +341,22 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(short_description('多功能驗證碼產生器。其餘'),'多功能驗證碼產生器')
         self.assertEqual(short_description('word '*30,20),'word word word word…')
         self.assertEqual(short_description(None),'')
+
+    def test_history_keeps_old_days_and_replaces_refetched_ones(self):
+        def day(date,seconds,cost=1.5):
+            return {'range':{'date':date},'grand_total':{'total_seconds':seconds,'ai_model_total_cost':cost},
+                    'languages':[{'name':'TypeScript','total_seconds':seconds*.6},{'name':'Other','total_seconds':seconds*.4}],
+                    'editors':[{'name':'Codex Vscode','total_seconds':seconds*.5},{'name':'Claude Code','total_seconds':seconds*.5}],
+                    'projects':[{'name':'secret-private-thing','total_seconds':seconds}]}
+        history=merge_history({'days':[]},{'data':[day('2026-09-07',3600),day('2026-09-08',0)]})
+        self.assertEqual([d['date'] for d in history['days']],['2026-09-07'])
+        history=merge_history(history,{'data':[day('2026-09-08',1800),day('2026-09-07',7200)]})
+        self.assertEqual([(d['date'],d['seconds']) for d in history['days']],[('2026-09-07',7200),('2026-09-08',1800)])
+        record=history['days'][0]
+        self.assertEqual(record['tools'],{'Codex':3600,'Claude Code':3600})
+        self.assertEqual(record['ai'],{'cost':1.5})
+        # Project names never reach the public history file.
+        self.assertNotIn('secret-private-thing',json.dumps(history))
 
 if __name__=='__main__':
     unittest.main()

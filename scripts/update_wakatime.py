@@ -98,6 +98,80 @@ def save_cards(cards):
             old.unlink()
 
 
+HISTORY=ROOT/'assets'/'coding-history.json'
+AI_FIELDS={'input':'ai_input_tokens','output':'ai_output_tokens','additions':'ai_additions',
+           'prompts':'ai_prompt_events_total','cost':'ai_model_total_cost'}
+
+
+def fetch(key,path,params=None):
+    query=('?'+urlencode(params)) if params else ''
+    request=Request('https://api.wakatime.com/api/v1/'+path+query,headers={
+        'Authorization':'Basic '+base64.b64encode(key.encode()).decode(),
+        'Accept':'application/json','User-Agent':'LZSMIAO-profile'})
+    with urlopen(request,timeout=30) as response:
+        if response.status==202:
+            return None
+        return json.load(response)
+
+
+def day_record(day):
+    """One day as the history keeps it: totals by language and by tool, and the AI
+    figures. No project names: the history is public and projects may not be."""
+    record={'date':day['range']['date'],'seconds':round(number(day['grand_total']['total_seconds']))}
+    for field,rows,normalise in (('languages',day.get('languages',[]),label),
+                                 ('tools',day.get('editors',[]),lambda name:TOOLS.get(str(name).lower(),'Other'))):
+        totals={}
+        for row in rows:
+            name=normalise(row['name'])
+            totals[name]=totals.get(name,0)+round(number(row['total_seconds']))
+        record[field]={k:v for k,v in sorted(totals.items(),key=lambda kv:-kv[1]) if v>0}
+    ai={}
+    for short,field in AI_FIELDS.items():
+        value=day['grand_total'].get(field)
+        if value is not None:
+            ai[short]=round(number(value),2)
+    if ai:
+        record['ai']=ai
+    return record
+
+
+def merge_history(history,payload):
+    """Newer fetches replace a day; days that fall out of the API's window stay."""
+    days={d['date']:d for d in history.get('days',[])}
+    for day in payload.get('data',[]):
+        record=day_record(day)
+        if record['seconds']>0 or record['date'] in days:
+            days[record['date']]=record
+    return {'days':[days[k] for k in sorted(days)]}
+
+
+def load_history():
+    try:
+        return json.loads(HISTORY.read_text())
+    except (OSError,ValueError):
+        return {'days':[]}
+
+
+def backfill(key,history,before):
+    """First run only: fetch everything from the account's first day, a month at a time."""
+    profile=fetch(key,'users/current') or {}
+    first=str(profile.get('data',{}).get('created_at',''))[:10]
+    try:
+        cursor=datetime.strptime(first,'%Y-%m-%d').date()
+    except ValueError:
+        return history
+    while cursor<before:
+        stop=min(before-timedelta(days=1),cursor+timedelta(days=29))
+        try:
+            payload=fetch(key,'users/current/summaries',{'start':str(cursor),'end':str(stop),'timezone':'Asia/Hong_Kong'})
+        except (HTTPError,URLError,TimeoutError):
+            break
+        if payload:
+            history=merge_history(history,payload)
+        cursor=stop+timedelta(days=1)
+    return history
+
+
 def main():
     key=os.environ.get('WAKATIME_API_KEY','').strip()
     if not key:
@@ -105,16 +179,15 @@ def main():
         return
     end=datetime.now(ZoneInfo('Asia/Hong_Kong')).date()
     start=end-timedelta(days=6)
-    query=urlencode({'start':str(start),'end':str(end),'timezone':'Asia/Hong_Kong'})
-    request=Request('https://api.wakatime.com/api/v1/users/current/summaries?'+query,headers={
-        'Authorization':'Basic '+base64.b64encode(key.encode()).decode(),
-        'Accept':'application/json','User-Agent':'LZSMIAO-profile'})
-    with urlopen(request,timeout=30) as response:
-        if response.status==202:
-            print('WakaTime is calculating; cards unchanged.')
-            return
-        payload=json.load(response)
+    payload=fetch(key,'users/current/summaries',{'start':str(start),'end':str(end),'timezone':'Asia/Hong_Kong'})
+    if payload is None:
+        print('WakaTime is calculating; cards unchanged.')
+        return
     data=aggregate(payload,str(start),str(end))
+    history=load_history()
+    if not history['days']:
+        history=backfill(key,history,start)
+    HISTORY.write_text(json.dumps(merge_history(history,payload),ensure_ascii=False,separators=(',',':'))+'\n')
     cards={theme+('-mobile' if mobile else ''):card(data,theme,duration,label,mobile)
         for mobile in (False,True) for theme in ('light','dark')}
     cards.update({'report-'+theme+('-mobile' if mobile else ''):report(data,theme,duration,label,mobile)
