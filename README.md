@@ -32,12 +32,14 @@
 <br>
 
 <p align="center">
+  <a href="https://netease-presence.linzsmiao.workers.dev/coding">
   <picture>
     <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-f66828b815e1.svg">
     <source media="(max-width: 600px)" srcset="assets/report-light-mobile-5b1d3ffc2626.svg">
     <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-22e3d4afef38.svg">
     <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-91c296cce96d.svg" width="100%">
   </picture>
+  </a>
 </p>
 
 <br>
