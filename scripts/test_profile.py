@@ -8,7 +8,8 @@ import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
-from update_wakatime import duration,label,aggregate,merge_remainder
+from update_wakatime import duration,label,aggregate
+from weekly_report import tools
 from update_activity import activity,activity_card
 from daily_art import card as art,shape
 from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
@@ -31,34 +32,37 @@ class ProfileTests(unittest.TestCase):
             self.assertNotIn('~~~',readme.read_text())
             self.assertTrue(readme.read_text().startswith('before assets/report-dark-'))
 
-    def test_remainder_folds_into_the_language_wakatime_already_calls_other(self):
-        rows=[{'name':'Other','total_seconds':1800,'percent':50.0},
-              {'name':'Rust','total_seconds':900,'percent':25.0}]
-        merged=merge_remainder(rows,900,3600)
-        self.assertEqual([r['name'] for r in merged],['Other','Rust'])
-        self.assertEqual(merged[0]['total_seconds'],2700)
-        self.assertEqual(merged[0]['percent'],75.0)
-        self.assertEqual(rows[0]['total_seconds'],1800)
-        added=merge_remainder([{'name':'Rust','total_seconds':2700,'percent':75.0}],900,3600)
-        self.assertEqual([r['name'] for r in added],['Rust','Other'])
-        data={'total_seconds':3600,'start':'2026-09-15','end':'2026-09-21','languages':[
+    def test_languages_leave_out_wakatimes_other_and_bucket_the_tail(self):
+        # WakaTime files AI chat time under "Other"; it is not a language.
+        data={'total_seconds':3600,'languages':[
             {'name':'Other','total_seconds':1800,'percent':50.0},
-            {'name':'Rust','total_seconds':900,'percent':25.0},
+            {'name':'Rust','total_seconds':600,'percent':16.7},
             {'name':'Vue','total_seconds':450,'percent':12.5},
             {'name':'Go','total_seconds':300,'percent':8.3},
-            {'name':'C','total_seconds':150,'percent':4.2}]}
+            {'name':'C','total_seconds':150,'percent':4.2},
+            {'name':'Zig','total_seconds':100,'percent':2.8},
+            {'name':'Lua','total_seconds':200,'percent':5.6}]}
         rows=languages(data)
-        self.assertEqual([r['name'] for r in rows].count('Other'),1)
-        # Folding the tail in can lift Other past a row it trailed; the order, and
-        # so the accent, must follow the merged totals.
-        lifted={'total_seconds':1000,'languages':[
-            {'name':'TypeScript','total_seconds':300,'percent':30.0},
-            {'name':'Other','total_seconds':250,'percent':25.0},
-            {'name':'Vue','total_seconds':150,'percent':15.0},
-            {'name':'Go','total_seconds':100,'percent':10.0},
-            {'name':'C','total_seconds':100,'percent':10.0},
-            {'name':'Rust','total_seconds':100,'percent':10.0}]}
-        self.assertEqual([r['name'] for r in languages(lifted)][:2],['Other','TypeScript'])
+        self.assertEqual([r['name'] for r in rows],['Rust','Vue','Go','Lua','Others'])
+        self.assertNotIn('Other',[r['name'] for r in rows])
+        self.assertAlmostEqual(sum(r['percent'] for r in rows),100)
+        self.assertAlmostEqual(rows[-1]['total_seconds'],250)
+        self.assertEqual(languages({'total_seconds':60,'languages':[{'name':'Other','total_seconds':60,'percent':100}]}),[])
+
+    def test_editors_become_tools_with_codex_merged(self):
+        days=[{'range':{'date':f'2026-09-{d:02d}'},'grand_total':{'total_seconds':100},'languages':[],
+               'editors':[{'name':'Claude Code','total_seconds':50},{'name':'Codex Vscode','total_seconds':20},
+                          {'name':'Codex','total_seconds':10},{'name':'Unknown Editor','total_seconds':15},{'name':'Qoder','total_seconds':5}]}
+              for d in range(2,9)]
+        data=aggregate({'data':days},'2026-09-02','2026-09-08')
+        kit=tools(data)
+        self.assertEqual([r['name'] for r in kit],['Claude Code','Codex','Other'])
+        self.assertEqual([round(r['percent']) for r in kit],[50,30,20])
+        for theme in ('light','dark'):
+            for mobile in (False,True):
+                svg=report({**data,'ai':{'ai_input_tokens':1000,'ai_output_tokens':10,'ai_additions':1,'ai_prompt_events_total':1,'ai_model_total_cost':1}},theme,duration,label,mobile)
+                ET.fromstring(svg)
+                self.assertIn('>Claude Code<',svg)
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}

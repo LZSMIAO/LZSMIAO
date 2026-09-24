@@ -16,6 +16,9 @@ from coding_card import card
 from weekly_report import card as report
 
 ROOT=Path(__file__).resolve().parents[1]
+# WakaTime reports AI chat time with no file, so its language is "Other"; the tool
+# shows up as the editor instead. Normalise the names worth showing.
+TOOLS={'claude code':'Claude Code','codex':'Codex','codex vscode':'Codex','vs code':'VS Code'}
 
 
 def number(value):
@@ -38,6 +41,7 @@ def label(value):
 def aggregate(payload,start,end):
     total=0
     languages={}
+    tools={}
     dates=set()
     days=[]
     for day in payload['data']:
@@ -51,6 +55,9 @@ def aggregate(payload,start,end):
         for row in day['languages']:
             name=label(row['name'])
             languages[name]=languages.get(name,0)+number(row['total_seconds'])
+        for row in day.get('editors',[]):
+            name=TOOLS.get(str(row['name']).lower(),'Other')
+            tools[name]=tools.get(name,0)+number(row['total_seconds'])
     if len(dates)!=7:
         raise ValueError('Incomplete seven-day summary')
     fields=('ai_input_tokens','ai_output_tokens','ai_additions','ai_prompt_events_total','ai_model_total_cost')
@@ -60,18 +67,9 @@ def aggregate(payload,start,end):
         ai[field]=sum(number(value) for value in values) if all(value is not None for value in values) else None
     return {'total_seconds':total,'start':start,'end':end,'days':sorted(days,key=lambda d:d['date']),'ai':ai,'languages':[
         {'name':name,'total_seconds':seconds,'percent':100*seconds/total if total else 0}
-        for name,seconds in languages.items()]}
-
-
-def merge_remainder(rows,rest,total):
-    """WakaTime already reports a language called Other, so fold the tail into it."""
-    rows=[dict(row) for row in rows]
-    for row in rows:
-        if row['name']=='Other':
-            row['total_seconds']+=rest
-            row['percent']=100*row['total_seconds']/total
-            return rows
-    return rows+[{'name':'Other','total_seconds':rest,'percent':100*rest/total}]
+        for name,seconds in languages.items()],'tools':[
+        {'name':name,'total_seconds':seconds,'percent':100*seconds/total if total else 0}
+        for name,seconds in tools.items()]}
 
 
 def save_cards(cards):

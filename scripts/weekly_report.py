@@ -27,15 +27,29 @@ def compact(value):
 
 
 def languages(data):
-    total=float(data['total_seconds'])
-    rows=sorted(data.get('languages',[]),key=lambda r:float(r['total_seconds']),reverse=True)[:4]
-    rest=max(0,total-sum(float(r['total_seconds']) for r in rows))
+    """The four busiest languages and the rest as "Others", shared over file time.
+
+    WakaTime files AI chat time under a language called "Other" because it has
+    no file; that is not a language, so it is left out here and shown by tool
+    instead. Others is a bucket and always comes last.
+    """
+    known=[r for r in data.get('languages',[]) if r['name']!='Other' and float(r['total_seconds'])>0]
+    total=sum(float(r['total_seconds']) for r in known)
+    if not total:
+        return []
+    ranked=sorted(known,key=lambda r:float(r['total_seconds']),reverse=True)
+    rows=[{'name':r['name'],'total_seconds':float(r['total_seconds']),'percent':100*float(r['total_seconds'])/total} for r in ranked[:4]]
+    rest=total-sum(r['total_seconds'] for r in rows)
     if rest>0:
-        from update_wakatime import merge_remainder
-        rows=merge_remainder(rows,rest,total)
-    # Folding the tail into Other can lift it past rows it used to trail, and the
-    # accent belongs to whichever row actually leads.
-    return sorted(rows,key=lambda r:float(r['total_seconds']),reverse=True)
+        rows.append({'name':'Others','total_seconds':rest,'percent':100*rest/total})
+    return rows
+
+
+def tools(data):
+    """Where the week was spent by tool: named ones by size, then Other."""
+    rows=[r for r in data.get('tools',[]) if float(r['total_seconds'])>0]
+    named=sorted((r for r in rows if r['name']!='Other'),key=lambda r:float(r['total_seconds']),reverse=True)
+    return named[:3]+[r for r in rows if r['name']=='Other']
 
 
 def weekday(day):
@@ -54,6 +68,7 @@ def card(data, theme, duration, label, mobile=False):
     start=str(data.get('start',''))[:10]
     end=str(data.get('end',''))[:10]
     rows=languages(data) if total else []
+    kit=tools(data) if total else []
     parts=[]
     def text(x,y,content,size,color=None,extra=''):
         parts.append(f'<text x="{x:g}" y="{y:g}" font-size="{size}" fill="{color or t["ink"]}" {extra}>{content}</text>')
@@ -63,6 +78,7 @@ def card(data, theme, duration, label, mobile=False):
     alt=['Recent activity from the last seven days','Waiting for the first activity record' if total==0 else 'Total time '+duration(total)]
     alt.extend(f'{label(r["name"])} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in rows)
     alt.extend(f'{d["date"]} {duration(d["total_seconds"])}' for d in days)
+    alt.extend(f'{r["name"]} {duration(r["total_seconds"])} {r["percent"]:.1f}%' for r in kit)
     if has_ai:
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
 
@@ -115,16 +131,21 @@ def card(data, theme, duration, label, mobile=False):
         parts.append(f'<rect x="{x:.1f}" y="{bar}" width="{max(0,share-2):.1f}" height="4" rx="2" '
                      f'fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
         x+=share
-    columns=2 if mobile else max(1,len(rows))
-    column=span_width/columns
-    for i,row in enumerate(rows):
-        cx=pad+(i%columns)*column
-        cy=bar+24+(i//columns)*22
-        name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:18]
-        colour=t['accent'] if i==0 else t['line']
-        parts.append(f'<circle cx="{cx+3:.1f}" cy="{cy-4}" r="3" fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
-        text(cx+12,cy,span(name)+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
-    bottom=bar+24+((len(rows)-1)//columns)*22+(16 if mobile else 20)
+    def legend(items,top):
+        # Dot, name and share; first item in the accent. Returns the last baseline.
+        # Five columns on a desktop fit four languages plus Others on one line and
+        # keep the tools row on the same grid.
+        columns=2 if mobile else 5
+        column=span_width/columns
+        for i,row in enumerate(items):
+            cx=pad+(i%columns)*column
+            cy=top+(i//columns)*22
+            name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:18]
+            colour=t['accent'] if i==0 else t['line']
+            parts.append(f'<circle cx="{cx+3:.1f}" cy="{cy-4}" r="3" fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
+            text(cx+12,cy,span(name)+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
+        return top+((len(items)-1)//columns)*22
+    bottom=legend(rows,bar+24)+(16 if mobile else 20)
     if not has_ai:
         return wrap(parts,width,bottom+4,alt,t)
 
@@ -134,19 +155,22 @@ def card(data, theme, duration, label, mobile=False):
     tokens=compact(ai.get('ai_input_tokens'))+' / '+compact(ai.get('ai_output_tokens'))
     edits=compact(ai.get('ai_additions'))+' / '+compact(ai.get('ai_prompt_events_total'))
     price='—' if cost is None else f'${cost:,.2f}'
+    # Title, then the week by tool (Claude Code, Codex...) in the languages' legend
+    # style, then the three figures.
+    text(pad,bottom+(28 if mobile else 30),escape('AI collaboration'),16,extra='class="serif"')
+    below=bottom+(28 if mobile else 30)
+    if kit:
+        below=legend(kit,below+(26 if mobile else 28))
     if mobile:
-        text(pad,bottom+28,escape('AI collaboration'),16,extra='class="serif"')
         for i,(caption,value) in enumerate((('Tokens in / out',tokens),('Additions / prompts',edits),('Compute at API pricing',price))):
-            y=bottom+54+i*22
+            y=below+26+i*22
             text(pad,y,escape(caption),11,t['muted'])
             text(right,y,span(value,cls='number'),13,extra='text-anchor="end"')
-        return wrap(parts,width,bottom+54+2*22+18,alt,t)
-    # Title on its own line, then three figures on the same columns as the legend.
-    text(pad,bottom+30,escape('AI collaboration'),16,extra='class="serif"')
+        return wrap(parts,width,below+26+2*22+18,alt,t)
     column=(right-pad)/3
     for i,(value,caption) in enumerate(((tokens,'tokens in / out'),(edits,'additions / prompts'),(price,'at API pricing'))):
-        text(pad+i*column,bottom+58,span(value,14,None,'number')+span(caption,11,t['muted'],dx=8),14)
-    return wrap(parts,width,bottom+80,alt,t)
+        text(pad+i*column,below+28,span(value,14,None,'number')+span(caption,11,t['muted'],dx=8),14)
+    return wrap(parts,width,below+50,alt,t)
 
 def wrap(parts,width,height,alt,t):
     return ''.join([f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height:g}" viewBox="0 0 {width} {height:g}" role="img" aria-labelledby="title desc">',
