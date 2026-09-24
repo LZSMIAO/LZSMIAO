@@ -9,10 +9,10 @@
 
 <p>
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-a8b9f557e70c.svg">
-    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-40f0e31791f7.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-a9a8a713766b.svg">
-    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-0df140436a55.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-bf974c0ddb76.svg">
+    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-3d0cbe956283.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-58f7c8af2d73.svg">
+    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-bddfa0f52bca.svg" width="100%">
   </picture>
 </p>
 
