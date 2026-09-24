@@ -84,11 +84,13 @@ def card(data, theme, duration, label, mobile=False):
 
     # Same rendered size as the music and bottle titles (about 24px on a desktop).
     text(pad,34 if mobile else 42,'Last 7 days',20 if mobile else 24,extra='class="serif"')
-    period=escape(f'{start} — {end} · Hong Kong' if start else 'Hong Kong')
+    # No year: the week is always this one. Month-day keeps the line short.
+    period=escape(f'{start[5:]} — {end[5:]} · Hong Kong' if start else 'Hong Kong')
     if mobile:
         text(pad,54,period,11,t['muted'])
     else:
-        text(right,40,period,12,t['muted'],'text-anchor="end"')
+        # Top-aligned with the title: its caps start where the title's do.
+        text(right,34,period,12,t['muted'],'text-anchor="end"')
     if total==0:
         text(pad,90,escape('Waiting for the first activity record'),15)
         text(pad,112,escape('Every small step is progress.'),12,t['muted'])
@@ -104,8 +106,10 @@ def card(data, theme, duration, label, mobile=False):
         text(pad,88,span(duration(total),cls='number')+span(caption,12,t['muted'],dx=14),30)
 
     # Seven slim bars: no axis, no values, just the shape of the week.
-    base=178 if mobile else 88
-    tall=40 if mobile else 36
+    # On a desktop the day labels share the caption's baseline (88), so the bars
+    # stand on 74 and stay short enough to clear the period line above them.
+    base=178 if mobile else 74
+    tall=40 if mobile else 28
     left=pad if mobile else right-200
     step=(right-left)/7
     peak=max((d['total_seconds'] for d in days),default=0)
@@ -118,7 +122,8 @@ def card(data, theme, duration, label, mobile=False):
         opacity='1' if leads else '.25' if day['date']==end else '.45'
         parts.append(f'<rect x="{centre-3:.1f}" y="{base-height:.1f}" width="6" height="{height:.1f}" rx="3" '
                      f'fill="{t["accent"] if leads else t["line"]}" fill-opacity="{opacity}"/>')
-        text(centre,base+15,escape(weekday(day)[0]),10,t['muted'],'text-anchor="middle"')
+        # Two letters (Sa Su Mo...): one letter left S, S and T, T ambiguous.
+        text(centre,base+(15 if mobile else 14),escape(weekday(day)[:2]),10,t['muted'],'text-anchor="middle"')
 
     # Languages: one stacked bar and a legend beneath it.
     bar=216 if mobile else 124

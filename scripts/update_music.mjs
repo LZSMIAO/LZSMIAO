@@ -89,7 +89,9 @@ export function weekFile(tracks) {
 }
 export function neteaseCard(tracks, logo) {
   const rows = tracks.map((track, i) => {
-    const y = 80 + i * 70
+    // 72.5 apart: the first title stays level with the Spotify card's song line
+    // and the last cover ends where the Spotify cover does (y 426).
+    const y = 80 + i * 72.5
     return `<g><clipPath id="cover${i}"><rect x="20" y="${y}" width="56" height="56" rx="5"/></clipPath><image x="20" y="${y}" width="56" height="56" href="${track.image}" preserveAspectRatio="xMidYMid meet" clip-path="url(#cover${i})"/><text x="90" y="${y + 22}" class="ink" font-size="14" font-weight="600">${esc(shorten(track.name, 15))}</text><text x="90" y="${y + 42}" class="muted" font-size="11">${esc(shorten(track.artists.map(a => a.name).join(' · '), 23))}</text></g>`
   }).join('')
   const empty = '<text x="160" y="245" text-anchor="middle" class="muted" font-size="14">No listening history this week</text>'
