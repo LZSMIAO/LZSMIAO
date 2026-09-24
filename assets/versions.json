@@ -80,24 +80,24 @@
     "coding-dark-mobile-8a71d29eeef4.svg"
   ],
   "art-light": [
+    "art-light-d65bc4f8ee98.svg",
     "art-light-18bce4a26f1e.svg",
-    "art-light-77aa145fb3cd.svg",
-    "art-light-42f2b4401ab3.svg"
+    "art-light-77aa145fb3cd.svg"
   ],
   "art-dark": [
+    "art-dark-a1098235f1c8.svg",
     "art-dark-7cd4e5b717b6.svg",
-    "art-dark-3752e987809a.svg",
-    "art-dark-645428b3ad50.svg"
+    "art-dark-3752e987809a.svg"
   ],
   "art-light-mobile": [
+    "art-light-mobile-47b463ae5e17.svg",
     "art-light-mobile-fb9134595116.svg",
-    "art-light-mobile-b6de53e40bec.svg",
-    "art-light-mobile-7e99380be182.svg"
+    "art-light-mobile-b6de53e40bec.svg"
   ],
   "art-dark-mobile": [
+    "art-dark-mobile-9da6c1d43005.svg",
     "art-dark-mobile-6720788d6e07.svg",
-    "art-dark-mobile-19aa26bd1f39.svg",
-    "art-dark-mobile-7680c5a35be2.svg"
+    "art-dark-mobile-19aa26bd1f39.svg"
   ],
   "prism": [
     "prism-d4b242e67f06.svg"
@@ -118,24 +118,24 @@
     "flow-dark-mobile-7699a25c18cc.svg"
   ],
   "tagline-light": [
+    "tagline-light-26133fde91c4.svg",
     "tagline-light-37df28762f7a.svg",
-    "tagline-light-bacaf812c29f.svg",
-    "tagline-light-bddfa0f52bca.svg"
+    "tagline-light-bacaf812c29f.svg"
   ],
   "tagline-dark": [
+    "tagline-dark-1fc1beafe600.svg",
     "tagline-dark-2dc28483ec3c.svg",
-    "tagline-dark-85e6d8d920cd.svg",
-    "tagline-dark-58f7c8af2d73.svg"
+    "tagline-dark-85e6d8d920cd.svg"
   ],
   "tagline-light-mobile": [
+    "tagline-light-mobile-3250bb92b61b.svg",
     "tagline-light-mobile-0877722425b0.svg",
-    "tagline-light-mobile-0d70ace7b94b.svg",
-    "tagline-light-mobile-3d0cbe956283.svg"
+    "tagline-light-mobile-0d70ace7b94b.svg"
   ],
   "tagline-dark-mobile": [
+    "tagline-dark-mobile-d5d20b95f370.svg",
     "tagline-dark-mobile-b4c3cdc3f52f.svg",
-    "tagline-dark-mobile-3d4334b03b32.svg",
-    "tagline-dark-mobile-bf974c0ddb76.svg"
+    "tagline-dark-mobile-3d4334b03b32.svg"
   ],
   "social-email": [
     "social-email-fec90aab12bf.svg",
@@ -152,5 +152,19 @@
   "social-threads": [
     "social-threads-98ea23afa57a.svg",
     "social-threads-46701cc861c5.svg"
+  ],
+  "note-title-light": [
+    "note-title-light-d64d9debaf45.svg"
+  ],
+  "note-title-dark": [
+    "note-title-dark-547b7e58ab97.svg"
+  ],
+  "note-title-light-mobile": [
+    "note-title-light-mobile-664e9d3875bf.svg",
+    "note-title-light-mobile-16f708a56d5c.svg"
+  ],
+  "note-title-dark-mobile": [
+    "note-title-dark-mobile-f9b6e7a87af2.svg",
+    "note-title-dark-mobile-7c0a352dfaa4.svg"
   ]
 }

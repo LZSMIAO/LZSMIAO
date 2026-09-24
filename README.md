@@ -1,18 +1,18 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-6720788d6e07.svg">
-    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-fb9134595116.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-7cd4e5b717b6.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-18bce4a26f1e.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-9da6c1d43005.svg">
+    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-47b463ae5e17.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-a1098235f1c8.svg">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-d65bc4f8ee98.svg" width="100%">
   </picture>
 </p>
 
 <p>
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-b4c3cdc3f52f.svg">
-    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-0877722425b0.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-2dc28483ec3c.svg">
-    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-37df28762f7a.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-d5d20b95f370.svg">
+    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-3250bb92b61b.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-1fc1beafe600.svg">
+    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-26133fde91c4.svg" width="100%">
   </picture>
 </p>
 
@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-dd524ad2b8e3.svg"><source media="(max-width: 600px)" srcset="assets/activity-8327dcc0d1f4.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-39b31918908e.svg"><img src="assets/activity-08d888f9af6d.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-fd06f5c91fb5.svg"><source media="(max-width: 600px)" srcset="assets/activity-1f6a90a922b8.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-7b8c62b200cf.svg"><img src="assets/activity-48913f8f0749.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
@@ -61,7 +61,7 @@
 <br>
 
 <details>
-<summary><strong>lzsm's note</strong></summary>
+<summary><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/note-title-dark-mobile-f9b6e7a87af2.svg"><source media="(max-width: 600px)" srcset="assets/note-title-light-mobile-664e9d3875bf.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/note-title-dark-547b7e58ab97.svg"><img alt="lzsm's note" src="assets/note-title-light-d64d9debaf45.svg"></picture></summary>
 
 <h3>我為何放弃一切开始尝试 Vibe Coding <sub>Pt.1</sub></h3>
 
@@ -91,7 +91,7 @@
 
 <p>
 <!-- BOTTLE:START -->
-<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-e76ecbcb3371.svg"><source media="(max-width: 600px)" srcset="assets/bottle-d901d78e290a.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-60b25bf4d6f0.svg"><img src="assets/bottle-7f42197bb4a7.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/LZSMIAO/issues/14"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/bottle-182e3c5f8f5e.svg"><source media="(max-width: 600px)" srcset="assets/bottle-f576fdd9a6f9.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/bottle-489f5cf30041.svg"><img src="assets/bottle-e396a8e52ec8.svg" alt="語言已經通貨膨脹，說過的話早就一文不值了。 — @LZSMIAO" width="100%"></picture></a>
 <!-- BOTTLE:END -->
 </p>
 

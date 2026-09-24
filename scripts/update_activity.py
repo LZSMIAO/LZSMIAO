@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import sys
 from urllib.request import Request, urlopen
+from typeface import ITALIC,faces
 
 README=Path(__file__).resolve().parents[1]/'README.md'
 START='<!-- ACTIVITY:START -->'
@@ -27,15 +28,24 @@ def repository_is_public(repo):
         return False
 
 def activity_card(repo, verb, date, dark=False, mobile=False):
-    width,height=(480,88) if mobile else (880,56)
-    bg,fg,link=('#151b23','#e6edf3','#58a6ff') if dark else ('#f6f8fa','#1f2328','#0969da')
+    """The verb set as a card title, like the other panels, with the repository beside it."""
+    width,height=(480,84) if mobile else (880,72)
+    pad=20 if mobile else 24
+    bg,fg,muted,link=('#151b23','#f0f6fc','#b1bac4','#58a6ff') if dark else ('#f6f8fa','#1f2328','#59636e','#0969da')
     short=repo if len(repo)<=52 else repo[:49]+'…'
-    label=f'🛠️ {verb}'
     if mobile:
-        content=f'<text x="20" y="30" font-weight="600">{escape(label)}</text><text x="20" y="65" fill="{link}">{escape(short)}</text><text x="460" y="30" text-anchor="end">{date}</text>'
+        content=(f'<text x="{pad}" y="36" font-size="20" fill="{fg}" class="serif">{escape(verb)}</text>'
+                 f'<text x="{pad}" y="64" fill="{link}">{escape(short)}</text>'
+                 f'<text x="{width-pad}" y="35" fill="{muted}" font-size="12" text-anchor="end">{date}</text>')
     else:
-        content=f'<text x="20" y="34"><tspan font-weight="600">{escape(label)}</tspan><tspan> · </tspan><tspan fill="{link}">{escape(short)}</tspan></text><text x="860" y="34" text-anchor="end">{date}</text>'
-    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}"><rect width="{width}" height="{height}" rx="12" fill="{bg}"/><g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14" fill="{fg}">{content}</g></svg>'
+        content=(f'<text x="{pad}" y="44"><tspan font-size="24" fill="{fg}" class="serif">{escape(verb)}</tspan>'
+                 f'<tspan dx="14" fill="{link}">{escape(short)}</tspan></text>'
+                 f'<text x="{width-pad}" y="43" fill="{muted}" font-size="12" text-anchor="end">{date}</text>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" '
+            f'aria-label="{escape(verb+": "+repo+" — "+date,quote=True)}">'
+            f'<style>{faces("Chiron Italic")}.serif{{font-family:{ITALIC}}}</style>'
+            f'<rect width="{width}" height="{height}" rx="12" fill="{bg}"/>'
+            f'<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="14">{content}</g></svg>')
 
 def activity_row(repo, verb, date, url, assets):
     paths={}

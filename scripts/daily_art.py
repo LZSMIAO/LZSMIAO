@@ -28,8 +28,8 @@ def shape(day):
 def card(day,theme,mobile=False):
     t=THEMES[theme]
     s=shape(day)
-    width,height=(480,150) if mobile else (880,200)
-    top,bottom,pad=26,height-34,20 if mobile else 26
+    width,height=(480,140) if mobile else (880,186)
+    top,bottom,pad=26,height-22,20 if mobile else 26
     span=bottom-top
     freq,phase,depth=s['ripple']
     def height_at(x,y):

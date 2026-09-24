@@ -95,7 +95,10 @@ class ProfileTests(unittest.TestCase):
             date=root.findall('.//{http://www.w3.org/2000/svg}text')[-1]
             self.assertEqual(date.text,'2026-09-20')
             self.assertEqual(date.get('text-anchor'),'end')
-            self.assertEqual(int(date.get('x')),width-20)
+            self.assertEqual(int(date.get('x')),width-(20 if mobile else 24))
+            # The verb is set as a card title in the serif, like the other panels.
+            self.assertIn('class="serif">Updated project',svg)
+            self.assertNotIn('🛠',svg)
 
     def test_public_organization_activity_is_included(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'my-organization/public-project'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]

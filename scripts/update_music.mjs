@@ -22,8 +22,8 @@ export const palette = '.bg{fill:#f6f8fa}.well{fill:#eaeef2}.ink{fill:#1f2328}.m
 function frame(title, content) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="445" viewBox="0 0 320 445" role="img" aria-label="${esc(title)}"><style>@font-face{font-family:"Chiron Italic";src:url(data:font/woff2;base64,${italic}) format("woff2")}text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans CJK SC",sans-serif}.serif{font-family:"Chiron Italic",Georgia,serif}${palette}</style><rect class="bg" width="320" height="445" rx="10"/>${content}</svg>`
 }
-// 18px here renders at about 24px beside the 880-wide cards, matching their titles.
-const heading = (title, source) => `<text x="20" y="36" class="ink serif" font-size="18">${title}</text><text x="20" y="54" class="muted" font-size="11">${source}</text>`
+// Shown at half the column, 17.5/320 matches the 24/880 titles of the full-width cards.
+const heading = (title, source) => `<text x="20" y="36" class="ink serif" font-size="17.5">${title}</text><text x="20" y="54" class="muted" font-size="11">${source}</text>`
 export function offlineCard(logo) {
   return frame('Spotify — not playing', `${heading('Now playing', 'Spotify')}<image x="275" y="20" width="25" height="25" href="${logo}"/><circle class="well" cx="160" cy="200" r="42"/><image x="139" y="179" width="42" height="42" opacity="0.55" href="${logo}"/><text x="160" y="282" text-anchor="middle" class="ink" font-size="20" font-weight="600">Not playing</text><text x="160" y="306" text-anchor="middle" class="muted" font-size="12">Nothing playing right now</text>`)
 }

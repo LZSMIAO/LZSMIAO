@@ -89,7 +89,7 @@ def card(text,login,day,theme,mobile=False):
     height=top+band
     alt=f'{text} \u2014 @{login}' if text else 'No bottle has washed ashore yet'
     scene='An outlined bottle riding a sea of drifting swell lines' if text else 'An empty sea of drifting swell lines'
-    label=19 if mobile else 24
+    label=20 if mobile else 24
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
            f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="bottle-title bottle-desc">',
            '<title id="bottle-title">Drift bottle</title>',
@@ -97,7 +97,7 @@ def card(text,login,day,theme,mobile=False):
            '<style>'+faces('Chiron Italic','Chiron Quote')+'text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}'
            f'.serif{{font-family:{ITALIC}}}.quote{{font-family:{QUOTE}}}</style>',
            ocean(width,height,top,theme,.8 if mobile else 1.0,bool(text)),
-           f'<text x="{pad}" y="{27 if mobile else 31}" font-size="{label}" fill="{t["muted"]}" class="serif">Drift bottle</text>']
+           f'<text x="{pad}" y="{27 if mobile else 31}" font-size="{label}" fill="{t["ink"]}" class="serif">Drift bottle</text>']
     if text:
         parts.append(f'<text x="{width-2}" y="{26 if mobile else 30}" font-size="{label-3}" fill="{t["muted"]}" '
                      f'text-anchor="end" class="serif">@{escape(login)} \u00b7 {day}</text>')
