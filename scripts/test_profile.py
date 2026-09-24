@@ -99,6 +99,10 @@ class ProfileTests(unittest.TestCase):
         self.assertIn('https://netease-presence.linzsmiao.workers.dev/projects',result)
         self.assertEqual(len(json.loads(assets['assets/activity.json'])['projects']),3)
         self.assertIn('No public activity',activity([],today='2026-10-05'))
+        # A single project needs no list page: the card links straight to it.
+        single=activity([event('owner/solo')], visibility_check=lambda repo: True, today='2026-10-05')
+        self.assertIn('href="https://github.com/owner/solo"',single)
+        self.assertNotIn('/projects',single)
     def test_activity_card_date_is_right_aligned_without_wrapping(self):
         for mobile,width in [(False,880),(True,480)]:
             svg=activity_card('organization/project','Updated project','2026-09-20',True,mobile)

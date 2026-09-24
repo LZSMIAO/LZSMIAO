@@ -94,7 +94,9 @@ def activity_row(latest, more, assets):
                 assets[path]=svg
             paths[dark,mobile]=path
     alt=escape(f"Recent activity: {latest['repo']}"+(f' and {more} more' if more else '')+f" — {latest['date']}",quote=True)
-    return f'<a href="{PAGE}"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="{paths[True,True]}"><source media="(max-width: 600px)" srcset="{paths[False,True]}"><source media="(prefers-color-scheme: dark)" srcset="{paths[True,False]}"><img src="{paths[False,False]}" alt="{alt}" width="100%"></picture></a>'
+    # One project needs no list: link straight to it. Two or more open the page.
+    href=latest['url'] if not more else PAGE
+    return f'<a href="{href}"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="{paths[True,True]}"><source media="(max-width: 600px)" srcset="{paths[False,True]}"><source media="(prefers-color-scheme: dark)" srcset="{paths[True,False]}"><img src="{paths[False,False]}" alt="{alt}" width="100%"></picture></a>'
 
 def projects(events, visibility_check=repository_is_public, describe=None, today=None):
     """Public projects touched in the last WINDOW days, newest first, one row each."""
