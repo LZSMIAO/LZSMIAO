@@ -33,10 +33,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-8ccddde6d9f3.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a61ef621fd8a.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-74d883a4b8b2.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-89f56e672447.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-bbfdb0a7bbc9.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-c7cf732bf48b.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-21cf84653b17.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-bae7d84d6a2a.svg" width="100%">
   </picture>
 </p>
 
@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-d9ac02c6add6.svg"><source media="(max-width: 600px)" srcset="assets/activity-f939dec314de.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-cf96726263a1.svg"><img src="assets/activity-28132bad5a85.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-23" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-dd524ad2b8e3.svg"><source media="(max-width: 600px)" srcset="assets/activity-8327dcc0d1f4.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-39b31918908e.svg"><img src="assets/activity-08d888f9af6d.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 

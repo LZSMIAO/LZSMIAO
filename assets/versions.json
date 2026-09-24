@@ -1,83 +1,83 @@
 {
   "coding-dark": [
+    "coding-dark-b917a1ccbc01.svg",
     "coding-dark-14efb10e81ed.svg",
     "coding-dark-38bbfc84af79.svg",
     "coding-dark-5c27335a6c62.svg",
     "coding-dark-a461adef58b8.svg",
     "coding-dark-6fd527e986fe.svg",
     "coding-dark-ab0b2c3023de.svg",
-    "coding-dark-c5f11058db46.svg",
-    "coding-dark-949e38f545e4.svg"
+    "coding-dark-c5f11058db46.svg"
   ],
   "coding-light": [
+    "coding-light-de2748f35477.svg",
     "coding-light-66d5130f2a26.svg",
     "coding-light-4f7c44b56fc2.svg",
     "coding-light-1986409bc27a.svg",
     "coding-light-1939d20ad553.svg",
     "coding-light-97f016d46e1c.svg",
     "coding-light-1c9b7cf39f87.svg",
-    "coding-light-0230a5e8344d.svg",
-    "coding-light-fcace0e34251.svg"
+    "coding-light-0230a5e8344d.svg"
   ],
   "report-dark-mobile": [
+    "report-dark-mobile-bbfdb0a7bbc9.svg",
     "report-dark-mobile-8ccddde6d9f3.svg",
     "report-dark-mobile-2d1b84cb89d8.svg",
     "report-dark-mobile-8b8e04862f3e.svg",
     "report-dark-mobile-72fc98136cbd.svg",
     "report-dark-mobile-72f0fcbe937c.svg",
     "report-dark-mobile-690de7836599.svg",
-    "report-dark-mobile-677d530f55e8.svg",
-    "report-dark-mobile-6fe486982845.svg"
+    "report-dark-mobile-677d530f55e8.svg"
   ],
   "report-light-mobile": [
+    "report-light-mobile-c7cf732bf48b.svg",
     "report-light-mobile-a61ef621fd8a.svg",
     "report-light-mobile-21a9b003e1cd.svg",
     "report-light-mobile-0b6682038a2d.svg",
     "report-light-mobile-2d92459bef90.svg",
     "report-light-mobile-a74a7815a5c8.svg",
     "report-light-mobile-888370b46ac1.svg",
-    "report-light-mobile-3c064ccce2d6.svg",
-    "report-light-mobile-0e0a4cf69b27.svg"
+    "report-light-mobile-3c064ccce2d6.svg"
   ],
   "report-dark": [
+    "report-dark-21cf84653b17.svg",
     "report-dark-74d883a4b8b2.svg",
     "report-dark-77f2f69d4d0a.svg",
     "report-dark-3faf98135f13.svg",
     "report-dark-9098f5d4a9e5.svg",
     "report-dark-a5b3b1ab8c8d.svg",
     "report-dark-060989d9ff87.svg",
-    "report-dark-db7accc50743.svg",
-    "report-dark-ea0c451bec32.svg"
+    "report-dark-db7accc50743.svg"
   ],
   "report-light": [
+    "report-light-bae7d84d6a2a.svg",
     "report-light-89f56e672447.svg",
     "report-light-dc685240d334.svg",
     "report-light-31fc1bc71f57.svg",
     "report-light-1f1b378c70e6.svg",
     "report-light-865318e85b21.svg",
     "report-light-bd68a3beab87.svg",
-    "report-light-6012efd09795.svg",
-    "report-light-8e9244e9903f.svg"
+    "report-light-6012efd09795.svg"
   ],
   "coding-light-mobile": [
+    "coding-light-mobile-6276d3b2e206.svg",
     "coding-light-mobile-fe51e171ef3b.svg",
     "coding-light-mobile-6d3aa75b2aef.svg",
     "coding-light-mobile-9efb30513fa9.svg",
     "coding-light-mobile-b56048a3d597.svg",
     "coding-light-mobile-353c22f7ad8c.svg",
     "coding-light-mobile-509cfdda90ab.svg",
-    "coding-light-mobile-3727976c603d.svg",
-    "coding-light-mobile-0585899bba26.svg"
+    "coding-light-mobile-3727976c603d.svg"
   ],
   "coding-dark-mobile": [
+    "coding-dark-mobile-e9dd0589d504.svg",
     "coding-dark-mobile-e173c7b4382c.svg",
     "coding-dark-mobile-1bafad3b4d35.svg",
     "coding-dark-mobile-3fdb33807925.svg",
     "coding-dark-mobile-33a67d0bc984.svg",
     "coding-dark-mobile-e7ee3a3ccb16.svg",
     "coding-dark-mobile-8a71d29eeef4.svg",
-    "coding-dark-mobile-7c6df4ee2d49.svg",
-    "coding-dark-mobile-01ba6f823ee1.svg"
+    "coding-dark-mobile-7c6df4ee2d49.svg"
   ],
   "art-light": [
     "art-light-77aa145fb3cd.svg",
