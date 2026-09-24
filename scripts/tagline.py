@@ -91,7 +91,8 @@ def card(theme,mobile=False,words=None):
     width=480 if mobile else 880
     top,bottom=layout(english,chinese,mobile)
     size,step=ENGLISH_SET[mobile]
-    y=34
+    # First baseline just clear of the cap height: the header art sits right above.
+    y=26
     parts=[]
     for line in top:
         parts.append(f'<text x="0" y="{y}" font-size="{size}" fill="{t["ink"]}" class="en">{escape(line)}</text>')

@@ -63,7 +63,8 @@ def card(day,theme,mobile=False):
         opacity=max(.75,.30+.55*fraction) if chosen else .30+.55*fraction
         parts.append(f'<path d="{path}" stroke="{t["accent"] if chosen else t["line"]}" stroke-opacity="{opacity:.2f}"/>')
     parts.append('</g>')
-    parts.append(f'<text x="{width-pad}" y="{height-14}" font-size="12" fill="{t["label"]}" text-anchor="end">{day}</text>')
+    # Date close to the bottom edge, so the tagline below sits near the drawing.
+    parts.append(f'<text x="{width-pad}" y="{height-5}" font-size="12" fill="{t["label"]}" text-anchor="end">{day}</text>')
     return ''.join(parts)+'</svg>\n'
 
 

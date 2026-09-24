@@ -1,18 +1,18 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-19aa26bd1f39.svg">
-    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-b6de53e40bec.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-3752e987809a.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-77aa145fb3cd.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-6720788d6e07.svg">
+    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-fb9134595116.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-7cd4e5b717b6.svg">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-18bce4a26f1e.svg" width="100%">
   </picture>
 </p>
 
 <p>
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-3d4334b03b32.svg">
-    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-0d70ace7b94b.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-85e6d8d920cd.svg">
-    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-bacaf812c29f.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/tagline-dark-mobile-b4c3cdc3f52f.svg">
+    <source media="(max-width: 600px)" srcset="assets/tagline-light-mobile-0877722425b0.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/tagline-dark-2dc28483ec3c.svg">
+    <img alt="Words are but a vessel, a river — unknowing of what they bear, they only flow on. 文字只是載體 只是河流 他對自己所運載的意味並不知曉 他只是一味得流淌" src="assets/tagline-light-37df28762f7a.svg" width="100%">
   </picture>
 </p>
 
