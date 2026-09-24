@@ -26,13 +26,13 @@
 <br>
 
 <p align="center">
-<a href="https://git.ism.tw/spotify/open" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://git.ism.tw/spotify.svg" width="50%"></a><a href="https://git.ism.tw/music" target="_blank" rel="noopener noreferrer"><img src="assets/netease-67c66d0b3966.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
+<a href="https://spotify.ism.tw" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify.ism.tw/card.svg" width="50%"></a><a href="https://music.ism.tw" target="_blank" rel="noopener noreferrer"><img src="assets/netease-67c66d0b3966.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
 </p>
 
 <br>
 
 <p align="center">
-  <a href="https://git.ism.tw/coding">
+  <a href="https://coding.ism.tw">
   <picture>
     <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-52bfe576f80e.svg">
     <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a41eab44a422.svg">
