@@ -1,8 +1,11 @@
 """The "lzsm's note" summary, set in the same serif italic as every card title.
 
-GitHub cannot restyle a <summary>, but it can show a picture inside one. There
-are no descenders in the phrase, so the baseline sits on the image's bottom
-edge and lines up with the disclosure triangle beside it.
+GitHub cannot restyle a <summary>, but it can show a picture inside one. A
+fixed-size picture drifted against the other titles, which scale with the
+column, so this one scales too: the README shows it at 94% of the column (the
+rest is room for the disclosure triangle) and the canvas is 94% of the other
+cards' width, so its 24px (20px on phones) lands at exactly their size at any
+width. No descenders in the phrase, so the baseline is the image's bottom edge.
 """
 from html import escape
 import sys
@@ -11,14 +14,15 @@ from typeface import ITALIC,faces
 
 TEXT="lzsm's note"
 INK={'light':'#1f2328','dark':'#f0f6fc'}
-# About 23px on a desktop and 15px on a phone, like the other titles scaled into
-# their columns. The README leaves the size to each image, so both stay exact.
-SIZES={False:(23,130,24),True:(15,86,16)}
+SHARE=.94
+# (font size, card width it matches, canvas height)
+SIZES={False:(24,880,24),True:(20,480,20)}
 
 
 def card(theme,mobile=False):
-    size,width,height=SIZES[mobile]
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
+    size,card_width,height=SIZES[mobile]
+    width=round(card_width*SHARE,1)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}" height="{height}" viewBox="0 0 {width:g} {height}" '
             f'role="img" aria-label="{escape(TEXT,quote=True)}"><style>{faces("Chiron Italic")}text{{font-family:{ITALIC}}}</style>'
             f'<text x="1" y="{height-1}" font-size="{size}" fill="{INK[theme]}">{escape(TEXT)}</text></svg>\n')
 
