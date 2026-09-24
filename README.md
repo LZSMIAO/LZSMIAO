@@ -44,7 +44,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-baabd4c17b21.svg"><source media="(max-width: 600px)" srcset="assets/activity-0915034ca244.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-f1e07c071653.svg"><img src="assets/activity-911ae31f903d.svg" alt="Updated project: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
+<a href="https://netease-presence.linzsmiao.workers.dev/projects"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-8b9406b45b96.svg"><source media="(max-width: 600px)" srcset="assets/activity-1c62ea7c45b5.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-a06b9f96bf48.svg"><img src="assets/activity-da9acadc1758.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-24" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 

@@ -4,13 +4,14 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from weekly_report import card as report,languages
 from update_wakatime import save_cards
+import json
 import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
 from update_wakatime import duration,label,aggregate
 from weekly_report import tools
-from update_activity import activity,activity_card,short_description
+from update_activity import activity,activity_card,short_description,projects
 from daily_art import card as art,shape
 from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
 from publish import publish
@@ -82,16 +83,22 @@ class ProfileTests(unittest.TestCase):
         self.assertEqual(result['languages'][0]['percent'],100)
         with self.assertRaises(ValueError):
             aggregate({'data':days[:-1]},'2026-09-02','2026-09-08')
-    def test_public_feed_privacy_and_limit(self):
-        def event(repo,public=True,kind='PushEvent',payload=None):
-            return {'public':public,'type':kind,'repo':{'name':repo},'payload':payload or {},'created_at':'2026-09-08T00:00:00Z'}
-        events=[event('owner/private',False),event('LZSMIAO/LZSMIAO'),event('owner/one'),event('owner/one'),event('owner/two'),event('owner/three')]
-        result=activity(events, visibility_check=lambda repo: True)
-        self.assertNotIn('private',result)
-        self.assertNotIn('LZSMIAO/LZSMIAO',result)
-        self.assertEqual(result.count('<picture>'),2)
-        self.assertNotIn('three',result)
-        self.assertIn('No public activity',activity([]))
+    def test_public_feed_privacy_and_summary(self):
+        def event(repo,public=True,kind='PushEvent',payload=None,day='08'):
+            return {'public':public,'type':kind,'repo':{'name':repo},'payload':payload or {},'created_at':f'2026-09-{day}T00:00:00Z'}
+        events=[event('owner/private',False),event('LZSMIAO/LZSMIAO'),event('owner/one'),event('owner/one'),event('owner/two'),event('owner/three'),event('owner/old',day='01')]
+        rows=projects(events, visibility_check=lambda repo: True, today='2026-10-05')
+        # One row per public repository, newest first, inside the 30-day window.
+        self.assertEqual([r['repo'] for r in rows],['owner/one','owner/two','owner/three'])
+        assets={}
+        result=activity(events, visibility_check=lambda repo: True, assets=assets, today='2026-10-05')
+        self.assertNotIn('private',result+assets['assets/activity.json'])
+        self.assertNotIn('LZSMIAO/LZSMIAO',result+assets['assets/activity.json'])
+        self.assertEqual(result.count('<picture>'),1)
+        self.assertIn('owner/one and 2 more',result)
+        self.assertIn('https://netease-presence.linzsmiao.workers.dev/projects',result)
+        self.assertEqual(len(json.loads(assets['assets/activity.json'])['projects']),3)
+        self.assertIn('No public activity',activity([],today='2026-10-05'))
     def test_activity_card_date_is_right_aligned_without_wrapping(self):
         for mobile,width in [(False,880),(True,480)]:
             svg=activity_card('organization/project','Updated project','2026-09-20',True,mobile)
@@ -100,20 +107,20 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(date.text,'2026-09-20')
             self.assertEqual(date.get('text-anchor'),'end')
             self.assertEqual(int(date.get('x')),width-(20 if mobile else 24))
-            # The verb is set as a card title in the serif, like the other panels.
-            self.assertIn('class="serif">Updated project',svg)
+            # A card title in the serif, like the other panels.
+            self.assertIn('class="serif">Recent activity',svg)
             self.assertNotIn('🛠',svg)
             with_about=activity_card('organization/project','Updated project','2026-09-20',True,mobile,'A tool. More words.')
             self.assertIn('>A tool<',with_about)
 
     def test_public_organization_activity_is_included(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'my-organization/public-project'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
-        result=activity(events, visibility_check=lambda repo: repo=='my-organization/public-project')
-        self.assertIn('https://github.com/my-organization/public-project',result)
+        rows=projects(events, visibility_check=lambda repo: repo=='my-organization/public-project', today='2026-09-25')
+        self.assertEqual(rows[0]['url'],'https://github.com/my-organization/public-project')
 
     def test_public_event_from_now_private_repository_is_hidden(self):
         events=[{'public':True,'type':'PushEvent','repo':{'name':'owner/now-private'},'payload':{},'created_at':'2026-09-20T00:00:00Z'}]
-        result=activity(events, visibility_check=lambda repo: False)
+        result=activity(events, visibility_check=lambda repo: False, today='2026-09-25')
         self.assertNotIn('owner/now-private',result)
         self.assertIn('No public activity',result)
 
