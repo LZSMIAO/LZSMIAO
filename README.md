@@ -33,10 +33,10 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-bbfdb0a7bbc9.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-c7cf732bf48b.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-21cf84653b17.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-bae7d84d6a2a.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-9646c526eb8c.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-108bd00e7f3e.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-ceb7cdf4c705.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-b67318f843fe.svg" width="100%">
   </picture>
 </p>
 
