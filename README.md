@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-4b32d842359f.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-0d6dd2be0c10.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-c0eff6c804e6.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-716c2b5f6ab9.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-b8370fcb5073.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1e4b7cdcbd97.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-61a5458fd61e.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-3318b179c143.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-383069694d22.svg"><source media="(max-width: 600px)" srcset="assets/activity-146711edf16f.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-d63774a4ca60.svg"><img src="assets/activity-6b9835ee9da1.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-25" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-a636c4183abc.svg"><source media="(max-width: 600px)" srcset="assets/activity-5cb8759d9985.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-02ff1bd7765d.svg"><img src="assets/activity-0c6d3702b17d.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-26" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
