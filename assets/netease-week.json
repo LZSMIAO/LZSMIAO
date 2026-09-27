@@ -13,7 +13,7 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
       "id": "411314656",
@@ -24,7 +24,18 @@
           "name": "草東沒有派對"
         }
       ],
-      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+    },
+    {
+      "id": "1965759705",
+      "name": "チ。",
+      "artists": [
+        {
+          "id": "12498266",
+          "name": "卦者靈風"
+        }
+      ],
+      "cover": "https://p1.music.126.net/-9mEkmIr7oJkcws7TyHexA==/109951167672621492.jpg?param=160y160"
     },
     {
       "id": "2000116221",
@@ -35,7 +46,7 @@
           "name": "轉世虛擬貓"
         }
       ],
-      "cover": "https://p2.music.126.net/Dc5tdWYVXBdDWdt6hUHFwg==/109951168076089757.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/Dc5tdWYVXBdDWdt6hUHFwg==/109951168076089757.jpg?param=160y160"
     },
     {
       "id": "1897571192",
@@ -46,18 +57,7 @@
           "name": "轉世虛擬貓"
         }
       ],
-      "cover": "https://p2.music.126.net/Q3dAMC3esvx8uwsh72Q5Tw==/109951166652730357.jpg?param=160y160"
-    },
-    {
-      "id": "3437620143",
-      "name": "self doubt (Routine Version)",
-      "artists": [
-        {
-          "id": "35026792",
-          "name": "Venoflame"
-        }
-      ],
-      "cover": "https://p2.music.126.net/bw_9y1hKI1KmszBWvGslkg==/109951173955443287.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/Q3dAMC3esvx8uwsh72Q5Tw==/109951166652730357.jpg?param=160y160"
     }
   ]
 }
