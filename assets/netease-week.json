@@ -1,17 +1,6 @@
 {
   "tracks": [
     {
-      "id": "411314656",
-      "name": "爛泥",
-      "artists": [
-        {
-          "id": "1161122",
-          "name": "草東沒有派對"
-        }
-      ],
-      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
-    },
-    {
       "id": "3438968283",
       "name": "花骨朵",
       "artists": [
@@ -24,26 +13,18 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
-      "id": "3330630999",
-      "name": "反烏托邦Pt.2",
+      "id": "411314656",
+      "name": "爛泥",
       "artists": [
         {
-          "id": "51497522",
-          "name": "亞細亞曠世奇才"
-        },
-        {
-          "id": "906118",
-          "name": "洛天依Official"
-        },
-        {
-          "id": "96237339",
-          "name": "烏托邦P"
+          "id": "1161122",
+          "name": "草東沒有派對"
         }
       ],
-      "cover": "https://p2.music.126.net/gH89vjqKtN6YAkHE2OsCPQ==/109951172460612010.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
     },
     {
       "id": "3437620143",
@@ -54,7 +35,7 @@
           "name": "Venoflame"
         }
       ],
-      "cover": "https://p2.music.126.net/bw_9y1hKI1KmszBWvGslkg==/109951173955443287.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/bw_9y1hKI1KmszBWvGslkg==/109951173955443287.jpg?param=160y160"
     },
     {
       "id": "2049110644",
@@ -69,7 +50,18 @@
           "name": "李晨曦Chrisulous"
         }
       ],
-      "cover": "https://p2.music.126.net/w9jnwkpz0Khrwd4He8PHxQ==/109951168626411859.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/w9jnwkpz0Khrwd4He8PHxQ==/109951168626411859.jpg?param=160y160"
+    },
+    {
+      "id": "3434600677",
+      "name": "self doubt (Prod.Robin Cause)",
+      "artists": [
+        {
+          "id": "35026792",
+          "name": "Venoflame"
+        }
+      ],
+      "cover": "https://p1.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
     }
   ]
 }
