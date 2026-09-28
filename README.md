@@ -1,9 +1,9 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-22bd0ffd2f88.svg">
-    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-5e8ba89cbe7b.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-34862f008637.svg">
-    <img alt="Generated contour header, redrawn every day" src="assets/art-light-964989288636.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/art-dark-mobile-9277a0b829fb.svg">
+    <source media="(max-width: 600px)" srcset="assets/art-light-mobile-59d6254e1d74.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/art-dark-e2a1d10608a2.svg">
+    <img alt="Generated contour header, redrawn every day" src="assets/art-light-901e448e14cb.svg" width="100%">
   </picture>
 </p>
 
