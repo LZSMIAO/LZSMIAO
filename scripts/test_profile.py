@@ -64,6 +64,9 @@ class ProfileTests(unittest.TestCase):
                 svg=report({**data,'ai':{'ai_input_tokens':1000,'ai_output_tokens':10,'ai_additions':1,'ai_prompt_events_total':1,'ai_model_total_cost':1}},theme,duration,label,mobile)
                 ET.fromstring(svg)
                 self.assertIn('>Claude Code<',svg)
+                self.assertIn('text-decoration="line-through">Claude Code',svg)
+                self.assertIn('>Suspended</tspan>',svg)
+                self.assertIn('50.0%',svg)
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}

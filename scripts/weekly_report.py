@@ -148,7 +148,14 @@ def card(data, theme, duration, label, mobile=False):
             name='WGSL' if row['name']=='WebGPU Shading Language' else label(row['name'])[:18]
             colour=t['accent'] if i==0 else t['line']
             parts.append(f'<circle cx="{cx+3:.1f}" cy="{cy-4}" r="3" fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
-            text(cx+12,cy,span(name)+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
+            if name.lower() in ('claude', 'claude code'):
+                # Display-only status: keep the recorded name and usage intact.
+                red='#b42318' if theme=='light' else '#ff8e86'
+                title=f'<tspan font-size="11" fill="{t["muted"]}" text-decoration="line-through">{escape(name)}</tspan>'
+                title+=f'<tspan dx="5" font-size="8.5" font-weight="700" font-style="italic" fill="{red}">Suspended</tspan>'
+            else:
+                title=span(name)
+            text(cx+12,cy,title+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
         return top+((len(items)-1)//columns)*22
     bottom=legend(rows,bar+24)+(16 if mobile else 20)
     if not has_ai:
