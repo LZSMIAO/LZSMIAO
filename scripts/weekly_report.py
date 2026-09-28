@@ -56,6 +56,29 @@ def weekday(day):
     return date.fromisoformat(day['date']).strftime('%a')+' '+day['date'][8:10]
 
 
+def tool_line(items,theme,label):
+    """Flow by rendered glyph width, with 32px between complete tool groups.
+
+    SVG text advances itself: long status labels cannot steal the next group's
+    gap, and no platform-dependent font measurements or stretched text are needed.
+    """
+    t=THEMES[theme]
+    red='#b42318' if theme=='light' else '#ff8e86'
+    chunks=[]
+    for i,row in enumerate(items):
+        name=escape(label(row['name'])[:18])
+        dot=t['accent'] if i==0 else t['line']
+        opacity='1' if i==0 else ['.6','.4','.28','.2'][min(i-1,3)]
+        title=f'<tspan dx="6" dy="1">{name}</tspan>'
+        if row['name'].lower() in ('claude','claude code'):
+            title=f'<tspan dx="6" dy="1" fill="{t["muted"]}" text-decoration="line-through">{name}</tspan>'
+            title+=f'<tspan dx="5" font-size="9" font-weight="700" font-style="italic" fill="{red}">Suspended</tspan>'
+        chunks.append(f'<tspan class="tool-item" dx="{32 if i else 0}">'
+            f'<tspan font-size="9" dy="-1" fill="{dot}" fill-opacity="{opacity}">●</tspan>'
+            +title+f'<tspan dx="6" fill="{t["muted"]}" class="number">{min(100,float(row["percent"])):.1f}%</tspan></tspan>')
+    return ''.join(chunks)
+
+
 def card(data, theme, duration, label, mobile=False):
     t=THEMES[theme]
     width=480 if mobile else 880
@@ -138,9 +161,12 @@ def card(data, theme, duration, label, mobile=False):
         x+=share
     def legend(items,top,tool_status=False):
         # Dot, name and share; first item in the accent. Returns the last baseline.
-        # Five columns on a desktop fit four languages plus Others on one line and
-        # keep the tools row on the same grid.
-        columns=2 if mobile else (4 if tool_status else 5)
+        # Tools are a flowing row, not equal columns: their labels differ in width.
+        # Mobile retains its two-column structure; languages keep the existing grid.
+        if tool_status and not mobile:
+            text(pad,top,tool_line(items,theme,label),12,extra='class="tool-legend"')
+            return top
+        columns=2 if mobile else 5
         column=span_width/columns
         for i,row in enumerate(items):
             cx=pad+(i%columns)*column
