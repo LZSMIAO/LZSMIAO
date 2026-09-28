@@ -56,15 +56,25 @@ def weekday(day):
     return date.fromisoformat(day['date']).strftime('%a')+' '+day['date'][8:10]
 
 
-def tool_line(items,theme,label):
-    """Flow by rendered glyph width, with 32px between complete tool groups.
+def tool_line(items,theme,label,left=24,width=832):
+    """Distribute complete tool groups across the full desktop content width.
 
-    SVG text advances itself: long status labels cannot steal the next group's
-    gap, and no platform-dependent font measurements or stretched text are needed.
+    Optical advances calibrated for the existing 12px labels and figure font,
+    including the marker/status. Adjust for percentage length, not equal columns.
+    The end anchors preserve the panel's gutters without stretching any glyphs.
     """
     t=THEMES[theme]
     red='#b42318' if theme=='light' else '#ff8e86'
+    advances={'Claude Code':182.2,'Codex':88.1,'VS Code':101.0,'Other':84.5}
+    widths=[]
+    for row in items:
+        name=label(row['name'])[:18]
+        percent=f'{min(100,float(row["percent"])):.1f}%'
+        base=advances.get(name,24+6*len(name)+30+(50 if name.lower()=='claude' else 0))
+        widths.append(base+6*(len(percent)-5))
+    gap=max(32,(width-sum(widths))/(len(items)-1)) if len(items)>1 else 0
     chunks=[]
+    x=left
     for i,row in enumerate(items):
         name=escape(label(row['name'])[:18])
         dot=t['accent'] if i==0 else t['line']
@@ -73,9 +83,12 @@ def tool_line(items,theme,label):
         if row['name'].lower() in ('claude','claude code'):
             title=f'<tspan dx="6" dy="1" fill="{t["muted"]}" text-decoration="line-through">{name}</tspan>'
             title+=f'<tspan dx="5" font-size="9" font-weight="700" font-style="italic" fill="{red}">Suspended</tspan>'
-        chunks.append(f'<tspan class="tool-item" dx="{32 if i else 0}">'
+        last=i==len(items)-1 and i>0
+        position=left+width if last else x
+        chunks.append(f'<tspan class="tool-item" x="{position:.2f}" text-anchor="{"end" if last else "start"}">'
             f'<tspan font-size="9" dy="-1" fill="{dot}" fill-opacity="{opacity}">●</tspan>'
             +title+f'<tspan dx="6" fill="{t["muted"]}" class="number">{min(100,float(row["percent"])):.1f}%</tspan></tspan>')
+        x+=widths[i]+gap
     return ''.join(chunks)
 
 
@@ -164,7 +177,7 @@ def card(data, theme, duration, label, mobile=False):
         # Tools are a flowing row, not equal columns: their labels differ in width.
         # Mobile retains its two-column structure; languages keep the existing grid.
         if tool_status and not mobile:
-            text(pad,top,tool_line(items,theme,label),12,extra='class="tool-legend"')
+            text(pad,top,tool_line(items,theme,label,pad,span_width),12,extra='class="tool-legend"')
             return top
         columns=2 if mobile else 5
         column=span_width/columns

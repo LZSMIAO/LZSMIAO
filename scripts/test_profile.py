@@ -73,8 +73,10 @@ class ProfileTests(unittest.TestCase):
                     legend=root.find('s:text[@class="tool-legend"]',ns)
                     self.assertIsNotNone(legend)
                     groups=legend.findall('s:tspan[@class="tool-item"]',ns)
-                    self.assertEqual([g.get('dx') for g in groups],['0','32','32'])
-                    self.assertTrue(all(g.get('x') is None for g in groups))
+                    self.assertEqual(groups[0].get('x'),'24.00')
+                    self.assertEqual(groups[-1].get('x'),'856.00')
+                    self.assertEqual(groups[-1].get('text-anchor'),'end')
+                    self.assertTrue(all(g.get('dx') is None for g in groups))
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
