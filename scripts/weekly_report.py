@@ -136,11 +136,11 @@ def card(data, theme, duration, label, mobile=False):
         parts.append(f'<rect x="{x:.1f}" y="{bar}" width="{max(0,share-2):.1f}" height="4" rx="2" '
                      f'fill="{colour}" fill-opacity="{shades[min(i,4)] if i else 1}"/>')
         x+=share
-    def legend(items,top):
+    def legend(items,top,tool_status=False):
         # Dot, name and share; first item in the accent. Returns the last baseline.
         # Five columns on a desktop fit four languages plus Others on one line and
         # keep the tools row on the same grid.
-        columns=2 if mobile else 5
+        columns=2 if mobile else (4 if tool_status else 5)
         column=span_width/columns
         for i,row in enumerate(items):
             cx=pad+(i%columns)*column
@@ -151,8 +151,8 @@ def card(data, theme, duration, label, mobile=False):
             if name.lower() in ('claude', 'claude code'):
                 # Display-only status: keep the recorded name and usage intact.
                 red='#b42318' if theme=='light' else '#ff8e86'
-                title=f'<tspan font-size="11" fill="{t["muted"]}" text-decoration="line-through">{escape(name)}</tspan>'
-                title+=f'<tspan dx="5" font-size="8.5" font-weight="700" font-style="italic" fill="{red}">Suspended</tspan>'
+                title=f'<tspan fill="{t["muted"]}" text-decoration="line-through">{escape(name)}</tspan>'
+                title+=f'<tspan dx="5" font-size="9" font-weight="700" font-style="italic" fill="{red}">Suspended</tspan>'
             else:
                 title=span(name)
             text(cx+12,cy,title+span(f'{min(100,float(row["percent"])):.1f}%',None,t['muted'],'number',6),12)
@@ -172,7 +172,7 @@ def card(data, theme, duration, label, mobile=False):
     text(pad,bottom+(28 if mobile else 30),escape('AI collaboration'),16,extra='class="serif"')
     below=bottom+(28 if mobile else 30)
     if kit:
-        below=legend(kit,below+(26 if mobile else 28))
+        below=legend(kit,below+(26 if mobile else 28),tool_status=True)
     if mobile:
         for i,(caption,value) in enumerate((('Tokens in / out',tokens),('Additions / prompts',edits),('Compute at API pricing',price))):
             y=below+26+i*22
