@@ -27,6 +27,17 @@
       "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
+      "id": "3416118315",
+      "name": "深色",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/mj9WOnhIQE6Xl1CviPJTHQ==/109951173996517089.jpg?param=160y160"
+    },
+    {
       "id": "411314656",
       "name": "爛泥",
       "artists": [
@@ -47,17 +58,6 @@
         }
       ],
       "cover": "https://p1.music.126.net/RYvFi0t7dTR7OFFPY2jPfQ==/109951172535279503.jpg?param=160y160"
-    },
-    {
-      "id": "2704272141",
-      "name": "Solitude Pt. 2",
-      "artists": [
-        {
-          "id": "34055135",
-          "name": "Spylent"
-        }
-      ],
-      "cover": "https://p1.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
     }
   ]
 }
