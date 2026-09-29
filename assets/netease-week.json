@@ -1,6 +1,17 @@
 {
   "tracks": [
     {
+      "id": "3416118315",
+      "name": "深色",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/mj9WOnhIQE6Xl1CviPJTHQ==/109951173996517089.jpg?param=160y160"
+    },
+    {
       "id": "1965759705",
       "name": "チ。",
       "artists": [
@@ -12,8 +23,8 @@
       "cover": "https://p1.music.126.net/-9mEkmIr7oJkcws7TyHexA==/109951167672621492.jpg?param=160y160"
     },
     {
-      "id": "3416118315",
-      "name": "深色",
+      "id": "3441101066",
+      "name": "昌平玫瑰",
       "artists": [
         {
           "id": "35654284",
@@ -36,17 +47,6 @@
         }
       ],
       "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
-    },
-    {
-      "id": "3441101066",
-      "name": "昌平玫瑰",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/mj9WOnhIQE6Xl1CviPJTHQ==/109951173996517089.jpg?param=160y160"
     },
     {
       "id": "3335400314",
