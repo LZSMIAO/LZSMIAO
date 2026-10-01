@@ -2,17 +2,14 @@ import { createCipheriv, createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { traditional } from './traditional.mjs'
+import { requestData } from './music_request.mjs'
 
 const root = new URL('../', import.meta.url)
 const read = path => readFile(new URL(path, root), 'utf8')
 const write = (path, value) => writeFile(new URL(path, root), value)
 const esc = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
 const shorten = (value, length) => Array.from(value).length > length ? Array.from(value).slice(0, length - 1).join('') + '…' : value
-async function request(url, options = {}) {
-  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30000) })
-  if (!response.ok) throw new Error(`HTTP ${response.status}`)
-  return response
-}
+
 // The card is one <img> with no <picture> around it, so it follows the reader's
 // colour scheme from inside: the same panel fill as the Recent Activity card in
 // either theme, instead of a Spotify-black block on a white page.
@@ -53,9 +50,9 @@ async function netease() {
     params: encrypt('TA3YiYCfY2dDJQgg', encrypt('0CoJUm6Qyw8W8jud', JSON.stringify({ uid, type: '1' }))),
     encSecKey: '84ca47bca10bad09a6b04c5c927ef077d9b9f1e37098aa3eac6ea70eb59df0aa28b691b7e75e4f1f9831754919ea784c8f74fbfadf2898b0be17849fd656060162857830e241aba44991601f137624094c114ea8d17bce815b0cd4e5b8e2fbaba978c6d1d14dc3d1faf852bdd28818031ccdaaa13a6018e1024e2aae98844210',
   })
-  const data = await (await request('https://music.163.com/weapi/v1/play/record?csrf_token=', {
+  const data = await requestData('https://music.163.com/weapi/v1/play/record?csrf_token=', {
     method: 'POST', body, headers: { Referer: 'https://music.163.com/', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded' },
-  })).json()
+  }, 'json', 'weekly history')
   if (data.code !== 200 || !Array.isArray(data.weekData)) throw new Error('NetEase weekly data unavailable')
   const tracks = await Promise.all(data.weekData.slice(0, 5).map(async ({ song }) => {
     const id = String(song.id)
@@ -66,8 +63,7 @@ async function netease() {
     if (!url.hostname.endsWith('.music.126.net')) throw new Error('Unexpected cover host')
     url.protocol = 'https:'
     url.searchParams.set('param', '160y160')
-    const response = await request(url)
-    const bytes = Buffer.from(await response.arrayBuffer())
+    const bytes = await requestData(url, {}, 'bytes', 'cover image')
     const type = bytes[0] === 255 && bytes[1] === 216 ? 'image/jpeg'
       : bytes.subarray(0, 8).toString('hex') === '89504e470d0a1a0a' ? 'image/png'
       : bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : null
