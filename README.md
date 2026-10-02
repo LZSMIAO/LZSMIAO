@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-eb24b1a1ff75.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-58389cdf0c0c.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-bb350fb25e37.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-9b2dc35692d7.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-c31682be7f4b.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-848de388410f.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-13aedf7a3f60.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-4177f9bb669b.svg" width="100%">
   </picture>
   </a>
 </p>
