@@ -26,7 +26,7 @@
 <br>
 
 <p align="center">
-<a href="https://spotify.ism.tw" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify.ism.tw/card.svg" width="50%"></a><a href="https://music.ism.tw" target="_blank" rel="noopener noreferrer"><img src="assets/netease-0cb8968dd826.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
+<a href="https://spotify.ism.tw" target="_blank" rel="noopener noreferrer"><img alt="Spotify now playing" src="https://spotify.ism.tw/card.svg" width="50%"></a><a href="https://music.ism.tw" target="_blank" rel="noopener noreferrer"><img src="assets/netease-33d77362faaf.svg" alt="Recently played on NetEase Cloud Music" width="50%"></a>
 </p>
 
 <br>
