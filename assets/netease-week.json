@@ -9,7 +9,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
     },
     {
       "id": "3441101066",
@@ -20,18 +20,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
-    },
-    {
-      "id": "1965759705",
-      "name": "チ。",
-      "artists": [
-        {
-          "id": "12498266",
-          "name": "卦者靈風"
-        }
-      ],
-      "cover": "https://p2.music.126.net/-9mEkmIr7oJkcws7TyHexA==/109951167672621492.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
     },
     {
       "id": "3335400314",
@@ -42,7 +31,7 @@
           "name": "FLOOD芙拉得"
         }
       ],
-      "cover": "https://p2.music.126.net/RYvFi0t7dTR7OFFPY2jPfQ==/109951172535279503.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/RYvFi0t7dTR7OFFPY2jPfQ==/109951172535279503.jpg?param=160y160"
     },
     {
       "id": "2704272141",
@@ -53,7 +42,22 @@
           "name": "Spylent"
         }
       ],
-      "cover": "https://p2.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
+    },
+    {
+      "id": "3438968283",
+      "name": "花骨朵",
+      "artists": [
+        {
+          "id": "906118",
+          "name": "洛天依Official"
+        },
+        {
+          "id": "51497522",
+          "name": "亞細亞曠世奇才"
+        }
+      ],
+      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     }
   ]
 }
