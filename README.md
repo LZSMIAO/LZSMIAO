@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-01e0607aa7b0.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-af6e1c48ecb7.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-a8ec9964c6a2.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-b44e98dfb1ab.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2ef489305692.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-e598fc1c22e7.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-5621ee1c388d.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-54c949276b22.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/2FA.hot"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-3d2ee9d66c27.svg"><source media="(max-width: 600px)" srcset="assets/activity-b4813236dc39.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-5aa0b4120075.svg"><img src="assets/activity-90b5939a4b5a.svg" alt="Recent activity: LZSMIAO/2FA.hot — 2026-09-27" width="100%"></picture></a>
+<a href="https://projects.ism.tw"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-a40a7c82ba1c.svg"><source media="(max-width: 600px)" srcset="assets/activity-fc5df318ce91.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-5fa663f825a6.svg"><img src="assets/activity-ee001674cde0.svg" alt="Recent activity: LZSMIAO/ismusicnow and 1 more — 2026-10-04" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 

@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "repo": "LZSMIAO/ismusicnow",
+      "url": "https://github.com/LZSMIAO/ismusicnow",
+      "verb": "Updated project",
+      "date": "2026-10-04",
+      "description": "ismusicnow · 音樂主義 — SvelteKit 音樂收藏工具與 Telegram bot，網易雲、Spotify 原始音源及獨立 YTM 適配器"
+    },
+    {
       "repo": "LZSMIAO/2FA.hot",
       "url": "https://github.com/LZSMIAO/2FA.hot",
       "verb": "Updated project",
