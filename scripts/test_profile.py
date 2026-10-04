@@ -13,9 +13,8 @@ from update_wakatime import duration,label,aggregate,merge_history,day_record,in
 from weekly_report import tools
 from update_activity import activity,activity_card,short_description,projects
 from daily_art import card as art,shape
-from drift_bottle import sentence,card as bottle,update_content as bottle_content,local_day
+from end_word import update_content as end_word_content,main as end_word_main
 from publish import publish
-from ocean import SEAS
 from flowfield import card as flow,field,STYLES
 from crop_snake import crop as crop_snake
 from tagline import card as tagline,read as read_tagline,layout as tagline_layout,plain
@@ -268,49 +267,35 @@ class ProfileTests(unittest.TestCase):
                         self.assertGreaterEqual(float(point.split(',')[1]),0)
                         self.assertLess(float(point.split(',')[1]),height)
 
-    def test_bottle_keeps_only_plain_text_from_a_stranger(self):
-        self.assertEqual(sentence('### Your one line\n\nreal words'),'real words')
-        self.assertEqual(sentence('a'+chr(0x200B)+'b'+chr(0x07)+'c'),'abc')
-        self.assertEqual(sentence(chr(0x202E)+'flip'+chr(0x202C)+' me'),'flip me')
-        self.assertEqual(sentence('first\nsecond'),'first')
-        self.assertEqual(sentence('_No response_'),'')
-        self.assertEqual(sentence('   \n\t '),'')
-        self.assertEqual(len(sentence('x'*200)),48)
+    def test_end_word_is_one_responsive_plain_paragraph(self):
+        original='head\n<!-- END-WORD:START -->\nold\n<!-- END-WORD:END -->\ntail'
+        updated=end_word_content(original,'A little light\nfor what comes next.')
+        self.assertIn('<p align="center"><em>A little light for what comes next.</em></p>',updated)
+        self.assertTrue(updated.startswith('head\n') and updated.endswith('\ntail'))
+        self.assertNotIn('<img',updated)
+        self.assertEqual(updated,end_word_content(updated,'A little light for what comes next.'))
+        self.assertIn('願未完成的，終有回聲。',end_word_content(original,'願未完成的，終有回聲。'))
 
-    def test_bottle_escapes_markup_in_every_variant(self):
-        hostile=sentence('</text><script>alert(1)</script>')
-        for theme in ('light','dark'):
-            for mobile in (False,True):
-                svg=bottle(hostile,'octocat','2026-09-21',theme,mobile)
-                ET.fromstring(svg)
-                self.assertNotIn('<script>',svg)
-                self.assertIn('&lt;script&gt;',svg)
-        empty=bottle('','','','light')
-        # Only drawn text counts: the embedded @font-face rule has an @ of its own.
-        drawn=''.join(''.join(node.itertext()) for node in ET.fromstring(empty).iter('{http://www.w3.org/2000/svg}text'))
-        self.assertNotIn('@',drawn)
+    def test_end_word_escapes_markup_and_rejects_invalid_input(self):
+        original='<!-- END-WORD:START --><!-- END-WORD:END -->'
+        self.assertIn('&lt;script&gt;',end_word_content(original,'<script>unsafe</script>'))
+        for text in ('','  ','first\n\nsecond'):
+            with self.assertRaises(ValueError):
+                end_word_content(original,text)
+        for content in ('missing markers',original+original):
+            with self.assertRaises(ValueError):
+                end_word_content(content,'A little light.')
 
-    def test_bottle_replaces_the_previous_one(self):
-        original='head\n<!-- BOTTLE:START -->\nold\n<!-- BOTTLE:END -->\ntail'
-        first={}
-        once=bottle_content(original,'first line','someone','2026-09-21',1,first)
-        self.assertEqual(len(first),4)
-        second={}
-        twice=bottle_content(once,'second line','other','2026-09-22',2,second)
-        self.assertIn('issues/2',twice)
-        self.assertNotIn('issues/1',twice)
-        self.assertNotIn('old',twice)
-        self.assertEqual(set(first)&set(second),set())
-        self.assertTrue(twice.startswith('head\n') and twice.endswith('\ntail'))
-
-    def test_bottle_dates_follow_Hong_Kong_not_UTC(self):
-        # 01:57 in Hong Kong is still the previous afternoon in UTC.
-        self.assertEqual(local_day('2026-09-20T17:57:24Z'),'2026-09-21')
-        self.assertEqual(local_day('2026-09-21T12:00:00Z'),'2026-09-21')
-        self.assertEqual(local_day('2026-09-21T15:59:59Z'),'2026-09-21')
-        self.assertEqual(local_day('2026-09-21T16:00:00Z'),'2026-09-22')
-        with self.assertRaises(ValueError):
-            local_day('not a timestamp')
+    def test_end_word_updates_from_its_markdown_source(self):
+        with TemporaryDirectory() as tmp,patch('end_word.ROOT',Path(tmp)):
+            root=Path(tmp)
+            (root/'README.md').write_text('<!-- END-WORD:START -->old<!-- END-WORD:END -->')
+            (root/'end-word.md').write_text('A new ending.')
+            end_word_main()
+            once=(root/'README.md').read_text()
+            self.assertIn('A new ending.',once)
+            end_word_main()
+            self.assertEqual((root/'README.md').read_text(),once)
 
     def test_daily_art_keeps_its_peaks_away_from_the_edges(self):
         from datetime import date,timedelta
@@ -324,21 +309,6 @@ class ProfileTests(unittest.TestCase):
                 self.assertLessEqual(across,.76)
                 self.assertGreaterEqual(amplitude,.30)
 
-    def test_bottle_floats_on_an_animated_sea(self):
-        for theme in ('light','dark'):
-            for mobile in (False,True):
-                svg=bottle('a line from a stranger','octocat','2026-09-21',theme,mobile)
-                ET.fromstring(svg)
-                self.assertIn('animateTransform',svg)
-                self.assertIn(SEAS[theme]['accent'],svg)
-                self.assertGreaterEqual(svg.count('<path'),3)
-                # Line work like the header: no filled sea, sky, moon or gradient.
-                self.assertNotIn('Gradient',svg)
-        # An empty sea still moves, but nothing is floating on it.
-        empty=bottle('','','','dark')
-        ET.fromstring(empty)
-        self.assertIn('animateTransform',empty)
-        self.assertNotIn(SEAS['dark']['accent'],empty)
 
     def test_flow_field_is_deterministic_and_animated(self):
         for theme in ('light','dark'):

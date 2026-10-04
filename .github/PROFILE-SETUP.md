@@ -21,3 +21,9 @@
 贪吃蛇每天約北京時間 09:43 更新。採用與 alongw 相同的 Platane/snk svg-only v3，使用本帳號貢獻數據與原版動畫，不修改路徑、速度或循環。僅移除底部進度條元素；不包含自訂死亡、變紅、模糊或文字。
 
 本地驗證：`python3 scripts/test_profile.py`。
+
+## End word
+
+編輯根目錄的 `end-word.md`，保留一段純文字，可分行書寫；提交到 `main` 後，`Update end word` 會自動將內容同步到 README 的收尾段落。也可在本地執行 `python3 scripts/end_word.py`。
+
+收尾使用 GitHub 原生文字排版，居中、斜體、隨螢幕自然換行；不產生圖片或需要另外載入的字型。不直接修改 README 的 `END-WORD` 標記區域，避免下次更新覆蓋。

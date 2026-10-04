@@ -118,7 +118,7 @@ def card(data, theme, duration, label, mobile=False):
     if has_ai:
         alt.extend(f'{key}: {value}' for key,value in ai.items() if value is not None)
 
-    # Same rendered size as the music and bottle titles (about 24px on a desktop).
+    # Same rendered size as the music titles (about 24px on a desktop).
     text(pad,34 if mobile else 42,'Last 7 days',20 if mobile else 24,extra='class="serif"')
     # No year: the week is always this one. Month-day keeps the line short.
     period=escape(f'{start[5:]} — {end[5:]} · Hong Kong' if start else 'Hong Kong')

@@ -1,0 +1,34 @@
+name: Update end word
+
+on:
+  push:
+    branches: [main]
+    paths: [end-word.md, scripts/end_word.py, .github/workflows/end-word.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-coding-activity
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Update the closing paragraph
+        run: python3 scripts/end_word.py
+      - name: Publish the end word
+        run: |
+          git add README.md
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'docs: update end word'
+          git pull --rebase --quiet
+          git push
