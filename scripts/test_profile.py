@@ -53,12 +53,13 @@ class ProfileTests(unittest.TestCase):
     def test_editors_become_tools_with_codex_merged(self):
         days=[{'range':{'date':f'2026-09-{d:02d}'},'grand_total':{'total_seconds':100},'languages':[],
                'editors':[{'name':'Claude Code','total_seconds':50},{'name':'Codex Vscode','total_seconds':20},
-                          {'name':'Codex','total_seconds':10},{'name':'Unknown Editor','total_seconds':15},{'name':'Qoder','total_seconds':5}]}
+                          {'name':'Codex','total_seconds':10},{'name':'Codex Exec','total_seconds':10},{'name':'Unknown Editor','total_seconds':5},{'name':'Qoder','total_seconds':5}]}
               for d in range(2,9)]
         data=aggregate({'data':days},'2026-09-02','2026-09-08')
         kit=tools(data)
         self.assertEqual([r['name'] for r in kit],['Claude Code','Codex','Other'])
-        self.assertEqual([round(r['percent']) for r in kit],[50,30,20])
+        self.assertEqual([round(r['percent']) for r in kit],[50,40,10])
+        self.assertEqual(day_record(days[0])['tools'],{'Claude Code':50,'Codex':40,'Other':10})
         for theme in ('light','dark'):
             for mobile in (False,True):
                 svg=report({**data,'ai':{'ai_input_tokens':1000,'ai_output_tokens':10,'ai_additions':1,'ai_prompt_events_total':1,'ai_model_total_cost':1}},theme,duration,label,mobile)

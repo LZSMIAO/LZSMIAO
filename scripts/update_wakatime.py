@@ -18,7 +18,7 @@ from weekly_report import card as report
 ROOT=Path(__file__).resolve().parents[1]
 # WakaTime reports AI chat time with no file, so its language is "Other"; the tool
 # shows up as the editor instead. Normalise the names worth showing.
-TOOLS={'claude code':'Claude Code','codex':'Codex','codex vscode':'Codex','vs code':'VS Code'}
+TOOLS={'claude code':'Claude Code','codex':'Codex','codex vscode':'Codex','codex exec':'Codex','vs code':'VS Code'}
 
 
 def number(value):
