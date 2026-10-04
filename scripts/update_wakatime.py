@@ -1,5 +1,6 @@
 """Render the last seven calendar days, including today, in Asia/Hong_Kong."""
 import base64
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timedelta
 import json
 import hashlib
@@ -19,6 +20,121 @@ ROOT=Path(__file__).resolve().parents[1]
 # WakaTime reports AI chat time with no file, so its language is "Other"; the tool
 # shows up as the editor instead. Normalise the names worth showing.
 TOOLS={'claude code':'Claude Code','codex':'Codex','codex vscode':'Codex','codex exec':'Codex','vs code':'VS Code'}
+
+
+def tool_name(name,day):
+    name=str(name).strip().casefold()
+    return TOOLS.get(name,day.get('_editor_aliases',{}).get(name,'Other'))
+
+
+def session_fingerprint(value):
+    return hashlib.sha256(('codex-session-source:'+str(value)).encode()).hexdigest()
+
+
+def infer_unknown_tool(heartbeats,agents,session_heartbeats=None,verified_sessions=None):
+    """Only attribute anonymous agents when every record has source evidence.
+
+    Session identifiers are used in memory only; never publish heartbeat data.
+    """
+    sessions={}
+    for row in session_heartbeats if session_heartbeats is not None else heartbeats:
+        if row.get('type')=='app' and row.get('ai_session'):
+            source='Codex' if str(row.get('entity','')).startswith('Codex ') else 'Other'
+            sessions.setdefault(row['ai_session'],set()).add(source)
+    unknown=[]
+    for row in heartbeats:
+        agent=agents.get(row.get('user_agent_id'))
+        if agent is None:
+            return None # Incomplete agent inventory cannot establish coverage.
+        if not agent.get('editor'):
+            unknown.append(row)
+    if not unknown:
+        return None
+    for row in unknown:
+        if row.get('category')!='AI Coding':
+            return None
+        if row.get('type')=='app' and str(row.get('entity','')).startswith('Codex '):
+            continue
+        if row.get('type')=='file' and row.get('ai_session'):
+            sources=sessions.get(row['ai_session'])
+            if sources=={'Codex'} or (sources is None and
+                    session_fingerprint(row['ai_session']) in (verified_sessions or set())):
+                continue
+        return None
+    return 'Codex'
+
+
+def resolve_unknown_editors(key,payload):
+    days=[day for day in payload.get('data',[]) if any(
+        str(row['name']).strip().casefold()=='unknown editor' and number(row['total_seconds'])>0
+        for row in day.get('editors',[]))]
+    if not days:
+        return payload
+    try:
+        result=fetch(key,'users/current/user_agents')
+        if not result:
+            return payload
+        agents={agent['id']:agent for agent in result['data']}
+        seen_pages={1}
+        while result.get('next_page'):
+            page=result['next_page']
+            if page in seen_pages or len(seen_pages)>=100:
+                raise ValueError('Incomplete user-agent pagination')
+            seen_pages.add(page)
+            result=fetch(key,'users/current/user_agents',{'page':page})
+            if not result:
+                raise ValueError('User-agent page unavailable')
+            agents.update({agent['id']:agent for agent in result['data']})
+    except (HTTPError,URLError,TimeoutError,ValueError,KeyError):
+        print('Editor attribution unavailable; anonymous activity remains Other.')
+        return payload
+
+    def get_records(date):
+        try:
+            result=fetch(key,'users/current/heartbeats',{'date':date})
+            return date,result['data'] if result else []
+        except (HTTPError,URLError,TimeoutError,ValueError,KeyError):
+            return date,[]
+    # A file edit may refer to a Codex session whose app heartbeat was yesterday.
+    first=datetime.strptime(min(d['range']['date'] for d in days),'%Y-%m-%d').date()
+    last=datetime.strptime(max(d['range']['date'] for d in days),'%Y-%m-%d').date()
+    dates=[str(first-timedelta(days=7)+timedelta(days=i)) for i in range((last-first).days+8)]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        records=dict(pool.map(get_records,dates))
+    session_records=[row for rows in records.values() for row in rows]
+    evidence_path=ROOT/'assets'/'codex-session-evidence.json'
+    try:
+        verified=set(json.loads(evidence_path.read_text()).get('codex_sessions',[]))
+    except (OSError,ValueError):
+        verified=set()
+    if '--verify-local-codex' in sys.argv:
+        local_ids=set()
+        for folder in ('sessions','archived_sessions'):
+            for path in (Path.home()/'.codex'/folder).rglob('rollout-*.jsonl'):
+                match=re.search(r'([a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})\.jsonl$',path.name)
+                if match:
+                    local_ids.add(match[1])
+        for row in session_records:
+            if row.get('ai_session') in local_ids:
+                verified.add(session_fingerprint(row['ai_session']))
+    # Only store opaque source fingerprints, never session IDs or file paths.
+    sources={}
+    for row in session_records:
+        if row.get('type')=='app' and row.get('ai_session'):
+            source='Codex' if str(row.get('entity','')).startswith('Codex ') else 'Other'
+            sources.setdefault(row['ai_session'],set()).add(source)
+    for session,source in sources.items():
+        if source=={'Codex'}:
+            verified.add(session_fingerprint(session))
+        else:
+            verified.discard(session_fingerprint(session))
+    for day in days:
+        source=infer_unknown_tool(records.get(day['range']['date'],[]),agents,session_records,verified)
+        if source:
+            day['_editor_aliases']={'unknown editor':source}
+    evidence_path.write_text(json.dumps({'codex_sessions':sorted(verified)},separators=(',',':'))+'\n')
+    print(f'Attributed anonymous Codex activity on {sum(bool(d.get("_editor_aliases")) for d in days)}/{len(days)} days.')
+    return payload
 
 
 def number(value):
@@ -56,7 +172,7 @@ def aggregate(payload,start,end):
             name=label(row['name'])
             languages[name]=languages.get(name,0)+number(row['total_seconds'])
         for row in day.get('editors',[]):
-            name=TOOLS.get(str(row['name']).lower(),'Other')
+            name=tool_name(row['name'],day)
             tools[name]=tools.get(name,0)+number(row['total_seconds'])
     if len(dates)!=7:
         raise ValueError('Incomplete seven-day summary')
@@ -119,7 +235,7 @@ def day_record(day):
     figures. No project names: the history is public and projects may not be."""
     record={'date':day['range']['date'],'seconds':round(number(day['grand_total']['total_seconds']))}
     for field,rows,normalise in (('languages',day.get('languages',[]),label),
-                                 ('tools',day.get('editors',[]),lambda name:TOOLS.get(str(name).lower(),'Other'))):
+                                 ('tools',day.get('editors',[]),lambda name:tool_name(name,day))):
         totals={}
         for row in rows:
             name=normalise(row['name'])
@@ -167,6 +283,7 @@ def backfill(key,history,before):
         except (HTTPError,URLError,TimeoutError):
             break
         if payload:
+            resolve_unknown_editors(key,payload)
             history=merge_history(history,payload)
         cursor=stop+timedelta(days=1)
     return history
@@ -183,8 +300,18 @@ def main():
     if payload is None:
         print('WakaTime is calculating; cards unchanged.')
         return
-    data=aggregate(payload,str(start),str(end))
     history=load_history()
+    if '--repair-history' in sys.argv and history['days']:
+        first=history['days'][0]['date']
+        previous=fetch(key,'users/current/summaries',{'start':first,'end':str(start-timedelta(days=1)),'timezone':'Asia/Hong_Kong'}) if first<str(start) else None
+        if previous:
+            resolve_unknown_editors(key,{'data':previous['data']+payload['data']})
+            history=merge_history(history,previous)
+        else:
+            resolve_unknown_editors(key,payload)
+    else:
+        resolve_unknown_editors(key,payload)
+    data=aggregate(payload,str(start),str(end))
     if not history['days']:
         history=backfill(key,history,start)
     HISTORY.write_text(json.dumps(merge_history(history,payload),ensure_ascii=False,separators=(',',':'))+'\n')

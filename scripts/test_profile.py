@@ -9,7 +9,7 @@ import re
 import unittest
 import xml.etree.ElementTree as ET
 from coding_card import card
-from update_wakatime import duration,label,aggregate,merge_history,day_record
+from update_wakatime import duration,label,aggregate,merge_history,day_record,infer_unknown_tool,resolve_unknown_editors,session_fingerprint
 from weekly_report import tools
 from update_activity import activity,activity_card,short_description,projects
 from daily_art import card as art,shape
@@ -78,6 +78,69 @@ class ProfileTests(unittest.TestCase):
                     self.assertEqual(groups[-1].get('x'),'856.00')
                     self.assertEqual(groups[-1].get('text-anchor'),'end')
                     self.assertTrue(all(g.get('dx') is None for g in groups))
+
+    def test_anonymous_editor_requires_codex_session_evidence(self):
+        agents={'anonymous':{'editor':None},'named':{'editor':'Codex Exec'}}
+        app={'user_agent_id':'anonymous','type':'app','entity':'Codex rollout-test',
+             'ai_session':'session-a','category':'AI Coding'}
+        file={'user_agent_id':'anonymous','type':'file','entity':'private/file.ts',
+              'ai_session':'session-a','category':'AI Coding'}
+        self.assertEqual(infer_unknown_tool([app,file],agents),'Codex')
+        self.assertIsNone(infer_unknown_tool([file],agents))
+        self.assertIsNone(infer_unknown_tool([app,{**file,'ai_session':'unverified'}],agents))
+        self.assertIsNone(infer_unknown_tool([app,{**app,'entity':'Different app'}],agents))
+        self.assertIsNone(infer_unknown_tool([app,{**file,'category':'Coding'}],agents))
+        self.assertIsNone(infer_unknown_tool([app,{**file,'user_agent_id':'missing'}],agents))
+        self.assertIsNone(infer_unknown_tool([],agents))
+        self.assertEqual(infer_unknown_tool([file],agents,[app,file]),'Codex')
+        self.assertIsNone(infer_unknown_tool([file],agents,[app,{**app,'entity':'Different app'}]))
+        evidence={session_fingerprint('session-a')}
+        self.assertEqual(infer_unknown_tool([file],agents,[],evidence),'Codex')
+        self.assertIsNone(infer_unknown_tool([file],agents,[{**app,'entity':'Different app'}],evidence))
+        self.assertNotIn('session-a',next(iter(evidence)))
+
+    def test_verified_unknown_updates_cards_and_history_without_private_metadata(self):
+        day={'range':{'date':'2026-10-03'},'grand_total':{'total_seconds':100},'languages':[],
+             'editors':[{'name':'Unknown Editor','total_seconds':90},{'name':'Qoder','total_seconds':10}]}
+        heartbeat={'user_agent_id':'anonymous','type':'app','entity':'Codex rollout-private',
+                   'ai_session':'private-session','category':'AI Coding'}
+        def response(key,path,params=None):
+            return {'data':[{'id':'anonymous','editor':None}]} if path.endswith('user_agents') else {'data':[heartbeat]}
+        with TemporaryDirectory() as tmp,patch('update_wakatime.ROOT',Path(tmp)),patch('update_wakatime.fetch',side_effect=response):
+            (Path(tmp)/'assets').mkdir()
+            payload=resolve_unknown_editors('test-key',{'data':[day]})
+            evidence=(Path(tmp)/'assets'/'codex-session-evidence.json').read_text()
+            self.assertNotIn('private',evidence)
+        self.assertEqual(day_record(day)['tools'],{'Codex':90,'Other':10})
+        days=[{**day,'range':{'date':f'2026-10-{d:02d}'}} for d in range(1,8)]
+        self.assertEqual(aggregate({'data':days},'2026-10-01','2026-10-07')['tools'][0]['name'],'Codex')
+        public=json.dumps(merge_history({'days':[]},payload))
+        self.assertNotIn('private',public)
+        self.assertNotIn('_editor_aliases',public)
+        self.assertNotIn('test-key',public)
+
+    def test_failed_attribution_keeps_unknown_in_other(self):
+        from urllib.error import URLError
+        day={'range':{'date':'2026-10-03'},'grand_total':{'total_seconds':100},'languages':[],
+             'editors':[{'name':'Unknown Editor','total_seconds':100}]}
+        with patch('update_wakatime.fetch',side_effect=URLError('offline')):
+            resolve_unknown_editors('test-key',{'data':[day]})
+        self.assertEqual(day_record(day)['tools'],{'Other':100})
+
+    def test_editor_inventory_follows_pagination(self):
+        day={'range':{'date':'2026-09-20'},'grand_total':{'total_seconds':100},'languages':[],
+             'editors':[{'name':'Unknown Editor','total_seconds':100}]}
+        heartbeat={'user_agent_id':'older-agent','type':'app','entity':'Codex rollout-test',
+                   'ai_session':'test-session','category':'AI Coding'}
+        def response(key,path,params=None):
+            if path.endswith('user_agents'):
+                return {'data':[{'id':'older-agent','editor':None}]} if params else {'data':[],'next_page':2}
+            return {'data':[heartbeat]}
+        with TemporaryDirectory() as tmp,patch('update_wakatime.ROOT',Path(tmp)),patch('update_wakatime.fetch',side_effect=response) as mocked:
+            (Path(tmp)/'assets').mkdir()
+            resolve_unknown_editors('test-key',{'data':[day]})
+            mocked.assert_any_call('test-key','users/current/user_agents',{'page':2})
+        self.assertEqual(day_record(day)['tools'],{'Codex':100})
 
     def test_card_real_and_empty(self):
         data={'total_seconds':7200,'languages':[{'name':'TypeScript','total_seconds':5400,'percent':75},{'name':'Vue','total_seconds':1800,'percent':25}],'editors':[{'name':'Qoder','total_seconds':7200}],'start':'2026-09-01T00:00:00Z','end':'2026-09-07T23:59:59Z'}
