@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-2ef489305692.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-e598fc1c22e7.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-5621ee1c388d.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-54c949276b22.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-6e3ce73444f3.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-bea35e41ec7a.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-b4ff1a121f8a.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-e7902394768d.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://projects.ism.tw"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-a40a7c82ba1c.svg"><source media="(max-width: 600px)" srcset="assets/activity-fc5df318ce91.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-5fa663f825a6.svg"><img src="assets/activity-ee001674cde0.svg" alt="Recent activity: LZSMIAO/ismusicnow and 1 more — 2026-10-04" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/ismusicnow"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-83801d55722e.svg"><source media="(max-width: 600px)" srcset="assets/activity-64157301e20b.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-300225fa7862.svg"><img src="assets/activity-05ec9246ad9a.svg" alt="Recent activity: LZSMIAO/ismusicnow — 2026-10-04" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
