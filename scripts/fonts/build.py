@@ -23,10 +23,12 @@ sys.path.insert(0,str(HERE.parent))
 from tagline import read as read_tagline
 # The tagline's Chinese line ships only the characters it uses.
 TAGLINE=read_tagline()[1].replace('|',' ')
+END_WORD=(HERE.parents[1]/'end-word.md').read_text(encoding='utf-8')+'“”'
 FACES={
     'chiron-italic.woff2': ('ChironSungHK-Italic-VariableFont_wght.ttf',500,TEXT),
     'chiron-figures.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TEXT),
     'chiron-tagline.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,TAGLINE),
+    'chiron-end-word.woff2': ('ChironSungHK-VariableFont_wght.ttf',500,END_WORD),
 }
 
 

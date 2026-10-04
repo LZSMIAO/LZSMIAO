@@ -1,1 +1,1 @@
-I leave a little light here, for the ideas still finding their way home.
+語言已經通貨膨脹，說過的話早就一文不值了。

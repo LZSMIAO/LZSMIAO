@@ -19,11 +19,18 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install font subset tools
+        run: pip install --disable-pip-version-check fonttools==4.60.2 brotli==1.2.0
+      - name: Prepare the closing text font
+        run: |
+          curl -fsSL --retry 3 -o /tmp/ChironSungHK-VariableFont_wght.ttf \
+            'https://raw.githubusercontent.com/google/fonts/ebe67020b048d790a70bb69beb5a69fafda96121/ofl/chironsunghk/ChironSungHK%5Bwght%5D.ttf'
+          python3 scripts/fonts/build.py /tmp --only chiron-end-word.woff2
       - name: Update the closing paragraph
         run: python3 scripts/end_word.py
       - name: Publish the end word
         run: |
-          git add README.md
+          git add README.md assets/end-word-*.svg scripts/fonts/chiron-end-word.woff2
           if git diff --cached --quiet; then
             exit 0
           fi

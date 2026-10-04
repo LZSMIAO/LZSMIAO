@@ -13,7 +13,7 @@ from update_wakatime import duration,label,aggregate,merge_history,day_record,in
 from weekly_report import tools
 from update_activity import activity,activity_card,short_description,projects
 from daily_art import card as art,shape
-from end_word import update_content as end_word_content,main as end_word_main
+from end_word import update_content as end_word_content,main as end_word_main,card as end_word_card,layout as end_word_layout
 from publish import publish
 from flowfield import card as flow,field,STYLES
 from crop_snake import crop as crop_snake
@@ -267,14 +267,28 @@ class ProfileTests(unittest.TestCase):
                         self.assertGreaterEqual(float(point.split(',')[1]),0)
                         self.assertLess(float(point.split(',')[1]),height)
 
-    def test_end_word_is_one_responsive_plain_paragraph(self):
+    def test_end_word_is_one_responsive_composition(self):
         original='head\n<!-- END-WORD:START -->\nold\n<!-- END-WORD:END -->\ntail'
         updated=end_word_content(original,'A little light\nfor what comes next.')
-        self.assertIn('<p align="center"><em>A little light for what comes next.</em></p>',updated)
+        self.assertIn('alt="A little light for what comes next."',updated)
         self.assertTrue(updated.startswith('head\n') and updated.endswith('\ntail'))
-        self.assertNotIn('<img',updated)
+        self.assertIn('(max-width: 600px)',updated)
         self.assertEqual(updated,end_word_content(updated,'A little light for what comes next.'))
         self.assertIn('願未完成的，終有回聲。',end_word_content(original,'願未完成的，終有回聲。'))
+        for mobile in (False,True):
+            for theme in ('light','dark'):
+                text='語言已經通貨膨脹，說過的話早就一文不值了。'
+                svg=end_word_card(text,theme,mobile)
+                ET.fromstring(svg)
+                width,inset,rows,height=end_word_layout(text,mobile)
+                self.assertEqual(''.join(row[0] for row in rows),text)
+                from tagline import chinese_width
+                for line,size,y,_ in rows:
+                    self.assertLessEqual(chinese_width(line,size),width-inset-16)
+                    self.assertLess(y,height-16)
+                self.assertIn('data:font/woff2',svg)
+                self.assertNotIn('<rect',svg)
+                self.assertNotIn('animate',svg)
 
     def test_end_word_escapes_markup_and_rejects_invalid_input(self):
         original='<!-- END-WORD:START --><!-- END-WORD:END -->'

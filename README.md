@@ -98,5 +98,5 @@
 <br>
 
 <!-- END-WORD:START -->
-<p align="center"><em>I leave a little light here, for the ideas still finding their way home.</em></p>
+<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/end-word-dark-mobile-cc49f49dda0a.svg"><source media="(max-width: 600px)" srcset="assets/end-word-light-mobile-e49dee135354.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/end-word-dark-22890bda5db6.svg"><img alt="語言已經通貨膨脹，說過的話早就一文不值了。" src="assets/end-word-light-f3f405fc42b8.svg" width="100%"></picture>
 <!-- END-WORD:END -->
