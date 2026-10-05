@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-8a15ee4a1d07.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-9c5401269949.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-fbe31696daa0.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-c318530cb0fa.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-cc3f772a0ab6.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1daac075c242.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-6cdba915b4fd.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-eb69be5dbfdb.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/ismusicnow"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-423f85453672.svg"><source media="(max-width: 600px)" srcset="assets/activity-df0a82c25bcf.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-01d44e6951e0.svg"><img src="assets/activity-41cb6bdef9b7.svg" alt="Recent activity: LZSMIAO/ismusicnow — 2026-10-05" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/ismusicnow"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-83801d55722e.svg"><source media="(max-width: 600px)" srcset="assets/activity-64157301e20b.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-300225fa7862.svg"><img src="assets/activity-05ec9246ad9a.svg" alt="Recent activity: LZSMIAO/ismusicnow — 2026-10-04" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
