@@ -9,7 +9,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
     },
     {
       "id": "3441101066",
@@ -34,17 +34,6 @@
       "cover": "https://p2.music.126.net/RYvFi0t7dTR7OFFPY2jPfQ==/109951172535279503.jpg?param=160y160"
     },
     {
-      "id": "2704272141",
-      "name": "Solitude Pt. 2",
-      "artists": [
-        {
-          "id": "34055135",
-          "name": "Spylent"
-        }
-      ],
-      "cover": "https://p2.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
-    },
-    {
       "id": "3438968283",
       "name": "花骨朵",
       "artists": [
@@ -58,6 +47,17 @@
         }
       ],
       "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+    },
+    {
+      "id": "3434600677",
+      "name": "self doubt (Prod.Robin Cause)",
+      "artists": [
+        {
+          "id": "35026792",
+          "name": "Venoflame"
+        }
+      ],
+      "cover": "https://p2.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
     }
   ]
 }
