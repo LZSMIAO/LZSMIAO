@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-27aa716da35f.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-28b83856e6e5.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-86fb6de1a92f.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-0420d3c7b0ab.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-347cac65bce6.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-82de8d54356c.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-8fe34eb5305c.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-99c5045e4bb1.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/muism"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-71969c98f8fa.svg"><source media="(max-width: 600px)" srcset="assets/activity-e822df62b833.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-41d466067be6.svg"><img src="assets/activity-e9c3f57a90cc.svg" alt="Recent activity: LZSMIAO/muism — 2026-10-05" width="100%"></picture></a>
+<a href="https://github.com/LZSMIAO/muism"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-2c19986cb542.svg"><source media="(max-width: 600px)" srcset="assets/activity-abf1516df908.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-3952e21fa296.svg"><img src="assets/activity-9a916fcea677.svg" alt="Recent activity: LZSMIAO/muism — 2026-10-06" width="100%"></picture></a>
 <!-- ACTIVITY:END -->
 </p>
 
