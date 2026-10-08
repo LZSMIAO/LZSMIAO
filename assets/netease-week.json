@@ -9,7 +9,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
     },
     {
       "id": "3441101066",
@@ -20,7 +20,18 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/sWhy9BYzVHel65a8vHe60w==/109951174036723801.jpg?param=160y160"
+    },
+    {
+      "id": "411315635",
+      "name": "鬼",
+      "artists": [
+        {
+          "id": "1161122",
+          "name": "草東沒有派對"
+        }
+      ],
+      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
     },
     {
       "id": "3438968283",
@@ -35,7 +46,7 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
       "id": "3395708493",
@@ -50,18 +61,7 @@
           "name": "洛天依"
         }
       ],
-      "cover": "https://p2.music.126.net/ZbtJx4G_bquAbOYKeQmAdA==/109951173424053197.jpg?param=160y160"
-    },
-    {
-      "id": "3335400314",
-      "name": "細雨中呼喊",
-      "artists": [
-        {
-          "id": "34319324",
-          "name": "FLOOD芙拉得"
-        }
-      ],
-      "cover": "https://p2.music.126.net/RYvFi0t7dTR7OFFPY2jPfQ==/109951172535279503.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/ZbtJx4G_bquAbOYKeQmAdA==/109951173424053197.jpg?param=160y160"
     }
   ]
 }
