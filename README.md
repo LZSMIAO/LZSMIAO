@@ -98,5 +98,5 @@
 <br>
 
 <!-- END-WORD:START -->
-<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/end-word-dark-mobile-5f21e92ead3c.svg"><source media="(max-width: 600px)" srcset="assets/end-word-light-mobile-f43a28a63d04.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/end-word-dark-534b0de39f6f.svg"><img alt="語言已經通貨膨脹，說過的話早就一文不值了。" src="assets/end-word-light-4532683bbe16.svg" width="100%"></picture>
+<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/end-word-dark-mobile-71cb0f78ce9a.svg"><source media="(max-width: 600px)" srcset="assets/end-word-light-mobile-bf5ab447d12c.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/end-word-dark-c9cd953dcf03.svg"><img alt="語言已經通貨膨脹，說過的話早就一文不值了。" src="assets/end-word-light-27241321035b.svg" width="100%"></picture>
 <!-- END-WORD:END -->
