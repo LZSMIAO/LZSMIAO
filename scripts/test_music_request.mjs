@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { requestData } from './music_request.mjs'
+import { requestData, validateWeekly } from './music_request.mjs'
 
 test('retries transient connection and body failures with bounded backoff', async () => {
   let calls = 0
@@ -17,6 +17,32 @@ test('retries transient connection and body failures with bounded backoff', asyn
   assert.deepEqual(result, { weekData: [] })
   assert.equal(calls, 3)
   assert.deepEqual(waits, [1000, 2000])
+})
+
+test('business failures retry inside HTTP 200 and recover', async () => {
+  let calls = 0
+  const value = await requestData('private', {}, 'json', 'weekly history', {
+    fetch: async () => ({ ok: true, json: async () => ++calls === 1 ? { code: 503 } : calls === 2 ? { code: 200 } : { code: 200, weekData: [] } }),
+    sleep: async () => {}, validate: validateWeekly,
+  })
+  assert.equal(calls, 3)
+  assert.deepEqual(value.weekData, [])
+})
+test('business authentication failures do not retry or leak response details', async () => {
+  await assert.rejects(requestData('private', {}, 'json', 'weekly history', {
+    fetch: async () => ({ ok: true, json: async () => ({ code: 403, message: 'private ID and payload' }) }),
+    sleep: async () => assert.fail('unexpected retry'), validate: validateWeekly,
+  }), { message: 'weekly history request failed (BUSINESS_403; attempts=1)' })
+})
+test('missing weekly data exhausts bounded retries; invalid codes cannot leak IDs', async () => {
+  let calls = 0
+  await assert.rejects(requestData('private', {}, 'json', 'weekly history', {
+    fetch: async () => { calls++; return { ok: true, json: async () => ({ code: 200 }) } },
+    sleep: async () => {}, validate: validateWeekly,
+  }), { message: 'weekly history request failed (WEEK_DATA_MISSING; attempts=3)' })
+  assert.equal(calls, 3)
+  assert.equal(validateWeekly({ code: 123456789 }).reason, 'BUSINESS_CODE_INVALID')
+  assert.equal(validateWeekly(null).reason, 'BUSINESS_CODE_INVALID')
 })
 test('exhausted retries expose only stage and safe code', async () => {
   let calls = 0

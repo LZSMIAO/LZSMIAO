@@ -2,7 +2,8 @@ import { createCipheriv, createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { traditional } from './traditional.mjs'
-import { requestData } from './music_request.mjs'
+import { requestData, validateWeekly } from './music_request.mjs'
+import { cachedCover, coverKey } from './music_cover.mjs'
 
 const root = new URL('../', import.meta.url)
 const read = path => readFile(new URL(path, root), 'utf8')
@@ -52,8 +53,15 @@ async function netease() {
   })
   const data = await requestData('https://music.163.com/weapi/v1/play/record?csrf_token=', {
     method: 'POST', body, headers: { Referer: 'https://music.163.com/', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded' },
-  }, 'json', 'weekly history')
-  if (data.code !== 200 || !Array.isArray(data.weekData)) throw new Error('NetEase weekly data unavailable')
+  }, 'json', 'weekly history', { validate: validateWeekly })
+  let cache = {}
+  try {
+    cache = JSON.parse(await read('assets/netease-covers.json'))
+    if (!cache || typeof cache !== 'object' || Array.isArray(cache)) cache = {}
+  } catch (error) {
+    if (error.code !== 'ENOENT') console.log('COVER_CACHE_INVALID: rebuilding from source.')
+  }
+  const nextCache = {}
   const tracks = await Promise.all(data.weekData.slice(0, 5).map(async ({ song }) => {
     const id = String(song.id)
     if (!/^\d+$/.test(id) || !song.name || !Array.isArray(song.ar)) throw new Error('Invalid song metadata')
@@ -63,12 +71,8 @@ async function netease() {
     if (!url.hostname.endsWith('.music.126.net')) throw new Error('Unexpected cover host')
     url.protocol = 'https:'
     url.searchParams.set('param', '160y160')
-    const bytes = await requestData(url, {}, 'bytes', 'cover image')
-    const type = bytes[0] === 255 && bytes[1] === 216 ? 'image/jpeg'
-      : bytes.subarray(0, 8).toString('hex') === '89504e470d0a1a0a' ? 'image/png'
-      : bytes.subarray(0, 4).toString() === 'RIFF' && bytes.subarray(8, 12).toString() === 'WEBP' ? 'image/webp' : null
-    if (!type || bytes.length > 2000000) throw new Error('Invalid cover image')
-    const image = `data:${type};base64,${bytes.toString('base64')}`
+    const image = await cachedCover(url, cache)
+    nextCache[coverKey(url)] = image
     return { id, name: traditional(song.name), artists, image, cover: url.toString() }
   }))
   const previous = await read('assets/netease-clean.svg')
@@ -76,6 +80,7 @@ async function netease() {
   if (!logo) throw new Error('Existing NetEase logo missing')
   await publishCard('netease', neteaseCard(tracks, logo))
   await write('assets/netease-week.json', weekFile(tracks))
+  await write('assets/netease-covers.json', JSON.stringify(nextCache) + '\n')
   console.log(`NetEase: updated ${tracks.length} tracks.`)
 }
 // The card links to a page on the presence Worker that lists these songs, each
