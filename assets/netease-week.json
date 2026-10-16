@@ -9,7 +9,7 @@
           "name": "恆星"
         }
       ],
-      "cover": "https://p1.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
     },
     {
       "id": "2704272141",
@@ -20,7 +20,18 @@
           "name": "Spylent"
         }
       ],
-      "cover": "https://p1.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/MvxDNvvMjMq28NFWeXDwRA==/109951170977738374.jpg?param=160y160"
+    },
+    {
+      "id": "3439052675",
+      "name": "たばこ 菸草",
+      "artists": [
+        {
+          "id": "1049179",
+          "name": "Hanser"
+        }
+      ],
+      "cover": "https://p2.music.126.net/Mqejwv3tZZWn_JcrQ6KdrQ==/109951173972973758.jpg?param=160y160"
     },
     {
       "id": "3438968283",
@@ -35,7 +46,7 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
       "id": "3434600677",
@@ -46,18 +57,7 @@
           "name": "Venoflame"
         }
       ],
-      "cover": "https://p1.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
-    },
-    {
-      "id": "3439052675",
-      "name": "たばこ 菸草",
-      "artists": [
-        {
-          "id": "1049179",
-          "name": "Hanser"
-        }
-      ],
-      "cover": "https://p1.music.126.net/Mqejwv3tZZWn_JcrQ6KdrQ==/109951173972973758.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
     }
   ]
 }
