@@ -9,7 +9,7 @@
           "name": "恆星"
         }
       ],
-      "cover": "https://p2.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
     },
     {
       "id": "3416118315",
@@ -20,22 +20,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
-    },
-    {
-      "id": "3438968283",
-      "name": "花骨朵",
-      "artists": [
-        {
-          "id": "906118",
-          "name": "洛天依Official"
-        },
-        {
-          "id": "51497522",
-          "name": "亞細亞曠世奇才"
-        }
-      ],
-      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
     },
     {
       "id": "3434600677",
@@ -46,7 +31,7 @@
           "name": "Venoflame"
         }
       ],
-      "cover": "https://p2.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/g3xzbRwfbJmTkHvCiM9j2A==/109951173918317418.jpg?param=160y160"
     },
     {
       "id": "3329877713",
@@ -57,7 +42,18 @@
           "name": "備乾"
         }
       ],
-      "cover": "https://p2.music.126.net/9CXOJqpayc5cw93Z0DfdvQ==/109951172451971114.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/9CXOJqpayc5cw93Z0DfdvQ==/109951172451971114.jpg?param=160y160"
+    },
+    {
+      "id": "2705311876",
+      "name": "1985",
+      "artists": [
+        {
+          "id": "47091532",
+          "name": "王赫野"
+        }
+      ],
+      "cover": "https://p1.music.126.net/nHZ2noOa7d_nqv5RTWMrbA==/109951171439518990.jpg?param=160y160"
     }
   ]
 }
