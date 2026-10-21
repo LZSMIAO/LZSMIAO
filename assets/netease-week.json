@@ -1,17 +1,6 @@
 {
   "tracks": [
     {
-      "id": "2035529203",
-      "name": "愚人17",
-      "artists": [
-        {
-          "id": "49503777",
-          "name": "恆星"
-        }
-      ],
-      "cover": "https://p1.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
-    },
-    {
       "id": "3416118315",
       "name": "深色",
       "artists": [
@@ -20,7 +9,18 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
+    },
+    {
+      "id": "2035529203",
+      "name": "愚人17",
+      "artists": [
+        {
+          "id": "49503777",
+          "name": "恆星"
+        }
+      ],
+      "cover": "https://p2.music.126.net/-vAgbqp1pZ5mRals9p-1Yw==/109951168513841075.jpg?param=160y160"
     },
     {
       "id": "3438968283",
@@ -35,7 +35,7 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p1.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/_nQm6G_r2169K752DvbwoA==/109951173972266080.jpg?param=160y160"
     },
     {
       "id": "2726326257",
@@ -46,7 +46,7 @@
           "name": "某幻君"
         }
       ],
-      "cover": "https://p1.music.126.net/iEwHKY9T8FPHJiolX_s4rA==/109951171468293847.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/iEwHKY9T8FPHJiolX_s4rA==/109951171468293847.jpg?param=160y160"
     },
     {
       "id": "2036537776",
@@ -57,7 +57,7 @@
           "name": "因你而在的夢"
         }
       ],
-      "cover": "https://p1.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
     }
   ]
 }
