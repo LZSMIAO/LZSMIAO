@@ -31,17 +31,6 @@
       "cover": "https://p1.music.126.net/dZQVJ9VAElHqIuan4giAmQ==/109951170624224261.jpg?param=160y160"
     },
     {
-      "id": "1970987777",
-      "name": "假酒兌菸灰",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/bGcfIYFVKMpOoVh9saeJBQ==/109951170277256498.jpg?param=160y160"
-    },
-    {
       "id": "3416118315",
       "name": "深色",
       "artists": [
@@ -51,6 +40,17 @@
         }
       ],
       "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
+    },
+    {
+      "id": "1970987777",
+      "name": "假酒兌菸灰",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/bGcfIYFVKMpOoVh9saeJBQ==/109951170277256498.jpg?param=160y160"
     },
     {
       "id": "2724564061",
