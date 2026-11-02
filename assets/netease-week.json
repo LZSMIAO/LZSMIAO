@@ -1,6 +1,17 @@
 {
   "tracks": [
     {
+      "id": "3416118315",
+      "name": "深色",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
+    },
+    {
       "id": "2685894081",
       "name": "閉上眼老子就是贏家",
       "artists": [
@@ -14,17 +25,6 @@
         }
       ],
       "cover": "https://p1.music.126.net/dZQVJ9VAElHqIuan4giAmQ==/109951170624224261.jpg?param=160y160"
-    },
-    {
-      "id": "3416118315",
-      "name": "深色",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
     },
     {
       "id": "2724564061",
