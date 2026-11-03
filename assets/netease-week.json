@@ -27,6 +27,17 @@
       "cover": "https://p1.music.126.net/dZQVJ9VAElHqIuan4giAmQ==/109951170624224261.jpg?param=160y160"
     },
     {
+      "id": "1970987777",
+      "name": "假酒兌菸灰",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/bGcfIYFVKMpOoVh9saeJBQ==/109951170277256498.jpg?param=160y160"
+    },
+    {
       "id": "2724564061",
       "name": "合上書本高考去",
       "artists": [
@@ -47,17 +58,6 @@
         }
       ],
       "cover": "https://p1.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg?param=160y160"
-    },
-    {
-      "id": "1970987777",
-      "name": "假酒兌菸灰",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/bGcfIYFVKMpOoVh9saeJBQ==/109951170277256498.jpg?param=160y160"
     }
   ]
 }
