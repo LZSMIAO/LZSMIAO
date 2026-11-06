@@ -12,17 +12,6 @@
       "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
     },
     {
-      "id": "2664295379",
-      "name": "災星",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg?param=160y160"
-    },
-    {
       "id": "3441101066",
       "name": "昌平玫瑰",
       "artists": [
@@ -34,8 +23,8 @@
       "cover": "https://p1.music.126.net/GUbFIvzexIc41GzU_Y4fJg==/109951174097518126.jpg?param=160y160"
     },
     {
-      "id": "2746375815",
-      "name": "藍天鵝 (Mo)",
+      "id": "2664295379",
+      "name": "災星",
       "artists": [
         {
           "id": "35654284",
@@ -47,6 +36,17 @@
     {
       "id": "2652725695",
       "name": "潮汐之女",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/Kj7wpQzv3bTABpiE7ujYdw==/109951170695938098.jpg?param=160y160"
+    },
+    {
+      "id": "2746375815",
+      "name": "藍天鵝 (Mo)",
       "artists": [
         {
           "id": "35654284",
