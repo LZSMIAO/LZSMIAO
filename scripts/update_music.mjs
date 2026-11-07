@@ -2,7 +2,7 @@ import { createCipheriv, createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { traditional } from './traditional.mjs'
-import { requestData, validateWeekly } from './music_request.mjs'
+import { requestData, validateWeekly, weeklyRetryDelays } from './music_request.mjs'
 import { cachedCover, coverKey } from './music_cover.mjs'
 
 const root = new URL('../', import.meta.url)
@@ -53,7 +53,7 @@ async function netease() {
   })
   const data = await requestData('https://music.163.com/weapi/v1/play/record?csrf_token=', {
     method: 'POST', body, headers: { Referer: 'https://music.163.com/', 'User-Agent': 'Mozilla/5.0', 'Content-Type': 'application/x-www-form-urlencoded' },
-  }, 'json', 'weekly history', { validate: validateWeekly })
+  }, 'json', 'weekly history', { validate: validateWeekly, retryDelays: weeklyRetryDelays })
   let cache = {}
   try {
     cache = JSON.parse(await read('assets/netease-covers.json'))
