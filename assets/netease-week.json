@@ -1,6 +1,17 @@
 {
   "tracks": [
     {
+      "id": "2132108887",
+      "name": "中國好人",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
+    },
+    {
       "id": "3416118315",
       "name": "深色",
       "artists": [
@@ -9,7 +20,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p1.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
     },
     {
       "id": "2724564061",
@@ -20,44 +31,29 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p1.music.126.net/hB5sEmB4-RkkZmdBs5Cw_Q==/109951173581290820.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/hB5sEmB4-RkkZmdBs5Cw_Q==/109951173581290820.jpg?param=160y160"
     },
     {
-      "id": "2744773513",
-      "name": "魔女與摺紙",
+      "id": "2613040102",
+      "name": "蒼白的金幣",
       "artists": [
         {
           "id": "35654284",
           "name": "普信主義"
         }
       ],
-      "cover": "https://p1.music.126.net/72bxjHFBciDMErqm5wCr0A==/109951171994723165.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
     },
     {
-      "id": "2685894081",
-      "name": "閉上眼老子就是贏家",
-      "artists": [
-        {
-          "id": "57379689",
-          "name": "蘇照欽"
-        },
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/dZQVJ9VAElHqIuan4giAmQ==/109951170624224261.jpg?param=160y160"
-    },
-    {
-      "id": "2668814179",
-      "name": "逆流",
+      "id": "2055494653",
+      "name": "汕頭遊魂",
       "artists": [
         {
           "id": "35654284",
           "name": "普信主義"
         }
       ],
-      "cover": "https://p1.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
     }
   ]
 }
