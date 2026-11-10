@@ -12,17 +12,6 @@
       "cover": "https://p1.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
     },
     {
-      "id": "2668814179",
-      "name": "逆流",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p1.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
-    },
-    {
       "id": "2613040102",
       "name": "蒼白的金幣",
       "artists": [
@@ -36,6 +25,17 @@
     {
       "id": "2055494653",
       "name": "汕頭遊魂",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
+    },
+    {
+      "id": "2668814179",
+      "name": "逆流",
       "artists": [
         {
           "id": "35654284",
