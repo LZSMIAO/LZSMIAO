@@ -12,26 +12,15 @@
       "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
     },
     {
-      "id": "3416118315",
-      "name": "深色",
+      "id": "2668814179",
+      "name": "逆流",
       "artists": [
         {
           "id": "35654284",
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
-    },
-    {
-      "id": "2724564061",
-      "name": "合上書本高考去",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p2.music.126.net/hB5sEmB4-RkkZmdBs5Cw_Q==/109951173581290820.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
     },
     {
       "id": "2613040102",
@@ -54,6 +43,17 @@
         }
       ],
       "cover": "https://p2.music.126.net/udvXtgat1HXAq1eU73o-1w==/109951170696154052.jpg?param=160y160"
+    },
+    {
+      "id": "3416118315",
+      "name": "深色",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
     }
   ]
 }
