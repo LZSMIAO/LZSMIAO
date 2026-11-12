@@ -34,10 +34,10 @@
 <p align="center">
   <a href="https://coding.ism.tw">
   <picture>
-    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-bb5d3a096b3c.svg">
-    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-a90047c5e680.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-8a9020faba59.svg">
-    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-b6a257871921.svg" width="100%">
+    <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/report-dark-mobile-5b13313eedf1.svg">
+    <source media="(max-width: 600px)" srcset="assets/report-light-mobile-1b0a7eb58520.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/report-dark-1fb4c9f9eca7.svg">
+    <img alt="Weekly report with daily coding time, language distribution, AI token usage, and compute estimates" src="assets/report-light-2393b539d565.svg" width="100%">
   </picture>
   </a>
 </p>
@@ -46,7 +46,7 @@
 
 <p>
 <!-- ACTIVITY:START -->
-<a href="https://github.com/LZSMIAO/muism"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/activity-2c19986cb542.svg"><source media="(max-width: 600px)" srcset="assets/activity-abf1516df908.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/activity-3952e21fa296.svg"><img src="assets/activity-9a916fcea677.svg" alt="Recent activity: LZSMIAO/muism — 2026-10-06" width="100%"></picture></a>
+<sub>No public activity to display yet. This section will update automatically.</sub>
 <!-- ACTIVITY:END -->
 </p>
 
