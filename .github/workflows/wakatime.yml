@@ -20,19 +20,20 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5 (Node 24)
       - name: Fetch the last seven days
         env:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          WAKATIME_ACCESS_TOKEN: ${{ secrets.WAKATIME_ACCESS_TOKEN }}
         run: python3 scripts/update_wakatime.py
       - name: Fetch recent public activity
+        if: ${{ !cancelled() }}
         run: python3 scripts/update_activity.py
       - name: Save updated activity
         if: ${{ !cancelled() }}
         run: |
-          if git diff --quiet -- README.md assets/; then
+          git add README.md assets/
+          if git diff --cached --quiet; then
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md assets/
           git commit -m "docs: update profile activity"
           git pull --rebase --quiet
           git push

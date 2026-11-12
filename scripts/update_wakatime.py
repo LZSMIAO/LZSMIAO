@@ -1,5 +1,4 @@
 """Render the last seven calendar days, including today, in Asia/Hong_Kong."""
-import base64
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime,timedelta
 import json
@@ -9,6 +8,7 @@ import os
 from pathlib import Path
 import re
 import sys
+import time
 from urllib.error import HTTPError,URLError
 from urllib.parse import urlencode
 from urllib.request import Request,urlopen
@@ -220,14 +220,29 @@ AI_FIELDS={'input':'ai_input_tokens','output':'ai_output_tokens','additions':'ai
 
 
 def fetch(key,path,params=None):
+    # WakaTime API keys are write-only. Reading summaries requires OAuth.
+    # Keep credentials in headers only, never in URLs or diagnostic output.
     query=('?'+urlencode(params)) if params else ''
     request=Request('https://api.wakatime.com/api/v1/'+path+query,headers={
-        'Authorization':'Basic '+base64.b64encode(key.encode()).decode(),
+        'Authorization':'Bearer '+key,
         'Accept':'application/json','User-Agent':'LZSMIAO-profile'})
-    with urlopen(request,timeout=30) as response:
-        if response.status==202:
-            return None
-        return json.load(response)
+    for attempt in range(3):
+        try:
+            with urlopen(request,timeout=30) as response:
+                if response.status==202:
+                    if attempt==2:
+                        return None
+                else:
+                    return json.load(response)
+        except HTTPError as error:
+            # Repeating 401/403 cannot repair missing read permissions.
+            if error.code not in (429,500,502,503,504) or attempt==2:
+                raise
+            error.close()
+        except (URLError,TimeoutError):
+            if attempt==2:
+                raise
+        time.sleep(attempt+1)
 
 
 def day_record(day):
@@ -270,7 +285,11 @@ def load_history():
 
 def backfill(key,history,before):
     """First run only: fetch everything from the account's first day, a month at a time."""
-    profile=fetch(key,'users/current') or {}
+    try:
+        profile=fetch(key,'users/current') or {}
+    except (HTTPError,URLError,TimeoutError,ValueError):
+        # Profile access is optional; a summaries-only token must still work.
+        return history
     first=str(profile.get('data',{}).get('created_at',''))[:10]
     try:
         cursor=datetime.strptime(first,'%Y-%m-%d').date()
@@ -290,16 +309,15 @@ def backfill(key,history,before):
 
 
 def main():
-    key=os.environ.get('WAKATIME_API_KEY','').strip()
+    key=os.environ.get('WAKATIME_ACCESS_TOKEN','').strip()
     if not key:
-        print('WAKATIME_API_KEY is not configured; cards unchanged.')
-        return
+        print('WAKATIME_ACCESS_TOKEN is missing. Configure a WakaTime OAuth token with read_summaries; API keys are write-only.',file=sys.stderr)
+        raise ValueError('Missing OAuth token')
     end=datetime.now(ZoneInfo('Asia/Hong_Kong')).date()
     start=end-timedelta(days=6)
     payload=fetch(key,'users/current/summaries',{'start':str(start),'end':str(end),'timezone':'Asia/Hong_Kong'})
     if payload is None:
-        print('WakaTime is calculating; cards unchanged.')
-        return
+        raise ValueError('WakaTime is still calculating; cards unchanged')
     history=load_history()
     if '--repair-history' in sys.argv and history['days']:
         first=history['days'][0]['date']
@@ -328,6 +346,8 @@ if __name__=='__main__':
         main()
     except HTTPError as error:
         print(f'WakaTime HTTP {error.code}; cards unchanged.',file=sys.stderr)
+        if error.code in (401,403):
+            print('Check WAKATIME_ACCESS_TOKEN validity and read_summaries permission. API keys cannot read summaries.',file=sys.stderr)
         sys.exit(1)
     except (URLError,TimeoutError,ValueError,KeyError,TypeError,OSError):
         print('WakaTime unavailable or incomplete; cards unchanged.',file=sys.stderr)
