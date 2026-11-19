@@ -9,29 +9,7 @@
           "name": "普信主義"
         }
       ],
-      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
-    },
-    {
-      "id": "2036537776",
-      "name": "寫你自己",
-      "artists": [
-        {
-          "id": "31994412",
-          "name": "因你而在的夢"
-        }
-      ],
-      "cover": "https://p2.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
-    },
-    {
-      "id": "3441101066",
-      "name": "昌平玫瑰",
-      "artists": [
-        {
-          "id": "35654284",
-          "name": "普信主義"
-        }
-      ],
-      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
     },
     {
       "id": "3438968283",
@@ -46,18 +24,44 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p2.music.126.net/VIrCAMliVwGP-ylAvyVvPg==/109951174264430497.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/VIrCAMliVwGP-ylAvyVvPg==/109951174264430497.jpg?param=160y160"
     },
     {
-      "id": "3434600677",
-      "name": "self doubt (自我懷疑)",
+      "id": "3329877713",
+      "name": "時間病",
       "artists": [
         {
-          "id": "35026792",
-          "name": "Venoflame"
+          "id": "12664383",
+          "name": "備乾"
         }
       ],
-      "cover": "https://p2.music.126.net/KGFu2HGohWNXig12ZbXhrw==/109951174188562281.jpg?param=160y160"
+      "cover": "https://p1.music.126.net/9CXOJqpayc5cw93Z0DfdvQ==/109951172451971114.jpg?param=160y160"
+    },
+    {
+      "id": "2685894081",
+      "name": "閉上眼老子就是贏家",
+      "artists": [
+        {
+          "id": "57379689",
+          "name": "蘇照欽"
+        },
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p1.music.126.net/dZQVJ9VAElHqIuan4giAmQ==/109951170624224261.jpg?param=160y160"
+    },
+    {
+      "id": "2036537776",
+      "name": "寫你自己",
+      "artists": [
+        {
+          "id": "31994412",
+          "name": "因你而在的夢"
+        }
+      ],
+      "cover": "https://p1.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
     }
   ]
 }
