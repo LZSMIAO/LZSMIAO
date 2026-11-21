@@ -1,17 +1,6 @@
 {
   "tracks": [
     {
-      "id": "411315632",
-      "name": "醜",
-      "artists": [
-        {
-          "id": "1161122",
-          "name": "草東沒有派對"
-        }
-      ],
-      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
-    },
-    {
       "id": "411314657",
       "name": "大風吹",
       "artists": [
@@ -45,15 +34,30 @@
       "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
     },
     {
-      "id": "2036537776",
-      "name": "寫你自己",
+      "id": "2009257746",
+      "name": "color",
       "artists": [
         {
-          "id": "31994412",
-          "name": "因你而在的夢"
+          "id": "53462482",
+          "name": "在"
         }
       ],
-      "cover": "https://p2.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/A9cVifIxYREqOT3krsKtbQ==/109951168174558869.jpg?param=160y160"
+    },
+    {
+      "id": "3451003254",
+      "name": "寶船",
+      "artists": [
+        {
+          "id": "57076584",
+          "name": "DOUDOU"
+        },
+        {
+          "id": "53926051",
+          "name": "燕雲十六聲"
+        }
+      ],
+      "cover": "https://p2.music.126.net/pdpmj0csBR_nUM7c2xr6pA==/109951174135616642.jpg?param=160y160"
     }
   ]
 }
