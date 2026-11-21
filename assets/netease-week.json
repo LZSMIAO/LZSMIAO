@@ -9,11 +9,22 @@
           "name": "草東沒有派對"
         }
       ],
-      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
     },
     {
       "id": "411314657",
       "name": "大風吹",
+      "artists": [
+        {
+          "id": "1161122",
+          "name": "草東沒有派對"
+        }
+      ],
+      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+    },
+    {
+      "id": "410801745",
+      "name": "勇敢的人",
       "artists": [
         {
           "id": "1161122",
@@ -43,17 +54,6 @@
         }
       ],
       "cover": "https://p1.music.126.net/xwRDMj4OeQwFbrB93bA2IQ==/109951168524605647.jpg?param=160y160"
-    },
-    {
-      "id": "410801745",
-      "name": "勇敢的人",
-      "artists": [
-        {
-          "id": "1161122",
-          "name": "草東沒有派對"
-        }
-      ],
-      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
     }
   ]
 }
