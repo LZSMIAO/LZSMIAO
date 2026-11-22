@@ -9,7 +9,7 @@
           "name": "草東沒有派對"
         }
       ],
-      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
     },
     {
       "id": "410801745",
@@ -20,7 +20,18 @@
           "name": "草東沒有派對"
         }
       ],
-      "cover": "https://p1.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/bpq4ZMWaRiY6IfCt58N9oA==/1387583682387727.jpg?param=160y160"
+    },
+    {
+      "id": "3416118315",
+      "name": "深色",
+      "artists": [
+        {
+          "id": "35654284",
+          "name": "普信主義"
+        }
+      ],
+      "cover": "https://p2.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
     },
     {
       "id": "3438968283",
@@ -35,29 +46,18 @@
           "name": "亞細亞曠世奇才"
         }
       ],
-      "cover": "https://p1.music.126.net/VIrCAMliVwGP-ylAvyVvPg==/109951174264430497.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/VIrCAMliVwGP-ylAvyVvPg==/109951174264430497.jpg?param=160y160"
     },
     {
-      "id": "3416118315",
-      "name": "深色",
+      "id": "3434600677",
+      "name": "self doubt (自我懷疑)",
       "artists": [
         {
-          "id": "35654284",
-          "name": "普信主義"
+          "id": "35026792",
+          "name": "Venoflame"
         }
       ],
-      "cover": "https://p1.music.126.net/jxpfQjfMLIm4pcDKKl62Fg==/109951174243432967.jpg?param=160y160"
-    },
-    {
-      "id": "3329877713",
-      "name": "時間病",
-      "artists": [
-        {
-          "id": "12664383",
-          "name": "備乾"
-        }
-      ],
-      "cover": "https://p1.music.126.net/9CXOJqpayc5cw93Z0DfdvQ==/109951172451971114.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/KGFu2HGohWNXig12ZbXhrw==/109951174188562281.jpg?param=160y160"
     }
   ]
 }
