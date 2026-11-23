@@ -13,6 +13,9 @@ from functools import lru_cache
 from pathlib import Path
 import re
 import sys
+import time
+from email.utils import parsedate_to_datetime
+from urllib.error import HTTPError, URLError
 from datetime import date as calendar, datetime, timedelta
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
@@ -26,16 +29,66 @@ PAGE='https://projects.ism.tw'
 WINDOW=30
 LIMIT=10
 
+class ActivityFetchError(RuntimeError):
+    """Fixed diagnostics: never include response bodies or exception URLs."""
+
+
+def fetch_json(path, expected_type):
+    # Anonymous requests cannot gain access to private repositories.
+    req=Request('https://api.github.com/'+path,headers={
+        'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile',
+        'X-GitHub-Api-Version':'2022-11-28'})
+    for attempt in range(3):
+        delay=(2,8)[min(attempt,1)]
+        try:
+            with urlopen(req,timeout=15) as response:
+                data=json.load(response)
+            if not isinstance(data,expected_type):
+                raise ActivityFetchError('Unexpected GitHub response shape')
+            return data
+        except HTTPError as error:
+            if error.code==404 and path.startswith('repos/'):
+                return None # deleted, renamed or private; exclude from publication
+            headers=error.headers or {}
+            limited=error.code in (403,429) and (
+                error.code==429 or headers.get('X-RateLimit-Remaining')=='0'
+                or headers.get('Retry-After') is not None)
+            retry=error.code in (500,502,503,504) or limited
+            reason=f'GitHub HTTP {error.code}'+(' (rate limited)' if limited else '')
+            waits=[]
+            for key in ('Retry-After','X-RateLimit-Reset'):
+                value=headers.get(key)
+                if value is None or (key=='X-RateLimit-Reset' and headers.get('X-RateLimit-Remaining')!='0'):
+                    continue
+                try:
+                    wait=float(value)-(time.time() if key.endswith('Reset') else 0)
+                except ValueError:
+                    try:
+                        wait=parsedate_to_datetime(value).timestamp()-time.time()
+                    except (ValueError,TypeError,OverflowError):
+                        retry=False
+                        continue
+                waits.append(wait)
+            delay=max([delay]+waits)
+            # Never retry before the server permits it or exceed our run budget.
+            if delay>30:
+                retry=False
+        except (URLError,TimeoutError,ConnectionError):
+            retry=True
+            reason='GitHub network error'
+        except (ValueError,UnicodeError):
+            retry=False
+            reason='Invalid GitHub JSON'
+        if not retry or attempt==2:
+            raise ActivityFetchError(reason) from None
+        print(f'{reason}; retry {attempt+1}/2 in {delay:g}s.',file=sys.stderr)
+        time.sleep(delay)
+
+
 @lru_cache(maxsize=100)
 def repository(repo):
-    # No authentication: private repositories cannot be returned by this request.
-    req=Request(f'https://api.github.com/repos/{repo}',headers={
-        'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile'})
-    try:
-        with urlopen(req,timeout=15) as response:
-            return json.load(response)
-    except Exception:
-        return None
+    # Abort before writing output if visibility cannot be checked reliably.
+    return fetch_json(f'repos/{repo}',dict)
 
 def repository_is_public(repo):
     metadata=repository(repo)
@@ -160,12 +213,7 @@ def update_content(original, events, assets=None, today=None):
     return before+START+'\n'+activity(events, assets=assets, today=today)+'\n'+END+after
 
 def main():
-    req=Request(f'https://api.github.com/users/{USER}/events/public?per_page=100',headers={
-        'Accept':'application/vnd.github+json','User-Agent':f'{USER}-profile','X-GitHub-Api-Version':'2022-11-28'})
-    with urlopen(req,timeout=30) as response:
-        events=json.load(response)
-    if not isinstance(events,list):
-        raise ValueError('Unexpected public events response')
+    events=fetch_json(f'users/{USER}/events/public?per_page=100',list)
     original=README.read_text()
     assets={}
     updated=update_content(original,events,assets)
@@ -183,5 +231,6 @@ if __name__=='__main__':
     try:
         main()
     except Exception as error:
-        print(f'Public activity unavailable ({type(error).__name__}); existing feed preserved.',file=sys.stderr)
+        detail=str(error) if isinstance(error,ActivityFetchError) else type(error).__name__
+        print(f'Public activity unavailable ({detail}); existing feed preserved.',file=sys.stderr)
         sys.exit(1)
