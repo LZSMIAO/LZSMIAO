@@ -9,7 +9,7 @@
           "name": "扎進心臟的智齒"
         }
       ],
-      "cover": "https://p1.music.126.net/xcC98_Y3fB1WLeF6jg4hmA==/109951168987369185.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/xcC98_Y3fB1WLeF6jg4hmA==/109951168987369185.jpg?param=160y160"
     },
     {
       "id": "2077879353",
@@ -20,7 +20,18 @@
           "name": "巫圳"
         }
       ],
-      "cover": "https://p1.music.126.net/7qdKbterR1K3CM8mBUOdFQ==/109951168147427336.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/7qdKbterR1K3CM8mBUOdFQ==/109951168147427336.jpg?param=160y160"
+    },
+    {
+      "id": "2026386936",
+      "name": "別把我留在這裡",
+      "artists": [
+        {
+          "id": "53462482",
+          "name": "在"
+        }
+      ],
+      "cover": "https://p2.music.126.net/3mUiSXGdZBCX5gNZJQPPJw==/109951168433371472.jpg?param=160y160"
     },
     {
       "id": "2015829578",
@@ -31,7 +42,7 @@
           "name": "扎進心臟的智齒"
         }
       ],
-      "cover": "https://p1.music.126.net/nt1jQyROVk3ARktxu-_FNQ==/109951168246773706.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/nt1jQyROVk3ARktxu-_FNQ==/109951168246773706.jpg?param=160y160"
     },
     {
       "id": "2009257746",
@@ -42,18 +53,7 @@
           "name": "在"
         }
       ],
-      "cover": "https://p1.music.126.net/A9cVifIxYREqOT3krsKtbQ==/109951168174558869.jpg?param=160y160"
-    },
-    {
-      "id": "2009249385",
-      "name": "Low(Live)",
-      "artists": [
-        {
-          "id": "53462482",
-          "name": "在"
-        }
-      ],
-      "cover": "https://p1.music.126.net/A9cVifIxYREqOT3krsKtbQ==/109951168174558869.jpg?param=160y160"
+      "cover": "https://p2.music.126.net/A9cVifIxYREqOT3krsKtbQ==/109951168174558869.jpg?param=160y160"
     }
   ]
 }
